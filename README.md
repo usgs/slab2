@@ -42,3 +42,11 @@ pip uninstall slab2
 To update:
 
 pip install -U git+git://github.com/usgs/slab2.git
+
+Examples
+---------
+A notebook exploring some of the functionality of geostatsmodels is included in this repository.  
+
+http://nbviewer.ipython.org/github/usgs/slab2/blob/master/notebooks/IntroToSlab2.0.ipynb
+
+More of these will follow.
