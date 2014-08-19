@@ -54,3 +54,6 @@ docs/_build/
 
 # IPython notebook detritus
 .ipynb_checkpoints/
+
+#GMT .grd files
+*.grd
