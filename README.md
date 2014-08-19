@@ -1,16 +1,18 @@
 slab2
 =======
 
-Slab2 is a three-dimensional compilation of global subduction geometries, separated into regional models for each major subduction zone.
+Slab2.0 is a three-dimensional compilation of global subduction geometries, separated into regional models for each major subduction zone.
 
 Installation and Dependencies
 -----------------------------
 
-This package depends on:
+This package (and it's notebooks) depend on:
  * numpy, the fundamental package for scientific computing with Python. <a href="http://www.numpy.org/">http://www.numpy.org/</a>  
  * matplotlib, a Python 2D plotting library which produces publication quality figures. <a href="<a href="http://matplotlib.org/index.html">http://matplotlib.org/index.html</a>
  * scipy, a Python library which provides many user-friendly and efficient numerical routines such as routines for numerical integration and optimization. <a href="<a href="http://www.scipy.org/scipylib/index.html">http://www.scipy.org/scipylib/index.html</a>
  * neicmap, a Python library for doing various spatial calculations (distance, angle, etc.)
+ * neicio, a Python library for reading/writing various spatial data formats (GMT grids, etc.)
+ * libcomcat, a Python library for retrieving earthquake data from the ANSS ComCat system
 
 The best way to install numpy,matplotlib,and scipy is to use one of the Python distributions described here:
 
@@ -27,6 +29,14 @@ are in your path.
 To install neicmap:
 
 pip install git+git://github.com/usgs/neicmap.git
+
+To install neicio:
+
+pip install git+git://github.com/usgs/neicio.git
+
+To install libcomcat:
+
+pip install git+git://github.com/usgs/libcomcat.git
 
 To install slab2:
 
