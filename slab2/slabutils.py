@@ -6,7 +6,7 @@
 import numpy as np
 
 #usgs imports
-from neicmap.distance import sdist
+from neicmap.distance import sdist,getAzimuth
 
 def getEventsInCircle(lat,lon,radius,eventlist):
     """
@@ -17,12 +17,21 @@ def getEventsInCircle(lat,lon,radius,eventlist):
     @param eventlist: List of event dictionaries, each containing (at least) keys lat,lon,depth,mag.
     @return: Filtered list of earthquake dictionaries.
     """
-    elat = np.array([e['lat'] for e in eventlist])
-    elon = np.array([e['lon'] for e in eventlist])
-    d = sdist(lat,lon,elat,elon)/1000.0
-    idx = (d <= radius).nonzero()[0]
+    elat = np.array([e['lat'] for e in eventlist]) #extract the latitudes from each dictionary in the list
+    elon = np.array([e['lon'] for e in eventlist]) #extract the longitudes from each dictionary in the list
+    d = sdist(lat,lon,elat,elon)/1000.0 #do vectorized distance calculation from center point to all lat/lon pairs
+    az = []
+    for i in range(0,len(elat)):
+        az.append(getAzimuth(lat,lon,elat[i],elon[i]))  #vectorize the azimuth function someday
+
+    for i in range(0,len(eventlist)):
+        eventlist[i]['distance'] = d[i] #add distance field to each dictionary in the list
+        eventlist[i]['azimuth'] = az[i] #add azimuth field to each dictionary in the list
+
+    idx = (d <= radius).nonzero()[0] #array of indices where distance is less than input threshold
+    newlist = (np.array(eventlist)[idx]).tolist() #return a shortened list
     
-    return (np.array(eventlist)[idx]).tolist()
+    return newlist
 
 def main():
     eventlist = [{'lat':33.1,'lon':-118.1,'depth':15.1,'mag':5.4},
