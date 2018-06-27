@@ -1,0 +1,34 @@
+name: slab2env3
+channels:
+- conda-forge
+- defaults
+- digitalglobe
+- ioos
+dependencies:
+- numpy
+- pandas
+- h5py
+- python=3.5.2
+- ipython
+- jupyter
+- pytest
+- pyproj
+- shapely
+- scipy
+- psutil
+- pip
+- matplotlib
+- rasterio
+- gdal
+- sphinx
+- paramiko
+- configobj
+- basemap
+- fiona
+- xlrd
+- xlwt
+- cartopy
+- pycrypto
+- pytest-cov
+- openpyxl
+- xlsxwriter

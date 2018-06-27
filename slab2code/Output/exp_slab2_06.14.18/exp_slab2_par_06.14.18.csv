@@ -1,0 +1,30 @@
+Parameters used to create file for slab_Date_time: exp_06.14.18_13.3 
+
+inFile: Input/exp_04-18_input.csv 
+use_box: no 
+latmin: -2.0 
+latmax: 4.0 
+lonmin: 125.0 
+lonmax: 130.0 
+slab: exp 
+grid: 0.2 
+radius1: 100.0 
+radius2: 20.0 
+alen: 100.0 
+blen: 20.0 
+sdr: 20.0 
+ddr: 800.0 
+taper: 10.0 
+T: 0.0 
+node: 0.05 
+filt: 0.01 
+maxdist: 350.0 
+mindip: 20.0 
+minstk: 15.0 
+maxthickness: 91.0 
+seismo_thick: 40 
+dipthresh: 80.0 
+fracS: 0.01 
+knot_no: 5.0 
+kdeg: 1.0 
+rbfs: 0.01 

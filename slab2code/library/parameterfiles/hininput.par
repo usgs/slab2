@@ -1,0 +1,57 @@
+# Parameter file for input into slab2.py
+# DEP.8.11.16
+
+###############################################
+
+# To use, change only variable (after '=') to accomodate your needs
+# Original default values are in () in comments where applicable
+
+#### DO NOT CHANGE FORMAT OR VARIABLE NAMES ####
+
+################################################
+
+## Mandatory inputs: Change every run
+
+inFile  =       latest                       # Input data file
+use_box =       no                            # (must be 'yes' or 'no') 'yes' means use latmin,latmax,lonmin,lonmax below to define grid, 'no' means use 'slab_region' to define grid
+
+        # If use_box = 'yes'
+
+latmin  =       -15.                            # only used if use_box = 'yes' - minimum latitude of a rectangular box used to define a grid
+latmax  =       -8.                              # only used if use_box = 'yes' - maximum latitude of a rectangular box used to define a grid
+lonmin  =       160.                            # only used if use_box = 'yes' - minimum longitude of a rectangular box used to define a grid
+lonmax  =       170.                            # only used if use_box = 'yes' - maximum longitude of a rectangular box used to define a grid
+
+        # If use_box = 'no'
+
+slab    =       hin                           # only used if use_box = 'no' - code used to pull slab1.0, trench info, and slab polygon
+
+################################################
+
+## Recommended inputs: Change at your convenience
+
+grid    =       0.1                               # (0.2) grid on which slab surface points will be calculated
+radius1 =       100
+radius2 =       20                              # (100) radius used for spatial filters - initial search radius and long axis of ellipse
+sdr     =       20                              # (20) depth range to search shallower than predicted slab for data
+ddr     =       800                             # (800) depth range to search deeper than predicted slab for data
+minunc     =       10.0                             # (10.0) minimum earthquake uncertainty to raise low EQ uncertainties to
+mindip  =       20.0
+minstk  =       5.0
+maxthickness    =       91.0
+seismo_thick    =       45
+dipthresh       =       60
+################################################
+
+## Built-in variables: Change only if you must
+
+taper   =       20                              # (60) range (in km depth) over which to taper from no shift to full shift
+fracS   =       0.31
+T       =       0.0                             # (0.0) Tension for surface - 0.0 = minimum curvature
+node    =       0.02                            # (0.05) Node spacing (degrees) for final model surface output
+filt    =       0.1                             # (0.5) Gaussian width (in degrees) for smoothing filter
+maxdist =       350                             # (350) Distance (km) from the trench that determines a change in how data is filtered when Slab1.0 does not exist
+knot_no =       3
+kdeg    =       1
+rbfs    =       10
+

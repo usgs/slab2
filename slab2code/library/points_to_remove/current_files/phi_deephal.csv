@@ -1,0 +1,17 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,mlon,mlat,mdep,ID,src
+9.994,124.249,606.0,15.0,EQ,5.6,1982-01-14 11:36:03.970,42.767,48.788,298.774,11.957,66.749,47.278,328.356,179.439,67.329,-132.672,124.33,9.93,585.3,100094,92217
+9.434,124.281,538.2,15.0,EQ,5.4,1985-06-26 03:05:39.910,3.71,55.208,95.492,1.238,34.763,55.569,313.734,155.345,53.418,-135.241,124.4,9.27,528.2,100160,92217
+9.42,124.274,524.77,15.0,EQ,4.4,2016-11-07 12:29:53.110,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102252,92217
+10.077,124.122,592.0,15.0,EQ,5.3,1974-05-13 02:11:29.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102788,92217
+12.423,125.874,384.0,15.0,EQ,4.3,1975-10-28 05:16:25.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102859,92217
+9.964,124.035,644.5,15.0,EQ,6.0,1981-09-04 11:15:13.610,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103638,92217
+9.711,124.195,598.3,15.0,EQ,5.1,1985-04-27 04:15:18.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103639,92217
+4.564,127.582,335.8,15.0,EQ,3.9,1998-02-14 21:15:53.410,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104812,92217
+9.404,124.271,538.1,15.0,EQ,4.8,1996-04-20 07:03:50.980,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105009,92217
+9.741,124.689,316.5,15.0,EQ,4.1,1996-05-24 12:53:28.940,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105010,92217
+9.502,124.87,500.0,15.0,EQ,3.7,1998-06-19 22:19:50.670,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105011,92217
+11.719,123.422,400.0,15.0,EQ,3.8,1998-11-08 03:12:09.580,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105091,92217
+9.821,124.107,607.3,15.0,EQ,4.3,2003-04-19 08:49:02.250,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105624,92217
+9.97,124.877,310.0,15.0,EQ,4.2,2004-02-19 04:28:20.480,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105625,92217
+2.153,128.271,330.9,15.0,EQ,4.0,2008-06-16 05:09:30.590,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106010,92217
+10.091,124.249,571.7,15.0,EQ,4.8,2012-01-29 06:01:48.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,107673,92217

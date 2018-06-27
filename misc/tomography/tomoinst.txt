@@ -1,0 +1,2 @@
+For instructions regarding converting a tomography model into a set of xyz points for use in slab2 Download Tomography_code module in drive.
+Some useful scripts are listed here, but the whole module had to be saved separately because it is too big.

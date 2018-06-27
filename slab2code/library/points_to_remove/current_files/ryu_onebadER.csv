@@ -1,0 +1,4 @@
+lat,lon,depth,unc,etype,ID,mag,time,S1,D1,R1,S2,D2,R2,src
+37.55,137.60,56.80,10.00,ER,702977,4.50,nan,nan,nan,nan,nan,nan,nan,hyu
+37.55,137.60,56.80,15.00,EQ,104977,4.50,1993-02-07 15:09:28.010,nan,nan,nan,nan,nan,nan,92217
+35.98,136.41,88.40,10.00,ER,701804,4.10,nan,nan,nan,nan,nan,nan,nan,hyu

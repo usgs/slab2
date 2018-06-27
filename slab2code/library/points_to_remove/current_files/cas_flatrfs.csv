@@ -1,0 +1,6 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,mlon,mlat,mdep,ID,src
+44.439,-121.838,70.000,6.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900007,tel3
+44.440,-121.516,80.000,6.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900008,tel3
+44.428,-121.180,90.000,6.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900009,tel3
+44.427,-120.865,100.000,6.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900010,tel3
+44.430,-120.527,110.000,6.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900011,tel3

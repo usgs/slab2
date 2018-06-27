@@ -1,0 +1,12 @@
+lat,lon,depth,unc,etype,ID,mag,time,S1,D1,R1,S2,D2,R2,src
+10.18,274.42,31.89,2.5,AS,3500014,nan,nan,nan,nan,nan,nan,nan,nan,co3
+10.21,274.45,35.86,2.5,AS,3500015,nan,nan,nan,nan,nan,nan,nan,nan,co3
+10.25,274.5,39.37,2.5,AS,3500016,nan,nan,nan,nan,nan,nan,nan,nan,co3
+10.3,274.55,43.95,2.5,AS,3500017,nan,nan,nan,nan,nan,nan,nan,nan,co3
+10.35,274.61,49.45,2.5,AS,3500019,nan,nan,nan,nan,nan,nan,nan,nan,co3
+10.41,274.67,58.01,2.5,AS,3500020,nan,nan,nan,nan,nan,nan,nan,nan,co3
+11.83,272.92,34.92,2.5,AS,4900017,nan,nan,nan,nan,nan,nan,nan,nan,mi6
+11.89,272.98,40.91,2.5,AS,4900018,nan,nan,nan,nan,nan,nan,nan,nan,mi6
+11.34,273.34,31.32,2.5,AS,5300020,nan,nan,nan,nan,nan,nan,nan,nan,ni2
+11.73,272.97,31.0,2.5,AS,5500009,nan,nan,nan,nan,nan,nan,nan,nan,nic
+11.81,273.05,39.59,2.5,AS,5500010,nan,nan,nan,nan,nan,nan,nan,nan,nic

@@ -1,0 +1,13 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,mlon,mlat,mdep,ID,src
+-6.481,156.405,48.400,15.000,EQ,5.600,1997-03-03 22:33:43.860,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,111552,92217
+-5.821,156.739,13.810,15.000,EQ,4.400,2015-12-29 03:37:15.870,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104096,92217
+-6.234,156.026,50.100,15.000,EQ,4.700,1981-09-25 00:40:41.380,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,108483,92217
+-6.203,156.291,67.400,15.000,EQ,4.100,2006-10-27 12:22:18.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115109,92217
+-6.266,155.890,101.000,15.000,EQ,5.200,1974-02-28 02:11:18.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106633,92217
+-4.650,155.896,124.300,15.000,EQ,4.300,1985-06-29 11:28:52.740,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109584,92217
+-6.258,155.989,94.000,15.000,EQ,4.400,2011-03-25 01:21:52.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,116946,92217
+-6.107,156.416,120.700,15.000,EQ,4.100,1987-11-22 02:28:37.320,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,108485,92217
+-5.221,154.994,79.700,15.000,EQ,4.000,2006-01-18 09:13:47.160,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115899,92217
+-5.595,155.593,171.400,15.000,EQ,4.600,1992-09-27 07:27:30.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,110717,92217
+-5.326,155.008,105.600,15.000,EQ,4.400,2005-04-26 02:14:20.890,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115934,92217
+-5.759,156.058,14.730,15.000,EQ,4.300,2015-06-29 13:06:32.050,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104095,92217

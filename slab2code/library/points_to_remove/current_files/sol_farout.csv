@@ -1,0 +1,3 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,ID,src
+-4.934,145.497,134.700,15.000,EQ,4.600,2012-07-03 03:04:19.530,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,108485,05-18-17
+-7.269,155.704,51.300,15.000,EQ,4.500,1987-03-26 16:05:56.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,110717,05-18-17

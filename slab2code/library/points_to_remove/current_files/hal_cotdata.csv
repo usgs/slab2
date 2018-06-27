@@ -1,0 +1,612 @@
+lat,lon,depth,unc,etype,ID,mag,time,S1,D1,R1,S2,D2,R2,src
+5.68,125.50,193.00,15.00,EQ,100001,5.40,2016-09-16 07:50:46.450,334.53,85.02,91.46,138.17,5.19,73.70,05-18-17
+5.77,124.73,81.00,15.00,EQ,100013,5.50,1979-02-11 17:30:18.200,294.13,31.43,55.89,152.57,64.42,108.92,05-18-17
+5.68,124.70,61.00,15.00,EQ,100014,5.50,1979-02-19 00:35:46.300,151.06,75.61,101.35,292.14,18.26,52.52,05-18-17
+5.86,125.29,85.00,15.00,EQ,100016,6.10,1979-11-19 22:17:20.200,290.90,49.83,138.76,50.38,59.75,48.30,05-18-17
+5.73,125.54,153.20,15.00,EQ,100020,6.60,1984-10-29 23:18:05.180,135.05,87.91,72.48,38.45,17.64,173.08,05-18-17
+5.57,125.41,87.50,15.00,EQ,100023,5.50,1986-07-12 10:17:25.560,2.98,67.21,102.91,152.35,26.02,61.99,05-18-17
+5.72,125.33,71.60,15.00,EQ,100024,5.60,1986-10-29 20:11:39.730,26.82,67.87,123.82,146.17,39.69,36.15,05-18-17
+5.63,125.73,169.80,15.00,EQ,100026,5.20,1989-06-07 21:47:35.050,300.80,58.33,112.53,82.50,38.18,58.16,05-18-17
+5.64,125.25,77.80,15.00,EQ,100032,5.70,1990-11-07 14:36:27.790,157.88,43.08,68.81,5.85,50.44,108.68,05-18-17
+5.62,125.33,74.20,15.00,EQ,100033,5.40,1991-04-29 22:06:02.010,13.98,51.07,81.45,207.43,39.71,100.43,05-18-17
+6.09,125.38,101.80,15.00,EQ,100037,5.40,1993-09-24 00:57:25.590,223.45,68.97,115.10,350.91,32.30,42.19,05-18-17
+5.68,125.45,223.90,15.00,EQ,100041,5.80,1997-10-05 19:00:02.380,327.43,65.60,89.72,148.12,24.40,90.62,05-18-17
+7.14,123.68,117.90,15.00,EQ,100044,5.50,1999-09-08 00:29:00.800,200.64,86.93,176.30,290.84,86.30,3.08,05-18-17
+6.01,125.46,163.60,15.00,EQ,100050,5.00,2003-04-26 15:09:49.570,286.23,68.97,66.39,156.84,31.21,136.17,05-18-17
+6.16,124.27,82.40,15.00,EQ,100053,4.80,2004-09-13 20:00:01.930,289.40,84.40,27.74,196.46,62.41,173.68,05-18-17
+5.89,125.28,82.20,15.00,EQ,100054,5.50,2004-09-15 19:45:42.070,291.63,68.01,167.93,26.20,78.82,22.43,05-18-17
+5.69,125.72,170.70,15.00,EQ,100056,5.40,2005-08-27 10:58:01.880,44.51,59.13,45.99,286.53,51.88,139.29,05-18-17
+5.64,125.16,81.30,15.00,EQ,100064,5.10,2007-06-26 20:36:52.270,24.50,29.67,90.44,203.99,60.33,89.75,05-18-17
+6.07,125.25,125.20,15.00,EQ,100067,5.20,2008-05-17 14:17:30.260,201.75,65.00,92.49,15.87,25.12,84.67,05-18-17
+5.75,125.38,206.00,15.00,EQ,100070,6.30,2008-12-25 03:20:29.350,358.16,78.89,77.08,228.13,16.97,138.71,05-18-17
+5.79,125.59,136.39,15.00,EQ,100093,5.00,2014-01-12 13:07:50.280,24.17,74.91,197.77,289.40,72.87,-15.81,05-18-17
+5.68,125.71,132.48,15.00,EQ,100094,5.40,2014-05-09 05:44:27.820,107.20,80.89,26.97,12.60,63.40,169.80,05-18-17
+5.75,125.38,78.36,15.00,EQ,100095,5.20,2015-01-21 05:20:27.630,105.00,77.12,13.86,11.85,76.50,166.75,05-18-17
+5.57,125.71,126.97,15.00,EQ,100096,5.20,2016-08-10 04:06:58.950,12.08,34.58,175.72,105.61,87.57,55.50,05-18-17
+5.67,125.31,74.27,15.00,EQ,100097,4.70,2016-08-10 08:17:46.350,105.53,76.13,22.29,9.91,68.39,165.05,05-18-17
+5.93,124.39,69.10,15.00,EQ,100138,4.70,2004-09-06 06:03:20.560,nan,nan,nan,nan,nan,nan,05-18-17
+5.92,124.32,66.70,15.00,EQ,100143,4.20,2006-11-29 07:33:04.940,nan,nan,nan,nan,nan,nan,05-18-17
+5.86,124.65,100.20,15.00,EQ,100147,4.60,2007-08-18 07:28:31.740,nan,nan,nan,nan,nan,nan,05-18-17
+5.74,124.96,83.30,15.00,EQ,100150,4.60,2009-02-22 10:42:41.140,nan,nan,nan,nan,nan,nan,05-18-17
+5.72,124.98,66.20,15.00,EQ,100156,4.10,2012-04-09 03:54:32.660,nan,nan,nan,nan,nan,nan,05-18-17
+5.82,124.92,72.50,15.00,EQ,100157,4.90,2013-01-17 04:58:17.390,nan,nan,nan,nan,nan,nan,05-18-17
+5.38,124.81,96.67,15.00,EQ,100160,4.10,2013-08-09 06:43:10.300,nan,nan,nan,nan,nan,nan,05-18-17
+5.78,124.45,60.02,15.00,EQ,100167,4.60,2015-12-22 00:15:47.970,nan,nan,nan,nan,nan,nan,05-18-17
+5.64,125.14,73.70,15.00,EQ,100168,4.90,2000-01-02 12:46:58.770,nan,nan,nan,nan,nan,nan,05-18-17
+5.61,125.21,61.30,15.00,EQ,100170,4.30,2000-05-16 11:15:19.620,nan,nan,nan,nan,nan,nan,05-18-17
+5.56,125.26,209.60,15.00,EQ,100171,4.70,2000-06-08 03:52:56.610,nan,nan,nan,nan,nan,nan,05-18-17
+5.49,125.28,200.60,15.00,EQ,100172,4.50,2000-08-05 05:02:27.300,nan,nan,nan,nan,nan,nan,05-18-17
+5.70,125.48,223.90,15.00,EQ,100173,4.70,2000-11-20 13:14:17.770,nan,nan,nan,nan,nan,nan,05-18-17
+5.66,125.41,227.40,15.00,EQ,100174,4.60,2002-03-15 02:17:38.220,nan,nan,nan,nan,nan,nan,05-18-17
+5.65,125.57,157.20,15.00,EQ,100175,4.40,2002-04-22 10:58:35.130,nan,nan,nan,nan,nan,nan,05-18-17
+5.89,125.52,83.30,15.00,EQ,100176,4.00,2002-10-17 00:16:30.270,nan,nan,nan,nan,nan,nan,05-18-17
+5.64,125.74,134.40,15.00,EQ,100177,4.40,2002-11-10 06:45:20.860,nan,nan,nan,nan,nan,nan,05-18-17
+5.70,125.65,174.10,15.00,EQ,100178,4.60,2003-02-22 05:27:41.390,nan,nan,nan,nan,nan,nan,05-18-17
+5.84,125.55,209.40,15.00,EQ,100179,4.30,2003-06-08 12:42:06.940,nan,nan,nan,nan,nan,nan,05-18-17
+5.93,125.57,200.40,15.00,EQ,100180,4.60,2004-01-15 10:44:22.080,nan,nan,nan,nan,nan,nan,05-18-17
+5.57,125.25,145.00,15.00,EQ,100181,4.40,2004-01-31 09:26:39.700,nan,nan,nan,nan,nan,nan,05-18-17
+5.79,125.46,128.20,15.00,EQ,100183,4.60,2005-03-16 07:08:47.910,nan,nan,nan,nan,nan,nan,05-18-17
+5.69,125.47,110.20,15.00,EQ,100184,4.20,2005-04-29 13:02:20.290,nan,nan,nan,nan,nan,nan,05-18-17
+5.53,125.48,143.40,15.00,EQ,100185,4.60,2005-05-21 23:28:53.460,nan,nan,nan,nan,nan,nan,05-18-17
+5.66,125.44,70.70,15.00,EQ,100186,4.60,2005-06-08 16:28:56.740,nan,nan,nan,nan,nan,nan,05-18-17
+5.83,125.67,159.00,15.00,EQ,100187,4.60,2005-08-06 05:49:35.490,nan,nan,nan,nan,nan,nan,05-18-17
+5.74,125.48,102.90,15.00,EQ,100188,4.70,2005-12-09 01:01:27.420,nan,nan,nan,nan,nan,nan,05-18-17
+5.68,125.33,61.80,15.00,EQ,100189,4.40,2006-09-02 23:39:15.120,nan,nan,nan,nan,nan,nan,05-18-17
+5.67,125.73,185.20,15.00,EQ,100190,4.30,2007-04-16 21:16:16.680,nan,nan,nan,nan,nan,nan,05-18-17
+5.76,125.54,84.80,15.00,EQ,100192,4.90,2007-09-06 20:20:47.400,nan,nan,nan,nan,nan,nan,05-18-17
+5.50,125.17,69.50,15.00,EQ,100193,4.20,2007-09-23 04:04:19.280,nan,nan,nan,nan,nan,nan,05-18-17
+5.50,125.38,103.30,15.00,EQ,100194,4.40,2007-10-03 02:55:55.290,nan,nan,nan,nan,nan,nan,05-18-17
+5.50,125.08,91.60,15.00,EQ,100195,4.30,2007-10-09 00:13:58.650,nan,nan,nan,nan,nan,nan,05-18-17
+5.79,125.38,84.30,15.00,EQ,100196,4.50,2007-10-12 20:47:16.050,nan,nan,nan,nan,nan,nan,05-18-17
+5.89,125.54,195.20,15.00,EQ,100197,3.80,2008-05-15 00:01:44.890,nan,nan,nan,nan,nan,nan,05-18-17
+5.54,125.37,178.70,15.00,EQ,100198,4.00,2008-05-15 18:46:45.530,nan,nan,nan,nan,nan,nan,05-18-17
+5.66,125.59,182.80,15.00,EQ,100199,4.30,2008-07-20 01:52:12.840,nan,nan,nan,nan,nan,nan,05-18-17
+5.76,125.62,122.50,15.00,EQ,100200,3.90,2008-07-24 10:57:02.460,nan,nan,nan,nan,nan,nan,05-18-17
+5.58,125.03,68.50,15.00,EQ,100201,4.40,2010-02-25 19:23:21.150,nan,nan,nan,nan,nan,nan,05-18-17
+5.88,125.51,199.80,15.00,EQ,100202,4.70,2011-11-21 02:46:57.960,nan,nan,nan,nan,nan,nan,05-18-17
+5.66,125.54,151.30,15.00,EQ,100203,4.70,2012-07-01 07:49:53.890,nan,nan,nan,nan,nan,nan,05-18-17
+5.67,125.67,164.00,15.00,EQ,100204,4.00,2012-08-28 09:11:19.770,nan,nan,nan,nan,nan,nan,05-18-17
+5.47,125.48,203.90,15.00,EQ,100205,4.70,2012-11-04 16:28:22.340,nan,nan,nan,nan,nan,nan,05-18-17
+5.88,125.13,140.89,15.00,EQ,100207,4.40,2013-11-29 15:37:16.400,nan,nan,nan,nan,nan,nan,05-18-17
+5.72,125.40,216.11,15.00,EQ,100208,4.40,2013-12-09 03:01:51.530,nan,nan,nan,nan,nan,nan,05-18-17
+5.54,125.32,74.60,15.00,EQ,100209,4.30,2014-10-23 10:37:30.160,nan,nan,nan,nan,nan,nan,05-18-17
+5.63,125.67,199.76,15.00,EQ,100210,4.50,2015-11-14 12:46:08.360,nan,nan,nan,nan,nan,nan,05-18-17
+6.78,123.86,78.00,15.00,EQ,100228,4.70,2004-05-21 20:41:44.230,nan,nan,nan,nan,nan,nan,05-18-17
+6.87,123.99,63.10,15.00,EQ,100233,4.60,2006-08-05 04:45:12.300,nan,nan,nan,nan,nan,nan,05-18-17
+6.60,123.93,60.40,15.00,EQ,100236,5.00,2006-11-15 04:43:18.820,nan,nan,nan,nan,nan,nan,05-18-17
+6.60,123.84,62.50,15.00,EQ,100284,4.60,2010-12-21 06:15:58.880,nan,nan,nan,nan,nan,nan,05-18-17
+6.82,123.81,61.10,15.00,EQ,100292,4.50,2012-03-17 04:08:18.700,nan,nan,nan,nan,nan,nan,05-18-17
+6.37,124.58,101.90,15.00,EQ,100318,4.40,2004-01-25 06:00:44.980,nan,nan,nan,nan,nan,nan,05-18-17
+6.22,124.07,111.50,15.00,EQ,100320,4.60,2004-11-06 11:45:54.080,nan,nan,nan,nan,nan,nan,05-18-17
+6.34,124.12,64.40,15.00,EQ,100323,4.50,2005-09-21 21:10:34.380,nan,nan,nan,nan,nan,nan,05-18-17
+6.30,124.09,67.10,15.00,EQ,100324,4.20,2005-10-07 05:37:12.900,nan,nan,nan,nan,nan,nan,05-18-17
+6.35,124.17,81.70,15.00,EQ,100325,4.50,2005-10-07 10:20:46.330,nan,nan,nan,nan,nan,nan,05-18-17
+6.55,124.01,66.80,15.00,EQ,100329,4.70,2006-11-14 11:40:21.590,nan,nan,nan,nan,nan,nan,05-18-17
+6.24,124.14,65.80,15.00,EQ,100332,4.00,2008-04-08 20:07:37.610,nan,nan,nan,nan,nan,nan,05-18-17
+6.90,124.04,61.70,15.00,EQ,100342,4.40,2012-03-26 03:07:49.980,nan,nan,nan,nan,nan,nan,05-18-17
+6.29,124.13,77.91,15.00,EQ,100345,4.30,2014-04-18 01:09:52.940,nan,nan,nan,nan,nan,nan,05-18-17
+6.17,125.29,129.90,15.00,EQ,100348,4.10,2006-02-08 21:23:24.110,nan,nan,nan,nan,nan,nan,05-18-17
+6.17,125.30,138.70,15.00,EQ,100349,4.90,2006-12-24 01:32:23.870,nan,nan,nan,nan,nan,nan,05-18-17
+6.12,125.11,123.50,15.00,EQ,100351,4.10,2007-08-13 11:59:44.480,nan,nan,nan,nan,nan,nan,05-18-17
+6.20,125.18,123.20,15.00,EQ,100352,4.30,2008-01-15 00:16:18.640,nan,nan,nan,nan,nan,nan,05-18-17
+6.04,125.55,80.40,15.00,EQ,100353,4.40,2009-04-14 18:02:48.960,nan,nan,nan,nan,nan,nan,05-18-17
+6.00,125.15,115.00,15.00,EQ,100354,4.30,2010-04-21 08:13:02.670,nan,nan,nan,nan,nan,nan,05-18-17
+6.04,125.50,83.40,15.00,EQ,100355,4.30,2012-10-15 15:55:02.320,nan,nan,nan,nan,nan,nan,05-18-17
+6.02,125.34,99.54,15.00,EQ,100357,4.70,2014-11-23 12:52:10.080,nan,nan,nan,nan,nan,nan,05-18-17
+7.19,123.56,65.80,15.00,EQ,100362,4.60,2004-10-02 05:55:30.980,nan,nan,nan,nan,nan,nan,05-18-17
+7.13,123.77,67.30,15.00,EQ,100369,4.40,2008-02-16 20:57:09.840,nan,nan,nan,nan,nan,nan,05-18-17
+7.38,123.63,62.80,15.00,EQ,100373,4.50,2012-05-10 21:49:47.320,nan,nan,nan,nan,nan,nan,05-18-17
+7.07,123.86,64.30,15.00,EQ,100374,4.20,2013-07-11 12:32:50.750,nan,nan,nan,nan,nan,nan,05-18-17
+7.08,124.02,147.03,15.00,EQ,100379,4.20,2015-06-12 13:17:18.450,nan,nan,nan,nan,nan,nan,05-18-17
+5.64,124.98,66.80,15.00,EQ,100391,4.90,1989-06-24 14:03:56.030,nan,nan,nan,nan,nan,nan,05-18-17
+5.75,124.53,74.00,15.00,EQ,100395,5.10,1990-06-13 23:00:43.790,nan,nan,nan,nan,nan,nan,05-18-17
+5.73,124.75,68.50,15.00,EQ,100400,4.60,1994-05-21 21:32:22.790,nan,nan,nan,nan,nan,nan,05-18-17
+5.80,124.72,116.10,15.00,EQ,100404,4.80,1996-08-04 15:39:37.300,nan,nan,nan,nan,nan,nan,05-18-17
+5.69,124.98,207.20,15.00,EQ,100405,4.20,1996-09-22 18:03:42.770,nan,nan,nan,nan,nan,nan,05-18-17
+5.96,124.53,87.60,15.00,EQ,100414,4.60,1999-12-25 23:17:33.040,nan,nan,nan,nan,nan,nan,05-18-17
+5.99,125.30,124.90,15.00,EQ,100415,5.20,1985-07-08 03:35:01.530,nan,nan,nan,nan,nan,nan,05-18-17
+5.71,125.63,86.60,15.00,EQ,100417,4.60,1986-06-18 05:26:40.690,nan,nan,nan,nan,nan,nan,05-18-17
+5.80,125.30,88.50,15.00,EQ,100419,5.10,1988-10-16 16:23:29.280,nan,nan,nan,nan,nan,nan,05-18-17
+5.59,125.39,80.40,15.00,EQ,100420,5.00,1989-05-09 21:13:46.840,nan,nan,nan,nan,nan,nan,05-18-17
+5.89,125.43,88.00,15.00,EQ,100421,5.10,1990-06-19 21:33:03.330,nan,nan,nan,nan,nan,nan,05-18-17
+5.74,125.43,182.50,15.00,EQ,100422,4.90,1991-01-11 06:57:30.060,nan,nan,nan,nan,nan,nan,05-18-17
+5.79,125.61,222.90,15.00,EQ,100423,4.40,1991-12-01 17:16:41.350,nan,nan,nan,nan,nan,nan,05-18-17
+5.70,125.71,157.50,15.00,EQ,100424,4.30,1996-01-01 22:01:10.120,nan,nan,nan,nan,nan,nan,05-18-17
+5.45,125.34,80.90,15.00,EQ,100426,4.10,1996-03-03 21:00:40.720,nan,nan,nan,nan,nan,nan,05-18-17
+5.58,125.31,75.40,15.00,EQ,100428,4.70,1996-08-22 04:47:06.630,nan,nan,nan,nan,nan,nan,05-18-17
+5.66,125.18,77.10,15.00,EQ,100429,4.90,1997-04-11 07:50:29.440,nan,nan,nan,nan,nan,nan,05-18-17
+5.60,125.45,85.40,15.00,EQ,100431,4.30,1997-09-19 16:30:23.770,nan,nan,nan,nan,nan,nan,05-18-17
+5.71,125.70,162.70,15.00,EQ,100432,4.20,1998-01-22 14:35:03.190,nan,nan,nan,nan,nan,nan,05-18-17
+6.78,124.03,77.30,15.00,EQ,100471,4.20,1987-11-13 14:35:37.980,nan,nan,nan,nan,nan,nan,05-18-17
+6.04,124.47,83.00,15.00,EQ,100475,5.00,1993-01-27 09:02:55.370,nan,nan,nan,nan,nan,nan,05-18-17
+6.05,125.13,105.70,15.00,EQ,100484,5.10,1991-06-07 00:13:39.340,nan,nan,nan,nan,nan,nan,05-18-17
+6.01,125.26,154.10,15.00,EQ,100486,4.20,1999-05-13 13:46:52.630,nan,nan,nan,nan,nan,nan,05-18-17
+7.31,123.49,65.80,15.00,EQ,100490,4.60,1986-06-16 16:23:49.250,nan,nan,nan,nan,nan,nan,05-18-17
+5.60,124.85,71.00,15.00,EQ,100510,4.00,1980-08-14 23:28:29.500,nan,nan,nan,nan,nan,nan,05-18-17
+5.79,125.44,197.00,15.00,EQ,100514,4.60,1974-04-05 17:49:47.100,nan,nan,nan,nan,nan,nan,05-18-17
+5.68,125.38,225.00,15.00,EQ,100515,5.70,1975-04-13 01:34:36.200,nan,nan,nan,nan,nan,nan,05-18-17
+5.98,125.30,142.00,15.00,EQ,100516,5.10,1977-01-31 23:53:03.700,nan,nan,nan,nan,nan,nan,05-18-17
+5.52,125.63,148.00,15.00,EQ,100517,5.10,1981-01-23 04:32:15.800,nan,nan,nan,nan,nan,nan,05-18-17
+5.68,125.23,230.10,15.00,EQ,100518,4.70,1981-02-09 19:06:54.000,nan,nan,nan,nan,nan,nan,05-18-17
+5.69,125.61,124.10,15.00,EQ,100519,4.50,1981-08-24 11:20:51.360,nan,nan,nan,nan,nan,nan,05-18-17
+5.42,125.19,72.70,15.00,EQ,100520,4.40,1981-12-08 21:07:19.040,nan,nan,nan,nan,nan,nan,05-18-17
+5.56,125.70,169.60,15.00,EQ,100522,4.80,1984-06-17 09:59:17.170,nan,nan,nan,nan,nan,nan,05-18-17
+5.70,125.74,156.80,15.00,EQ,100523,4.90,1984-10-30 13:06:46.590,nan,nan,nan,nan,nan,nan,05-18-17
+6.38,123.98,67.00,15.00,EQ,100526,4.90,1973-10-01 04:56:33.500,nan,nan,nan,nan,nan,nan,05-18-17
+6.98,123.93,63.00,15.00,EQ,100544,5.00,1976-08-20 15:05:03.800,nan,nan,nan,nan,nan,nan,05-18-17
+6.88,123.82,70.00,15.00,EQ,100545,5.40,1976-08-21 07:34:14.900,nan,nan,nan,nan,nan,nan,05-18-17
+6.90,123.81,72.00,15.00,EQ,100546,5.10,1976-08-21 09:46:20.000,nan,nan,nan,nan,nan,nan,05-18-17
+6.79,123.65,63.00,15.00,EQ,100547,4.90,1976-08-21 20:13:42.100,nan,nan,nan,nan,nan,nan,05-18-17
+6.98,123.53,60.00,15.00,EQ,100557,4.20,1976-09-29 10:35:22.100,nan,nan,nan,nan,nan,nan,05-18-17
+6.65,124.00,70.00,15.00,EQ,100559,5.10,1976-12-22 13:10:54.400,nan,nan,nan,nan,nan,nan,05-18-17
+6.57,123.95,60.00,15.00,EQ,100560,4.90,1976-12-22 15:17:52.000,nan,nan,nan,nan,nan,nan,05-18-17
+6.69,123.95,65.00,15.00,EQ,100574,5.10,1978-10-05 20:07:26.600,nan,nan,nan,nan,nan,nan,05-18-17
+6.69,124.08,73.00,15.00,EQ,100591,4.90,1975-04-16 19:30:49.200,nan,nan,nan,nan,nan,nan,05-18-17
+6.24,124.20,75.00,15.00,EQ,100592,5.20,1975-12-22 07:17:14.800,nan,nan,nan,nan,nan,nan,05-18-17
+6.42,124.01,67.00,15.00,EQ,100593,5.00,1976-08-17 13:26:02.800,nan,nan,nan,nan,nan,nan,05-18-17
+6.25,124.01,62.00,15.00,EQ,100594,5.10,1976-08-17 15:02:00.800,nan,nan,nan,nan,nan,nan,05-18-17
+6.30,124.05,63.00,15.00,EQ,100595,5.20,1976-08-17 22:57:45.800,nan,nan,nan,nan,nan,nan,05-18-17
+6.92,124.05,67.00,15.00,EQ,100598,4.60,1976-08-29 02:44:40.100,nan,nan,nan,nan,nan,nan,05-18-17
+6.68,124.02,61.00,15.00,EQ,100599,4.70,1976-09-08 06:25:15.100,nan,nan,nan,nan,nan,nan,05-18-17
+6.68,124.00,75.00,15.00,EQ,100604,5.20,1976-10-18 02:50:53.800,nan,nan,nan,nan,nan,nan,05-18-17
+6.02,124.87,116.00,15.00,EQ,100605,5.00,1977-02-20 22:26:47.400,nan,nan,nan,nan,nan,nan,05-18-17
+6.86,124.08,95.00,15.00,EQ,100606,4.80,1977-03-12 06:02:44.700,nan,nan,nan,nan,nan,nan,05-18-17
+6.35,124.24,69.70,15.00,EQ,100614,4.90,1983-05-21 18:06:05.120,nan,nan,nan,nan,nan,nan,05-18-17
+6.13,125.38,107.40,15.00,EQ,100616,4.70,1983-08-29 11:55:31.540,nan,nan,nan,nan,nan,nan,05-18-17
+7.61,123.82,80.00,15.00,EQ,100632,4.60,1976-08-21 02:24:48.100,nan,nan,nan,nan,nan,nan,05-18-17
+7.06,123.73,63.00,15.00,EQ,100633,5.00,1976-08-21 16:31:57.000,nan,nan,nan,nan,nan,nan,05-18-17
+7.03,123.58,60.00,15.00,EQ,100642,6.00,1976-11-22 04:22:25.300,nan,nan,nan,nan,nan,nan,05-18-17
+7.94,123.99,85.00,15.00,EQ,100646,4.50,1978-05-18 15:33:09.000,nan,nan,nan,nan,nan,nan,05-18-17
+7.38,123.74,62.00,15.00,EQ,100649,4.20,1980-08-13 03:40:34.800,nan,nan,nan,nan,nan,nan,05-18-17
+5.63,125.70,110.00,15.00,EQ,100654,5.70,1964-04-02 15:56:48.000,nan,nan,nan,nan,nan,nan,05-18-17
+6.03,125.36,92.80,15.00,EQ,100655,5.70,1969-09-19 01:29:38.000,nan,nan,nan,nan,nan,nan,05-18-17
+5.50,124.92,65.31,15.00,EQ,100666,4.40,2017-05-05 14:42:07.680,nan,nan,nan,nan,nan,nan,05-18-17
+5.64,125.44,191.05,15.00,EQ,100667,4.80,2016-01-13 07:48:42.030,nan,nan,nan,nan,nan,nan,05-18-17
+6.07,125.32,109.63,15.00,EQ,100680,4.80,2016-10-14 20:52:05.580,nan,nan,nan,nan,nan,nan,05-18-17
+5.51,125.08,26.00,15.00,EQ,100002,6.90,2017-04-28 20:23:17.280,155.03,44.51,104.39,315.24,47.23,76.27,05-18-17
+6.77,123.74,52.00,15.00,EQ,100007,6.10,1977-03-02 09:53:23.200,135.33,58.36,117.36,270.72,40.87,53.28,05-18-17
+6.78,123.78,43.00,15.00,EQ,100010,5.60,1978-04-04 06:56:06.300,330.95,38.49,50.89,197.04,61.12,116.64,05-18-17
+6.68,123.98,46.00,15.00,EQ,100011,5.60,1978-10-01 13:23:50.100,334.17,41.08,66.83,183.76,52.83,108.93,05-18-17
+6.68,123.89,44.00,15.00,EQ,100017,5.50,1980-12-12 21:07:23.500,344.33,34.03,73.70,183.77,57.51,100.73,05-18-17
+6.80,123.97,51.70,15.00,EQ,100025,5.60,1988-07-12 17:00:08.620,359.80,33.80,77.47,194.78,57.11,98.27,05-18-17
+5.90,124.42,55.80,15.00,EQ,100028,6.10,1989-08-10 01:55:57.210,339.14,19.86,100.80,147.67,70.50,86.13,05-18-17
+5.88,124.43,42.90,15.00,EQ,100029,5.40,1989-08-10 08:23:45.030,130.36,59.59,68.99,347.55,36.38,121.42,05-18-17
+5.98,124.38,44.40,15.00,EQ,100030,5.70,1989-08-10 11:46:28.780,356.88,34.08,119.30,142.77,60.74,71.68,05-18-17
+5.90,124.18,27.10,15.00,EQ,100035,5.20,1992-08-21 22:11:13.760,172.36,77.52,106.28,298.85,20.41,38.28,05-18-17
+7.47,123.45,30.80,15.00,EQ,100038,5.80,1993-10-16 10:52:25.900,199.21,40.74,145.50,316.72,68.31,54.63,05-18-17
+6.03,124.25,31.00,15.00,EQ,100048,7.50,2002-03-05 21:16:09.130,313.88,24.65,69.51,156.23,67.00,99.12,05-18-17
+6.70,123.90,47.10,15.00,EQ,100052,5.30,2003-06-16 18:25:03.100,176.15,62.82,101.12,332.86,29.20,69.40,05-18-17
+6.32,123.95,52.70,15.00,EQ,100057,5.30,2005-10-07 05:42:47.690,171.53,76.12,95.39,330.03,14.87,69.17,05-18-17
+6.27,124.03,13.00,15.00,EQ,100058,6.40,2005-11-30 16:53:42.470,325.04,18.48,67.28,168.86,73.00,97.36,05-18-17
+6.85,123.89,54.20,15.00,EQ,100059,5.00,2006-08-08 21:25:20.720,337.55,37.85,59.70,194.05,58.01,111.40,05-18-17
+6.58,123.93,45.90,15.00,EQ,100060,5.30,2006-11-14 10:48:26.150,342.04,25.69,77.91,175.41,64.92,95.75,05-18-17
+5.93,124.28,53.30,15.00,EQ,100061,5.10,2006-11-29 00:48:03.840,322.97,24.58,82.02,151.74,65.68,93.63,05-18-17
+6.82,123.83,59.50,15.00,EQ,100063,5.40,2007-06-25 05:28:24.340,2.17,23.22,85.36,187.22,66.86,91.99,05-18-17
+5.65,124.64,37.20,15.00,EQ,100084,5.10,2010-09-12 16:35:55.760,145.90,70.65,108.36,280.86,26.43,48.11,05-18-17
+5.64,124.64,49.00,15.00,EQ,100085,5.30,2010-09-14 07:33:29.070,149.22,75.95,112.86,269.17,26.63,32.80,05-18-17
+5.66,124.58,35.70,15.00,EQ,100086,5.00,2010-09-14 13:08:56.700,147.15,67.88,117.40,273.14,34.67,41.44,05-18-17
+6.61,123.88,12.00,15.00,EQ,100091,5.80,2012-09-03 06:49:49.730,188.69,70.56,93.93,357.03,19.82,79.02,05-18-17
+6.28,123.78,30.73,15.00,EQ,100098,4.90,2016-09-02 08:39:19.680,336.92,22.72,79.98,167.77,67.65,94.17,05-18-17
+6.16,123.92,26.30,15.00,EQ,100099,5.00,2016-09-02 12:02:51.400,333.22,14.73,74.54,169.18,75.82,94.01,05-18-17
+7.67,123.08,1.12,5.00,BA,300000,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.58,123.08,1.16,5.00,BA,300001,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.58,123.42,1.15,5.00,BA,300002,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.50,122.92,1.13,5.00,BA,300003,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.50,123.00,1.12,5.00,BA,300004,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.50,123.08,1.17,5.00,BA,300005,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.50,123.25,1.17,5.00,BA,300006,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.50,123.42,1.33,5.00,BA,300007,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.42,123.00,1.15,5.00,BA,300008,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.42,123.08,1.20,5.00,BA,300009,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.42,123.17,1.18,5.00,BA,300010,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.42,123.25,1.48,5.00,BA,300011,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,122.75,1.16,5.00,BA,300012,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,122.92,1.14,5.00,BA,300013,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,123.00,1.18,5.00,BA,300014,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,123.08,1.21,5.00,BA,300015,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,123.17,1.31,5.00,BA,300016,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,123.25,1.51,5.00,BA,300017,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,123.33,1.36,5.00,BA,300018,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.33,123.42,1.38,5.00,BA,300019,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,122.75,1.28,5.00,BA,300020,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,122.83,1.17,5.00,BA,300021,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,122.92,1.23,5.00,BA,300022,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.00,1.31,5.00,BA,300023,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.08,1.25,5.00,BA,300024,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.17,1.81,5.00,BA,300025,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.25,2.17,5.00,BA,300026,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.33,2.31,5.00,BA,300027,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.42,1.88,5.00,BA,300028,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.25,123.50,1.63,5.00,BA,300029,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,122.67,1.35,5.00,BA,300030,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,122.75,1.55,5.00,BA,300031,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,122.83,2.19,5.00,BA,300032,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,122.92,2.32,5.00,BA,300033,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.00,2.31,5.00,BA,300034,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.08,2.54,5.00,BA,300035,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.17,3.25,5.00,BA,300036,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.25,3.72,5.00,BA,300037,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.33,3.96,5.00,BA,300038,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.42,3.98,5.00,BA,300039,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.17,123.50,3.18,5.00,BA,300040,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,122.67,1.30,5.00,BA,300041,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,122.75,2.11,5.00,BA,300042,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,122.83,2.77,5.00,BA,300043,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,122.92,2.80,5.00,BA,300044,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.00,3.23,5.00,BA,300045,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.08,3.71,5.00,BA,300046,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.17,4.49,5.00,BA,300047,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.25,4.77,5.00,BA,300048,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.33,5.21,5.00,BA,300049,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.42,5.81,5.00,BA,300050,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.08,123.50,5.41,5.00,BA,300051,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,122.58,1.45,5.00,BA,300052,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,122.67,2.26,5.00,BA,300053,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,122.75,2.73,5.00,BA,300054,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,122.83,2.45,5.00,BA,300055,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,122.92,3.11,5.00,BA,300056,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.00,4.04,5.00,BA,300057,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.08,4.61,5.00,BA,300058,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.17,5.30,5.00,BA,300059,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.25,5.83,5.00,BA,300060,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.33,6.20,5.00,BA,300061,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.42,6.70,5.00,BA,300062,nan,nan,nan,nan,nan,nan,nan,nan,bath
+7.00,123.50,6.46,5.00,BA,300063,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,122.58,2.16,5.00,BA,300064,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,122.67,2.56,5.00,BA,300065,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,122.75,2.64,5.00,BA,300066,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,122.83,3.15,5.00,BA,300067,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,122.92,4.14,5.00,BA,300068,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.00,4.70,5.00,BA,300069,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.08,5.00,5.00,BA,300070,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.17,5.47,5.00,BA,300071,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.25,6.06,5.00,BA,300072,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.33,6.47,5.00,BA,300073,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.42,6.95,5.00,BA,300074,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.50,6.68,5.00,BA,300075,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.92,123.58,6.49,5.00,BA,300076,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,122.58,2.56,5.00,BA,300077,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,122.67,2.37,5.00,BA,300078,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,122.75,3.08,5.00,BA,300079,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,122.83,4.32,5.00,BA,300080,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,122.92,4.92,5.00,BA,300081,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.00,5.08,5.00,BA,300082,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.08,5.12,5.00,BA,300083,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.17,5.63,5.00,BA,300084,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.25,5.95,5.00,BA,300085,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.33,6.44,5.00,BA,300086,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.42,6.84,5.00,BA,300087,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.50,6.93,5.00,BA,300088,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.83,123.58,6.60,5.00,BA,300089,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,122.58,3.03,5.00,BA,300090,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,122.67,3.38,5.00,BA,300091,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,122.75,4.82,5.00,BA,300092,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,122.83,5.01,5.00,BA,300093,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,122.92,5.22,5.00,BA,300094,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.00,5.39,5.00,BA,300095,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.08,5.45,5.00,BA,300096,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.17,5.78,5.00,BA,300097,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.25,5.65,5.00,BA,300098,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.33,6.29,5.00,BA,300099,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.42,6.72,5.00,BA,300100,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.50,6.87,5.00,BA,300101,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.75,123.58,6.59,5.00,BA,300102,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,122.58,3.79,5.00,BA,300103,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,122.67,4.69,5.00,BA,300104,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,122.75,5.46,5.00,BA,300105,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,122.83,5.42,5.00,BA,300106,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,122.92,5.42,5.00,BA,300107,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.00,5.58,5.00,BA,300108,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.08,5.82,5.00,BA,300109,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.17,5.96,5.00,BA,300110,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.25,5.61,5.00,BA,300111,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.33,5.95,5.00,BA,300112,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.42,6.28,5.00,BA,300113,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.50,6.44,5.00,BA,300114,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.67,123.58,6.06,5.00,BA,300115,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,122.58,4.71,5.00,BA,300116,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,122.67,5.46,5.00,BA,300117,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,122.75,5.71,5.00,BA,300118,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,122.83,5.70,5.00,BA,300119,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,122.92,5.70,5.00,BA,300120,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.00,5.66,5.00,BA,300121,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.08,5.90,5.00,BA,300122,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.17,6.14,5.00,BA,300123,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.25,5.96,5.00,BA,300124,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.33,6.16,5.00,BA,300125,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.42,6.55,5.00,BA,300126,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.50,6.59,5.00,BA,300127,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.58,5.99,5.00,BA,300128,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.58,123.67,6.16,5.00,BA,300129,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,122.67,5.75,5.00,BA,300130,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,122.75,5.95,5.00,BA,300131,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,122.83,6.02,5.00,BA,300132,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,122.92,5.87,5.00,BA,300133,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.00,5.68,5.00,BA,300134,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.08,5.36,5.00,BA,300135,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.17,6.03,5.00,BA,300136,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.25,6.42,5.00,BA,300137,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.33,6.62,5.00,BA,300138,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.42,6.79,5.00,BA,300139,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.50,6.73,5.00,BA,300140,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.58,6.17,5.00,BA,300141,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.50,123.67,6.16,5.00,BA,300142,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,122.67,5.86,5.00,BA,300143,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,122.75,6.11,5.00,BA,300144,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,122.83,6.11,5.00,BA,300145,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,122.92,6.10,5.00,BA,300146,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.00,6.09,5.00,BA,300147,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.08,5.81,5.00,BA,300148,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.17,5.89,5.00,BA,300149,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.25,6.32,5.00,BA,300150,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.33,6.78,5.00,BA,300151,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.42,6.75,5.00,BA,300152,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.50,6.47,5.00,BA,300153,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.58,6.36,5.00,BA,300154,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.67,6.28,5.00,BA,300155,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,122.67,6.18,5.00,BA,300156,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,122.75,6.20,5.00,BA,300157,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,122.83,6.22,5.00,BA,300158,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,122.92,6.22,5.00,BA,300159,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.00,6.21,5.00,BA,300160,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.08,6.15,5.00,BA,300161,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.17,6.03,5.00,BA,300162,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.25,6.05,5.00,BA,300163,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.33,6.66,5.00,BA,300164,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.42,6.68,5.00,BA,300165,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.50,6.36,5.00,BA,300166,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.58,6.12,5.00,BA,300167,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.67,6.18,5.00,BA,300168,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.33,123.75,6.11,5.00,BA,300169,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,122.67,6.28,5.00,BA,300170,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,122.75,6.17,5.00,BA,300171,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,122.83,6.27,5.00,BA,300172,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,122.92,6.32,5.00,BA,300173,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.00,6.38,5.00,BA,300174,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.08,6.29,5.00,BA,300175,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.17,6.14,5.00,BA,300176,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.25,6.13,5.00,BA,300177,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.33,6.45,5.00,BA,300178,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.42,6.69,5.00,BA,300179,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.50,6.58,5.00,BA,300180,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.58,6.09,5.00,BA,300181,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.67,6.27,5.00,BA,300182,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.75,6.22,5.00,BA,300183,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,122.75,6.12,5.00,BA,300184,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,122.83,6.34,5.00,BA,300185,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,122.92,6.36,5.00,BA,300186,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.00,6.47,5.00,BA,300187,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.08,6.48,5.00,BA,300188,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.17,6.47,5.00,BA,300189,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.25,6.03,5.00,BA,300190,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.33,6.32,5.00,BA,300191,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.42,6.44,5.00,BA,300192,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.50,6.71,5.00,BA,300193,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.58,6.62,5.00,BA,300194,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.67,6.43,5.00,BA,300195,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.75,6.36,5.00,BA,300196,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,122.83,6.44,5.00,BA,300197,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,122.92,6.47,5.00,BA,300198,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.00,6.54,5.00,BA,300199,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.08,6.53,5.00,BA,300200,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.17,6.43,5.00,BA,300201,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.25,6.55,5.00,BA,300202,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.33,6.58,5.00,BA,300203,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.42,6.57,5.00,BA,300204,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.50,6.62,5.00,BA,300205,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.58,6.67,5.00,BA,300206,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.67,6.66,5.00,BA,300207,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.75,6.30,5.00,BA,300208,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,122.83,6.49,5.00,BA,300209,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,122.92,6.46,5.00,BA,300210,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.00,6.57,5.00,BA,300211,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.08,6.57,5.00,BA,300212,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.17,6.47,5.00,BA,300213,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.25,6.64,5.00,BA,300214,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.33,6.72,5.00,BA,300215,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.42,6.77,5.00,BA,300216,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.50,6.63,5.00,BA,300217,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.58,6.64,5.00,BA,300218,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.67,6.64,5.00,BA,300219,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.75,6.31,5.00,BA,300220,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.83,6.19,5.00,BA,300221,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,122.92,6.51,5.00,BA,300222,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.00,6.55,5.00,BA,300223,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.08,6.59,5.00,BA,300224,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.17,6.59,5.00,BA,300225,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.25,6.66,5.00,BA,300226,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.33,6.66,5.00,BA,300227,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.42,6.70,5.00,BA,300228,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.50,6.78,5.00,BA,300229,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.58,6.84,5.00,BA,300230,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.67,6.74,5.00,BA,300231,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.75,6.58,5.00,BA,300232,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.83,6.53,5.00,BA,300233,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.00,6.52,5.00,BA,300234,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.08,6.63,5.00,BA,300235,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.17,6.58,5.00,BA,300236,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.25,6.68,5.00,BA,300237,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.33,6.66,5.00,BA,300238,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.42,6.72,5.00,BA,300239,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.50,6.82,5.00,BA,300240,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.58,6.97,5.00,BA,300241,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.67,6.91,5.00,BA,300242,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.75,6.69,5.00,BA,300243,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.83,6.55,5.00,BA,300244,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.17,6.61,5.00,BA,300245,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.25,6.73,5.00,BA,300246,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.33,6.76,5.00,BA,300247,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.42,6.82,5.00,BA,300248,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.50,6.74,5.00,BA,300249,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.58,6.95,5.00,BA,300250,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.67,7.14,5.00,BA,300251,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.75,7.03,5.00,BA,300252,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.83,6.81,5.00,BA,300253,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.33,6.76,5.00,BA,300254,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.42,6.88,5.00,BA,300255,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.50,6.67,5.00,BA,300256,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.58,6.44,5.00,BA,300257,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.67,6.82,5.00,BA,300258,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.75,6.86,5.00,BA,300259,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.83,6.70,5.00,BA,300260,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,123.92,6.44,5.00,BA,300261,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,123.50,6.54,5.00,BA,300262,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,123.58,6.43,5.00,BA,300263,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,123.67,6.41,5.00,BA,300264,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,123.75,6.71,5.00,BA,300265,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,123.83,6.49,5.00,BA,300266,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,123.92,6.29,5.00,BA,300267,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,123.67,6.74,5.00,BA,300268,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,123.75,6.66,5.00,BA,300269,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,123.83,6.74,5.00,BA,300270,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,123.92,6.56,5.00,BA,300271,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,123.83,6.71,5.00,BA,300272,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,123.92,6.51,5.00,BA,300273,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.00,6.31,5.00,BA,300274,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.00,6.38,5.00,BA,300275,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.00,6.27,5.00,BA,300276,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.00,6.25,5.00,BA,300277,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.00,124.00,6.21,5.00,BA,300278,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.00,124.08,6.06,5.00,BA,300279,nan,nan,nan,nan,nan,nan,nan,nan,bath
+4.92,124.08,6.22,5.00,BA,300280,nan,nan,nan,nan,nan,nan,nan,nan,bath
+4.83,124.08,6.17,5.00,BA,300281,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.42,123.75,5.90,5.00,BA,300282,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.25,123.83,6.09,5.00,BA,300283,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.83,6.25,5.00,BA,300284,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.83,5.98,5.00,BA,300285,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,123.92,5.74,5.00,BA,300286,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,123.92,5.82,5.00,BA,300287,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,123.92,6.15,5.00,BA,300288,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,124.00,5.99,5.00,BA,300289,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,123.92,6.52,5.00,BA,300290,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.00,6.01,5.00,BA,300291,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.00,6.46,5.00,BA,300292,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.00,6.48,5.00,BA,300293,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.08,6.39,5.00,BA,300294,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.00,6.71,5.00,BA,300295,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.08,6.59,5.00,BA,300296,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.00,6.41,5.00,BA,300297,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.08,6.46,5.00,BA,300298,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.17,7.05,5.00,BA,300299,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.08,6.44,5.00,BA,300300,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.17,6.95,5.00,BA,300301,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.08,6.49,5.00,BA,300302,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.17,6.69,5.00,BA,300303,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.25,6.78,5.00,BA,300304,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.08,6.36,5.00,BA,300305,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.17,6.40,5.00,BA,300306,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.25,6.46,5.00,BA,300307,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.08,6.21,5.00,BA,300308,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.17,6.25,5.00,BA,300309,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.25,6.21,5.00,BA,300310,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.00,124.17,6.15,5.00,BA,300311,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.00,124.25,6.23,5.00,BA,300312,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.00,124.33,6.19,5.00,BA,300313,nan,nan,nan,nan,nan,nan,nan,nan,bath
+4.92,124.17,6.16,5.00,BA,300314,nan,nan,nan,nan,nan,nan,nan,nan,bath
+4.92,124.25,6.15,5.00,BA,300315,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,123.92,5.64,5.00,BA,300316,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,124.00,5.38,5.00,BA,300317,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,124.00,5.44,5.00,BA,300318,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,124.08,5.44,5.00,BA,300319,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.08,5.82,5.00,BA,300320,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.08,6.06,5.00,BA,300321,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.17,5.95,5.00,BA,300322,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.17,6.39,5.00,BA,300323,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.25,6.47,5.00,BA,300324,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.17,6.82,5.00,BA,300325,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.25,6.71,5.00,BA,300326,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.25,7.05,5.00,BA,300327,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.33,6.76,5.00,BA,300328,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.25,7.12,5.00,BA,300329,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.33,6.98,5.00,BA,300330,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.33,6.46,5.00,BA,300331,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.42,6.92,5.00,BA,300332,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.33,6.48,5.00,BA,300333,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.42,6.53,5.00,BA,300334,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.33,6.29,5.00,BA,300335,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.42,6.29,5.00,BA,300336,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.50,6.42,5.00,BA,300337,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.00,124.42,6.28,5.00,BA,300338,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.17,123.92,5.87,5.00,BA,300339,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.08,124.00,4.74,5.00,BA,300340,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.00,124.08,4.34,5.00,BA,300341,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,124.08,5.61,5.00,BA,300342,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,124.17,5.43,5.00,BA,300343,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,124.17,5.48,5.00,BA,300344,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.17,5.76,5.00,BA,300345,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.25,5.94,5.00,BA,300346,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.25,6.11,5.00,BA,300347,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.33,6.17,5.00,BA,300348,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.33,6.20,5.00,BA,300349,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.42,6.42,5.00,BA,300350,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.33,6.49,5.00,BA,300351,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.42,6.31,5.00,BA,300352,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.50,6.56,5.00,BA,300353,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.42,6.84,5.00,BA,300354,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.50,6.97,5.00,BA,300355,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.58,6.80,5.00,BA,300356,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.42,6.99,5.00,BA,300357,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.50,7.09,5.00,BA,300358,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.58,7.05,5.00,BA,300359,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.50,6.90,5.00,BA,300360,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.58,6.90,5.00,BA,300361,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.67,7.02,5.00,BA,300362,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.50,6.81,5.00,BA,300363,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.58,6.67,5.00,BA,300364,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.67,6.92,5.00,BA,300365,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.75,7.07,5.00,BA,300366,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.08,124.58,5.77,5.00,BA,300367,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,124.25,5.67,5.00,BA,300368,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.83,124.33,5.61,5.00,BA,300369,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.33,5.98,5.00,BA,300370,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.42,5.86,5.00,BA,300371,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.42,6.27,5.00,BA,300372,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.50,6.14,5.00,BA,300373,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.50,6.44,5.00,BA,300374,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.58,6.46,5.00,BA,300375,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.58,6.43,5.00,BA,300376,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.67,6.05,5.00,BA,300377,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.67,6.89,5.00,BA,300378,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.75,6.49,5.00,BA,300379,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.67,7.15,5.00,BA,300380,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.75,6.94,5.00,BA,300381,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.83,7.28,5.00,BA,300382,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.75,7.22,5.00,BA,300383,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.83,7.08,5.00,BA,300384,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.25,124.92,6.52,5.00,BA,300385,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.17,124.83,7.12,5.00,BA,300386,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.92,124.25,5.20,5.00,BA,300387,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.50,5.73,5.00,BA,300388,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.58,6.37,5.00,BA,300389,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.67,5.86,5.00,BA,300390,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.75,5.55,5.00,BA,300391,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.83,5.77,5.00,BA,300392,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.42,124.92,5.80,5.00,BA,300393,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,124.92,5.60,5.00,BA,300394,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.33,125.00,5.35,5.00,BA,300395,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.67,5.91,5.00,BA,300396,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.75,5.58,5.00,BA,300397,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.83,5.62,5.00,BA,300398,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.50,124.92,5.64,5.00,BA,300399,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.75,124.58,5.26,5.00,BA,300400,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.75,5.69,5.00,BA,300401,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.58,124.83,5.66,5.00,BA,300402,nan,nan,nan,nan,nan,nan,nan,nan,bath
+5.67,124.83,5.81,5.00,BA,300403,nan,nan,nan,nan,nan,nan,nan,nan,bath
+6.20,123.90,7.52,8.22,AA,424369,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.20,124.00,7.51,8.16,AA,424469,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.30,123.90,7.53,8.28,AA,424370,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.40,123.80,7.51,8.16,AA,424271,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.60,123.70,7.51,8.16,AA,424173,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.70,123.70,7.52,8.22,AA,424174,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.80,123.70,7.51,8.16,AA,424175,nan,nan,nan,nan,nan,nan,nan,nan,nan
+7.00,123.60,7.50,8.16,AA,424077,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.90,124.40,7.50,8.16,AA,424866,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.00,124.20,7.50,8.16,AA,424667,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.00,124.30,7.47,8.16,AA,424767,nan,nan,nan,nan,nan,nan,nan,nan,nan
+6.10,124.10,7.39,7.58,AA,424568,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.30,125.00,7.50,8.16,AA,425460,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.40,125.00,7.50,8.16,AA,425461,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.50,125.00,7.50,8.16,AA,425462,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.70,124.90,7.50,8.16,AA,425364,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.80,124.60,7.50,8.16,AA,425065,nan,nan,nan,nan,nan,nan,nan,nan,nan
+5.80,124.70,7.45,8.04,AA,425165,nan,nan,nan,nan,nan,nan,nan,nan,nan

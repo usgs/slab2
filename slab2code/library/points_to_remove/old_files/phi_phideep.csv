@@ -1,0 +1,5 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,ID,src
+11.600,125.213,238.500,15.000,EQ,4.500,1988-01-02 16:28:34.740,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103008,05-18-17
+12.182,125.147,230.700,15.000,EQ,4.400,1998-08-16 21:09:15.090,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103140,05-18-17
+12.165,125.188,232.800,15.000,EQ,4.100,1992-05-30 13:39:11.660,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103094,05-18-17
+11.966,125.324,219.200,15.000,EQ,4.300,1996-04-15 06:00:47.070,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103047,05-18-17

@@ -1,0 +1,7 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,ID,src
+27.839,140.493,664.0,15.0,EQ,7.8,2015-05-30 11:23:02.110,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106936,2017-03-10
+27.808,140.985,673.19,15.0,EQ,4.4,2015-05-30 11:40:54.820,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106937,2017-03-10
+27.843,140.612,683.36,15.0,EQ,4.5,2015-05-30 12:10:13.540,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106938,2017-03-10
+27.85,140.568,686.39,15.0,EQ,4.0,2015-05-30 12:46:27.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106939,2017-03-10
+27.883,140.71,685.99,15.0,EQ,4.0,2015-06-04 19:59:44.720,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106941,2017-03-10
+27.879,140.576,677.64,15.0,EQ,4.9,2015-06-02 21:04:29.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106940,2017-03-10

@@ -1,0 +1,6 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,mlon,mlat,mdep,ID,src
+48.003,-118.834,319.158,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500384,BSL14
+47.800,-118.820,317.394,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500379,BSL14
+48.203,-118.971,335.775,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500395,BSL14
+47.600,-119.002,304.269,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500372,BSL14
+47.599,-118.791,314.012,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500373,BSL14

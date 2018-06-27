@@ -1,0 +1,145 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,ID,src
+3.620,-74.493,135.000,15.000,EQ,4.300,1977-03-16 16:29:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702812,iscgem-cc
+3.326,-74.120,157.000,15.000,EQ,3.900,1973-12-11 00:41:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702078,iscgem-cc
+-23.169,-61.466,565.200,7.800,EQ,6.510,1989-02-28 13:01:58,246.963,66.296,88.870,22.163,194.041,23.907,290.045,352.284,67.623,-98.639,6700129,iscgem-cc
+-23.113,-61.465,569.000,15.000,EQ,6.500,1989-02-28 13:01:57,246.939,66.304,88.859,22.154,194.029,23.916,290.045,352.271,67.614,-98.643,6700842,iscgem-cc
+4.914,-73.342,72.000,15.000,EQ,4.500,1974-06-21 02:58:24,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702189,iscgem-cc
+4.610,-74.181,90.700,15.000,EQ,nan,1984-03-15 02:07:14,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6705137,iscgem-cc
+3.256,-74.369,68.900,15.000,EQ,4.000,1998-04-22 00:57:33,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6715114,iscgem-cc
+4.540,-73.986,71.000,15.000,EQ,4.400,1974-07-07 01:53:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702203,iscgem-cc
+2.831,-73.994,103.100,15.000,EQ,3.900,1994-01-06 21:19:03,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6711687,iscgem-cc
+-11.615,-73.462,307.671,0.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7901533,ACS16
+38.550,136.934,384.400,15.000,EQ,3.900,2007-06-19 22:44:24,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,507382,iscgem-cc
+62.100,-146.260,200.000,15.000,EQ,0.000,2004-05-16 00:24:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1710407,iscgem-cc
+62.623,-145.543,200.100,15.000,EQ,1.600,2013-03-02 17:52:03,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1715593,iscgem-cc
+62.770,-145.018,172.800,15.000,EQ,2.300,2015-07-02 01:26:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1733138,iscgem-cc
+53.170,178.812,114.800,15.000,EQ,3.200,2015-04-11 11:42:51,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1731191,iscgem-cc
+54.762,170.853,40.000,15.000,EQ,4.200,1974-04-14 04:07:19,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1735096,iscgem-cc
+53.323,179.677,70.500,15.000,EQ,2.300,2013-07-05 08:55:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1717863,iscgem-cc
+53.056,179.401,130.700,15.000,EQ,4.400,2013-07-14 11:19:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1718018,iscgem-cc
+52.875,-179.907,147.500,15.000,EQ,3.500,2013-06-08 03:33:12,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1717425,iscgem-cc
+53.664,-175.121,137.000,15.000,EQ,2.500,2009-10-31 13:15:26,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1713067,iscgem-cc
+53.404,-174.211,162.500,15.000,EQ,3.100,2012-04-17 01:37:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1714586,iscgem-cc
+53.260,-173.630,172.200,15.000,EQ,2.600,2014-03-21 22:43:12,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1722430,iscgem-cc
+53.186,-174.478,167.600,15.000,EQ,2.600,2015-01-16 05:14:40,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1729138,iscgem-cc
+53.713,-173.995,215.800,15.000,EQ,3.900,2014-01-24 09:29:10,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1721299,iscgem-cc
+54.075,-171.030,126.500,15.000,EQ,3.000,2013-03-15 21:37:50,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1715848,iscgem-cc
+57.852,-158.382,111.000,15.000,EQ,nan,2001-09-27 10:07:56,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709214,iscgem-cc
+62.262,-154.328,98.600,15.000,EQ,2.800,2012-04-01 14:12:12,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1714545,iscgem-cc
+61.981,-153.945,103.500,15.000,EQ,nan,2002-05-10 19:19:59,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709513,iscgem-cc
+61.950,-153.807,89.600,15.000,EQ,1.300,2014-10-07 20:49:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1727081,iscgem-cc
+64.659,-153.456,99.800,15.000,EQ,2.300,2014-05-14 13:22:46,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1723752,iscgem-cc
+64.421,-153.640,93.300,15.000,EQ,nan,2002-06-10 05:41:54,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709560,iscgem-cc
+63.248,-151.844,89.400,15.000,EQ,nan,1982-12-30 10:09:16,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1701523,iscgem-cc
+63.358,-151.781,84.300,15.000,EQ,nan,1987-06-05 02:29:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1702624,iscgem-cc
+63.271,-152.598,118.600,15.000,EQ,nan,2001-08-26 08:59:19,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709180,iscgem-cc
+63.285,-152.937,127.900,15.000,EQ,0.000,2003-04-27 21:32:52,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709869,iscgem-cc
+64.539,-152.308,58.900,15.000,EQ,3.500,1990-03-27 09:40:42,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1737795,iscgem-cc
+64.424,-152.161,53.000,15.000,EQ,nan,1977-02-20 08:21:46,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1735519,iscgem-cc
+54.603,152.614,647.900,7.600,EQ,6.060,1988-08-14 10:56:59,268.066,42.738,84.935,47.220,176.562,87.758,88.437,31.454,2.733,124.862,500091,iscgem-cc
+54.878,153.126,600.700,15.000,EQ,4.000,2013-05-26 12:41:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,508619,iscgem-cc
+52.235,151.444,624.000,15.000,EQ,6.700,2013-05-24 14:56:31,286.687,66.133,124.907,22.795,228.150,22.986,287.377,29.375,68.119,-97.220,500927,iscgem-cc
+52.990,176.804,40.000,15.000,EQ,3.200,2011-05-02 16:20:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1761596,iscgem-cc
+52.588,177.957,36.100,15.000,EQ,3.300,2003-12-02 11:03:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1747635,iscgem-cc
+52.542,178.469,45.400,15.000,EQ,4.100,1998-09-26 05:20:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1742773,iscgem-cc
+52.506,178.261,37.200,15.000,EQ,2.800,2013-06-06 09:51:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1771446,iscgem-cc
+52.725,176.042,73.300,15.000,EQ,3.300,2012-11-28 23:17:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1714991,iscgem-cc
+52.830,175.284,60.800,15.000,EQ,2.700,2014-08-21 22:20:38,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1795983,iscgem-cc
+52.732,177.062,120.800,15.000,EQ,2.700,2014-08-20 10:03:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1726075,iscgem-cc
+52.407,178.574,73.600,15.000,EQ,3.000,2014-04-09 07:33:14,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1722908,iscgem-cc
+52.635,177.124,85.300,15.000,EQ,4.300,1984-01-14 11:04:21,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1701669,iscgem-cc
+52.286,178.538,40.000,15.000,EQ,3.400,2011-10-23 04:43:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1762923,iscgem-cc
+50.821,144.047,474.400,15.000,EQ,4.100,1993-11-10 23:06:31,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,303352,iscgem-cc
+49.800,145.064,583.200,15.000,EQ,7.700,2012-08-14 02:59:38,318.150,15.345,188.033,66.933,241.983,62.390,109.031,25.323,33.103,58.057,300907,iscgem-cc
+32.998,135.091,155.100,15.000,EQ,nan,2003-01-23 08:03:28,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3500154,iscgem-cc
+33.582,135.164,300.000,10.000,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3701065,hyu
+35.723,134.673,309.700,15.000,EQ,nan,1997-09-30 07:13:25,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3500060,iscgem-cc
+63.475,-151.341,76.000,15.000,EQ,nan,1974-02-24 08:44:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,300354,iscgem-cc
+55.791,-163.447,129.700,15.000,EQ,2.800,2009-03-03 09:23:27,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,312670,iscgem-cc
+59.442,-156.008,86.700,15.000,EQ,nan,1982-09-26 19:57:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301482,iscgem-cc
+59.417,-155.993,78.000,15.000,EQ,1.900,2013-09-11 13:55:52,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,318872,iscgem-cc
+59.442,-156.008,86.700,15.000,EQ,nan,1982-09-26 19:57:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301482,iscgem-cc
+56.458,157.956,122.700,15.000,EQ,4.300,2012-05-27 15:50:30,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,308337,iscgem-cc
+56.322,158.413,92.100,15.000,EQ,4.300,1990-09-12 10:18:22,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302956,iscgem-cc
+34.068,135.421,79.000,15.000,EQ,nan,1986-02-28 16:05:10,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302500,iscgem-cc
+34.149,135.524,80.100,15.000,EQ,nan,1985-01-05 15:46:35,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3500020,iscgem-cc
+46.535,142.200,301.000,15.000,EQ,5.000,1976-08-12 23:29:08,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301379,iscgem-cc
+46.387,142.345,302.800,15.000,EQ,4.600,1983-04-25 13:55:58,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302136,iscgem-cc
+-18.221,-63.482,59.000,15.000,EQ,4.800,1979-02-15 06:27:36,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7528108.000,iscgem-cc
+-18.158,-63.525,57.000,15.000,EQ,5.000,1973-09-27 12:36:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7527627.000,iscgem-cc
+-18.081,-63.602,66.100,15.000,EQ,4.800,1988-09-20 14:13:35,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7529163.000,iscgem-cc
+-18.328,-63.587,73.100,15.000,EQ,4.500,2002-02-23 22:47:11,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7516037.000,iscgem-cc
+-18.157,-63.674,66.500,15.000,EQ,4.700,2002-01-27 18:24:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7536414.000,iscgem-cc
+-18.149,-63.767,53.100,15.000,EQ,4.700,1996-08-12 00:17:46,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7531171.000,iscgem-cc
+61.081,-153.343,97.200,15.000,EQ,1.600,2014-12-19 08:04:51,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,328564,iscgem-cc
+60.996,-153.163,94.600,15.000,EQ,2.000,2013-03-30 11:09:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,316093,iscgem-cc
+60.039,-154.578,157.000,15.000,EQ,nan,1980-01-08 19:17:52,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301084,iscgem-cc
+62.779,-151.862,89.200,15.000,EQ,1.200,2014-07-29 02:39:28,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,325741,iscgem-cc
+63.498,-151.280,112.680,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900024,kim
+63.413,-151.165,108.990,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900023,kim
+62.779,-151.862,89.200,15.000,EQ,1.200,2014-07-29 02:39:28,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,325741,iscgem-cc
+63.708,-150.540,97.900,15.000,EQ,1.100,2014-08-06 12:47:02,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,325851,iscgem-cc
+63.498,-151.280,112.680,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900024,kim
+63.325,-151.049,115.000,15.000,EQ,nan,1980-09-08 03:07:22,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301168,iscgem-cc
+64.284,-144.751,70.200,15.000,EQ,2.000,2014-08-28 04:59:04,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,326281,iscgem-cc
+64.475,-149.194,99.900,15.000,EQ,1.300,2013-11-17 14:44:11,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,319967,iscgem-cc
+52.428,177.850,19.700,15.000,EQ,3.500,2010-01-29 16:50:07,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,356593,iscgem-cc
+52.382,178.133,34.400,15.000,EQ,2.800,2011-08-08 06:29:07,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,362106,iscgem-cc
+52.245,178.773,69.600,15.000,EQ,2.900,2015-06-19 18:35:23,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,413287,iscgem-cc
+53.133,-174.830,194.200,15.000,EQ,3.400,2009-06-26 04:46:06,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,312849,iscgem-cc
+53.102,-174.885,155.500,15.000,EQ,2.600,2015-01-06 08:11:44,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,328966,iscgem-cc
+34.320,132.908,57.000,10.000,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3702293,hyu
+34.320,132.908,57.000,15.000,EQ,4.800,1979-04-09 13:12:54,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,313258,iscgem-cc
+34.579,132.915,79.700,15.000,EQ,3.900,1989-09-08 11:19:17,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302864,iscgem-cc
+37.547,129.603,56.500,10.000,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3701468,hyu
+55.630,-159.180,59.990,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900021,li5
+55.110,-158.880,29.840,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900015,li5
+55.200,-158.930,36.800,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900016,li5
+55.290,-158.980,41.620,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900017,li5
+55.370,-159.030,46.610,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900018,li5
+55.460,-159.080,51.430,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900019,li5
+55.540,-159.130,55.360,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900020,li5
+59.052,214.022,10.610,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300005,aka
+59.208,213.880,13.140,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300006,aka
+59.358,213.741,16.680,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300007,aka
+59.524,213.586,20.040,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300008,aka
+59.702,213.419,22.880,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300009,aka
+59.862,213.265,25.240,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300010,aka
+59.951,213.180,26.670,2.500,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300011,aka
+63.307,208.978,102.340,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900022,kim
+17.974,-95.111,39.500,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900000,teh
+17.878,-95.037,35.200,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900001,teh
+17.705,-95.071,30.900,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900002,teh
+18.400,-95.124,31.400,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900003,teh
+17.820,-95.067,35.200,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900004,teh
+17.908,-95.049,37.300,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900005,teh
+16.731,-94.995,32.400,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900006,teh
+18.111,-95.120,37.700,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900007,teh
+18.153,-95.118,30.600,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900008,teh
+17.752,-95.052,46.000,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900009,teh
+17.230,-95.059,41.100,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900010,teh
+18.584,-95.074,31.200,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900011,teh
+16.694,-94.958,33.800,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900012,teh
+18.018,-95.047,41.300,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900013,teh
+17.640,-95.089,45.800,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900014,teh
+18.459,-95.046,36.800,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900015,teh
+16.504,-95.059,30.500,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900016,teh
+16.564,-95.122,29.700,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900017,teh
+17.431,-95.024,37.100,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900018,teh
+16.450,-95.012,27.300,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900019,teh
+17.333,-95.050,33.300,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900020,teh
+18.238,-95.125,28.000,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900021,teh
+16.882,-95.036,33.800,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900022,teh
+16.633,-94.947,27.900,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900023,teh
+18.639,-95.094,23.500,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900024,teh
+17.527,-95.085,42.100,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900025,teh
+17.074,-95.046,29.300,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900026,teh
+16.764,-95.029,28.800,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900027,teh
+17.770,-95.070,35.500,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900028,teh
+16.208,-94.994,25.200,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900029,teh
+18.297,-95.117,27.400,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900030,teh
+18.504,-95.035,25.000,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900031,teh
+17.380,-94.989,39.500,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900032,teh
+17.195,-95.047,40.500,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900033,teh
+18.333,-95.098,27.900,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900034,teh
+63.133,209.209,95.690,10.000,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900021,kim

@@ -1,0 +1,679 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,ID,src
+3.62,-74.493,135.0,15.0,EQ,4.3,1977-03-16 16:29:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702812.0,iscgem-cc
+3.326,-74.12,157.0,15.0,EQ,3.9,1973-12-11 00:41:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702078.0,iscgem-cc
+-23.169,-61.466,565.2,7.8,EQ,6.51,1989-02-28 13:01:58,246.963,66.296,88.87,22.163,194.041,23.906999999999996,290.045,352.284,67.623,-98.639,6700129.0,iscgem-cc
+-23.113000000000003,-61.465,569.0,15.0,EQ,6.5,1989-02-28 13:01:57,246.93900000000002,66.304,88.859,22.154,194.02900000000002,23.916,290.045,352.27099999999996,67.61399999999999,-98.64299999999999,6700842.0,iscgem-cc
+4.914,-73.342,72.0,15.0,EQ,4.5,1974-06-21 02:58:24,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702189.0,iscgem-cc
+4.61,-74.181,90.7,15.0,EQ,nan,1984-03-15 02:07:14,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6705137.0,iscgem-cc
+3.2560000000000002,-74.369,68.9,15.0,EQ,4.0,1998-04-22 00:57:33,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6715114.0,iscgem-cc
+4.54,-73.986,71.0,15.0,EQ,4.4,1974-07-07 01:53:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6702203.0,iscgem-cc
+2.8310000000000004,-73.994,103.1,15.0,EQ,3.9,1994-01-06 21:19:03,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,6711687.0,iscgem-cc
+-11.615,-73.462,307.671,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7901533.0,ACS16
+38.55,136.934,384.4,15.0,EQ,3.9,2007-06-19 22:44:24,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,507382.0,iscgem-cc
+62.1,-146.26,200.0,15.0,EQ,0.0,2004-05-16 00:24:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1710407.0,iscgem-cc
+62.623000000000005,-145.543,200.1,15.0,EQ,1.6,2013-03-02 17:52:03,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1715593.0,iscgem-cc
+62.77,-145.018,172.8,15.0,EQ,2.3,2015-07-02 01:26:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1733138.0,iscgem-cc
+53.17,178.812,114.8,15.0,EQ,3.2,2015-04-11 11:42:51,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1731191.0,iscgem-cc
+54.762,170.85299999999998,40.0,15.0,EQ,4.2,1974-04-14 04:07:19,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1735096.0,iscgem-cc
+53.323,179.67700000000002,70.5,15.0,EQ,2.3,2013-07-05 08:55:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1717863.0,iscgem-cc
+53.056000000000004,179.40099999999998,130.7,15.0,EQ,4.4,2013-07-14 11:19:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1718018.0,iscgem-cc
+52.875,-179.907,147.5,15.0,EQ,3.5,2013-06-08 03:33:12,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1717425.0,iscgem-cc
+53.663999999999994,-175.12099999999998,137.0,15.0,EQ,2.5,2009-10-31 13:15:26,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1713067.0,iscgem-cc
+53.403999999999996,-174.21099999999998,162.5,15.0,EQ,3.1,2012-04-17 01:37:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1714586.0,iscgem-cc
+53.26,-173.63,172.2,15.0,EQ,2.6,2014-03-21 22:43:12,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1722430.0,iscgem-cc
+53.18600000000001,-174.47799999999998,167.6,15.0,EQ,2.6,2015-01-16 05:14:40,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1729138.0,iscgem-cc
+53.713,-173.995,215.8,15.0,EQ,3.9,2014-01-24 09:29:10,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1721299.0,iscgem-cc
+54.075,-171.03,126.5,15.0,EQ,3.0,2013-03-15 21:37:50,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1715848.0,iscgem-cc
+57.852,-158.382,111.0,15.0,EQ,nan,2001-09-27 10:07:56,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709214.0,iscgem-cc
+62.262,-154.328,98.6,15.0,EQ,2.8,2012-04-01 14:12:12,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1714545.0,iscgem-cc
+61.981,-153.945,103.5,15.0,EQ,nan,2002-05-10 19:19:59,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709513.0,iscgem-cc
+61.95,-153.80700000000002,89.6,15.0,EQ,1.3,2014-10-07 20:49:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1727081.0,iscgem-cc
+64.65899999999999,-153.45600000000002,99.8,15.0,EQ,2.3,2014-05-14 13:22:46,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1723752.0,iscgem-cc
+64.421,-153.64,93.3,15.0,EQ,nan,2002-06-10 05:41:54,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709560.0,iscgem-cc
+63.248000000000005,-151.844,89.4,15.0,EQ,nan,1982-12-30 10:09:16,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1701523.0,iscgem-cc
+63.358000000000004,-151.781,84.3,15.0,EQ,nan,1987-06-05 02:29:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1702624.0,iscgem-cc
+63.271,-152.59799999999998,118.6,15.0,EQ,nan,2001-08-26 08:59:19,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709180.0,iscgem-cc
+63.285,-152.937,127.9,15.0,EQ,0.0,2003-04-27 21:32:52,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1709869.0,iscgem-cc
+64.539,-152.308,58.9,15.0,EQ,3.5,1990-03-27 09:40:42,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1737795.0,iscgem-cc
+64.42399999999999,-152.161,53.0,15.0,EQ,nan,1977-02-20 08:21:46,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1735519.0,iscgem-cc
+54.603,152.614,647.9,7.6,EQ,6.06,1988-08-14 10:56:59,268.066,42.738,84.935,47.22,176.562,87.758,88.43700000000001,31.454,2.733,124.86200000000001,500091.0,iscgem-cc
+54.878,153.126,600.7,15.0,EQ,4.0,2013-05-26 12:41:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,508619.0,iscgem-cc
+52.235,151.444,624.0,15.0,EQ,6.7,2013-05-24 14:56:31,286.687,66.133,124.90700000000001,22.795,228.15,22.986,287.377,29.375,68.119,-97.22,500927.0,iscgem-cc
+52.99,176.804,40.0,15.0,EQ,3.2,2011-05-02 16:20:53,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1761596.0,iscgem-cc
+52.588,177.957,36.1,15.0,EQ,3.3,2003-12-02 11:03:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1747635.0,iscgem-cc
+52.542,178.46900000000002,45.4,15.0,EQ,4.1,1998-09-26 05:20:00,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1742773.0,iscgem-cc
+52.506,178.261,37.2,15.0,EQ,2.8,2013-06-06 09:51:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1771446.0,iscgem-cc
+52.725,176.042,73.3,15.0,EQ,3.3,2012-11-28 23:17:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1714991.0,iscgem-cc
+52.83,175.28400000000002,60.8,15.0,EQ,2.7,2014-08-21 22:20:38,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1795983.0,iscgem-cc
+52.732,177.062,120.8,15.0,EQ,2.7,2014-08-20 10:03:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1726075.0,iscgem-cc
+52.407,178.574,73.6,15.0,EQ,3.0,2014-04-09 07:33:14,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1722908.0,iscgem-cc
+52.635,177.12400000000002,85.3,15.0,EQ,4.3,1984-01-14 11:04:21,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1701669.0,iscgem-cc
+52.286,178.53799999999998,40.0,15.0,EQ,3.4,2011-10-23 04:43:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1762923.0,iscgem-cc
+50.821000000000005,144.047,474.4,15.0,EQ,4.1,1993-11-10 23:06:31,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,303352.0,iscgem-cc
+49.8,145.064,583.2,15.0,EQ,7.7,2012-08-14 02:59:38,318.15,15.345,188.033,66.933,241.983,62.39,109.031,25.323,33.103,58.056999999999995,300907.0,iscgem-cc
+32.998000000000005,135.091,155.1,15.0,EQ,nan,2003-01-23 08:03:28,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3500154.0,iscgem-cc
+33.582,135.164,300.0,10.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3701065.0,hyu
+35.723,134.673,309.7,15.0,EQ,nan,1997-09-30 07:13:25,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3500060.0,iscgem-cc
+63.475,-151.341,76.0,15.0,EQ,nan,1974-02-24 08:44:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,300354.0,iscgem-cc
+55.791000000000004,-163.447,129.7,15.0,EQ,2.8,2009-03-03 09:23:27,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,312670.0,iscgem-cc
+59.442,-156.00799999999998,86.7,15.0,EQ,nan,1982-09-26 19:57:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301482.0,iscgem-cc
+59.417,-155.993,78.0,15.0,EQ,1.9,2013-09-11 13:55:52,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,318872.0,iscgem-cc
+59.442,-156.00799999999998,86.7,15.0,EQ,nan,1982-09-26 19:57:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301482.0,iscgem-cc
+56.458,157.95600000000002,122.7,15.0,EQ,4.3,2012-05-27 15:50:30,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,308337.0,iscgem-cc
+56.321999999999996,158.41299999999998,92.1,15.0,EQ,4.3,1990-09-12 10:18:22,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302956.0,iscgem-cc
+34.068000000000005,135.421,79.0,15.0,EQ,nan,1986-02-28 16:05:10,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302500.0,iscgem-cc
+34.149,135.524,80.1,15.0,EQ,nan,1985-01-05 15:46:35,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3500020.0,iscgem-cc
+46.535,142.2,301.0,15.0,EQ,5.0,1976-08-12 23:29:08,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301379.0,iscgem-cc
+46.387,142.345,302.8,15.0,EQ,4.6,1983-04-25 13:55:58,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302136.0,iscgem-cc
+-18.221,-63.482,59.0,15.0,EQ,4.8,1979-02-15 06:27:36,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7528108.0,iscgem-cc
+-18.158,-63.525,57.0,15.0,EQ,5.0,1973-09-27 12:36:20,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7527627.0,iscgem-cc
+-18.081,-63.602,66.1,15.0,EQ,4.8,1988-09-20 14:13:35,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7529163.0,iscgem-cc
+-18.328,-63.586999999999996,73.1,15.0,EQ,4.5,2002-02-23 22:47:11,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7516037.0,iscgem-cc
+-18.157,-63.674,66.5,15.0,EQ,4.7,2002-01-27 18:24:57,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7536414.0,iscgem-cc
+-18.149,-63.766999999999996,53.1,15.0,EQ,4.7,1996-08-12 00:17:46,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,7531171.0,iscgem-cc
+61.081,-153.343,97.2,15.0,EQ,1.6,2014-12-19 08:04:51,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,328564.0,iscgem-cc
+60.996,-153.16299999999998,94.6,15.0,EQ,2.0,2013-03-30 11:09:01,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,316093.0,iscgem-cc
+60.038999999999994,-154.578,157.0,15.0,EQ,nan,1980-01-08 19:17:52,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301084.0,iscgem-cc
+62.778999999999996,-151.862,89.2,15.0,EQ,1.2,2014-07-29 02:39:28,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,325741.0,iscgem-cc
+63.498000000000005,-151.28,112.68,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900024.0,kim
+63.413000000000004,-151.165,108.99,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900023.0,kim
+62.778999999999996,-151.862,89.2,15.0,EQ,1.2,2014-07-29 02:39:28,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,325741.0,iscgem-cc
+63.708,-150.54,97.9,15.0,EQ,1.1,2014-08-06 12:47:02,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,325851.0,iscgem-cc
+63.498000000000005,-151.28,112.68,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900024.0,kim
+63.325,-151.049,115.0,15.0,EQ,nan,1980-09-08 03:07:22,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,301168.0,iscgem-cc
+64.28399999999999,-144.751,70.2,15.0,EQ,2.0,2014-08-28 04:59:04,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,326281.0,iscgem-cc
+64.475,-149.194,99.9,15.0,EQ,1.3,2013-11-17 14:44:11,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,319967.0,iscgem-cc
+52.428000000000004,177.85,19.7,15.0,EQ,3.5,2010-01-29 16:50:07,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,356593.0,iscgem-cc
+52.382,178.13299999999998,34.4,15.0,EQ,2.8,2011-08-08 06:29:07,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,362106.0,iscgem-cc
+52.245,178.773,69.6,15.0,EQ,2.9,2015-06-19 18:35:23,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,413287.0,iscgem-cc
+53.133,-174.83,194.2,15.0,EQ,3.4,2009-06-26 04:46:06,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,312849.0,iscgem-cc
+53.102,-174.885,155.5,15.0,EQ,2.6,2015-01-06 08:11:44,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,328966.0,iscgem-cc
+34.32,132.908,57.0,10.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3702293.0,hyu
+34.32,132.908,57.0,15.0,EQ,4.8,1979-04-09 13:12:54,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,313258.0,iscgem-cc
+34.579,132.915,79.7,15.0,EQ,3.9,1989-09-08 11:19:17,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302864.0,iscgem-cc
+37.547,129.60299999999998,56.5,10.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,3701468.0,hyu
+55.63,-159.18,59.99,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900021.0,li5
+55.11,-158.88,29.84,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900015.0,li5
+55.2,-158.93,36.8,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900016.0,li5
+55.29,-158.98,41.62,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900017.0,li5
+55.37,-159.03,46.61,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900018.0,li5
+55.46,-159.08,51.43,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900019.0,li5
+55.54,-159.13,55.36,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2900020.0,li5
+62.036,218.18,20.152,2.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,530771.0,fui
+61.96,215.321,66.797,1.5,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,545633.0,fui
+62.105,217.722,21.997,2.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,530239.0,fui
+62.16,217.638,20.250999999999998,1.8,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,531192.0,fui
+62.465,217.33599999999998,30.675,1.7,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,531151.0,fui
+62.757,216.797,49.98,1.8,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,514514.0,fui
+62.773,216.672,46.223,1.8,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,515952.0,fui
+62.909,216.321,32.726,1.5,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,515852.0,fui
+63.016999999999996,216.236,35.916,1.8,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,513859.0,fui
+63.141000000000005,216.803,45.817,1.6,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,516007.0,fui
+63.243,216.743,36.614000000000004,1.8,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,516100.0,fui
+65.833,215.125,94.11200000000001,2.2,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,506883.0,fui
+65.91199999999999,214.888,107.301,2.3,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,506882.0,fui
+62.08,218.13,19.6,15.0,EQ,1.9,2013-02-01 06:14:42,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,380698.0,cc
+62.099,218.174,21.4,15.0,EQ,1.1,2015-03-31 19:13:16,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,411625.0,cc
+62.117,218.12400000000002,20.9,15.0,EQ,1.1,2015-05-16 23:43:15,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,413618.0,cc
+62.117,218.053,19.0,15.0,EQ,0.8,2015-02-27 20:55:59,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,410216.0,cc
+62.173,218.227,21.7,15.0,EQ,3.4,2007-07-19 21:18:37,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,371292.0,cc
+62.613,217.213,76.0,15.0,EQ,4.3,1978-11-15 18:09:24,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,302350.0,cc
+62.672,216.938,37.1,15.0,EQ,1.1,2014-01-08 10:48:24,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,337695.0,cc
+62.803999999999995,216.976,37.6,15.0,EQ,2.5,2014-09-06 06:20:38,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,347231.0,cc
+62.815,217.021,33.6,15.0,EQ,2.0,2014-04-07 20:52:17,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,341116.0,cc
+62.81,216.755,34.6,15.0,EQ,1.8,2014-04-07 21:07:22,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,341117.0,cc
+62.206,214.66400000000002,28.98,2.2,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,513319.0,fui
+62.203,214.702,29.395,2.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,513320.0,fui
+62.24,215.518,60.0,15.0,EQ,1.6,2016-08-20 05:03:36.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,121872.0,2017-03-10
+62.413000000000004,216.77700000000002,32.6,15.0,EQ,0.7,2016-06-22 08:22:22.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,121877.0,2017-03-10
+62.318999999999996,215.18200000000002,40.2,15.0,EQ,2.3,2014-04-28 23:07:42.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,121868.0,2017-03-10
+59.052,214.02200000000002,10.61,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300005.0,aka
+59.208,213.88,13.14,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300006.0,aka
+59.358000000000004,213.74099999999999,16.68,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300007.0,aka
+59.523999999999994,213.58599999999998,20.04,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300008.0,aka
+59.702,213.419,22.88,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300009.0,aka
+59.861999999999995,213.265,25.24,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300010.0,aka
+59.951,213.18,26.67,2.5,AS,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1300011.0,aka
+63.306999999999995,208.97799999999998,102.34,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900022.0,kim
+17.974,-95.111,39.5,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900000.0,teh
+17.878,-95.037,35.2,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900001.0,teh
+17.705,-95.071,30.9,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900002.0,teh
+18.4,-95.124,31.4,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900003.0,teh
+17.82,-95.06700000000001,35.2,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900004.0,teh
+17.908,-95.04899999999999,37.3,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900005.0,teh
+16.730999999999998,-94.995,32.4,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900006.0,teh
+18.111,-95.12,37.7,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900007.0,teh
+18.153,-95.118,30.6,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900008.0,teh
+17.752,-95.052,46.0,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900009.0,teh
+17.23,-95.059,41.1,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900010.0,teh
+18.584,-95.074,31.2,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900011.0,teh
+16.694000000000003,-94.958,33.8,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900012.0,teh
+18.018,-95.04700000000001,41.3,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900013.0,teh
+17.64,-95.089,45.8,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900014.0,teh
+18.459,-95.046,36.8,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900015.0,teh
+16.504,-95.059,30.5,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900016.0,teh
+16.564,-95.12200000000001,29.7,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900017.0,teh
+17.430999999999997,-95.024,37.1,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900018.0,teh
+16.45,-95.012,27.3,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900019.0,teh
+17.333,-95.05,33.3,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900020.0,teh
+18.238,-95.125,28.0,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900021.0,teh
+16.882,-95.036,33.8,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900022.0,teh
+16.633,-94.947,27.9,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900023.0,teh
+18.639,-95.094,23.5,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900024.0,teh
+17.527,-95.085,42.1,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900025.0,teh
+17.074,-95.046,29.3,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900026.0,teh
+16.764,-95.029,28.8,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900027.0,teh
+17.77,-95.07,35.5,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900028.0,teh
+16.208,-94.994,25.2,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900029.0,teh
+18.297,-95.117,27.4,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900030.0,teh
+18.504,-95.035,25.0,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900031.0,teh
+17.38,-94.98899999999999,39.5,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900032.0,teh
+17.195,-95.04700000000001,40.5,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900033.0,teh
+18.333,-95.098,27.9,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900034.0,teh
+63.133,209.209,95.69,10.0,RF,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,900021.0,kim
+19.367,-96.25,76.0,15.0,EQ,4.5,1974-07-25 09:53:38.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100198.0,2017-03-10
+19.008,-96.10600000000001,130.8,15.0,EQ,4.4,1987-08-14 09:40:32.460,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100199.0,2017-03-10
+19.22,-97.2,97.1,15.0,EQ,4.1,2002-01-21 18:15:34.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103826.0,2017-03-10
+18.528,-95.757,72.9,15.0,EQ,4.7,2005-11-14 07:43:41.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104192.0,2017-03-10
+7.16,-72.132,70.0,15.0,EQ,5.1,1977-07-19 13:04:11.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100596.0,2017-03-10
+6.539,-72.225,121.5,15.0,EQ,3.8,2000-02-08 14:24:23.160,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101559.0,2017-03-10
+7.284,-72.585,103.9,15.0,EQ,4.1,1998-12-28 11:01:24.250,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100627.0,2017-03-10
+7.2620000000000005,-72.314,117.0,15.0,EQ,5.1,1976-10-27 11:29:45.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100594.0,2017-03-10
+6.5,-71.999,102.4,15.0,EQ,4.5,2001-01-03 17:21:08.770,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101579.0,2017-03-10
+7.182,-72.087,55.5,15.0,EQ,3.8,2007-06-19 23:39:15.480,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104121.0,2017-03-10
+6.888999999999999,-72.035,52.0,15.0,EQ,4.8,1985-08-13 17:03:23.640,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101346.0,2017-03-10
+7.081,-72.055,53.2,15.0,EQ,4.2,2007-06-20 08:14:16.520,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104122.0,2017-03-10
+7.119,-72.057,61.6,15.0,EQ,3.7,2007-06-19 22:27:09.730,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104120.0,2017-03-10
+7.105,-72.02600000000001,56.73,15.0,EQ,4.4,2015-04-15 05:56:58.480,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104125.0,2017-03-10
+6.607,-71.926,59.0,15.0,EQ,4.4,1977-04-07 01:24:27.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101572.0,2017-03-10
+6.901,-71.956,48.9,15.0,EQ,nan,1984-06-20 01:35:24.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101575.0,2017-03-10
+7.438,-72.01899999999999,66.0,15.0,EQ,4.8,1977-01-26 05:43:21.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100595.0,2017-03-10
+6.431,-71.834,53.4,15.0,EQ,4.3,2006-05-22 00:35:19.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105260.0,2017-03-10
+6.832000000000001,-71.862,48.8,15.0,EQ,4.1,2007-05-27 06:49:56.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105261.0,2017-03-10
+7.129,-71.899,120.2,15.0,EQ,4.2,1984-07-24 09:17:08.510,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100637.0,2017-03-10
+7.489,-71.916,59.0,15.0,EQ,4.7,1976-05-09 05:54:13.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100633.0,2017-03-10
+7.2410000000000005,-71.891,51.0,15.0,EQ,5.4,1980-02-21 03:44:24.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100634.0,2017-03-10
+7.419,-71.919,60.4,15.0,EQ,4.6,1982-08-28 05:58:55.710,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100635.0,2017-03-10
+6.689,-71.696,43.8,15.0,EQ,5.1,1984-04-24 14:09:45.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101573.0,2017-03-10
+7.15,-71.775,65.2,15.0,EQ,0.0,2004-04-07 18:34:42.080,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104127.0,2017-03-10
+6.504,-71.652,54.99,15.0,EQ,4.6,2014-03-10 13:51:05.620,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105264.0,2017-03-10
+7.331,-71.689,53.6,15.0,EQ,4.1,1993-08-07 12:26:15.620,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100640.0,2017-03-10
+6.55,-71.527,62.2,15.0,EQ,nan,1984-04-24 14:56:40.170,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101574.0,2017-03-10
+7.327999999999999,-71.53699999999999,64.3,15.0,EQ,4.6,1993-08-05 17:58:39.610,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100639.0,2017-03-10
+6.542000000000001,-71.663,53.887,3.1,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1101145.0,col
+7.835,-72.27,71.4,15.0,EQ,4.4,2006-08-31 22:50:50.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104115.0,2017-03-10
+7.769,-71.946,43.03,15.0,EQ,4.0,2015-03-16 13:48:40.960,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104128.0,2017-03-10
+8.062000000000001,-71.954,47.5,15.0,EQ,4.3,2007-05-19 08:55:43.320,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103515.0,2017-03-10
+8.119,-71.936,43.1,15.0,EQ,5.1,1983-06-15 08:33:24.570,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100445.0,2017-03-10
+8.142999999999999,-71.905,56.7,15.0,EQ,4.5,1990-07-04 06:05:10.340,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100447.0,2017-03-10
+8.111,-71.87100000000001,46.8,15.0,EQ,4.8,1983-06-15 08:33:18.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100444.0,2017-03-10
+7.976,-71.635,53.2,15.0,EQ,3.9,2004-02-22 12:17:39.830,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104126.0,2017-03-10
+10.242,-70.566,167.5,15.0,EQ,nan,1991-10-07 06:18:05.470,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100388.0,2017-03-10
+9.037,-69.94800000000001,51.0,15.0,EQ,5.6,1975-03-05 13:48:00.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100410.0,2017-03-10
+9.173,-69.845,44.0,15.0,EQ,4.8,1975-03-06 02:01:21.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100411.0,2017-03-10
+9.758,-69.327,64.0,15.0,EQ,4.1,1976-04-20 00:54:23.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100412.0,2017-03-10
+9.676,-69.741,48.0,15.0,EQ,4.4,1974-01-23 21:04:17.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100409.0,2017-03-10
+10.9,-72.29,127.8,15.0,EQ,4.7,2015-08-09 19:36:18.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103138.0,2017-03-10
+10.792,-71.749,215.0,15.0,EQ,nan,1976-09-19 01:30:09.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100387.0,2017-03-10
+10.242,-70.566,167.5,15.0,EQ,nan,1991-10-07 06:18:05.470,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100388.0,2017-03-10
+11.128,-70.63600000000001,110.9,15.0,EQ,4.1,2004-03-12 11:03:44.780,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103045.0,2017-03-10
+11.049000000000001,-72.123,76.852,3.6,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1100465.0,col
+11.210999999999999,-72.117,83.226,3.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1100784.0,col
+11.258,-71.633,81.948,3.0,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1100300.0,col
+9.287,-70.64699999999999,42.0,15.0,EQ,4.6,1974-09-20 14:47:58.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100406.0,2017-03-10
+8.447000000000001,-70.57,65.1,15.0,EQ,4.4,1982-05-25 06:59:55.280,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100448.0,2017-03-10
+8.117,-72.527,53.6,15.0,EQ,5.4,1981-10-18 04:31:02.740,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100439.0,2017-03-10
+8.045,-72.441,40.0,15.0,EQ,5.0,1980-11-26 17:35:39.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100438.0,2017-03-10
+7.8389999999999995,-72.62899999999999,77.6,15.0,EQ,4.1,1999-02-21 22:06:18.980,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100628.0,2017-03-10
+7.957000000000001,-72.054,46.4,15.0,EQ,4.7,1989-02-04 18:32:13.080,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100606.0,2017-03-10
+7.769,-71.946,43.03,15.0,EQ,4.0,2015-03-16 13:48:40.960,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104128.0,2017-03-10
+7.653,-72.197,53.5,15.0,EQ,5.5,1982-07-04 06:16:08.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100600.0,2017-03-10
+7.489,-71.916,59.0,15.0,EQ,4.7,1976-05-09 05:54:13.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100633.0,2017-03-10
+7.479,-71.986,49.3,15.0,EQ,4.8,1994-07-05 10:36:44.920,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100642.0,2017-03-10
+7.426,-72.509,78.9,15.0,EQ,4.8,1982-12-01 17:28:46.860,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100602.0,2017-03-10
+7.3229999999999995,-72.294,66.9,15.0,EQ,4.2,1998-02-17 16:06:31.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100624.0,2017-03-10
+7.2,-72.382,49.6,15.0,EQ,4.9,1982-11-16 00:50:13.380,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100601.0,2017-03-10
+7.18,-72.209,49.6,15.0,EQ,4.1,2007-06-21 13:34:52.870,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104123.0,2017-03-10
+7.102,-72.27199999999999,51.4,15.0,EQ,4.6,1988-12-24 17:57:59.110,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100603.0,2017-03-10
+6.962999999999999,-72.14399999999999,45.0,15.0,EQ,5.1,1978-08-08 02:58:36.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101239.0,2017-03-10
+6.917000000000001,-72.13600000000001,42.7,15.0,EQ,4.8,1987-01-20 03:59:02.590,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101359.0,2017-03-10
+6.75,-71.949,40.5,15.0,EQ,5.0,1990-10-27 16:31:21.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101578.0,2017-03-10
+6.537000000000001,-71.7,42.86,15.0,EQ,5.4,2014-02-17 09:41:36.170,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105263.0,2017-03-10
+6.379,-72.37899999999999,41.0,15.0,EQ,5.1,1978-01-21 08:19:30.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101231.0,2017-03-10
+6.237,-72.203,59.7,15.0,EQ,3.6,2005-08-07 12:01:50.820,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,104956.0,2017-03-10
+6.19,-72.143,90.0,15.0,EQ,4.3,1974-12-30 10:09:03.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101193.0,2017-03-10
+5.787999999999999,-72.553,51.0,15.0,EQ,4.3,1976-03-10 05:00:47.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101648.0,2017-03-10
+5.521,-71.872,63.6,15.0,EQ,4.2,1995-10-11 00:38:01.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101659.0,2017-03-10
+5.593999999999999,-72.48,42.0,15.0,EQ,4.6,1975-04-01 23:05:32.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101647.0,2017-03-10
+5.518,-72.702,70.6,15.0,EQ,4.6,1997-05-11 13:20:53.910,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101655.0,2017-03-10
+5.306,-72.637,57.2,15.0,EQ,4.7,1993-06-15 12:58:58.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101650.0,2017-03-10
+5.3,-72.95,43.0,15.0,EQ,3.7,1995-01-22 11:43:38.240,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101651.0,2017-03-10
+5.199,-72.707,62.1,15.0,EQ,4.4,2007-07-08 04:29:38.650,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105571.0,2017-03-10
+5.181,-72.949,54.0,15.0,EQ,4.3,1995-01-22 18:06:37.790,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101652.0,2017-03-10
+5.114,-72.917,53.7,15.0,EQ,4.8,1995-07-05 18:17:03.750,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101654.0,2017-03-10
+5.092,-72.979,57.0,15.0,EQ,4.4,2012-01-31 14:52:48.890,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105574.0,2017-03-10
+5.1160000000000005,-72.707,67.0,15.0,EQ,4.5,1974-12-24 14:04:08.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101646.0,2017-03-10
+5.079,-72.75399999999999,68.0,15.0,EQ,4.8,1973-06-10 03:01:56.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,101645.0,2017-03-10
+63.036,215.775,31.471,1.5,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,515702.0,fui
+63.145,216.486,30.0,15.0,EQ,2.6,2004-12-13 00:53:49.280,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,111237.0,2017-03-10
+62.998000000000005,215.017,31.1,15.0,EQ,1.7,2015-10-04 08:05:05.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,121869.0,2017-03-10
+63.136,215.75599999999997,40.0,15.0,EQ,1.3,2016-08-19 12:55:46.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,111236.0,2017-03-10
+2.852,-75.367,83.0,15.0,EQ,4.0,1975-03-31 01:42:32.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,139122.0,2017-05-05
+2.7739999999999996,-75.283,86.0,15.0,EQ,4.6,1974-12-08 14:54:34.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,139121.0,2017-05-05
+2.8139999999999996,-75.255,60.0,15.0,EQ,3.7,1991-10-27 13:55:12.960,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,135457.0,2017-05-05
+2.855,-75.01100000000001,60.2,15.0,EQ,4.4,2003-08-12 05:37:06.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124984.0,2017-05-05
+2.373,-75.311,62.7,15.0,EQ,4.7,1982-05-14 01:18:47.960,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,139125.0,2017-05-05
+2.8489999999999998,-74.798,55.0,15.0,EQ,7.0,1967-02-09 15:24:49.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,139847.0,2017-05-05
+3.322,-74.37100000000001,65.7,15.0,EQ,3.3,2006-07-19 03:53:13.810,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,125036.0,2017-05-05
+2.181,-74.595,61.5,15.0,EQ,3.9,1996-03-26 05:54:49.970,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,135461.0,2017-05-05
+4.502,-74.99600000000001,85.9,15.0,EQ,3.9,1993-01-25 12:58:51.520,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,135605.0,2017-05-05
+3.322,-74.37100000000001,65.7,15.0,EQ,3.3,2006-07-19 03:53:13.810,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,125036.0,2017-05-05
+-45.797,-72.267,58.6,15.0,EQ,4.6,2007-11-10 11:48:37.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102208.0,2017-05-05
+-45.419,-72.719,58.8,15.0,EQ,4.7,2007-04-02 09:04:52.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102205.0,2017-05-05
+-45.24,-72.686,54.9,15.0,EQ,4.6,2007-04-11 05:50:46.250,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102206.0,2017-05-05
+-45.211999999999996,-72.55,59.7,15.0,EQ,4.7,2007-04-19 14:36:30.330,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102207.0,2017-05-05
+-39.646,-70.336,356.30699999999996,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500018.0,JDP14
+-39.633,-70.204,380.67699999999996,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500019.0,JDP14
+-38.781,-69.958,290.307,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500128.0,JDP14
+-38.785,-69.781,304.85900000000004,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500129.0,JDP14
+-39.658,-70.46300000000001,331.936,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500017.0,JDP14
+-39.236999999999995,-70.281,355.147,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500069.0,JDP14
+-38.997,-70.118,324.228,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500097.0,JDP14
+-39.441,-70.28399999999999,351.11800000000005,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500042.0,JDP14
+-39.452,-70.517,299.356,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500040.0,JDP14
+-39.457,-70.50399999999999,344.486,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500041.0,JDP14
+-38.996,-70.342,318.921,0.0,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,8500096.0,JDP14
+-1.58,123.446,43.8,15.0,EQ,4.4,1990-02-01 03:38:48.020,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,122090.0,05-18-17
+-1.4140000000000001,123.65,69.7,15.0,EQ,4.5,1999-11-07 08:53:50.970,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,122091.0,05-18-17
+-1.976,124.48200000000001,64.7,15.0,EQ,4.2,1998-12-18 01:57:35.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,122092.0,05-18-17
+-1.883,124.52,35.7,15.0,EQ,4.8,1999-04-10 10:04:51.040,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,122093.0,05-18-17
+-1.848,124.69200000000001,67.2,15.0,EQ,4.2,1999-05-15 01:05:17.780,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,122094.0,05-18-17
+-6.081,122.914,56.0,15.0,EQ,5.4,1978-10-25 00:15:26.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,123887.0,05-18-17
+-6.055,123.69,24.0,15.0,EQ,5.1,1977-06-09 06:41:09.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,123888.0,05-18-17
+-5.763,122.76299999999999,66.0,15.0,EQ,4.7,1979-08-14 03:43:14.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124271.0,05-18-17
+-5.982,123.645,43.0,15.0,EQ,5.0,1977-06-09 03:34:37.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124272.0,05-18-17
+-4.221,122.839,42.0,15.0,EQ,5.1,1976-05-22 14:41:31.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124442.0,05-18-17
+-4.232,122.945,53.5,15.0,EQ,4.6,1981-10-02 20:25:19.720,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124443.0,05-18-17
+-2.023,120.41799999999999,50.6,15.0,EQ,4.8,1984-02-27 02:06:48.710,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124628.0,05-18-17
+-2.157,121.035,57.0,15.0,EQ,5.0,1977-03-08 05:08:07.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124629.0,05-18-17
+-2.026,121.064,75.0,15.0,EQ,4.1,1977-04-01 11:58:21.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124630.0,05-18-17
+-2.556,121.932,61.0,15.0,EQ,5.0,1977-09-07 05:38:40.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124631.0,05-18-17
+-2.151,121.059,55.0,15.0,EQ,4.6,1979-05-26 21:04:45.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124632.0,05-18-17
+-2.2680000000000002,121.15799999999999,83.7,15.0,EQ,4.9,1982-08-30 14:58:29.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124633.0,05-18-17
+-2.5269999999999997,121.70700000000001,62.4,15.0,EQ,4.8,1983-09-25 08:09:34.830,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124634.0,05-18-17
+-2.63,121.743,65.8,15.0,EQ,4.6,1984-01-14 09:36:57.210,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124635.0,05-18-17
+-2.457,121.68,47.7,15.0,EQ,4.9,1984-03-13 14:35:25.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124636.0,05-18-17
+-2.102,121.57,48.1,15.0,EQ,5.1,1984-08-12 21:50:02.140,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124637.0,05-18-17
+-2.365,121.40799999999999,78.9,15.0,EQ,4.2,1984-09-04 01:07:13.790,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124638.0,05-18-17
+-2.556,121.616,54.0,15.0,EQ,4.8,1984-10-21 23:15:46.410,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124639.0,05-18-17
+-2.747,122.165,62.0,15.0,EQ,4.8,1980-11-05 18:51:56.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124640.0,05-18-17
+-2.885,122.417,78.7,15.0,EQ,4.5,1983-01-23 11:46:22.360,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124641.0,05-18-17
+-1.876,120.316,38.0,15.0,EQ,5.2,1976-12-29 18:46:19.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124673.0,05-18-17
+-1.817,120.594,67.0,15.0,EQ,4.9,1977-05-28 06:26:55.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124674.0,05-18-17
+-1.944,120.459,89.0,15.0,EQ,5.1,1977-05-28 07:45:57.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124675.0,05-18-17
+-1.706,120.676,89.0,15.0,EQ,4.8,1979-04-27 21:19:59.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124676.0,05-18-17
+-1.7369999999999999,121.538,90.0,15.0,EQ,4.3,1979-05-12 19:48:36.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124678.0,05-18-17
+-1.34,122.415,69.6,15.0,EQ,5.0,1981-03-10 13:52:40.470,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124679.0,05-18-17
+-1.2429999999999999,123.95200000000001,84.0,15.0,EQ,3.8,1981-10-17 18:35:23.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124680.0,05-18-17
+-2.0780000000000003,120.462,38.0,15.0,EQ,6.2,1968-06-07 21:30:55.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,125299.0,05-18-17
+-6.541,121.31700000000001,14.73,15.0,EQ,4.3,2017-01-30 13:29:13.470,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,125898.0,05-18-17
+-3.8560000000000003,123.421,31.98,15.0,EQ,4.3,2016-01-14 13:28:27.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126247.0,05-18-17
+-3.248,123.319,30.53,15.0,EQ,4.3,2016-01-17 12:59:11.240,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126248.0,05-18-17
+-3.159,123.354,32.75,15.0,EQ,4.3,2016-03-05 00:19:00.260,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126249.0,05-18-17
+-3.722,123.67399999999999,29.62,15.0,EQ,4.2,2016-06-18 02:33:45.980,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126250.0,05-18-17
+-3.9360000000000004,124.005,30.18,15.0,EQ,4.3,2016-12-18 22:36:45.790,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126251.0,05-18-17
+-2.1830000000000003,120.814,36.34,15.0,EQ,4.4,2016-12-09 02:26:33.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126318.0,05-18-17
+-2.144,121.12899999999999,49.33,15.0,EQ,4.3,2017-04-28 06:48:50.120,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126319.0,05-18-17
+-2.907,122.456,51.08,15.0,EQ,4.4,2016-05-27 13:59:31.590,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126320.0,05-18-17
+-2.0180000000000002,123.542,29.95,15.0,EQ,4.5,2016-10-05 11:37:16.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126321.0,05-18-17
+-2.283,124.745,29.53,15.0,EQ,4.0,2016-02-08 19:17:53.610,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126322.0,05-18-17
+-2.015,124.807,45.9,15.0,EQ,4.3,2016-10-05 16:59:58.710,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126323.0,05-18-17
+-1.831,120.098,44.4,15.0,EQ,4.1,2016-08-27 04:56:38.290,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126365.0,05-18-17
+-1.963,120.734,27.51,15.0,EQ,4.1,2016-10-10 00:18:44.970,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126366.0,05-18-17
+-1.956,121.09100000000001,43.55,15.0,EQ,4.3,2016-04-07 00:48:01.180,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126367.0,05-18-17
+-1.618,121.061,48.51,15.0,EQ,4.1,2016-12-12 00:46:27.660,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126368.0,05-18-17
+-1.3,123.37299999999999,38.79,15.0,EQ,4.7,2016-06-20 12:10:59.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126369.0,05-18-17
+-1.5919999999999999,123.95700000000001,41.27,15.0,EQ,4.1,2017-04-29 20:05:01.470,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,126370.0,05-18-17
+-18.018,170.095,268.0,15.0,EQ,4.7,1976-03-07 02:52:09.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106672.0,05-18-17
+-13.456,-71.257,78.3,15.0,EQ,4.2,1986-09-25 15:25:49.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,134106.0,05-18-17
+-13.02,-71.541,75.0,15.0,EQ,5.2,1978-01-21 13:29:40.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,137525.0,05-18-17
+57.803000000000004,203.803,140.0,15.0,EQ,3.9,1978-05-23 02:25:04.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,123766.0,05-18-17
+57.286,207.30200000000002,70.0,15.0,EQ,4.3,1978-04-28 02:52:58.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,123815.0,05-18-17
+60.391000000000005,206.3,175.0,15.0,EQ,5.1,1977-12-27 15:09:51.000,33.548,13.907,270.722,65.452,98.45299999999999,35.596,54.394,319.822,61.755,112.625,100427.0,05-18-17
+60.312,205.975,170.0,15.0,EQ,3.8,1979-05-21 01:37:30.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124060.0,05-18-17
+60.418,206.247,183.0,15.0,EQ,4.6,1983-04-23 06:13:49.940,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,124109.0,05-18-17
+-30.348000000000003,-67.945,81.0,15.0,EQ,4.3,1975-02-18 00:35:19.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,135918.0,05-18-17
+-8.119,158.512,153.8,15.0,EQ,4.2,2005-10-01 11:25:14.520,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103229.0,05-18-17
+-8.476,158.93200000000002,162.5,15.0,EQ,4.9,1990-09-11 22:37:19.540,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109638.0,05-18-17
+-8.558,159.066,173.0,15.0,EQ,4.3,1995-08-12 08:24:06.750,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109662.0,05-18-17
+-8.382,158.613,149.8,15.0,EQ,4.6,2012-10-04 03:44:57.190,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103242.0,05-18-17
+-8.472999999999999,158.891,116.2,15.0,EQ,5.6,1990-03-22 02:11:50.680,350.51099999999997,40.292,136.838,44.467,244.25099999999998,87.819,72.42,147.40200000000002,17.71,172.81400000000002,100609.0,05-18-17
+-8.427999999999999,158.69299999999998,93.1,15.0,EQ,5.9,1996-01-11 03:51:34.400,19.988,27.971999999999998,153.838,52.526,153.529,26.768,149.362,271.4,76.732,66.539,100921.0,05-18-17
+-8.472999999999999,158.957,101.3,15.0,EQ,5.7,1997-02-08 01:55:55.760,14.059000000000001,20.71,146.629,60.801,268.20799999999997,68.457,68.82,134.748,29.851999999999997,132.465,100962.0,05-18-17
+-8.136000000000001,158.613,96.8,15.0,EQ,5.1,2001-05-06 20:35:31.490,243.12400000000002,32.37,148.22899999999998,7.666,19.865,73.486,209.554,280.71,61.777,-18.82,101128.0,05-18-17
+-8.187999999999999,158.491,92.8,15.0,EQ,4.9,2005-11-28 06:58:05.940,270.372,11.620999999999999,114.79899999999999,77.273,184.78599999999997,56.818000000000005,96.12100000000001,353.7,33.678000000000004,80.73899999999999,101387.0,05-18-17
+-8.477,158.83100000000002,105.0,15.0,EQ,5.1,2009-05-24 15:48:21.750,25.889,31.621,164.988,50.833999999999996,163.75,23.225,153.249,278.60400000000004,79.77600000000001,69.03399999999999,101696.0,05-18-17
+-8.613,159.142,83.7,15.0,EQ,5.1,2009-08-03 01:31:01.370,40.423,39.139,305.20599999999996,6.375,75.122,58.342,334.399,179.238,68.42,-145.639,101712.0,05-18-17
+-8.46,158.928,99.5,15.0,EQ,3.5,2006-07-27 04:56:08.910,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103230.0,05-18-17
+-8.402999999999999,158.953,91.7,15.0,EQ,4.1,2007-07-31 05:29:18.820,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103232.0,05-18-17
+-8.258,158.57,88.1,15.0,EQ,4.6,2008-02-17 05:31:31.430,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103236.0,05-18-17
+-8.166,158.299,90.8,15.0,EQ,4.9,2011-09-04 01:26:59.920,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103241.0,05-18-17
+-8.067,158.187,96.14,15.0,EQ,4.2,2013-08-03 01:24:01.850,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103247.0,05-18-17
+-8.282,158.697,108.28,15.0,EQ,4.1,2013-12-11 01:25:11.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103250.0,05-18-17
+-8.216000000000001,158.56,106.23,15.0,EQ,4.2,2014-06-01 03:40:03.240,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103251.0,05-18-17
+-8.474,159.002,103.29,15.0,EQ,4.7,2015-01-07 08:27:26.290,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103281.0,05-18-17
+-8.258,158.485,87.6,15.0,EQ,4.1,1985-07-09 02:58:44.920,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109632.0,05-18-17
+-8.109,158.07,91.5,15.0,EQ,4.9,1988-08-31 13:08:46.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109634.0,05-18-17
+-8.198,158.50799999999998,94.2,15.0,EQ,4.8,1989-03-14 12:43:47.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109635.0,05-18-17
+-8.266,158.184,102.7,15.0,EQ,3.9,1995-06-25 15:46:32.590,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109643.0,05-18-17
+-8.173,158.315,105.0,15.0,EQ,4.6,1997-04-08 09:36:35.650,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109644.0,05-18-17
+-8.506,158.94299999999998,108.7,15.0,EQ,5.0,1997-04-14 02:35:10.140,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109645.0,05-18-17
+-8.193999999999999,158.42600000000002,87.4,15.0,EQ,3.8,1998-02-04 19:14:53.130,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109646.0,05-18-17
+-8.186,158.65200000000002,100.4,15.0,EQ,4.6,1999-06-08 03:45:41.040,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109652.0,05-18-17
+-8.484,159.138,105.9,15.0,EQ,5.0,1990-03-03 02:25:39.010,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109656.0,05-18-17
+-8.424,159.108,89.8,15.0,EQ,4.1,1996-04-09 03:24:54.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109663.0,05-18-17
+-8.097000000000001,158.33100000000002,80.0,15.0,EQ,4.6,1973-04-12 02:32:35.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113523.0,05-18-17
+-8.262,158.66899999999998,89.0,15.0,EQ,4.9,1974-11-17 12:14:19.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113525.0,05-18-17
+-8.296,158.615,102.6,15.0,EQ,4.9,1981-04-24 00:42:03.210,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113529.0,05-18-17
+-8.45,158.898,87.8,15.0,EQ,4.4,1983-05-11 16:03:49.250,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113530.0,05-18-17
+-8.498,158.891,106.2,15.0,EQ,4.1,1983-12-17 06:54:30.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113531.0,05-18-17
+-8.485,158.866,113.7,15.0,EQ,4.5,1984-03-29 08:12:35.830,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113532.0,05-18-17
+-8.26,158.472,85.28,15.0,EQ,4.2,2016-02-02 19:32:26.380,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115936.0,05-18-17
+-8.032,158.249,78.03,15.0,EQ,4.2,2014-12-16 12:49:14.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103252.0,05-18-17
+-8.384,159.194,103.3,15.0,EQ,4.5,2003-06-03 17:23:00.460,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103261.0,05-18-17
+-8.312999999999999,159.058,98.13,15.0,EQ,4.3,2014-06-30 16:24:13.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103280.0,05-18-17
+-8.068,158.539,86.1,15.0,EQ,4.3,1995-04-25 11:56:32.320,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109642.0,05-18-17
+-8.386000000000001,159.078,79.83,15.0,EQ,4.0,2016-01-26 07:48:51.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115939.0,05-18-17
+-8.458,158.496,166.6,15.0,EQ,3.9,2007-08-10 01:39:20.140,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103233.0,05-18-17
+-8.654,159.10299999999998,170.9,15.0,EQ,4.8,1986-11-06 15:17:14.220,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109654.0,05-18-17
+-8.613,159.366,108.0,15.0,EQ,4.6,2004-02-03 02:18:27.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103262.0,05-18-17
+-8.341000000000001,159.161,99.1,15.0,EQ,4.3,2011-02-04 19:22:48.160,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103276.0,05-18-17
+-7.921,158.41899999999998,105.1,15.0,EQ,4.0,2005-07-14 08:01:05.680,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103802.0,05-18-17
+-8.377,158.924,117.6,15.0,EQ,4.8,1992-05-11 20:57:48.220,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109640.0,05-18-17
+-8.455,158.82399999999998,121.6,15.0,EQ,4.9,1990-02-23 21:29:06.190,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109637.0,05-18-17
+-8.647,159.555,98.3,15.0,EQ,4.1,2007-09-16 06:27:45.680,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103267.0,05-18-17
+-8.722000000000001,159.387,118.8,15.0,EQ,4.8,2009-10-01 07:02:25.770,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103274.0,05-18-17
+-7.803,158.545,109.47,15.0,EQ,4.1,2015-05-24 09:25:10.560,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103810.0,05-18-17
+-8.661,159.579,97.2,15.0,EQ,4.5,1987-09-02 14:55:47.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109655.0,05-18-17
+-8.703,159.439,124.9,15.0,EQ,4.9,1999-11-07 21:13:08.920,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109666.0,05-18-17
+-8.741,159.40200000000002,106.0,15.0,EQ,5.2,1975-01-13 22:57:26.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113534.0,05-18-17
+-7.985,158.72799999999998,98.9,15.0,EQ,4.7,1984-03-25 02:19:36.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113727.0,05-18-17
+-8.254,158.298,125.77,15.0,EQ,4.4,2013-11-12 13:46:11.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103248.0,05-18-17
+-8.293,158.609,126.74,15.0,EQ,4.4,2013-12-10 08:14:03.290,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103249.0,05-18-17
+-8.538,159.474,93.0,15.0,EQ,5.4,1979-02-04 02:13:57.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113537.0,05-18-17
+-8.292,159.27700000000002,107.55,15.0,EQ,4.3,2016-11-11 18:14:57.710,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115942.0,05-18-17
+-8.629,159.005,130.2,15.0,EQ,4.9,1991-09-02 03:48:44.850,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109658.0,05-18-17
+-8.49,158.714,131.2,15.0,EQ,3.7,1998-11-27 11:48:06.690,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109650.0,05-18-17
+-8.767999999999999,159.645,105.9,15.0,EQ,4.1,2008-08-09 10:56:34.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103270.0,05-18-17
+-7.907,158.875,111.5,15.0,EQ,4.5,1989-01-20 15:31:27.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109852.0,05-18-17
+-8.308,158.73,133.8,15.0,EQ,4.0,2005-08-21 17:44:38.720,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103228.0,05-18-17
+-8.557,158.997,132.3,15.0,EQ,4.8,2010-01-03 00:27:59.690,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103238.0,05-18-17
+-8.596,159.721,96.5,15.0,EQ,4.5,2010-12-06 14:25:49.750,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103275.0,05-18-17
+-8.947000000000001,159.553,118.0,15.0,EQ,6.1,2008-11-21 07:05:34.940,42.996,13.488,164.588,65.4,296.41,61.445,66.88600000000001,158.173,36.114000000000004,125.805,101653.0,05-18-17
+-8.507,158.985,138.97,15.0,EQ,4.5,2015-06-05 00:31:58.690,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103255.0,05-18-17
+-8.892999999999999,159.63299999999998,121.3,15.0,EQ,5.0,2009-04-10 13:21:51.120,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103272.0,05-18-17
+-8.894,159.31799999999998,135.08,15.0,EQ,5.4,2015-02-18 04:43:39.170,7.482,27.991999999999997,129.201,44.687,251.785,80.48100000000001,57.216,147.384,33.989000000000004,162.793,100020.0,05-18-17
+-8.728,159.108,140.8,15.0,EQ,4.9,2015-04-06 07:52:53.600,225.873,2.11,131.265,65.36399999999999,157.78799999999998,51.924,121.835,292.595,48.028,56.048,102196.0,05-18-17
+-8.49,158.836,135.7,15.0,EQ,4.1,2012-11-26 05:16:34.790,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103244.0,05-18-17
+-8.636000000000001,158.928,138.7,15.0,EQ,4.5,1985-01-10 06:36:07.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109631.0,05-18-17
+-8.517000000000001,158.827,135.6,15.0,EQ,4.2,1998-10-04 14:32:31.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109649.0,05-18-17
+-9.033999999999999,159.722,132.5,15.0,EQ,4.3,2005-11-18 13:48:32.670,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103030.0,05-18-17
+-8.476,158.237,137.1,15.0,EQ,4.4,2002-01-13 13:59:26.470,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103220.0,05-18-17
+-8.2,158.795,143.4,15.0,EQ,4.9,1989-10-03 16:08:36.870,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109636.0,05-18-17
+-7.877000000000001,159.27,142.2,15.0,EQ,3.9,1987-05-12 00:51:43.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109858.0,05-18-17
+-8.604,159.259,144.8,15.0,EQ,4.6,1995-01-23 12:08:38.720,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109661.0,05-18-17
+-8.931000000000001,160.21200000000002,101.1,15.0,EQ,4.4,2004-09-23 16:42:16.870,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103283.0,05-18-17
+-8.937000000000001,160.261,92.4,15.0,EQ,4.0,2012-03-23 15:59:21.980,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103291.0,05-18-17
+-8.988,159.513,89.2,15.0,EQ,4.1,2008-01-16 18:35:23.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103268.0,05-18-17
+-8.757,160.376,87.6,15.0,EQ,5.2,1987-11-03 23:09:32.190,127.09899999999999,12.62,5.936,66.604,53.146,60.364,112.425,193.298,36.539,56.156000000000006,100497.0,05-18-17
+-8.564,159.477,83.9,15.0,EQ,3.9,2007-06-11 02:20:17.530,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103266.0,05-18-17
+-8.551,159.319,78.4,15.0,EQ,4.7,1991-04-07 20:18:10.010,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109657.0,05-18-17
+-8.381,159.009,74.4,15.0,EQ,4.1,2012-08-20 09:49:27.950,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103278.0,05-18-17
+-8.37,159.409,87.0,15.0,EQ,4.9,1978-06-19 04:43:54.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113536.0,05-18-17
+-8.874,160.154,80.0,15.0,EQ,5.3,1977-01-19 03:34:51.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113548.0,05-18-17
+-8.867,159.933,68.0,15.0,EQ,5.1,1976-12-24 12:00:32.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113535.0,05-18-17
+-8.764,158.73,67.4,15.0,EQ,4.7,2008-01-24 18:21:36.530,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103234.0,05-18-17
+-8.808,159.345,162.4,15.0,EQ,4.6,2006-11-28 16:22:20.580,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103265.0,05-18-17
+-8.863,159.259,166.0,15.0,EQ,4.7,2009-09-07 03:53:20.110,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103273.0,05-18-17
+-8.766,159.431,172.9,15.0,EQ,4.4,1991-12-30 15:22:09.440,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109659.0,05-18-17
+-8.626,159.284,148.1,15.0,EQ,4.4,1997-09-12 02:48:32.380,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109664.0,05-18-17
+-8.37,159.34799999999998,68.1,15.0,EQ,4.8,2008-03-28 06:54:14.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103269.0,05-18-17
+-9.134,160.618,68.5,15.0,EQ,4.3,1988-08-29 09:02:57.030,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109564.0,05-18-17
+-8.243,159.305,83.3,15.0,EQ,4.6,1986-07-30 20:24:38.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109653.0,05-18-17
+-8.986,159.626,187.1,15.0,EQ,4.8,1992-05-07 01:22:35.190,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109660.0,05-18-17
+-8.699,159.246,180.9,15.0,EQ,4.6,1982-07-18 15:20:52.650,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113539.0,05-18-17
+-9.485,160.8,103.9,15.0,EQ,4.2,2005-11-24 03:22:38.280,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103084.0,05-18-17
+-9.151,160.247,111.7,15.0,EQ,4.8,1988-09-07 18:58:21.440,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109565.0,05-18-17
+-9.555,160.791,100.5,15.0,EQ,5.0,1997-11-17 05:31:23.110,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109573.0,05-18-17
+-9.388,161.001,87.0,15.0,EQ,4.7,1973-03-10 19:29:56.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113486.0,05-18-17
+-9.38,159.567,105.3,15.0,EQ,3.9,2006-11-29 04:07:57.930,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103035.0,05-18-17
+-9.585,160.751,108.52,15.0,EQ,4.2,2015-02-05 20:10:01.410,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103104.0,05-18-17
+-9.551,160.99,113.1,15.0,EQ,4.7,1991-11-03 09:57:08.460,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109569.0,05-18-17
+-9.511000000000001,161.08,93.0,15.0,EQ,5.7,1979-01-17 14:16:01.400,191.28599999999997,26.191999999999997,309.222,43.605,73.931,79.888,54.331,330.185,36.891,162.993,100193.0,05-18-17
+-9.561,161.065,98.49,15.0,EQ,4.7,2015-08-04 12:37:28.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103119.0,05-18-17
+-9.339,161.112,69.7,15.0,EQ,4.3,1989-08-03 10:11:22.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109579.0,05-18-17
+-9.326,160.749,70.84,15.0,EQ,4.2,2014-04-18 10:50:18.610,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103103.0,05-18-17
+-9.011000000000001,160.513,67.5,15.0,EQ,4.6,2005-02-24 03:07:18.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103081.0,05-18-17
+-9.59,161.31,88.9,15.0,EQ,4.5,1996-04-10 09:06:10.060,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109584.0,05-18-17
+-9.692,161.282,78.7,15.0,EQ,5.2,2002-09-04 14:40:04.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103107.0,05-18-17
+-9.86,160.28799999999998,77.0,15.0,EQ,5.2,1977-12-01 18:05:28.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113477.0,05-18-17
+-9.727,161.281,61.8,15.0,EQ,4.7,2005-06-25 20:45:44.480,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103110.0,05-18-17
+-9.833,161.165,79.8,15.0,EQ,4.4,2013-06-22 07:49:39.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103114.0,05-18-17
+-9.8,161.208,85.1,15.0,EQ,4.5,1983-01-25 03:32:06.130,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113491.0,05-18-17
+-9.884,161.168,97.0,15.0,EQ,5.7,1982-12-05 05:48:25.380,26.903000000000002,8.512,272.712,69.937,96.65700000000001,39.749,61.053000000000004,312.388,55.976000000000006,111.926,100290.0,05-18-17
+-10.039,161.23,84.0,15.0,EQ,5.1,2001-06-26 01:47:19.900,169.42,7.569,291.478,75.946,272.842,38.824,108.99,69.01,53.643,75.32600000000001,101134.0,05-18-17
+-9.761000000000001,160.90200000000002,89.7,15.0,EQ,4.3,2004-01-15 10:34:35.050,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103079.0,05-18-17
+-9.988999999999999,161.236,85.6,15.0,EQ,4.3,1989-08-13 21:12:04.170,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109580.0,05-18-17
+-9.612,161.536,81.26,15.0,EQ,4.8,2014-05-01 19:23:20.930,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103115.0,05-18-17
+-8.752,160.035,65.7,15.0,EQ,4.0,2008-10-16 04:04:48.120,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103286.0,05-18-17
+-8.721,160.183,70.4,15.0,EQ,4.1,2012-04-14 03:50:09.840,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103292.0,05-18-17
+-9.742,161.482,96.9,15.0,EQ,4.3,1989-07-09 03:37:15.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109578.0,05-18-17
+-9.669,161.51,67.0,15.0,EQ,4.6,1978-01-31 09:09:28.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113490.0,05-18-17
+-8.865,160.52100000000002,65.48,15.0,EQ,5.0,2014-08-05 18:18:34.120,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103293.0,05-18-17
+-9.974,161.321,76.6,15.0,EQ,4.4,2003-02-22 07:36:29.020,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103108.0,05-18-17
+-10.07,161.406,95.6,15.0,EQ,4.2,2004-11-28 22:45:02.620,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102641.0,05-18-17
+-10.086,161.269,101.0,15.0,EQ,4.6,1986-02-05 03:39:40.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109359.0,05-18-17
+-10.052,161.332,91.2,15.0,EQ,4.8,1988-04-09 15:53:24.050,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109385.0,05-18-17
+-10.022,161.381,69.0,15.0,EQ,5.2,1974-01-24 15:06:30.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113271.0,05-18-17
+-10.148,161.27100000000002,95.0,15.0,EQ,4.4,1983-10-27 18:30:08.020,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113363.0,05-18-17
+-10.067,161.227,88.23,15.0,EQ,4.0,2016-04-16 11:40:41.540,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115686.0,05-18-17
+-10.026,160.925,149.8,15.0,EQ,4.6,2003-11-02 19:58:41.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102580.0,05-18-17
+-9.624,160.405,150.6,15.0,EQ,4.5,2006-09-23 01:55:54.460,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103087.0,05-18-17
+-9.788,160.512,145.4,15.0,EQ,4.0,1998-08-20 18:38:16.070,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109575.0,05-18-17
+-9.981,161.506,84.81,15.0,EQ,4.4,2015-06-11 19:19:51.920,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103116.0,05-18-17
+-9.888,161.75799999999998,76.73,15.0,EQ,4.4,2016-10-25 03:29:49.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115919.0,05-18-17
+-10.064,161.595,78.4,15.0,EQ,4.1,2005-07-12 06:23:45.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102656.0,05-18-17
+-10.064,161.461,92.0,15.0,EQ,4.5,2005-08-01 08:09:18.780,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102658.0,05-18-17
+-10.052999999999999,161.472,99.7,15.0,EQ,4.1,2008-01-20 08:28:41.740,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102702.0,05-18-17
+-10.103,161.54,91.34,15.0,EQ,4.5,2013-12-31 05:32:49.850,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102800.0,05-18-17
+-10.081,161.39700000000002,99.42,15.0,EQ,4.8,2014-05-07 04:46:20.740,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102810.0,05-18-17
+-10.066,161.49200000000002,95.0,15.0,EQ,4.4,1988-03-12 21:37:48.050,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109384.0,05-18-17
+-10.084,161.42600000000002,95.4,15.0,EQ,4.7,1991-09-06 16:51:01.030,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109405.0,05-18-17
+-10.084,161.491,95.6,15.0,EQ,5.0,1982-07-17 06:40:28.770,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113353.0,05-18-17
+-10.059,161.509,98.0,15.0,EQ,5.1,1984-11-06 12:40:57.930,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113375.0,05-18-17
+-10.107999999999999,161.453,96.52,15.0,EQ,4.5,2016-01-14 00:24:04.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115676.0,05-18-17
+-10.077,161.564,73.7,15.0,EQ,4.6,2001-09-20 03:50:24.850,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102621.0,05-18-17
+-10.122,161.549,81.5,15.0,EQ,3.7,2008-01-03 20:46:40.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102699.0,05-18-17
+-10.095,161.437,82.5,15.0,EQ,5.0,2008-02-20 11:51:11.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102704.0,05-18-17
+-10.113999999999999,161.62,93.5,15.0,EQ,4.3,2008-11-18 04:05:24.010,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102727.0,05-18-17
+-10.074,161.675,85.6,15.0,EQ,4.6,2009-10-14 03:14:04.460,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102739.0,05-18-17
+-10.113,161.49,74.7,15.0,EQ,4.9,2010-06-16 03:17:05.840,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102744.0,05-18-17
+-10.135,161.578,94.46,15.0,EQ,4.4,2014-09-22 22:26:06.730,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102821.0,05-18-17
+-10.181000000000001,161.65200000000002,86.23,15.0,EQ,4.4,2015-10-03 03:45:53.580,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102845.0,05-18-17
+-10.232999999999999,161.643,80.0,15.0,EQ,4.3,1974-02-27 15:43:12.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113272.0,05-18-17
+-10.206,161.653,86.0,15.0,EQ,5.1,1979-01-01 02:08:32.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113320.0,05-18-17
+-10.107000000000001,161.567,92.0,15.0,EQ,4.8,1981-07-21 12:27:03.070,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113341.0,05-18-17
+-10.04,161.651,72.24,15.0,EQ,4.3,2016-07-31 14:59:38.760,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115698.0,05-18-17
+-10.155,161.39700000000002,93.0,15.0,EQ,6.0,1978-12-01 15:35:20.900,210.79,6.175,317.394,69.262,103.57799999999999,54.181000000000004,65.414,321.596,42.493,119.962,100189.0,05-18-17
+-10.226,161.381,86.0,15.0,EQ,5.9,1988-02-19 19:07:42.960,38.618,17.405,136.452,23.499000000000002,268.526,85.961,29.65,176.23,60.431000000000004,175.355,100512.0,05-18-17
+-10.204,161.395,86.0,15.0,EQ,5.7,1989-05-29 22:07:11.880,357.48199999999997,17.244,125.92299999999999,63.468999999999994,251.638,64.97399999999999,68.361,114.79899999999999,32.621,128.303,100569.0,05-18-17
+-10.125,161.19,87.9,15.0,EQ,5.1,2001-08-09 19:41:24.680,27.631,16.074,267.04900000000004,60.475,86.77799999999999,35.8,45.818999999999996,316.92900000000003,65.197,116.686,101141.0,05-18-17
+-10.254000000000001,161.482,90.7,15.0,EQ,5.3,2013-01-08 20:15:05.920,30.583000000000002,10.235,293.30400000000003,35.059,77.898,57.871,19.345,337.32199999999995,73.708,146.35299999999998,101969.0,05-18-17
+-10.213,161.516,98.4,15.0,EQ,4.0,2005-02-13 09:37:12.150,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102646.0,05-18-17
+-10.198,161.463,92.8,15.0,EQ,4.7,2005-02-20 10:44:05.850,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102647.0,05-18-17
+-10.221,161.553,80.9,15.0,EQ,4.1,2005-03-17 11:16:30.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102648.0,05-18-17
+-10.215,161.539,84.3,15.0,EQ,4.2,2005-06-22 03:30:49.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102654.0,05-18-17
+-10.193999999999999,161.543,80.5,15.0,EQ,4.4,2006-02-10 08:42:33.690,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102670.0,05-18-17
+-10.241,161.536,85.4,15.0,EQ,4.0,2006-02-16 19:42:02.690,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102671.0,05-18-17
+-10.269,161.505,96.7,15.0,EQ,3.9,2006-10-06 13:40:13.750,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102681.0,05-18-17
+-10.279000000000002,161.499,85.0,15.0,EQ,4.2,2007-08-21 17:52:30.830,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102691.0,05-18-17
+-10.191,161.407,95.8,15.0,EQ,4.7,2008-02-27 10:14:55.030,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102705.0,05-18-17
+-10.204,161.431,89.5,15.0,EQ,3.8,2008-08-18 20:34:48.040,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102718.0,05-18-17
+-10.225,161.322,85.8,15.0,EQ,4.0,2008-11-01 15:24:54.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102726.0,05-18-17
+-10.294,161.437,89.9,15.0,EQ,4.0,2013-06-04 05:17:52.340,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102788.0,05-18-17
+-10.22,161.524,92.34,15.0,EQ,4.7,2014-10-11 12:26:02.710,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102823.0,05-18-17
+-10.174,161.289,95.22,15.0,EQ,4.1,2015-11-16 08:15:27.850,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102848.0,05-18-17
+-10.142000000000001,161.465,102.5,15.0,EQ,4.2,1985-07-14 10:09:35.590,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109352.0,05-18-17
+-10.277999999999999,161.445,98.5,15.0,EQ,4.9,1986-11-03 09:45:26.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109366.0,05-18-17
+-10.189,161.377,100.5,15.0,EQ,4.7,1989-04-21 05:35:33.480,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109393.0,05-18-17
+-10.249,161.385,89.0,15.0,EQ,4.1,1994-11-20 16:19:06.150,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109424.0,05-18-17
+-10.2,161.6,76.8,15.0,EQ,4.2,1995-12-11 20:50:15.360,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109435.0,05-18-17
+-10.101,161.589,103.8,15.0,EQ,4.4,1998-03-18 15:42:44.720,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109452.0,05-18-17
+-10.213,161.503,93.0,15.0,EQ,5.0,1975-06-09 07:46:30.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113283.0,05-18-17
+-10.07,161.507,67.0,15.0,EQ,5.4,1975-11-14 22:27:46.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113286.0,05-18-17
+-10.124,161.381,88.0,15.0,EQ,5.3,1976-08-19 00:06:18.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113292.0,05-18-17
+-10.179,161.539,98.0,15.0,EQ,5.0,1978-05-04 17:30:53.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113308.0,05-18-17
+-10.232000000000001,161.42,90.9,15.0,EQ,4.4,1981-04-16 17:19:54.180,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113336.0,05-18-17
+-10.28,161.435,91.4,15.0,EQ,4.5,1981-05-10 08:35:01.880,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113337.0,05-18-17
+-10.21,161.47899999999998,89.6,15.0,EQ,4.7,1983-03-24 07:01:38.410,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113360.0,05-18-17
+-10.198,161.635,70.44,15.0,EQ,5.0,2016-02-10 19:11:48.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115677.0,05-18-17
+-10.206,161.548,91.56,15.0,EQ,4.6,2016-03-11 10:45:40.190,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115680.0,05-18-17
+-10.192,161.515,91.28,15.0,EQ,4.4,2016-05-09 22:16:12.170,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115690.0,05-18-17
+-10.193999999999999,161.398,90.64,15.0,EQ,4.2,2016-07-16 07:24:00.240,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115694.0,05-18-17
+-9.902999999999999,161.95600000000002,83.49,15.0,EQ,4.5,2015-08-03 23:58:10.280,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103118.0,05-18-17
+-9.976,161.889,81.7,15.0,EQ,4.1,2017-01-20 00:04:39.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115924.0,05-18-17
+-10.144,161.756,81.2,15.0,EQ,4.3,1988-01-09 17:46:29.490,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109381.0,05-18-17
+-10.213,161.784,81.3,15.0,EQ,4.9,1984-05-14 14:37:42.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113368.0,05-18-17
+-10.183,161.79399999999998,75.78,15.0,EQ,4.3,2016-12-28 17:31:26.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115835.0,05-18-17
+-10.027999999999999,161.265,106.9,15.0,EQ,3.8,2006-04-22 22:09:45.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102674.0,05-18-17
+-10.065,161.386,106.0,15.0,EQ,4.8,2010-04-04 07:02:40.700,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102743.0,05-18-17
+-10.048,161.235,106.2,15.0,EQ,4.6,2011-02-03 10:17:07.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102754.0,05-18-17
+-10.248,161.683,94.2,15.0,EQ,4.5,1990-10-16 22:50:00.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109400.0,05-18-17
+-10.298,161.118,88.0,15.0,EQ,4.8,1995-06-29 21:59:20.370,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109428.0,05-18-17
+-10.04,161.25,108.0,15.0,EQ,4.3,1997-08-29 23:51:53.930,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109449.0,05-18-17
+-10.288,161.59,88.1,15.0,EQ,4.3,1984-12-23 02:00:58.540,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113376.0,05-18-17
+-10.284,161.845,84.5,15.0,EQ,4.9,2008-06-28 21:14:19.020,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102712.0,05-18-17
+-10.294,161.696,78.72,15.0,EQ,4.6,2015-07-07 15:03:34.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102838.0,05-18-17
+-10.245999999999999,161.863,97.3,15.0,EQ,4.2,1992-04-19 01:44:12.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109407.0,05-18-17
+-10.225,161.731,68.81,15.0,EQ,4.4,2016-04-19 08:40:31.810,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115688.0,05-18-17
+-10.272,161.365,89.6,15.0,EQ,5.5,1988-10-03 00:45:53.400,220.685,3.517,340.68199999999996,82.992,317.118,41.824,99.1,124.988,48.818000000000005,81.945,100541.0,05-18-17
+-10.337,161.553,87.5,15.0,EQ,5.2,1988-12-31 05:32:58.380,19.375999999999998,1.67,111.47200000000001,51.443000000000005,141.901,55.001999999999995,139.469,258.024,57.836000000000006,42.651,100551.0,05-18-17
+-10.154,161.19799999999998,93.2,15.0,EQ,5.2,1999-09-07 11:15:54.380,41.714,12.501,133.97899999999998,10.107000000000001,87.616,88.34100000000001,343.903,178.095,73.91,-178.273,101051.0,05-18-17
+-10.128,161.093,88.1,15.0,EQ,5.2,2004-04-05 20:21:13.250,103.605,65.444,10.735,1.311,258.603,51.173,237.815,123.712,48.751000000000005,-56.501999999999995,101264.0,05-18-17
+-10.17,161.453,75.2,15.0,EQ,5.0,2008-08-20 19:32:59.830,45.244,12.911,298.324,51.775,342.384,66.578,128.963,98.56,44.481,34.563,101635.0,05-18-17
+-10.21,161.526,71.9,15.0,EQ,5.1,2009-05-04 09:06:23.630,242.78400000000002,19.343,128.086,49.965,291.889,39.14,29.122,178.521,72.11,125.411,101689.0,05-18-17
+-10.279000000000002,161.589,81.35,15.0,EQ,5.1,2015-07-24 19:09:10.810,222.921,29.855,124.95200000000001,13.579,356.772,79.282,211.81799999999998,260.19,58.801,-12.558,102234.0,05-18-17
+-10.28,161.379,94.16,15.0,EQ,4.9,2016-03-11 01:08:23.120,164.41400000000002,29.553,268.3,22.943,308.44,51.361999999999995,185.372,215.08,85.806,-38.760999999999996,102279.0,05-18-17
+-10.136000000000001,161.44299999999998,71.4,15.0,EQ,4.4,2002-05-07 19:27:36.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102625.0,05-18-17
+-10.167,161.218,87.9,15.0,EQ,3.7,2005-05-10 23:12:33.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102652.0,05-18-17
+-10.131,161.17,87.5,15.0,EQ,4.3,2006-08-26 20:17:32.750,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102677.0,05-18-17
+-10.138,161.18,99.8,15.0,EQ,4.0,2006-09-28 21:21:33.130,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102679.0,05-18-17
+-10.306,161.609,80.3,15.0,EQ,3.7,2007-10-07 12:42:08.070,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102695.0,05-18-17
+-10.09,161.039,94.4,15.0,EQ,4.3,2007-10-18 16:56:28.660,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102696.0,05-18-17
+-10.127,161.106,94.7,15.0,EQ,4.9,2009-11-22 00:31:12.570,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102740.0,05-18-17
+-10.099,161.137,104.0,15.0,EQ,4.4,2010-09-21 17:52:16.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102749.0,05-18-17
+-10.187999999999999,161.471,78.9,15.0,EQ,4.2,2012-11-29 22:05:09.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102774.0,05-18-17
+-10.206,161.213,88.9,15.0,EQ,4.3,2012-12-01 05:55:53.960,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102775.0,05-18-17
+-10.360999999999999,161.486,95.13,15.0,EQ,4.4,2013-08-16 08:33:23.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102794.0,05-18-17
+-10.335,161.447,88.69,15.0,EQ,4.5,2014-01-31 00:04:16.410,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102802.0,05-18-17
+-10.225,161.298,99.3,15.0,EQ,4.4,2015-07-04 03:51:47.930,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102837.0,05-18-17
+-10.061,161.054,98.8,15.0,EQ,5.1,1985-07-21 18:53:30.680,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109354.0,05-18-17
+-10.275,161.343,91.1,15.0,EQ,5.0,1986-11-13 13:23:47.160,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109367.0,05-18-17
+-10.300999999999998,161.403,93.1,15.0,EQ,4.5,1986-11-23 06:04:04.540,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109368.0,05-18-17
+-10.276,161.455,104.2,15.0,EQ,4.4,1987-08-26 08:53:00.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109376.0,05-18-17
+-10.107000000000001,161.149,97.5,15.0,EQ,4.8,1989-01-07 16:52:30.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109391.0,05-18-17
+-10.141,161.154,89.0,15.0,EQ,4.3,1989-06-09 06:23:22.690,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109394.0,05-18-17
+-10.241,161.577,77.3,15.0,EQ,4.6,1992-07-14 06:13:28.910,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109410.0,05-18-17
+-10.504000000000001,161.74200000000002,94.0,15.0,EQ,4.6,1998-12-21 10:10:23.750,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109457.0,05-18-17
+-10.168,161.208,96.1,15.0,EQ,4.8,1999-05-08 21:45:34.170,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109459.0,05-18-17
+-10.173,161.211,101.0,15.0,EQ,5.1,1977-12-31 18:40:14.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113306.0,05-18-17
+-10.424000000000001,161.618,87.0,15.0,EQ,4.8,1978-07-09 15:59:34.800,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113312.0,05-18-17
+-10.209,161.298,100.3,15.0,EQ,4.5,1982-11-08 15:07:06.030,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113357.0,05-18-17
+-10.295,161.363,86.6,15.0,EQ,5.1,1984-06-02 23:25:59.030,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113370.0,05-18-17
+-10.257,161.543,77.28,15.0,EQ,4.6,2016-04-06 03:33:25.910,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115683.0,05-18-17
+-10.315999999999999,161.393,87.77,15.0,EQ,4.2,2016-04-30 12:16:54.490,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115689.0,05-18-17
+-10.29,161.376,93.37,15.0,EQ,4.5,2016-12-27 17:02:02.260,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115834.0,05-18-17
+-10.187999999999999,161.476,80.0,15.0,EQ,4.4,2017-04-25 13:21:28.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115883.0,05-18-17
+-9.943999999999999,162.025,97.8,15.0,EQ,4.4,1992-11-17 03:04:36.180,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109586.0,05-18-17
+-10.107000000000001,161.312,107.5,15.0,EQ,4.4,2013-03-24 04:37:58.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102779.0,05-18-17
+-10.41,162.034,80.7,15.0,EQ,4.5,2001-01-29 22:45:43.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102850.0,05-18-17
+-10.61,161.898,93.5,15.0,EQ,3.9,2005-11-13 08:18:46.010,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102662.0,05-18-17
+-10.097000000000001,161.224,106.6,15.0,EQ,3.9,2008-05-11 03:50:40.820,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102710.0,05-18-17
+-10.251,161.911,62.8,15.0,EQ,4.7,2011-06-27 18:32:26.770,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102757.0,05-18-17
+-10.380999999999998,162.203,68.7,15.0,EQ,4.6,2008-10-27 01:48:08.540,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102869.0,05-18-17
+-9.912,161.221,110.4,15.0,EQ,4.2,2007-09-07 04:15:40.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103113.0,05-18-17
+-10.126,161.32399999999998,108.9,15.0,EQ,4.5,1985-07-16 10:13:08.520,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109353.0,05-18-17
+-10.043,161.22299999999998,112.2,15.0,EQ,4.4,1986-03-22 23:01:55.770,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109361.0,05-18-17
+-10.485999999999999,161.858,105.9,15.0,EQ,4.4,1990-09-26 01:17:49.530,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109399.0,05-18-17
+-9.987,161.4,111.0,15.0,EQ,4.1,1992-09-07 01:33:16.770,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109581.0,05-18-17
+-10.687999999999999,162.005,93.0,15.0,EQ,5.0,1974-12-16 13:15:58.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113379.0,05-18-17
+-10.062000000000001,161.458,108.54,15.0,EQ,4.7,2016-09-05 08:10:52.490,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115700.0,05-18-17
+-10.600999999999999,162.366,75.0,15.0,EQ,4.4,2004-04-13 15:23:30.290,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102852.0,05-18-17
+-10.673,162.378,119.0,15.0,EQ,3.7,1978-12-21 17:42:46.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113386.0,05-18-17
+-10.703,162.35,106.1,15.0,EQ,5.4,1982-01-14 15:40:21.230,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113394.0,05-18-17
+-10.732000000000001,162.458,78.5,15.0,EQ,4.6,2013-05-10 05:13:12.390,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102883.0,05-18-17
+-10.597999999999999,162.519,84.3,15.0,EQ,5.0,1991-02-22 17:36:19.170,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109473.0,05-18-17
+-10.116,161.279,80.0,15.0,EQ,5.1,2006-09-21 12:47:31.470,48.943000000000005,21.011999999999997,139.757,2.1180000000000003,92.427,76.85600000000001,343.31,186.328,73.759,-166.299,101479.0,05-18-17
+-10.242,161.369,106.8,15.0,EQ,5.2,2008-09-24 06:00:51.590,220.055,9.9,122.916,35.455999999999996,166.705,73.226,146.263,267.61400000000003,57.876999999999995,19.924,101645.0,05-18-17
+-10.742,162.391,95.5,15.0,EQ,5.3,2009-03-06 19:19:31.440,167.62099999999998,22.024,73.249,10.673,301.982,82.287,203.562,208.63299999999998,66.664,-8.405,101678.0,05-18-17
+-10.18,161.267,107.1,15.0,EQ,4.8,2013-03-03 02:27:13.280,48.901,24.889,310.573,17.338,180.998,85.01700000000001,210.68,88.04799999999999,59.448,-5.789,101976.0,05-18-17
+-10.219,161.411,79.8,15.0,EQ,4.6,2002-05-05 14:48:34.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102624.0,05-18-17
+-10.118,161.05100000000002,90.9,15.0,EQ,4.7,2003-06-19 04:42:26.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102628.0,05-18-17
+-10.191,161.256,107.4,15.0,EQ,4.1,2004-07-21 00:09:15.760,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102639.0,05-18-17
+-10.136000000000001,161.173,108.8,15.0,EQ,4.3,2008-02-29 04:28:54.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102706.0,05-18-17
+-10.289000000000001,161.30200000000002,92.6,15.0,EQ,4.7,2010-07-19 21:30:28.370,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102748.0,05-18-17
+-10.181000000000001,161.276,110.1,15.0,EQ,4.7,2011-09-20 03:44:00.650,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102761.0,05-18-17
+-10.269,161.851,61.76,15.0,EQ,4.5,2014-05-03 05:26:13.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102808.0,05-18-17
+-10.26,161.507,83.44,15.0,EQ,4.8,2014-10-03 21:00:53.210,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102822.0,05-18-17
+-10.388,162.20600000000002,63.6,15.0,EQ,3.8,2008-02-28 08:07:15.010,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102862.0,05-18-17
+-10.854000000000001,162.421,97.46,15.0,EQ,4.2,2014-11-13 09:21:54.460,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102888.0,05-18-17
+-10.082,161.171,111.8,15.0,EQ,4.5,1985-04-28 02:56:48.610,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109350.0,05-18-17
+-10.134,161.12,104.3,15.0,EQ,5.2,1986-06-26 08:56:52.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109364.0,05-18-17
+-10.372,161.461,92.4,15.0,EQ,4.5,1993-10-05 13:43:40.250,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109415.0,05-18-17
+-10.794,162.428,106.4,15.0,EQ,5.1,1987-04-12 19:59:29.810,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109464.0,05-18-17
+-10.712,162.363,116.0,15.0,EQ,5.0,1987-06-19 11:42:58.830,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109465.0,05-18-17
+-10.282,161.362,99.0,15.0,EQ,5.1,1974-08-15 08:49:15.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113277.0,05-18-17
+-10.182,161.12,93.0,15.0,EQ,4.8,1974-09-25 11:19:05.400,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113279.0,05-18-17
+-10.325999999999999,161.39600000000002,95.3,15.0,EQ,4.3,1982-02-04 03:40:13.280,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113348.0,05-18-17
+-10.136000000000001,161.303,77.52,15.0,EQ,4.8,2016-03-08 18:31:23.050,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115679.0,05-18-17
+-10.237,161.455,83.18,15.0,EQ,4.4,2017-04-05 15:58:11.090,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115880.0,05-18-17
+-10.167,161.298,112.48,15.0,EQ,5.1,2017-04-29 22:33:33.370,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115885.0,05-18-17
+-9.836,161.756,117.8,15.0,EQ,4.1,1989-06-05 20:39:15.030,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109577.0,05-18-17
+-9.817,161.609,120.6,15.0,EQ,3.6,1992-11-19 22:47:06.740,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109582.0,05-18-17
+-9.854,161.808,64.79,15.0,EQ,4.2,2017-01-20 23:49:06.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115925.0,05-18-17
+-10.550999999999998,162.526,117.0,15.0,EQ,4.7,1980-05-12 00:28:03.300,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113390.0,05-18-17
+-10.615,161.284,22.0,15.0,EQ,7.1,1979-10-23 09:51:06.700,243.142,16.962,83.689,71.959,158.125,62.221000000000004,96.749,323.879,28.523000000000003,77.42399999999999,100209.0,05-18-17
+-11.199000000000002,162.107,15.3,15.0,EQ,5.4,1990-08-17 21:46:08.810,172.345,36.219,336.917,52.773,75.741,81.65,82.459,298.091,11.232999999999999,131.799,100634.0,05-18-17
+-10.65,161.21,19.0,15.0,EQ,6.3,2002-09-24 23:01:28.670,239.16,17.407,62.465,72.565,327.65,27.605,87.962,149.95,62.413999999999994,91.065,101187.0,05-18-17
+-11.113,162.056,23.3,15.0,EQ,5.1,2008-08-28 23:56:48.000,223.945,21.604,99.18,55.218999999999994,154.42,71.311,117.384,276.161,32.74,36.332,101636.0,05-18-17
+-11.081,162.119,19.18,15.0,EQ,5.2,2014-04-13 09:29:21.250,210.392,24.557,35.44,65.359,121.978,69.584,92.04,296.147,20.514,84.536,102069.0,05-18-17
+-10.969000000000001,161.308,18.38,15.0,EQ,5.9,2016-12-09 19:43:24.070,234.132,14.214,10.185,70.617,341.63300000000004,32.79,114.34700000000001,133.34,60.43600000000001,75.126,100087.0,05-18-17
+-10.177,162.178,122.6,15.0,EQ,4.3,1988-08-15 08:27:56.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109468.0,05-18-17
+-9.7,161.80700000000002,120.3,15.0,EQ,4.2,1983-03-07 01:58:06.910,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113492.0,05-18-17
+-10.285,161.804,158.1,15.0,EQ,4.5,2005-01-13 08:25:43.220,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102645.0,05-18-17
+-10.763,162.655,142.8,15.0,EQ,4.9,2012-02-09 16:40:37.810,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102881.0,05-18-17
+-10.229,162.94,130.2,15.0,EQ,3.8,1996-04-22 16:26:57.780,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109481.0,05-18-17
+-9.413,161.945,98.0,15.0,EQ,4.9,1975-09-13 23:14:56.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113488.0,05-18-17
+-10.905,162.757,92.5,15.0,EQ,4.1,1996-05-29 22:03:28.550,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109482.0,05-18-17
+-10.738,162.773,115.4,15.0,EQ,4.2,1997-05-23 11:03:27.570,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109484.0,05-18-17
+-10.694,162.57399999999998,69.2,15.0,EQ,4.5,2009-03-06 21:08:06.780,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102871.0,05-18-17
+-10.972999999999999,162.747,76.2,15.0,EQ,4.3,2010-06-29 13:51:11.290,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102873.0,05-18-17
+-10.904000000000002,162.749,68.64,15.0,EQ,4.6,2015-12-08 00:09:30.110,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102895.0,05-18-17
+-10.824000000000002,162.54399999999998,85.0,15.0,EQ,4.6,1981-08-22 07:48:22.570,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113392.0,05-18-17
+-10.707,162.326,73.0,15.0,EQ,6.3,1987-06-18 14:03:15.190,170.114,22.925,274.584,30.575,309.858,50.571000000000005,173.738,43.845,85.167,39.598,100475.0,05-18-17
+-10.835,162.468,76.1,15.0,EQ,4.5,2009-05-21 06:21:33.960,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102872.0,05-18-17
+-10.904000000000002,162.567,97.0,15.0,EQ,5.4,1991-05-06 03:40:25.310,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109474.0,05-18-17
+-10.467,162.991,73.9,15.0,EQ,3.9,2008-08-13 14:41:07.530,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102865.0,05-18-17
+-10.383,162.859,66.1,15.0,EQ,4.5,2008-08-16 13:36:38.350,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102866.0,05-18-17
+-10.446,162.969,73.05,15.0,EQ,4.3,2017-01-27 00:58:03.260,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115893.0,05-18-17
+-9.856,162.149,64.24,15.0,EQ,4.2,2016-08-08 14:14:50.430,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,115926.0,05-18-17
+-10.915999999999999,162.984,68.0,15.0,EQ,4.8,2008-09-10 14:51:34.200,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102868.0,05-18-17
+-10.770999999999999,163.22299999999998,90.0,15.0,EQ,4.9,1974-04-18 07:35:54.900,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113397.0,05-18-17
+-11.008,163.065,72.5,15.0,EQ,4.7,2010-08-02 17:14:08.710,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102524.0,05-18-17
+-10.902000000000001,162.872,215.0,15.0,EQ,4.0,1980-07-26 18:47:48.500,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,113391.0,05-18-17
+-10.882,162.922,143.1,15.0,EQ,4.9,2011-08-21 04:44:07.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102878.0,05-18-17
+-10.626,162.425,127.6,15.0,EQ,5.1,1987-06-19 22:45:02.450,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109466.0,05-18-17
+-10.945,162.184,172.1,15.0,EQ,4.6,1998-11-01 05:31:44.060,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109487.0,05-18-17
+-8.176,158.02,158.1,15.0,EQ,4.3,2000-03-27 09:45:38.990,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103216.0,05-18-17
+-8.391,158.30200000000002,156.1,15.0,EQ,5.5,1985-03-23 23:02:45.850,105.199,21.933000000000003,197.16299999999998,4.865,243.299,71.089,192.46200000000002,149.202,78.22,-19.334,100378.0,05-18-17
+-8.375,158.261,147.8,15.0,EQ,4.3,2006-07-30 14:55:33.820,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,103231.0,05-18-17

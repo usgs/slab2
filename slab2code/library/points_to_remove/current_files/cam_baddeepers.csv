@@ -1,0 +1,5 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,mlon,mlat,mdep,ID,src
+12.332,-85.381,238.800,8.570,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1304604,ni3
+10.971,-83.678,248.730,0.211,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,901382,jac
+13.790,-86.831,202.000,481.980,ER,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,1302428,ni3
+

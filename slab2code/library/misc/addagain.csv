@@ -1,0 +1,48 @@
+lat,lon,depth,unc,etype,mag,time,Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2,ID,src
+4.602,-72.607,436.500,15.000,EQ,5.300,2007-01-29 07:47:41.680,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,106013,2017-03-10
+-1.597,-72.532,644.800,15.000,EQ,8.000,1970-07-31 17:08:05.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,141905,2017-03-10
+-4.685,-71.652,650.000,15.000,EQ,3.700,1997-05-10 19:49:54.560,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,102409,2017-03-10
+-3.006,133.160,168.000,15.000,EQ,4.300,1977-05-17 03:32:15.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100666,91517
+36.250,28.386,62.218,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300000,biryol
+36.730,27.741,81.412,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300001,biryol
+36.810,27.635,140.748,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300002,biryol
+37.010,27.356,195.397,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300003,biryol
+37.380,26.862,221.656,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300004,biryol
+37.740,26.346,262.155,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300005,biryol
+38.230,25.658,314.571,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300006,biryol
+38.510,25.251,378.752,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300007,biryol
+38.640,25.059,464.208,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300008,biryol
+37.242,30.750,62.788,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300009,biryol
+37.332,30.780,95.744,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300010,biryol
+37.306,30.770,166.586,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300011,biryol
+37.348,30.780,224.819,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300012,biryol
+37.551,30.830,280.623,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300013,biryol
+37.982,30.940,354.285,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300014,biryol
+38.414,31.050,389.988,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300015,biryol
+38.801,31.150,420.602,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300016,biryol
+39.371,31.290,464.208,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300017,biryol
+39.667,31.370,479.355,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300018,biryol
+35.157,32.870,86.791,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300019,biryol
+35.384,32.840,102.115,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300020,biryol
+35.701,32.800,150.511,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300021,biryol
+36.561,32.700,282.962,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300022,biryol
+36.924,32.660,323.747,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300023,biryol
+37.536,32.580,372.237,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300024,biryol
+38.058,32.520,397.822,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300025,biryol
+38.535,32.460,428.476,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300026,biryol
+39.579,32.330,474.561,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300027,biryol
+36.151,28.500,52.146,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300028,biryol
+36.514,28.500,61.679,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300029,biryol
+36.812,28.500,78.248,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300030,biryol
+37.153,28.500,104.243,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300031,biryol
+37.323,28.500,116.064,40.000,TO,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,2300032,biryol
+-48.070,166.150,149.000,15.000,EQ,4.200,2005-02-26 03:16:55.600,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100356,92217
+-47.286,166.415,104.000,15.000,EQ,4.200,1992-01-08 14:44:30.980,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,100131,92217
+24.113,142.244,591.0,15.0,EQ,5.5,1979-05-25 18:15:41.000,45.845,55.91,192.488,29.48,245.038,21.001,221.531,115.453,76.254,-73.966,101600,92217
+24.132,142.402,567.0,15.0,EQ,5.8,1979-05-18 20:18:01.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,111012,92217
+24.339,142.202,540.34,15.0,EQ,4.4,2017-02-13 20:22:42.630,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,109349,92217
+23.969,142.369,656.9,15.0,EQ,4.6,1993-11-12 15:28:12.100,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,117546,92217
+24.319,142.412,558.9,15.0,EQ,7.2,1955-05-30 12:31:44.000,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,105323,92217
+24.321,142.083,541.6,15.0,EQ,4.5,1991-08-18 14:45:07.260,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,117554,92217
+24.33,142.046,549.5,15.0,EQ,5.0,1991-08-18 14:45:26.580,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,117555,92217
+24.772,142.096,550.0,15.0,EQ,4.2,1998-02-07 01:38:10.220,nan,nan,nan,nan,nan,nan,nan,nan,nan,nan,120061,92217
