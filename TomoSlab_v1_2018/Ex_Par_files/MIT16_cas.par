@@ -1,0 +1,22 @@
+Parameter file for tomography ID: MIT16
+
+Output datafile: cas_TO_MIT16.csv
+
+Input tomography file: tomofile = Tomo_files/MITP_USA_2016MAY.tomo
+Slab guide grid file: slabfile = Slab_files/cas_slabguide.grd
+
+minlat = 39.000000
+maxlat = 46.000000
+minlon = -123.000000
+maxlon = -112.000000
+posmag = 250.000000
+negmag = -150.000000
+hnode = 0.200000
+vnode = 1.000000
+HRES = 0.050000
+VRES = 5.000000
+thresh = 0.300000
+shallim = 100.000000
+minlen = 20.000000
+maxlen = 250.000000
+maxdist = 130.000000

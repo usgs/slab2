@@ -1,0 +1,52 @@
+tomo_slab documentation
+by Daniel Evan Portner
+
+Reference: Portner, D.E. & Hayes, G.P. (2018) Incorporating teleseismic tomography data into models of upper mantle slab geometry.
+
+Introduction
+This package contains code designed to use a teleseismic tomography model of a subduction zone to quantitatively determine the center of a fast slab anomaly. The code was originally developed to create input data for the Slab2 [Hayes et al. 2018] code base, but may also be used independently.
+
+Directory contents
+1) tomo_slab.py
+	This is the Python 3 call script.
+2) tomo_functions.py
+	This contains functions used by tomo_slab.py.
+3) Output/
+	This directory is currently empty. The output from tomo_slab.py will be directed here.
+4) Tomo_files/
+	This directory is where input tomography model files should be kept. These should be an ascii file of the form [ latitude longitude depth %dV ]
+5) Slab_files/
+	This directory is where input slab guides should be kept. These are netcdf .grd files. Slab1.0 models serve as good starting points.
+6) Ex_Par_files
+	This directory contains parameter files from each test model referenced in Portner and Hayes (2018)
+7) Plotting/
+	This contains a sample GMT5 script to plot a cross section with results.
+
+Dependencies
+--The code is run in the Python 3 language
+--Requires numpy
+--Requires USGS/MAPIO (can be found on github)
+	--May require additional installation of the osgeo library
+
+How to run
+1) The tomography code
+	Code will run with "python tomo_slab.py". With no changes, this will run the default example (see below). To use for your own purposes, place your formatted tomography model in Tomo_files/ and your slab guide in Slab_files/. When your input files are in place, open tomo_slab.py and edit the input variables in Section 1. These include:
+	tomofile, slabfile
+	ID, sz
+	minlat, maxlat, minlon, maxlon
+	posmag, negmag
+	hnode, vnode
+	HRES, VRES
+	thresh
+	shallim
+	minlen, maxlen, maxdist
+
+	After appropriately changing input parameters, run "python tomo_slab.py". The results will be placed in Output/.
+
+	If you run the code again, your results will be overwritten. To avoid this, copy the output files to another location OR change the "ID" variable.
+
+2) Plotting
+	A sample GMT5 script is in the Plotting/ directory. First open cross_plot.bash, then edit the output file name "out", input file names "tomo", "slabcent", and "slabfile", and cross section parameters "lat", "lon", and "az". Finally, run "./cross_plot.bash". This will plot a cross section through the tomography model with color palette "tomo.cpt", with starting location [ lat, lon ] and azimuth [ az ] from East. On the cross section will be slab center points and the input slab guide.
+
+Example
+The example provided is the SAM4_P_2017 tomography model from Portner et al. (2017, GRL). The tomography model is provided in Tomo_files/ and a slab guide is provided in Slab_files/. This example should be ready to run as is. See a sample of the results using Plotting/cross_plot.bash.

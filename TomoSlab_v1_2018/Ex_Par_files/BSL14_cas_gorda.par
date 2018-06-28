@@ -1,0 +1,22 @@
+Parameter file for tomography ID: BSL14
+
+Output datafile: cas_TO_BSL14.csv
+
+Input tomography file: tomofile = Tomo_files/US-SL-2014.tomo
+Slab guide grid file: slabfile = Slab_files/cas_slabguide.grd
+
+minlat = 39.000000
+maxlat = 46.000000
+minlon = -123.000000
+maxlon = -112.000000
+posmag = 200.000000
+negmag = -150.000000
+hnode = 0.200000
+vnode = 1.000000
+HRES = 0.050000
+VRES = 5.000000
+thresh = 0.500000
+shallim = 100.000000
+minlen = 50.000000
+maxlen = 200.000000
+maxdist = 80.000000
