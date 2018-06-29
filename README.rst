@@ -5,7 +5,7 @@ Note, this code is still under development. Please contact Gavin Hayes for more 
 
 Installation and Dependencies
 --------
-This package depend on:
+This package depends on:
    * Mac OSX operating system
    * Python 3
    * numpy, the fundamental package for scientific computing with Python. <a href="http://www.numpy.org/</a>
