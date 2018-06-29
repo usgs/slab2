@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os.path
 import math
-from neicmap.distance import sdist
+from obspy.geodetics.base import gps2dist_azimuth
 
 # Eliminates events in dfo that are found in dfm
 def removematches(dfo, dfm):
@@ -154,7 +154,8 @@ def refilter(OBdata,TRdata):
         lonB, latB = row['lon'], row['lat']
         
         loc_tr = TRdata[(TRdata.lon > lonB-2) & (TRdata.lon < lonB+2) & (TRdata.lat > latB-2) & (TRdata.lat < latB+2)]
-        loc_tr['dist'] = sdist(latB,lonB,loc_tr['lat'],loc_tr['lon'])/1000.0
+        #loc_tr['dist'] = gps2dist_azimuth(latB,lonB,loc_tr['lat'],loc_tr['lon'])[0]/1000.0
+        loc_tr['dist'], tempangles = npcosine(lonB, latB, loc_tr['lon'].values, loc_tr['lat'].values)
         mindist = loc_tr['dist'].min()
         loc_tr = loc_tr[loc_tr.dist == mindist]
         lonT, latT, azT = loc_tr['lon'].values[0], loc_tr['lat'].values[0], loc_tr['az'].values[0]
@@ -208,7 +209,8 @@ for slab in slablist:
         lonT, latT, azT = row['lon'], row['lat'], row['az']
         
         loc_ba1 = loc_ba[(loc_ba.lon > lonT-2) & (loc_ba.lon < lonT+2) & (loc_ba.lat > latT-2) & (loc_ba.lat < latT+2)]
-        loc_ba1['dist'] = sdist(latT,lonT,loc_ba1['lat'],loc_ba1['lon'])/1000.0
+        #loc_ba1['dist'] = gps2dist_azimuth(latT,lonT,loc_ba1['lat'],loc_ba1['lon'])[0]/1000.0
+        loc_ba1['dist'], tempangles = npcosine(lonT, latT, loc_ba1['lon'].values, loc_ba1['lat'].values)
         slab_ba = loc_ba1[loc_ba1.dist < 200]
         lonsBA = slab_ba['lon'].values
         latsBA = slab_ba['lat'].values

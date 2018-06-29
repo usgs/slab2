@@ -24,13 +24,13 @@ import os
 import csv
 import urllib.request, urllib.error, urllib.parse
 import os.path
-from neicmap.distance import sdist, getAzimuth
 from scipy import interpolate
 from scipy.interpolate import griddata
 from matplotlib import path
 from scipy import ndimage
 from shapely.geometry import Polygon 
 from pandas import DataFrame
+from obspy.geodetics.base import gps2dist_azimuth
 
 from scipy.interpolate import LSQBivariateSpline
 from scipy.interpolate import SmoothBivariateSpline
@@ -50,7 +50,6 @@ from copy import deepcopy
 from pylab import arccos,argsort,cross,dot,double,eigh,pi,trace,zeros
 ###
 # The following functions cannot be translated to lon,lat:
-#   getAzimuth (imported from external library)
 #   getValue (imported from external library)
 
 
@@ -2062,7 +2061,7 @@ def trimByTrench_alu(trimmed, outside, AA_data, lat, lon, maxID, size, TR_data, 
         trimmed = trimmed[trimmed.etype != 'BA']
         if size == 0: # GLM 11.18.2016 filters out in some cases where it shouldn't
             AA_data['diffdist'] = np.abs(AA_data['dist'].values - mindist)
-            AA_data['sdist'] = sdist(lat, lon, AA_data['avlat'], AA_data['avlon'])/1000.0
+            AA_data['sdist'] = gps2dist_azimuth(lat, lon, AA_data['avlat'], AA_data['avlon'])[0]/1000.0
             if lon > AA_data['avlon'].max() or lon < AA_data['avlon'].min():
                 thisAA = AA_data[AA_data.sdist == AA_data['sdist'].min()]
                 thisAA = thisAA[thisAA.diffdist < 0.2]
@@ -4821,7 +4820,8 @@ def extendslightly(newdat,clip,data,dist,slab,shiftorfin,TRdata):
         if len(TRdata)>0 and (slab != 'sol' or lon > 150):
             loc_tr = TRdata[(TRdata.lon > lon-3) & (TRdata.lon < lon+3) & (TRdata.lat > lat-3) & (TRdata.lat < lat+3)]
             if len(loc_tr)>0:
-                loc_tr['dist'] = sdist(lat, lon, loc_tr['lat'], loc_tr['lon'])/1000.0
+                #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
+                loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
                 mindist = loc_tr['dist'].min()
                 loc_tr = loc_tr[loc_tr.dist == mindist]
                 lonT = loc_tr['lon'].values[0]
@@ -6227,7 +6227,8 @@ def extendinginterp(slab1guide,lon,lat,slab1query,grid,TRdata,meanBA,testprint,i
     if len(TRdata)>0 and (slab != 'sol' or lon > 150):
         loc_tr = TRdata[(TRdata.lon > lon-3) & (TRdata.lon < lon+3) & (TRdata.lat > lat-3) & (TRdata.lat < lat+3)]
         if len(loc_tr)>0:
-            loc_tr['dist'] = sdist(lat, lon, loc_tr['lat'], loc_tr['lon'])/1000.0
+            #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
+            loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
             mindist = loc_tr['dist'].min()
             loc_tr = loc_tr[loc_tr.dist == mindist]
             lonT = loc_tr['lon'].values[0]
@@ -8173,7 +8174,8 @@ def makenewclip(clip,shift_out,griddf,TRdata,node,slab):
         if len(TRdata)>0 and (slab != 'sol' or lon > 150):
             loc_tr = TRdata[(TRdata.lon > lon-3) & (TRdata.lon < lon+3) & (TRdata.lat > lat-3) & (TRdata.lat < lat+3)]
             if len(loc_tr)>0:
-                loc_tr['dist'] = sdist(lat, lon, loc_tr['lat'], loc_tr['lon'])/1000.0
+                #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
+                loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
                 mindist = loc_tr['dist'].min()
                 loc_tr = loc_tr[loc_tr.dist == mindist]
                 lonT = loc_tr['lon'].values[0]
@@ -8203,7 +8205,7 @@ def makenewclip(clip,shift_out,griddf,TRdata,node,slab):
             newlats.append(lat)
             continue
             
-        locgrd['dist'] = sdist(lat, lon, locgrd['lat'], locgrd['lon'])
+        locgrd['dist'] = gps2dist_azimuth(lat, lon, locgrd['lat'], locgrd['lon'])[0]
         neargrd = locgrd[locgrd.dist == locgrd['dist'].min()]
         newlon = neargrd['lon'].values[0]
         newlat = neargrd['lat'].values[0]
@@ -8234,7 +8236,8 @@ def maketiltclip(clip,shift_out,griddf,trenches,node,slab):
         if len(trenches)>0 and (slab != 'sol' or lon > 150):
             loc_tr = trenches[(trenches.lon > lon-3) & (trenches.lon < lon+3) & (trenches.lat > lat-3) & (trenches.lat < lat+3)]
             if len(loc_tr)>0:
-                loc_tr['dist'] = sdist(lat, lon, loc_tr['lat'], loc_tr['lon'])/1000.0
+                #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
+                loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
                 mindist = loc_tr['dist'].min()
                 loc_tr = loc_tr[loc_tr.dist == mindist]
                 lonT = loc_tr['lon'].values[0]
@@ -9969,7 +9972,8 @@ def getoutboard(nodes, TRdata, slab):
         loc_tr = TRdata[(TRdata.lon > lon-3) & (TRdata.lon < lon+3) & \
                         (TRdata.lat > lat-3) & (TRdata.lat < lat+3)]
         if len(loc_tr)>0:
-            loc_tr['dist'] = sdist(lat, lon, loc_tr['lat'], loc_tr['lon'])
+            #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
+            loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
             mindist = loc_tr['dist'].min()
             loc_tr = loc_tr[loc_tr.dist == mindist]
             lonT = loc_tr['lon'].values[0]
