@@ -1,24 +1,22 @@
 #!/bin/bash
 
-VENV=slab2env3
-ENVFILE=slab2env3.yml
+VENV=slab2env
+ENVFILE=slab2env.yml
 
 echo "Environment file: $ENVFILE"
 echo "Creating the $VENV virtual environment:"
-source deactivate
+
+source ~/.bash_profile
+
+. $_CONDA_ROOT/etc/profile.d/conda.sh
+
+conda deactivate
 conda env create -f $ENVFILE --force
 
-source activate $VENV
+conda activate $VENV
 
-pip install git+git://github.com/usgs/MapIO.git
-pip install git+git://github.com/usgs/neicmap.git
-pip install multiprocess
-pip install sklearn
-pip install utm
-pip install geopy
-pip install obspy
-pip install git+git://github.com/usgs/earthquake-impact-utils.git
-pip install git+git://github.com/usgs/libcomcat.git
-conda install -c conda-forge basemap-data-hires
+pip install git+git://github.com/usgs/MapIO.git@0.6.2
+pip install git+git://github.com/usgs/libcomcat.git@1.0
+pip install git+git://github.com/usgs/earthquake-impact-utils.git@0.8.2
 
-source deactivate
+conda deactivate
