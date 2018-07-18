@@ -74,7 +74,6 @@ dependencies:
   - libspatialite=4.3.0a=18
   - libssh2=1.8.0=2
   - libtiff=4.0.9=0
-  - libxml2=2.9.8=0
   - libxslt=1.1.32=0
   - lxml=4.2.1=py35_0
   - markupsafe=1.0=py35_0

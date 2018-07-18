@@ -2061,7 +2061,8 @@ def trimByTrench_alu(trimmed, outside, AA_data, lat, lon, maxID, size, TR_data, 
         trimmed = trimmed[trimmed.etype != 'BA']
         if size == 0: # GLM 11.18.2016 filters out in some cases where it shouldn't
             AA_data['diffdist'] = np.abs(AA_data['dist'].values - mindist)
-            AA_data['sdist'] = gps2dist_azimuth(lat, lon, AA_data['avlat'], AA_data['avlon'])[0]/1000.0
+            #AA_data['sdist'] = gps2dist_azimuth(lat, lon, AA_data['avlat'], AA_data['avlon'])[0]/1000.0
+            AA_data['sdist'], tempangles = npcosine(lon, lat, AA_data['avlon'], AA_data['avlat'])
             if lon > AA_data['avlon'].max() or lon < AA_data['avlon'].min():
                 thisAA = AA_data[AA_data.sdist == AA_data['sdist'].min()]
                 thisAA = thisAA[thisAA.diffdist < 0.2]
