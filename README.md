@@ -3,6 +3,8 @@ slab2
 
 Slab2.0 is a three-dimensional compilation of global subduction geometries, separated into regional models for each major subduction zone.
 
+testing
+
 Installation and Dependencies
 -----------------------------
 
