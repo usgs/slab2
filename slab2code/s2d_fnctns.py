@@ -10,7 +10,7 @@ import numpy as np
 import fnmatch
 from geopy.distance import vincenty
 from math import *
-from mpl_toolkits.basemap import Basemap
+#from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
 from matplotlib import path
 

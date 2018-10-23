@@ -202,7 +202,7 @@ def main(args):
         file_no = file_no+2
 
     # Makes rough plot of data for the region
-    slabplotter(args)
+    # slabplotter(args)
 
 #Help/description and command line argument parser
 if __name__=='__main__':
