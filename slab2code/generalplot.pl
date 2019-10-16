@@ -19,7 +19,8 @@ $raws="$folderloc/$ID\_slab2_str_$folder.grd";
 $rawd="$folderloc/$ID\_slab2_dip_$folder.grd";
 $rawu="$folderloc/$ID\_slab2_unc_$folder.grd";
 $rawt="$folderloc/$ID\_slab2_thk_$folder.grd";
-$gmt="/Applications/GMT-5.4.3.app/Contents/Resources/bin/gmt";
+# gmt must be on the PATH
+$gmt="gmt";
 $clipmask="$folderloc/$ID\_slab2_clp_$folder.csv";
 $trenches="library/forplotting/trenches_usgs_2017_depths.csv";
 #####
@@ -313,7 +314,7 @@ if ($depdiff < -200){
 if ($depdiff > 500){$C="-B100";}
 if ($depdiff < -500){$C="-B100";}
 
-$JM="-JM12.5i";
+$JM="-JM6i";
 if($latdiff>(1.5*$londiff)){$JM="-JM8.2i";}
 if($ID eq "sco"){$JM="-JM8.2i";}
 

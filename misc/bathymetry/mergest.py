@@ -17,12 +17,12 @@ sedthick2.loc[sedthick2.lon<0,'lon'] += 360
 
 sedthick2 = sedthick2[np.isfinite(sedthick2.thickness)]
 
-print len(sedthick2)
-print len(bathymetry)
+print(len(sedthick2))
+print(len(bathymetry))
 
 sea_slab = pd.merge(sedthick2, bathymetry, how='inner', on=['lat','lon'])
 
-print len(sea_slab)
+print(len(sea_slab))
 
 sea_slab['lonlat'] = sea_slab.lon.astype(str).str.cat(sea_slab.lat.astype(str), sep='_')
 bathymetry['lonlat'] = bathymetry.lon.astype(str).str.cat(bathymetry.lat.astype(str), sep='_')
@@ -30,8 +30,8 @@ bathymetry['lonlat'] = bathymetry.lon.astype(str).str.cat(bathymetry.lat.astype(
 missingmerge = findNotMatches2(bathymetry,sea_slab)
 missingmerge = missingmerge.reset_index(drop=True)
 
-print len(missingmerge)
-print len(bathymetry)-len(missingmerge)
+print(len(missingmerge))
+print(len(bathymetry)-len(missingmerge))
 
 dataB = np.zeros((len(missingmerge),4))
 dataS = np.zeros((len(sedthick1),3))
@@ -48,7 +48,7 @@ dataB[:, 3] = griddata(dataS[:, 0:2], dataS[:, 2], dataB[:, 0:2], method='neares
 
 missingmerge['thickness'] = dataB[:,3]*1000
 
-allBA = pd.concat([sea_slab, missingmerge])
+allBA = pd.concat([sea_slab, missingmerge],sort=True)
 allBA['depth'] = (allBA['elev'].values - allBA['thickness'].values) * -0.001
 
 allBA = allBA[['lon','lat','depth','elev','thickness']]

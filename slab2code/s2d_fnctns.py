@@ -295,7 +295,7 @@ def write_data(df, output_file):
     # existing information
     else:
         old = pd.read_csv(output_file)
-        all = pd.concat([old,df])
+        all = pd.concat([old,df],sort=True)
         all = castfloats(all)
         all = rid_nans(all)
         if len(df.columns) > len(old.columns):
@@ -681,10 +681,10 @@ def cmtfilter(data,seismo_thick):
     shallow_data = shallow_data[thrust_rake]
     
     # Includes shallow data without MT info (1) - comment out next line for (2)
-    filtered = pd.concat([deep_data, shallow_data, dfn])
+    filtered = pd.concat([deep_data, shallow_data, dfn],sort=True)
 
     # Only includes shallow thrust events (2) - uncomment line below for (2) and comment necessary lines above
-    # filtered = pd.concat([deep_data, shallow_data])
+    # filtered = pd.concat([deep_data, shallow_data],sort=True)
     
     # Rearranges columns / filters out unecessary columns
     filtered=filtered[['lat','lon','depth','unc','ID','etype','mag','time',
@@ -779,7 +779,7 @@ def moment_calc(df, args, seismo_thick,slabname):
                                     
         # Concatenates events with and without MT info
         #dfm = cmtfilter(dfm,seismo_thick)
-        df = pd.concat([dfm,dfn])
+        df = pd.concat([dfm,dfn],sort=True)
         
         # Rearranges columns and returns
         if 'mlon' in df.columns:

@@ -45,7 +45,7 @@ def main(args):
 
     
     # list folder names of all slab models to calculate szt from, and move to new folder structure
-    filelist = ['alu_slab2_02.22.18','cal_slab2_01.04.18','cam_slab2_02.22.18','car_slab2_01.04.18','cas_slab2_02.22.18','cot_slab2_02.22.18','hal_slab2_01.04.18','hel_slab2_01.04.18','him_slab2_01.04.18','hin_slab2_02.22.18','izu_slab2_02.23.18','ker_slab2_01.08.18','kur_slab2_01.03.18','mak_slab2_01.04.18','man_slab2_02.23.18','mue_slab2_01.04.18','pam_slab2_01.04.18','phi_slab2_02.22.18','png_slab2_01.04.18','puy_slab2_01.04.18','ryu_slab2_01.04.18','sam_slab2_02.22.18','sco_slab2_01.04.18','sol_slab2_03.13.18','sul_slab2_02.22.18','sum_slab2_01.05.18','van_slab2_01.04.18']
+## filelist = ['alu_slab2_02.22.18','cal_slab2_01.04.18','cam_slab2_02.22.18','car_slab2_01.04.18','cas_slab2_02.22.18','cot_slab2_02.22.18','hal_slab2_01.04.18','hel_slab2_01.04.18','him_slab2_01.04.18','hin_slab2_02.22.18','izu_slab2_02.23.18','ker_slab2_01.08.18','kur_slab2_01.03.18','mak_slab2_01.04.18','man_slab2_02.23.18','mue_slab2_01.04.18','pam_slab2_01.04.18','phi_slab2_02.22.18','png_slab2_01.04.18','puy_slab2_01.04.18','ryu_slab2_01.04.18','sam_slab2_02.22.18','sco_slab2_01.04.18','sol_slab2_03.13.18','sul_slab2_02.22.18','sum_slab2_01.05.18','van_slab2_01.04.18']
 
     #filelist = ['izu_slab2_02.23.18','ryu_slab2_01.04.18','kur_slab2_01.03.18']
 
@@ -53,7 +53,8 @@ def main(args):
     
     #filelist = ['alu_slab2_04.28.18','car_slab2_01.04.18','cas_slab2_02.22.18','cot_slab2_02.22.18','hal_slab2_01.04.18','hel_slab2_01.04.18','him_slab2_01.04.18','hin_slab2_02.22.18','izu_slab2_02.23.18','ker_slab2_01.08.18','kur_slab2_01.03.18']
 
-    filelist = ['alu_slab2_04.28.18','cal_slab2_05.01.18','cam_slab2_05.01.18','car_slab2_05.01.18','cas_slab2_04.28.18','cot_slab2_05.01.18','hal_slab2_05.01.18','hel_slab2_05.01.18','him_slab2_05.01.18','hin_slab2_05.01.18','izu_slab2_04.28.18','ker_slab2_05.01.18','kur_slab2_05.01.18','mak_slab2_05.01.18','man_slab2_05.01.18','mue_slab2_05.02.18','pam_slab2_05.02.18','phi_slab2_05.02.18','png_slab2_05.02.18','puy_slab2_05.02.18','ryu_slab2_05.02.18','sam_slab2_05.01.18','sco_slab2_05.02.18','sol_slab2_05.02.18','sul_slab2_05.02.18','sum_slab2_05.02.18','van_slab2_05.02.18']
+    filelist = ['alu_slab2_09.20.19','cal_slab2_09.19.19','cam_slab2_09.19.19','car_slab2_09.19.19','cas_slab2_09.19.19','cot_slab2_09.20.19','hal_slab2_09.19.19','hel_slab2_09.19.19','him_slab2_09.19.19','hin_slab2_09.19.19','izu_slab2_09.20.19','ker_slab2_09.19.19','kur_slab2_09.19.19','mak_slab2_09.19.19','man_slab2_09.19.19','mue_slab2_09.20.19','pam_slab2_09.19.19','phi_slab2_09.20.19','png_slab2_09.19.19','puy_slab2_09.19.19','ryu_slab2_09.20.19','sam_slab2_09.19.19','sco_slab2_09.19.19','sol_slab2_09.19.19','sul_slab2_09.20.19','sum_slab2_09.19.19','van_slab2_09.20.19']
+
 
     # create new directory system for slab output
     os.system('rm -r %s'%slabsbyfile)
