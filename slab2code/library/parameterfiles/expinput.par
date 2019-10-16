@@ -12,7 +12,7 @@
 
 ## Mandatory inputs: Change every run
 
-inFile  =       Input/exp_04-18_input.csv     # Input data file
+inFile  =       Input/exp_10-19_input.csv     # Input data file
 use_box =       no                            # (must be 'yes' or 'no') 'yes' means use latmin,latmax,lonmin,lonmax below to define grid, 'no' means use 'slab_region' to define grid
 
         # If use_box = 'yes'
