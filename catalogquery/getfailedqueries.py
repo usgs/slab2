@@ -4,8 +4,10 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 from libcomcat.search import search
-from libcomcat.utils import get_summary_data_frame
-from libcomcat.utils import get_detail_data_frame
+#from libcomcat.utils import get_summary_data_frame
+from libcomcat.dataframes import get_summary_data_frame # KLH 09/24/2019
+#from libcomcat.utils import get_detail_data_frame
+from libcomcat.dataframes import get_detail_data_frame # KLH 09/24/2019
 from libcomcat.search import get_event_by_id
 import argparse
 

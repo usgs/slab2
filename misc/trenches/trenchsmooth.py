@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+
 import pandas as pd
 import numpy as np
 import math
+import argparse
 
 def cosrule(d2r,lat1,lon1,lat2,lon2):
     
@@ -143,6 +146,7 @@ def notnorthanymore(data):
     return data
 
 def movingav(x):
+    n = 0
     x2 = np.copy(x)
     for i in range(1,len(x)-1):
         thisaz = x[i]
@@ -152,10 +156,12 @@ def movingav(x):
         nextdiff = abs(thisaz-nextaz)
         if thisaz < lastaz and thisaz < nextaz and (nextdiff>20 and lastdiff >10):
             x2[i] = (nextaz+lastaz)/2.0
-            print 'changed this az 1 lastaz,thisaz,nextaz',lastdiff,lastaz,thisaz,nextaz,nextdiff
+            print('changed this az 1 lastaz,thisaz,nextaz',lastdiff,lastaz,thisaz,nextaz,nextdiff)
+            n+= 1
         elif thisaz > lastaz and thisaz > nextaz and (nextdiff>20 and lastdiff >10):
             x2[i] = (nextaz+lastaz)/2.0
-            print 'changed this az 2 lastaz,thisaz,nextaz',lastdiff,lastaz,thisaz,nextaz,nextdiff
+            print('changed this az 2 lastaz,thisaz,nextaz',lastdiff,lastaz,thisaz,nextaz,nextdiff)
+            n+= 1
         else:
             x2[i] = thisaz
     if abs(x[0]-x2[1]) > 90:
@@ -166,9 +172,10 @@ def movingav(x):
         x2[-1] = x2[-2]
     else:
         x2[-1] = x[-1]
-    return x2
+    return x2, n
 
 def filldf(data,ns_ew):
+    n = 0
     newtrench = pd.DataFrame(columns = ['lon','lat','az','bound','slab'])
     lons = data['lon'].values
     lats = data['lat'].values
@@ -188,7 +195,8 @@ def filldf(data,ns_ew):
     
         dist,ang,lon1,lat1 = cosine(thislon,thislat,nextlon,nextlat)
         if dist > 20:
-            print 'dist,ang,lon1,lat1',dist,ang,lon1,lat1
+            n+= 1
+            print('dist,ang,lon1,lat1',dist,ang,lon1,lat1)
             meanlon = (thislon+nextlon)/2.0
             meanlat = (thislat+nextlat)/2.0
             meanazz = (thisazz+nextazz)/2.0
@@ -208,42 +216,85 @@ def filldf(data,ns_ew):
     newlats.append(lats[-1])
     newazzs.append(azzs[-1])
     newdata = pd.DataFrame({'lon':newlons,'lat':newlats,'az':newazzs,'bound':bound,'slab':slab})
-    return newdata
+    return newdata, n
 
-trenches = pd.read_csv('ryutrenches.csv')
-slabs = trenches['slab'].values
-slablist = mylist = list(set(list(slabs)))
-newtrenches = pd.DataFrame()
+def main(args):
+
+    sorf = args.smoothorfill
+    newtrenchfile = args.newtrenchlist
+    trenchfile = args.trenchfile
+    trenches = pd.read_csv(newtrenchfile)
+    slabs = trenches['slab'].values
+    slablist = mylist = list(set(list(slabs)))
+    newtrenches = pd.DataFrame()
+
+    for slab in slablist:
+    
+        thisdf = trenches[trenches.slab == slab]
+        if slab == 'alu' or slab =='ker':
+            thisdf = zerothreesixty(thisdf)
+        strike = np.mean(thisdf['az'].values)
+        if np.min(thisdf['az'].values) < 45 and np.max(thisdf['az'].values) > 315:
+            ns_ew = 'N'
+            thisdf = northernaz(thisdf)
+        elif (strike < 135. and strike > 45.) or (strike < 315. and strike > 225.):
+            ns_ew = 'EW'
+        else:
+            ns_ew = 'S'
+
+        if sorf == 's':
+            n = 10
+            while n > 0:
+                ogstrikes = thisdf['az'].values
+                avstrikes, n = movingav(ogstrikes)
+                thisdf['az'] = avstrikes
+        elif sorf == 'f':
+            n = 10
+            while n > 0:
+                thisdf, n = filldf(thisdf,ns_ew)
+        else:
+            print('sorf must be s or f')
+            print('enter -s s or -s f at input')
+            print('Exiting ..... ')
+            exit()
+        
+        thisdf = oneeighty(thisdf)
+        if ns_ew == 'N':
+            thisdf = notnorthanymore(thisdf)
+        frames = [newtrenches,thisdf]
+        newtrenches = pd.concat(frames,sort=True)
+
+    newtrenches = newtrenches[['lon','lat','az','bound','slab']]
+    newtrenches.to_csv(trenchfile,header=True,index=False,na_rep=np.nan,float_format='%.4f')
 
 
-for slab in slablist:
-    outfile = 'trench_%s.csv' % slab
-    thisdf = trenches[trenches.slab == slab]
-    if slab == 'alu' or slab =='ker':
-        thisdf = zerothreesixty(thisdf)
-    strike = np.mean(thisdf['az'].values)
-    if np.min(thisdf['az'].values) < 45 and np.max(thisdf['az'].values) > 315:
-        ns_ew = 'N'
-        thisdf = northernaz(thisdf)
-    elif (strike < 135. and strike > 45.) or (strike < 315. and strike > 225.):
-        ns_ew = 'EW'
-    else:
-        ns_ew = 'S'
+if __name__=='__main__':
+    desc = '''
+        This script is used to take a sorted trench segment (or many in the same file) and smooth out any outlying azimuth values calculated from sortpoints.py. Once the segments are all sufficiently smoothed, this is also intended to be used as a tool for filling in the trench locations. This is done by running the script until each point is within 20 km of the next point. The density of points is necessary for the slab2 modeling algorithm.
+        
+        The process requires manual additions/edits to the script itsself in 
+        order to document the way that the trench points should be sorted.
+        
+        Required arguments include:
+            -n newtrenchlist: the file containing the original unsorted list 
+                              of trench coordinates
+            -t trenchfile: the output file to write the new sorted list of 
+                           coordinates to
+            -s smoothorfill: s to smooth newtrenchlist
+        '''
+    parser = argparse.ArgumentParser(description=desc, formatter_class=argparse.RawDescriptionHelpFormatter)
+    
+    parser.add_argument('-n', '--newtrenchlist', dest='newtrenchlist', type=str,
+                        required=True, help='new unsorted trench coord list')
+                        
+    parser.add_argument('-t', '--trenchfile', dest='trenchfile', type=str,
+                        required=True, help='file to save output to')
+                        
+    parser.add_argument('-s', '--smoothorfill', dest='smoothorfill', type=str,
+                        required=True, help='s to smooth newtrenchlist, f to fill newtrenchlist')
+                        
+    pargs = parser.parse_args()
 
-    #ogstrikes = thisdf['az'].values
-    #avstrikes = movingav(ogstrikes)
-    #thisdf['az'] = avstrikes
-    thisdf = filldf(thisdf,ns_ew)
-    thisdf = oneeighty(thisdf)
-    if ns_ew == 'N':
-        thisdf = notnorthanymore(thisdf)
-    frames = [newtrenches,thisdf]
-    newtrenches = pd.concat(frames)
-
-newtrenches = newtrenches[['lon','lat','az','bound','slab']]
-newtrenches.to_csv('ryutrenches.csv',header=True,index=False,na_rep=np.nan,float_format='%.4f')
-
-
-
+    main(pargs)
 
 

@@ -100,6 +100,113 @@ def cosrule(d2r,lat1,lon1,lat2,lon2):
     ang = math.acos(ang)
     return dist2, ang
 
+def npcosrule(d2r, lon1, lat1, lon2, lat2):
+    
+    # Written GLM 4.25.17
+    # Added here KLH 09/25/2019
+    
+    ''' Arguments:  d2r - degree to radians conversion constant (float)
+        lon1 - longitude point that the angle is referenced from
+        (float)[deg]
+        lat1 - latitude point that the angle is referenced from
+        (float)[deg]
+        lon2 - array of longitudes that the angle is going to
+        (clockwise from 0 degrees) (arr of floats)[deg]
+        lat2 - array of latitudes that the angle is going to
+        (clockwise from 0 degrees) (arr of floats)[deg]
+        
+        Returns:    dist2 - array of great circle distance between the two
+        lat/lon points (arr of floats)[km]
+        ang - array of angles between the two points (clockwise from
+        0 degrees from lat1/lon1 point)
+        (arr of floats)[deg] '''
+    
+    # breaks when lat1==lat2 or lon1==lon2. Add small difference where needed
+    londiff = np.abs(lon2-lon1)
+    latdiff = np.abs(lat2-lat1)
+    lon2[londiff<0.0001] += 0.0001 # causes runtime
+    lat2[latdiff<0.0001] += 0.0001 # causes runtime
+    
+    cl1 = (90.0-lat1)*d2r
+    cl2 = (90.0-lat2)*d2r
+    dlon = (lon2-lon1)*d2r
+    
+    coscl2 = np.cos(cl2)
+    sincl2 = np.sin(cl2)
+    cosdlon = np.cos(dlon)
+    
+    coscl1 = math.cos(cl1)
+    sincl1 = math.sin(cl1)
+    
+    dist = (coscl1 * coscl2) + (sincl1 * sincl2 * cosdlon)
+    
+    dist[dist < -1] = -1.0 # causes runtime
+    dist[dist > 1] = 1.0 # causes runtime
+    
+    dist2 = np.arccos(dist)
+    dist2[dlon > math.pi] = 2*math.pi - dist2[dlon > math.pi] # causes runtime
+    
+    ang = np.zeros(len(dist))
+    num = np.zeros(len(dist))
+    den = np.zeros(len(dist))
+    
+    num[dist != 0] = (coscl2[dist != 0] - (dist[dist != 0] * coscl1))
+    den[dist != 0] = (np.sin(dist2[dist != 0]) * sincl1)
+    
+    ang[dist != 0] = num[dist != 0] / den[dist != 0]
+    ang[dist == 0] = 1.0
+    ang[ang < -1] = -1.0 # causes runtime
+    ang[ang > 1] = 1.0 # causes runtime
+    ang2 = np.arccos(ang)
+    
+    return dist2, ang2
+
+
+def npcosine(lon1, lat1, lon2, lat2):
+    
+    # Written GLM 4.25.17
+    # Added here KLH 09/25/2019
+    
+    ''' Arguments:  lon1 - longitude point that the angle is referenced from
+        (float)[deg]
+        lat1 - latitude point that the angle is referenced from
+        (float)[deg]
+        lon2 - array of longitudes that the angle is going to
+        (clockwise from 0 degrees) (arr of floats)[deg]
+        lat2 - array of latitudes that the angle is going to
+        (clockwise from 0 degrees) (arr of floats)[deg]
+        
+        Returns:    dist - array of great circle distance between the two
+        lat/lon points (arr of floats)[km]
+        ang - array of angles between the two points (clockwise from
+        0 degrees from lat1/lon1 point)
+        (arr of floats)[deg] '''
+    
+    # Creating degrees/radians conversion constants
+    d2r = (math.pi/180.0)
+    r2d = (180.0/math.pi)
+    ddlon = lon1-lon2
+    
+    # Ensuring that azimuths are between 0 and 360
+    if lon1 < 0.0:
+        lon1 += 360.0
+    lon2[lon2<0.0] += 360.0
+    
+    # Getting distance and angle between the two points (in degrees)
+    dist, ang = npcosrule(d2r, lon1, lat1, lon2, lat2)
+    ang[(lon1>lon2)&(ddlon<180.0)] = 2*math.pi-ang[(lon1>lon2)&(ddlon<180.0)] # causes runtime
+    dist = np.abs(dist * r2d)
+    
+    dist[dist > 180.0] = 360-dist[dist > 180] # causes runtime
+    ang[dist > 180.0] += math.pi # causes runtime
+    ang[ang > 2.0*math.pi] = 2.0*math.pi - ang[ang > 2.0*math.pi] # causes runtime
+    dist *= 111.19
+    ang *= r2d
+    
+    lon2[lon2<0]+=360
+    
+    return dist, ang
+
 def cosine(lon1,lat1,lon2,lat2):
     # Logic by Gavin Hayes
     if lon1 > 180:
@@ -163,7 +270,7 @@ def refilter(OBdata,TRdata):
 
         out = outboard(azT,thisang)
         if not out:
-            print 'removed point',lonB,latB,lonT,latT
+            print('removed point',lonB,latB,lonT,latT)
             OBdata.drop(index, inplace=True)
             
     return OBdata
@@ -186,10 +293,10 @@ trenches.loc[trenches.lon < 0, 'lon']+=360
 bathymetry.loc[bathymetry.lon < 0, 'lon']+=360
 
 for slab in slablist:
-    print 'slab',slab
+    print('slab',slab)
     loc_tr = trenches[trenches.slab == slab]
     
-    print 'loc_tr',loc_tr
+    print('loc_tr',loc_tr)
     lonmin = loc_tr['lon'].min() - 2
     lonmax = loc_tr['lon'].max() + 2
     latmin = loc_tr['lat'].min() - 2
@@ -201,16 +308,16 @@ for slab in slablist:
     
     slabBA = pd.DataFrame(columns = ['lon','lat','elev','thickness','depth','baID'])
     
-    print 'slab, loc_ba',slab, loc_ba
+    print('slab, loc_ba',slab, loc_ba)
 
-    print 'len(loc_tr)',len(loc_tr)
+    print('len(loc_tr)',len(loc_tr))
     n = 0
     for index,row in loc_tr.iterrows():
         lonT, latT, azT = row['lon'], row['lat'], row['az']
         
         loc_ba1 = loc_ba[(loc_ba.lon > lonT-2) & (loc_ba.lon < lonT+2) & (loc_ba.lat > latT-2) & (loc_ba.lat < latT+2)]
         #loc_ba1['dist'] = gps2dist_azimuth(latT,lonT,loc_ba1['lat'],loc_ba1['lon'])[0]/1000.0
-        loc_ba1['dist'], tempangles = npcosine(lonT, latT, loc_ba1['lon'].values, loc_ba1['lat'].values)
+        loc_ba1['dist'], tempangles = npcosine(lonT, latT, loc_ba1['lon'].values, loc_ba1['lat'].values) # commented out KLH 09/25/2019
         slab_ba = loc_ba1[loc_ba1.dist < 200]
         lonsBA = slab_ba['lon'].values
         latsBA = slab_ba['lat'].values
@@ -222,11 +329,11 @@ for slab in slablist:
         
         #slab_ba = removematches(slab_ba,slabBA)
         BAframes = [slabBA, slab_ba]
-        slabBA = pd.concat(BAframes)
+        slabBA = pd.concat(BAframes,sort=True)
         slabBA = slabBA.reset_index(drop=True)
     
         n+=1
-        print n
+        print(n)
 
 
     slabBA2 = slabBA.drop_duplicates(['baID'])
@@ -238,7 +345,7 @@ for slab in slablist:
 
     slabBA = slabBA.drop_duplicates(['baID'])
 
-    print 'len(slabBA)',len(slabBA)
+    print('len(slabBA)',len(slabBA))
 
     slabBA['unc'] = 5.0
     slabBA = slabBA[['lon','lat','depth','unc','elev','thickness']]

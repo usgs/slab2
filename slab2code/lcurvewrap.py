@@ -105,10 +105,13 @@ def main(args):
     (slab,slk,date) = folder.split('_')
     
     dataornodes = 'nodes'
-    inputfolder= '/Users/ginevramoore/Documents/Slab2/Ginevra2017/gmtfiles/inputfiles'
+    # Change file path below
+# inputfolder = '/Users/ginevramoore/Documents/Slab2/Ginevra2017/gmtfiles/inputfiles'
+#  inputfolder = '/Users/khaynie/Src/Slab2/slab2-master/slab2code/Input'
     shift_out = pd.read_csv('%s/%s_slab2_nod_%s.csv'%(fullfolder,slab,date))
     used_data = pd.read_csv('%s/%s_slab2_dat_%s.csv'%(fullfolder,slab,date))
-    clip = pd.read_csv('%s/%s_slab2_clp_%s.csv'%(fullfolder,slab,date), names=['lon','lat'],delim_whitespace=True)
+    #  clip = pd.read_csv('%s/%s_slab2_clp_%s.csv'%(fullfolder,slab,date),  names=['lon','lat'],delim_whitespace=True) # commented out by KLH 09/18/2019 was not splitting into 2 columns
+    clip = pd.read_csv('%s/%s_slab2_clp_%s.csv'%(fullfolder,slab,date), names=['lon','lat']) # this way splits the csv file into 2 columns with names lon, lat - KLH 09/18/2019
 
     npass = 1
 
@@ -169,7 +172,9 @@ def main(args):
             output[:, 3] = Filtgrid.flatten()  # dep_shift_smooth Post-shift surface depth after smoothing
             output[:, 0][output[:, 0]<0]+=360
 
-            clip.loc[clip.lon < 0, 'lon']+=360
+            # Want to make lon in the clip file positive (had to change how clip file was read in above):
+            # clip.loc[clip.lon < 0, 'lon']+=360 # commented out by KLH 09/18/2019
+            clip.loc[(clip['lon'] < 0), ['lon']]+=360 # KLH 09/18/2019
             
             output[:,2][output[:,3] > shift_out['depth'].max()] = np.nan
             output[:,3][output[:,3] > shift_out['depth'].max()] = np.nan
@@ -182,7 +187,7 @@ def main(args):
         
             if dataornodes == 'nodes':
                 addextra = shift_out[shift_out.depth < 35]*1.0
-                shift_out2 = pd.concat([shift_out,addextra,addextra,addextra])
+                shift_out2 = pd.concat([shift_out,addextra,addextra,addextra],sort=True)
                 misfit, datafit = s2f.nodeMisfit(shift_out, output, clip)
                 #misfit, datafit = s2f.depthMisfit(shift_out, output, clip)
             elif dataornodes == 'data':
@@ -192,7 +197,7 @@ def main(args):
                                             (used_data.etype == 'AS')|\
                                             (used_data.etype == 'BA')|\
                                             (used_data.etype == 'RF')]
-                used_data2 = pd.concat([used_data,doubleweight,doubleweight,doubleweight,doubleweight,doubleweight])
+                used_data2 = pd.concat([used_data,doubleweight,doubleweight,doubleweight,doubleweight,doubleweight],sort=True)
                 misfit, datafit = s2f.nodeMisfit(used_data2, output, clip)
                 #misfit, datafit = s2f.depthMisfit(used_data, output, clip)
         

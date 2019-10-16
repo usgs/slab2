@@ -1,0 +1,22 @@
+Parameter file for tomography ID: SAM4
+
+Output datafile: Output/sam_TO_SAM4.csv
+
+Input tomography file: tomofile = Tomo_files/SAM4_P_2017.tomo
+Slab guide grid file: slabfile = Slab_files/sam_slab1.0_augmented.grd
+
+minlat = -40.000000
+maxlat = -24.000000
+minlon = -70.000000
+maxlon = -60.000000
+posmag = 200.000000
+negmag = -250.000000
+hnode = 0.200000
+vnode = 1.000000
+HRES = 0.050000
+VRES = 5.000000
+thresh = 0.750000
+shallim = 150.000000
+minlen = 50.000000
+maxlen = 225.000000
+maxdist = 150.000000

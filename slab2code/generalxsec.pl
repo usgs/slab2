@@ -103,7 +103,8 @@ print "$ID,$folder,$folderloc,$unfiltered,$reg_trench,$caz,$guide,$xclen";
 `mkdir $folderloc/$ID\_slab2_xsecs_$folder/indata`;
 
 ####
-$gmt="/Applications/GMT-5.4.3.app/Contents/Resources/bin/gmt";
+# gmt must be on the PATH
+$gmt="gmt";
 ## Set GMT output bounds
 `$gmt gmtset PS_MEDIA=a2`;
 $raw="$folderloc/$ID\_slab2_dep_$folder.grd";
