@@ -1,0 +1,33 @@
+# GMT5
+# Use this script for plotting polygons and data worldwide
+# K. L. Haynie 10/01/2019
+
+gmt gmtset PS_PAGE_ORIENTATION landscape
+
+# Input data:
+Map="/Users/khaynie/Src/slab2-master2019cat/slab2code/library/forplotting/world_lr.grd"
+Mapcpt="/Users/khaynie/Src/slab2-master2019cat/slab2code/library/forplotting/ghayes2.cpt"
+Poly="/Users/khaynie/Src/slab2-master2019cat/slab2code/library/misc/slab_polygons2.txt"
+
+# output file:
+psfile="WorldPoly.ps"
+
+rm -rf $psfile
+
+# region parameters:
+#bounds="-R-180/180/-80/80"
+bounds="-R0/360/-70/70"
+proj="-JM8i"
+ticks="-Ba40g40/a20g20WESN"
+
+# miscellaneous parameters:
+miscStart="-K -V"
+miscMid="-O -K -V"
+miscEnd="-O -V"
+
+gmt psbasemap $bounds $proj $ticks $miscStart > $psfile
+gmt grdimage $Map -C$Mapcpt $bounds $proj $miscMid >> $psfile
+gmt pscoast $proj $bounds $ticks -W0.6p,50 $miscMid >> $psfile
+gmt psxy $Poly $bounds $proj -W2p,red $miscEnd >> $psfile
+
+open $psfile

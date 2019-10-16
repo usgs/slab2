@@ -1,0 +1,34 @@
+(1) USGS trench file
+(2) Peter Bird (2003)
+(3) Maesano et al. 2017
+(4) Digitized based on topography
+(NA) Not Applicable
+
+alu (1)(2)
+cal (3)
+cam (1)
+car (1)(2)
+cas (1)
+cot (4)
+hal (NA)
+hel (3)
+him (1)
+hin (NA)
+izu (1)
+ker (1)
+kur (1)
+mak (1)(4)
+man (1)(2)
+mue (2)
+pam (NA)
+phi (1)(2)
+png (2)
+puy (2)
+ryu (2)
+sam (1)
+sco (1)
+sol (1)
+sul (2)
+sum (1)(2)(4)
+van (1)(2)
+

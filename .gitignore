@@ -1,2 +1,7 @@
 .DS_Store
 *.pyc
+.ipynb_checkpoints
+__pycache__
+*database
+!0418database
+.vscode

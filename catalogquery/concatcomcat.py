@@ -15,7 +15,7 @@ if manyortwo == '1':
     for filename in os.listdir(database):
         if filename.endswith('.csv'):
             df = pd.read_csv('%s/%s'%(database,filename))
-            dftot = pd.concat([dftot,df])
+            dftot = pd.concat([dftot,df],sort=True)
             print (len(df), len(dftot))
 
     places, mtypes = [],[]
@@ -69,9 +69,9 @@ if manyortwo == '1':
 
         thisone = thisone[['id_no','time','lat','lon','depth','mag','mag_type','moment_lon','moment_lat','moment_depth','mrr','mtt','mpp','mrt','mrp','mtp','type']]
         
-        newdf = pd.concat([newdf,thisone])
+        newdf = pd.concat([newdf,thisone],sort=True)
     
-    dftot = pd.concat([newdf,others])
+    dftot = pd.concat([newdf,others],sort=True)
     dftot = dftot[['id_no','time','lat','lon','depth','mag','mag_type','moment_lon','moment_lat','moment_depth','mrr','mtt','mpp','mrt','mrp','mtp','type']]
     dftot.to_csv('%s.csv'%database,header=True,index=False,na_rep=np.nan)
     print ('All files were merged and written to %s.csv'%database)
@@ -87,7 +87,7 @@ elif manyortwo == '2':
     
     oldcolumns = old.columns
 
-    newcatdf = pd.concat([old,new])
+    newcatdf = pd.concat([old,new],sort=True)
     newcatdf = newcatdf.reset_index(drop=True)
     newcatdf = newcatdf[oldcolumns]
     

@@ -7,8 +7,10 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 from libcomcat.search import search
-from libcomcat.utils import get_summary_data_frame
-from libcomcat.utils import get_detail_data_frame
+#from libcomcat.utils import get_summary_data_frame
+from libcomcat.dataframes import get_summary_data_frame # KLH 09/23/2019
+#from libcomcat.utils import get_detail_data_frame
+from libcomcat.dataframes import get_detail_data_frame # KLH 09/23/2019
 import argparse
 
 def main(args):
@@ -131,7 +133,7 @@ def main(args):
         if len(searchlist) > 0:
             detaildf = get_detail_data_frame(searchlist,get_tensors='preferred',get_moment_supplement=True)
 
-            totdf = pd.concat([totdf,detaildf])
+            totdf = pd.concat([totdf,detaildf],sort=True)
             print (bounds,len(detaildf),len(totdf))
 
             if len(totdf) > 5000:

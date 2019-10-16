@@ -2,7 +2,7 @@
 #####
 use Math::Trig;
 #####
-$outfile="exp_04-18_input.csv";
+$outfile="exp_10-19_input.csv";
 open(OUT,">$outfile");
 #####
 $unc=15;
