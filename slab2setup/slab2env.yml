@@ -1,50 +1,50 @@
-name: slab2env
+name: slab2envTest2
 channels:
   - conda-forge
   - defaults
 dependencies:
   - affine
-  - basemap
-  - basemap-data-hires
   - cartopy
   - configobj
-  - gdal
-  - geos
+  - gdal=2.4.2
+  - geos=3.7.2
   - h5py
   - hdf4
   - hdf5
+  - jupyter
   - libcomcat
-  - mapio
+  - libgdal=2.4.2
+  - mapio=0.7.22
   - matplotlib
   - numpy
+  - obspy
   - openssl
   - pandas
   - pillow
   - pip
   - psutil
-  - pycrypto
   - pyproj
   - pyqt
-  - python=3.5
+  - pyrsistent
+  - pyshp
+  - python=3.7.3
   - pyyaml
   - rasterio
   - scipy
   - shapely
   - sphinx
+  - sqlalchemy
   - urllib3
-  - jupyter
   - xlrd
   - xlsxwriter
   - xlwt
   - yaml
   - pip:
     - dill
-    - future
     - geographiclib
     - geopy
     - multiprocess
-    - obspy
     - scikit-learn
     - sklearn
-    - sqlalchemy
     - utm
+    - git+git://github.com/usgs/neicmap.git

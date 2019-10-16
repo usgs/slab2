@@ -303,7 +303,7 @@ def main(args):
         AA_data = pd.read_table(AA_source, delim_whitespace=True,\
                                 header=None, names=['dist', 'depth'])
         RF_data = pd.read_csv('library/avprofiles/cam_RF_av.csv')
-        AA_data = pd.concat([AA_data,RF_data])
+        AA_data = pd.concat([AA_data,RF_data],sort=True)
         global_average = False
 
     else:
@@ -377,7 +377,7 @@ def main(args):
             guidedata = guidedata[guidedata.lon>137]
             slab1data = slab1data[slab1data.lat<=137]
 
-        slab1data = pd.concat([slab1data, guidedata])
+        slab1data = pd.concat([slab1data, guidedata],sort=True)
         slab1data = slab1data.reset_index(drop=True)
 
     if slabguide2 is not None:
@@ -386,7 +386,7 @@ def main(args):
         guidedata = s2f.mkSlabData(slabguide2, guidestr, guidedip, printtest)
         if SGfile2 == 'phi_SG_north':
             guidedata = guidedata[guidedata.lat>14]
-        slab1data = pd.concat([slab1data, guidedata])
+        slab1data = pd.concat([slab1data, guidedata],sort=True)
         slab1data = slab1data.reset_index(drop=True)
         
     #slab1data.to_csv('slab1data.csv',header=True,index=False)
@@ -552,12 +552,12 @@ def main(args):
         eventlistE = eventlist[eventlist.lon>148]
         eventlistW = eventlist[eventlist.lon<=148]
         eventlistE = s2f.cmtfilter(eventlistE,seismo_thick,printtest,datainfo,slab)
-        eventlist = pd.concat([eventlistE,eventlistW])
+        eventlist = pd.concat([eventlistE,eventlistW],sort=True)
     if slab == 'sum':
         eventlistS = eventlist[eventlist.lat<=22]
         eventlistN = eventlist[eventlist.lat>22]
         eventlistS = s2f.cmtfilter(eventlistS,seismo_thick,printtest,datainfo,slab)
-        eventlist = pd.concat([eventlistS,eventlistN])
+        eventlist = pd.concat([eventlistS,eventlistN],sort=True)
     if slab != 'hal' and slab != 'him' and slab != 'pam' and slab != 'hin' and slab != 'sol' and slab != 'sum' and slab != 'cas':
         eventlist = s2f.cmtfilter(eventlist,seismo_thick,printtest,datainfo,slab)
 
@@ -807,7 +807,7 @@ def main(args):
                     if len(AAadd)>0:
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
-                        elistAA = pd.concat([elistAA, AAadd])
+                        elistAA = pd.concat([elistAA, AAadd],sort=True)
             
                 newnodes = thisnode[12]
                 if len(newnodes)>0:
@@ -862,7 +862,7 @@ def main(args):
                     if len(AAadd)>0:
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
-                        elistAA = pd.concat([elistAA, AAadd])
+                        elistAA = pd.concat([elistAA, AAadd],sort=True)
                         
                 if len(newnodes)>0:
                     if allnewnodes is not None:
@@ -999,7 +999,7 @@ def main(args):
                     if len(AAadd)>0:
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
-                        elistAA = pd.concat([elistAA, AAadd])
+                        elistAA = pd.concat([elistAA, AAadd],sort=True)
             
                 if not thisnode[13] and np.isfinite(thisnode[2]):
                     enewlons.append(thisnode[0])
@@ -1045,7 +1045,7 @@ def main(args):
                     if len(AAadd)>0:
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
-                        elistAA = pd.concat([elistAA, AAadd])
+                        elistAA = pd.concat([elistAA, AAadd],sort=True)
 
                 if not anydata and np.isfinite(alocdep):
                     enewlons.append(alon)
@@ -1143,7 +1143,7 @@ def main(args):
         elistAA['unc'] = 10.0
 
     elistcuts.append(elistAA)
-    eventlist2 = pd.concat(elistcuts)
+    eventlist2 = pd.concat(elistcuts,sort=True)
     eventlist = eventlist2.reset_index(drop=True)
     del eventlist2
     eventlist = eventlist.drop_duplicates(['ID'])
@@ -1233,7 +1233,7 @@ def main(args):
                 used_all = used_all[~(np.in1d(used_all[:, 1], removeIDID) & np.in1d(used_all[:, 0], thisID))]
             multi = thisnode[19]
             if len(multi) > 0:
-                premulti = pd.concat([premulti, multi])
+                premulti = pd.concat([premulti, multi],sort=True)
 
         del pts2
         
@@ -1274,7 +1274,7 @@ def main(args):
                 used_all = used_all[~(np.in1d(used_all[:, 1], removeIDID) & np.in1d(used_all[:, 0], thisID))]
             multi = bpremulti
             if len(multi) > 0:
-                premulti = pd.concat([premulti, multi])
+                premulti = pd.concat([premulti, multi],sort=True)
 
 
     tmp_res = pd.DataFrame({'bzlon':bzlons,'bzlat':bzlats,'depth':bzdeps,'stdv':stds2,'nID':nIDs2,'lat':lats2,'lon':lons2,'ogstr':str2,'ogdip':dip2,'centsurf':centsurf,'alen':baleng,'blen':bbleng,'clen':bcleng,'onlyto':onlyto})
@@ -1321,8 +1321,9 @@ def main(args):
 
     '''Section 5: Calculate shifts
 	Here we use the output of the second loop to calculate shifting locations for non-RF results.
-	The shift is calculated using the 1/2 of the thickness of the plate, as calculated using the nearest oceanic plate age.
-	Shift direction is determined by the strike and dip of a surface created using the output from the second loop.
+	A user-specified lithospheric thickness can be read in or lithosphere thickness will be calculated using the nearest oceanic plate age.
+	The taper and fracshift is set in the paramter file for each subduction zone. fracshift was determined via testing each individual 
+    subduztion zone to match seismicity. Shift direction is determined by the strike and dip of a surface created using the output from the second loop.
 	A clipping mask is also created in this section using the shifted output data.
     '''
 
@@ -1407,7 +1408,7 @@ def main(args):
                 bideps.append(thisnode[12])
             multi = thisnode[14]
             if len(multi) > 0:
-                postmulti = pd.concat([postmulti, multi])
+                postmulti = pd.concat([postmulti, multi],sort=True)
 
         del pts3
         
@@ -1434,7 +1435,7 @@ def main(args):
                 bideps.append(cbideps)
             multi = cpostmulti
             if len(multi) > 0:
-                postmulti = pd.concat([postmulti, multi])
+                postmulti = pd.concat([postmulti, multi],sort=True)
         
     shift_out.loc[shift_out.lon < 0, 'lon']+=360
     
@@ -1489,11 +1490,11 @@ def main(args):
         midshiftout = shift_out[(shift_out.lat > 15)&(shift_out.lat < 28)]
         outshiftout = shift_out[(shift_out.lat <= 15)|(shift_out.lat >= 28)]
         midshiftout = midshiftout[midshiftout.depth<300]
-        shift_out = pd.concat([midshiftout,outshiftout])
+        shift_out = pd.concat([midshiftout,outshiftout],sort=True)
     
     if slab == 'solz' or slab == 'sumz':
         nodesOG, projnodes = s2f.extendEdges(shift_out,grid,slab)
-        shift_out = pd.concat([projnodes, shift_out])
+        shift_out = pd.concat([projnodes, shift_out],sort=True)
         
     '''Section 7: Create output
     Here we put together all of the output data into the correct form for saving to output files.
@@ -1665,7 +1666,7 @@ def main(args):
         clip.loc[(clip.lon == lonc2)&(clip.lat == latc2), 'lat'] = 35.0
         if clip['lon'].values[0] != clip['lon'].values[-1] or clip['lat'].values[0] != clip['lat'].values[-1]:
             pointbeg = clip.iloc[[0]]
-            clip = pd.concat([clip, pointbeg])
+            clip = pd.concat([clip, pointbeg],sort=True)
             clip = clip[['lon','lat']]
     
     # Save results to file
@@ -1697,7 +1698,7 @@ def main(args):
             clip.loc[(clip.lon == lonc2)&(clip.lat == latc2), 'lat'] = 35.0
             if clip['lon'].values[0] != clip['lon'].values[-1] or clip['lat'].values[0] != clip['lat'].values[-1]:
                 pointbeg = clip.iloc[[0]]
-                clip = pd.concat([clip, pointbeg])
+                clip = pd.concat([clip, pointbeg],sort=True)
                 clip = clip[['lon','lat']]
 
         print("    Saving results and data to file...")
