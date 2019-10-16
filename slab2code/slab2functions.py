@@ -22,8 +22,10 @@ import mapio.gmt as gmt
 import math
 import os
 import csv
-import urllib.request, urllib.error, urllib.parse
+#import urllib.request, urllib.error, urllib.parse
 import os.path
+from os import path as ospath # KLH 10/04/2019
+import scipy  # KLH 09/17/2019
 from scipy import interpolate
 from scipy.interpolate import griddata
 from matplotlib import path
@@ -77,15 +79,14 @@ def get_grid(slr, destdi):
     elif destdi == 'dip':
         clip = 'dipclip'
     
-    url = 'http://earthquake.usgs.gov/data/slab/models/%s_slab1.0_%s.grd' % (slr, clip)
+    #url = 'http://earthquake.usgs.gov/data/slab/models/%s_slab1.0_%s.grd' % (slr, clip)
     fname = 'library/slab1grids/%s_slab1.0_%s.grd' % (slr, clip)
     
-    # If the grid file is not in the specified directory, it is found from
-    # a query of the Slab 1.0 website
+    # Firts see if there is a slab1 grid file
     if not os.path.isfile(fname):
-        fh = urllib.request.urlopen(url)
-        data = fh.read()
-        fh.close()
+       # fh = urllib.request.urlopen(url)
+       # data = fh.read()
+       # fh.close()
         f = open(fname, 'wb')
         f.write(data)
         f.close()
@@ -814,7 +815,7 @@ def depthRange(loc_depth, sdr, ddr, seismo_thick, elist, slabname, these_paramet
     elist = elist[elist.depth <= ddepth]
     elist = elist[elist.depth >= sdepth]
 
-    elist = pd.concat([elist,dontremove])
+    elist = pd.concat([elist,dontremove],sort=True)
     
     return elist, sdepth, ddepth, True
 
@@ -876,7 +877,7 @@ def perpfilt(rmaxS, rmaxD, rmin, elist, shallow_cutoff):
     deepsearch = deepsearch[(deepsearch['xyzdist'] < deepsearch['maxdist'])]
 
     frames = [deepsearch, shallowsearch]
-    elist2 = pd.concat(frames)
+    elist2 = pd.concat(frames,sort=True)
     elist2 = elist2.reset_index(drop=True)
     return elist2
 
@@ -1005,7 +1006,7 @@ def dualdepthperp(loc_depth, sdr, ddr, seismo_thick, elist, slabname, cstr, lon,
     elist.loc[(elist.maxdepth > rmaxSD) & ((elist.outboard == False) | (elist.depth < loc_depth)), 'maxdepth'] = rmaxSD
     elist = elist[(elist['alldist'] < elist['maxdepth'])]
     
-    elist2 = pd.concat([defkeep, elist])
+    elist2 = pd.concat([defkeep, elist],sort=True)
     
     elist2 = elist2.drop_duplicates(['ID'])
     elist2 = elist2[elist2.cosdistance2<alen]
@@ -1386,8 +1387,10 @@ def createGridInPolygon2(nodes, slabname, slabfile):
 
 def getDFinMask(datadf, maskdf):
 
-    maskdf.loc[maskdf.lon < 0, 'lon'] += 360
-    datadf.loc[datadf.lon < 0, 'lon'] += 360
+    # maskdf.loc[maskdf.lon < 0, 'lon'] += 360 # KLH commented out
+    # datadf.loc[datadf.lon < 0, 'lon'] += 360 # KLH commented out
+    maskdf.loc[(maskdf['lon'] < 0), ['lon']]+=360 # KLH 09/19/2019
+    datadf.loc[(datadf['lon'] < 0), ['lon']]+=360 # KLH 09/19/2019
 
     lons = maskdf['lon'].values*1.0
     lats = maskdf['lat'].values*1.0
@@ -2231,12 +2234,12 @@ def makealuAA(lon, lat, AA_data):
             if maxoutmed > maxoutmin:
                 meddata = meddata[meddata.dist<maxout]
                 add = meddata[meddata.dist > maxoutmin]
-                mindata = pd.concat([mindata, add])
+                mindata = pd.concat([mindata, add],sort=True)
                 mindata = mindata.reset_index(drop=True)
             else:
                 mindata = mindata[mindata.dist<maxout]
                 add = mindata[mindata.dist > maxoutmed]
-                meddata = pd.concat([meddata, add])
+                meddata = pd.concat([meddata, add],sort=True)
                 meddata = meddata.reset_index(drop=True)
             mindata = mindata[mindata.dist > minmin]
             meddata = meddata[meddata.dist > minmin]
@@ -2376,7 +2379,7 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
         elif slab == 'him':
             elistRF011 = getEventsInCircle(lon, lat, clen*3, eventlist[(eventlist.etype == 'RF')&(eventlist.src != 'schulte')])
             elistRF012 = getEventsInCircle(lon, lat, clen*2, eventlist[(eventlist.etype == 'RF')&(eventlist.src == 'schulte')])
-            elistRF01 = pd.concat([elistRF011,elistRF012])
+            elistRF01 = pd.concat([elistRF011,elistRF012],sort=True)
         else:
             elistRF01 = getEventsInCircle(lon, lat, clen*2, eventlist[eventlist.etype == 'RF'])
 
@@ -2520,9 +2523,9 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
     loc_depth, elist = findLocDep(slab1, tooFar, elistPD, seismo_thick, testprint, balist, out, slab, lon, lat)
     
     if len(elist)<2 and len(elistCP0)>0:
-        elist = pd.concat([elist,elistCP0])
+        elist = pd.concat([elist,elistCP0],sort=True)
         if len(elist)<2:
-            elist = pd.concat([elistCP0,elistCP0])
+            elist = pd.concat([elistCP0,elistCP0],sort=True)
 
     if testprint:
         idlist = list(elistPD['ID'].values)
@@ -2598,7 +2601,7 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
                 to_trimmed, tosdepth, toddepth, ctwrt = dualdepthperp(loc_depth, sdr, ddr, seismo_thick, to_trimmed1, slab, cstr, lon, lat, cdip, 100, blen, these_parameters, cutoffwritten)
             else:
                 to_trimmed, tosdepth, toddepth, ctwrt = dualdepthperp(loc_depth, sdr, ddr, seismo_thick, to_trimmed1, slab, cstr, lon, lat, cdip, blen, blen, these_parameters, cutoffwritten)
-            trimmed1 = pd.concat([trimmed1[trimmed1.etype != 'TO'], to_trimmed])
+            trimmed1 = pd.concat([trimmed1[trimmed1.etype != 'TO'], to_trimmed],sort=True)
         else:
             to_trimmed = to_trimmed1.copy()
         elistRF = trimmed1[trimmed1.etype == 'RF']
@@ -2617,19 +2620,19 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
             if len(elistAS) > 0:
                 elistAS=elistAS[elistAS.distance == elistAS['distance'].min()]
                 trimmed = trimmed1[trimmed1.etype != 'AS']
-                trimmed = pd.concat([trimmed, elistAS])
+                trimmed = pd.concat([trimmed, elistAS],sort=True)
             else:
                 trimmed = trimmed1.copy()
 
             if len(elistRF) > 0:
                 elistRF=elistRF[elistRF.distance == elistRF['distance'].min()]
                 trimmed = trimmed[trimmed.etype != 'RF']
-                trimmed = pd.concat([trimmed, elistRF])
+                trimmed = pd.concat([trimmed, elistRF],sort=True)
                 
             if len(elistCP) > 0:
                 elistCP=elistCP[elistCP.distance == elistCP['distance'].min()]
                 trimmed = trimmed[trimmed.etype != 'CP']
-                trimmed = pd.concat([trimmed, elistCP])
+                rimmed = pd.concat([trimmed, elistCP],sort=True)
 
         if testprint:
             idlist = list(trimmed['ID'].values)
@@ -2663,7 +2666,7 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
             addToDataInfo(noelist, nID, 'ellipsefilt', datainfo,'df')
             
         frames = [elist3, elistAS, elistBA, elistRF, elistCP]
-        trimmed = pd.concat(frames)  # Add back in active source and bathymetry data
+        trimmed = pd.concat(frames,sort=True)  # Add back in active source and bathymetry data
         
         if testprint:
             f = open(nodeinfo, 'a')
@@ -2672,7 +2675,7 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
         
     elif len(elistBA)>0 or len(elistAS)>0 or len(elistRF)>0 or len(elistCP)>0:
         #print 'only RF',lon,lat
-        trimmed = pd.concat([elistAS, elistBA, elistRF, elistCP])
+        trimmed = pd.concat([elistAS, elistBA, elistRF, elistCP],sort=True)
         sdepth, ddepth = loc_depth-sdr, loc_depth+sdr
         uprad = sdr
         dorad = sdr
@@ -2701,22 +2704,22 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
     if len(elistRF0)>0:
         elistRF0['unc'] = elistRF0['unc'].values*(2*((clen*3-elistRF0['distance'].values)/(clen*3)))
         elistRF0.loc[elistRF0.distance < alen, 'unc'] = 10.0
-        trimmed = pd.concat([trimmed,elistRF0])
+        trimmed = pd.concat([trimmed,elistRF0],sort=True)
 
     elistCP0, elistCP = removematches(elistCP0,elistCP)
     if len(elistCP0)>0:
         #elistCP0['unc'] = elistCP0['unc'].values*(2*((clen*3-elistCP0['distance'].values)/(clen*3)))
         elistCP0.loc[elistCP0.distance < alen, 'unc'] = 10.0
-        trimmed = pd.concat([trimmed,elistCP0])
+        trimmed = pd.concat([trimmed,elistCP0],sort=True)
         if slab == 'puy' and len(trimmed[trimmed.etype == 'CP'])>1:
             cptrimmed = trimmed[trimmed.etype == 'CP']
             ottrimmed = trimmed[trimmed.etype != 'CP']
             cptrimmed=cptrimmed[cptrimmed.distance == cptrimmed['distance'].min()]
-            trimmed = pd.concat([ottrimmed,cptrimmed])
+            trimmed = pd.concat([ottrimmed,cptrimmed],sort=True)
 
     if len(trimmed)<1 and (len(elistRF)>0 or len(elistCP)>0):
         #print 'had to add again,lon,lat,cstr,cdip,mindist,len(elistRF),elistRF,trimmed',lon,lat,cstr,cdip,mindist,len(elistRF),elistRF,trimmed
-        trimmed = pd.concat([trimmed, elistRF, elistCP])
+        trimmed = pd.concat([trimmed, elistRF, elistCP],sort=True)
 
     if len(trimmed) < 2 and mindist > distAA and len(elistRF)<1 and len(elistCP)<1 and ((slab != 'ryu' and slab != 'hel') or len(trimmed[trimmed.etype == 'TO'])<1):  # Skip nodes with no data
         test = False
@@ -2818,8 +2821,9 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
 def avStrDipRak(trimmed):
 
     EQframe = trimmed[trimmed.etype == 'EQ']
-
-    if len(EQframe > 0) and EQframe[pd.notnull(EQframe['S1'])].size > 0:
+    
+    # if len(EQframe > 0) and EQframe[pd.notnull(EQframe['S1'])].size > 0: # commented out by KLH 09/17/2019
+    if len(EQframe) > 0 and EQframe[pd.notnull(EQframe['S1'])].size > 0: # KLH 09/17/2019
         EQ_with_cmt = EQframe[pd.notnull(EQframe['S1'])]
         EQ_with_cmt_array = np.array(EQ_with_cmt)
         S1df = EQ_with_cmt['S1'].values
@@ -2884,7 +2888,7 @@ def makeMultiDF(multi_peak2, multipeaks, lon, lat, nID):
     multiDF = pd.DataFrame({'lon':mlons,'lat':mlats,'depth':mdepths,'nID':mnodes})
     if len(multipeaks)>0:
         frames = [multipeaks, multiDF] # GLM 11.23.16
-        multipeaks = pd.concat(frames)
+        multipeaks = pd.concat(frames,sort=True)
         multipeaks = multipeaks.reset_index(drop=True)
         multipeaks = multipeaks[['lon', 'lat', 'depth', 'nID']]
     else:
@@ -2933,7 +2937,7 @@ def makeMultiDFP(multi_peak2, multipeaks, lon, lat, nID, strike, dip, loc_depth)
 
     if len(multipeaks)>0:
         frames = [multipeaks, multiDF] # GLM 11.23.16
-        multipeaks = pd.concat(frames)
+        multipeaks = pd.concat(frames,sort=True)
         multipeaks = multipeaks.reset_index(drop=True)
         multipeaks = multipeaks[['lon', 'lat', 'depth', 'nID']]
     else:
@@ -3333,7 +3337,7 @@ def fullPDFcalc(trimmed, sdepth, ddepth, testprint, nID, lat, lon, loc_depth, wh
     # If there is only one event, we do not solve for the depth at that point unless it is AA, BA, or AS
     elif len(elistBAe) > 0 or len(elistASe) > 0 or len(elistAAe) > 0 or len(elistRFe) > 0 or len(elistTOe) > 0 or len(elistCPe) > 0:
         frames = [elistBAe, elistASe, elistAAe, elistRFe, elistTOe, elistCPe]
-        trimmed_once = pd.concat(frames)
+        trimmed_once = pd.concat(frames,sort=True)
         all_depths = trimmed_once['depth'].values
         variance1 = trimmed_once['unc'].values
         peak_depth = np.mean(all_depths)
@@ -3397,28 +3401,37 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
     Filtgrid = pd.DataFrame({'lon':xi[:, 0],'lat':xi[:, 1],'depth':filtshifted.flatten(),'strike':strgrid.flatten(),'dip':dipgrid.flatten()})
 
     Filtgrid = Filtgrid[(np.isfinite(Filtgrid.depth))&(np.isfinite(Filtgrid.strike))&(np.isfinite(Filtgrid.dip))]
-    #Filtgrid.to_csv('shiftingsurface.csv',header=True,index=False,na_rep=np.nan)
 
+    # If provided, read in user-specified lithospheric thickness file - KLH 10/07/2019
+    user_thickness =  ospath.exists('library/slabthickness/%s_thickness.csv'%slab)
+    if user_thickness == True:
+        print("Using user specified thickness....")
+        inFileThick = 'library/slabthickness/%s_thickness.csv' % slab
+        ThickData = pd.read_csv(inFileThick,header=None, names=['lon', 'lat', 'thickness'])
+        tmpThick = np.zeros((len(ThickData), 3))
+        tmpThick[:,0],tmpThick[:,1],tmpThick[:,2]=ThickData['lon'].values,ThickData['lat'].values,ThickData['thickness'].values
+
+    else:
     # Determine age of plate at trench
-    if len(trenches)>0 and slab != 'helz':
-        trench_age = np.zeros((len(trenches['lon'].values), 4))
-        trench_age[:, 0], trench_age[:, 1] = trenches['lon'].values, trenches['lat'].values
-        trench_age[:, 0][trench_age[:, 0]>180] -= 360
+        if len(trenches)>0 and slab != 'helz':
+            trench_age = np.zeros((len(trenches['lon'].values), 4))
+            trench_age[:, 0], trench_age[:, 1] = trenches['lon'].values, trenches['lat'].values
+            trench_age[:, 0][trench_age[:, 0]>180] -= 360
 
-        for i in range(len(trench_age)):
-            if trench_age[i, 0] > 179.8 and trench_age[i, 0] < 180.1: #GLM 11.30.16 eventually fix ages file
-                trench_age[i, 0] = 179.8
-            trench_age[i, 2] = ages.getValue(trench_age[i, 1], trench_age[i, 0])/100 # GLM 11.16.16 [i,2] instead of [:,2]
-            trench_age[i, 3] = ages_error.getValue(trench_age[i, 1], trench_age[i, 0])/100
+            for i in range(len(trench_age)):
+                if trench_age[i, 0] > 179.8 and trench_age[i, 0] < 180.1: #GLM 11.30.16 eventually fix ages file
+                    trench_age[i, 0] = 179.8
+                trench_age[i, 2] = ages.getValue(trench_age[i, 1], trench_age[i, 0])/100 # GLM 11.16.16 [i,2] instead of [:,2]
+                trench_age[i, 3] = ages_error.getValue(trench_age[i, 1], trench_age[i, 0])/100
 
-        trench_age[:,0][trench_age[:,0]<0] += 360
+            trench_age[:,0][trench_age[:,0]<0] += 360
 
-        trench_age[trench_age==327.] = np.nan  # Hardwired 327 because of default value of age grid file
-        ta0, ta1, ta2, ta3 = trench_age[:, 0], trench_age[:, 1], trench_age[:, 2], trench_age[:, 3]
-        ta0, ta1, ta2, ta3 = ta0[np.isfinite(ta3)], ta1[np.isfinite(ta3)], ta2[np.isfinite(ta3)], ta3[np.isfinite(ta3)]
+            trench_age[trench_age==327.] = np.nan  # Hardwired 327 because of default value of age grid file
+            ta0, ta1, ta2, ta3 = trench_age[:, 0], trench_age[:, 1], trench_age[:, 2], trench_age[:, 3]
+            ta0, ta1, ta2, ta3 = ta0[np.isfinite(ta3)], ta1[np.isfinite(ta3)], ta2[np.isfinite(ta3)], ta3[np.isfinite(ta3)]
 
-        trench_age = np.zeros((len(ta0), 4))
-        trench_age[:, 0], trench_age[:, 1], trench_age[:, 2], trench_age[:, 3] = ta0, ta1, ta2, ta3
+            trench_age = np.zeros((len(ta0), 4))
+            trench_age[:, 0], trench_age[:, 1], trench_age[:, 2], trench_age[:, 3] = ta0, ta1, ta2, ta3
 
     # Determine strike, dip, nearest trench for each input datum
     all_pts = np.zeros((len(tmp_res), 10))
@@ -3434,18 +3447,23 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
     surfarr[:, 3] = Filtgrid['dip'].values
 
     # Fill in plate age and error
-    if len(trenches) > 0 and slab != 'helz':
-        all_pts[:, 5] = griddata(trench_age[:, 0:2], trench_age[:, 2], all_pts[:, 0:2], method='nearest')
-        all_pts[:, 8] = griddata(trench_age[:, 0:2], trench_age[:, 3], all_pts[:, 0:2], method='nearest')
+    if user_thickness == False: # KLH 10/07/2019
+        if len(trenches) > 0 and slab != 'helz':
+            all_pts[:, 5] = griddata(trench_age[:, 0:2], trench_age[:, 2], all_pts[:, 0:2], method='nearest')
+            all_pts[:, 8] = griddata(trench_age[:, 0:2], trench_age[:, 3], all_pts[:, 0:2], method='nearest')
+            np.savetxt('TrenchAgeWithError.csv', (all_pts[:, 0], all_pts[:, 1], all_pts[:, 5], all_pts[:, 8]),fmt='%.2f', delimiter=',',comments='') # KLH DELETE
+        else:
+            all_pts[:, 5] = 75
+            all_pts[:, 8] = 20
     else:
-        all_pts[:, 5] = 75
-        all_pts[:, 8] = 20
+    # Fill in plate thickness from user specified thickness file - KLH 10/07/2019
+        all_pts[:,6] = griddata(tmpThick[:,0:2], tmpThick[:,2], all_pts[:,0:2], method='nearest') # TESTING
     
     # Fill in strike and dip from original slab center surface
     all_pts[:, 3] = griddata(surfarr[:, 0:2], surfarr[:, 2], all_pts[:, 0:2], method='nearest')
     all_pts[:, 4] = griddata(surfarr[:, 0:2], surfarr[:, 3], all_pts[:, 0:2], method='nearest')
     
-    # Calculating crustal thickness
+    # Calculating lithosphere thickness
     """ References
         thermal conductivity (lithosphere): k = 3.138 W/m C (Stein and Stein, 1996)
         specific heat (lithosphere): Cp = 1.171 kJ/kg C (Stein and Stein, 1996)
@@ -3454,7 +3472,6 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
         thickness (lithosphere): h = 2.32 * sqrt(kappa*age) where age is in seconds and h is in meters (Turcotte and Schubert)
             **base of lithosphere defined when (T-T1)/(T0-T1) = 0.1 (see T&S eqs. 4.93 and 4.115)
     """
-
     k = 3.138
     Cp = 1171.
     pm = 3330.
@@ -3462,13 +3479,12 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
 
     new_pts = np.zeros((len(all_pts), 9))
 
-    #centsurf = tmp_res['centsurf'].values
-    for i in range(len(all_pts)):
-
-        age_sec = all_pts[i, 5] * 1000000 * 365.25 * 24 * 60 * 60  # Convert age in Myr to age in seconds
-        all_pts[i, 6] = 2.32 * math.sqrt(kappa * age_sec) / 1000  # Divide by 1000 converts from meters to kilometers - thickness
-        if slab == 'hal' or slab == 'pam' or slab == 'hin' or slab == 'him':
-            all_pts[i,6] = 100
+    if user_thickness == False: # KLH 10/07/2019
+        for i in range(len(all_pts)):
+            age_sec = all_pts[i, 5] * 1000000 * 365.25 * 24 * 60 * 60  # Convert age in Myr to age in seconds
+            all_pts[i, 6] = 2.32 * math.sqrt(kappa * age_sec) / 1000  # Divide by 1000 converts from meters to kilometers - thickness
+            if slab == 'hal' or slab == 'pam' or slab == 'hin' or slab == 'him':
+                all_pts[i,6] = 100
 
     max_thickness = 5000
 
@@ -3476,7 +3492,7 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
         taper_width = np.max(all_pts[:, 6])
     else:
         taper_width = taper_width
-    
+
     maxthickness = np.max(all_pts[:, 6])
     all_pts[:,9] = tmp_res['onlyto'].values
 
@@ -3519,11 +3535,12 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
             
         new_pts[i, 0], new_pts[i, 1], new_pts[i, 2] = pointShift(all_pts[i, 0], all_pts[i, 1], all_pts[i, 2], all_pts[i, 4], all_pts[i, 3], all_pts[i, 7])
 
-        age_sec = all_pts[i, 5] * 1000000 * 365.25 * 24 * 60 * 60
-        new_pts[i, 3] = math.sqrt(math.pow((2.32 * k * taper / (math.sqrt(kappa * age_sec) * Cp * pm * 1000. * 2. )), 2)*math.pow((error_sec/10.), 2) +
-                              math.pow((2.32 * age_sec * taper / (math.sqrt(kappa * age_sec) * Cp * pm * 1000. * 2. )), 2)*math.pow((k/10.), 2) +
-                              math.pow((-1. * 2.32 * k * age_sec * taper / (math.pow((kappa * age_sec), (3./2.)) * Cp * 1000. * 2. )), 2)*math.pow((pm/10.), 2) +
-                              math.pow((-1. * 2.32 * k * age_sec * taper / (math.pow((kappa * age_sec), (3./2.)) * pm * 1000. * 2. )), 2)*math.pow((Cp/10.), 2))
+        if user_thickness == False: # KLH 10/07/2019
+            age_sec = all_pts[i, 5] * 1000000 * 365.25 * 24 * 60 * 60
+            new_pts[i, 3] = math.sqrt(math.pow((2.32 * k * taper / (math.sqrt(kappa * age_sec) * Cp * pm * 1000. * 2. )), 2)*math.pow((error_sec/10.), 2) +
+                                math.pow((2.32 * age_sec * taper / (math.sqrt(kappa * age_sec) * Cp * pm * 1000. * 2. )), 2)*math.pow((k/10.), 2) +
+                                math.pow((-1. * 2.32 * k * age_sec * taper / (math.pow((kappa * age_sec), (3./2.)) * Cp * 1000. * 2. )), 2)*math.pow((pm/10.), 2) +
+                                math.pow((-1. * 2.32 * k * age_sec * taper / (math.pow((kappa * age_sec), (3./2.)) * pm * 1000. * 2. )), 2)*math.pow((Cp/10.), 2))
         if testprint:
             print ('new_pts[i, 0], new_pts[i, 1], new_pts[i, 2]', new_pts[i, 0], new_pts[i, 1], new_pts[i, 2])
             print ('lon,lat,depth,strike,dip,thickness,taper,taper-depth,taper-width',all_pts[i,0],all_pts[i,1],all_pts[i,2],all_pts[i,3],all_pts[i,4],all_pts[i,7],taper,taper_depth,taper_width)
@@ -3545,7 +3562,7 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
 
 def newSlabShift(tmp_res, node, T, trenches, taper_depth, taper_width, ages, ages_error, filterwidth, slab, maxthickness, spacing, lonname, latname, depthname, fracS, fill_dat, meanBA, testprint, kdeg, knot_no, rbfs, use_box):
     
-    tmp_res2 = pd.concat([tmp_res, fill_dat])
+    tmp_res2 = pd.concat([tmp_res, fill_dat],sort=True)
     tmpdata = np.zeros((len(tmp_res2), 4))
     tmpdata[:, 0], tmpdata[:, 1] = tmp_res2[lonname].values, tmp_res2[latname].values
     try:
@@ -3616,7 +3633,7 @@ def newSlabShift(tmp_res, node, T, trenches, taper_depth, taper_width, ages, age
     all_pts[:, 3] = griddata(surfarr[:, 0:2], surfarr[:, 2], all_pts[:, 0:2], method='nearest')
     all_pts[:, 4] = griddata(surfarr[:, 0:2], surfarr[:, 3], all_pts[:, 0:2], method='nearest')
     
-    # Calculating crustal thickness
+    # Calculating lithosphere thickness
     """ References
         thermal conductivity (lithosphere): k = 3.138 W/m C (Stein and Stein, 1996)
         specific heat (lithosphere): Cp = 1.171 kJ/kg C (Stein and Stein, 1996)
@@ -4143,9 +4160,9 @@ def mkClipPolygon(indataOG, trench, spacing, testprint):
     maskdata = maskdata.reset_index(drop=True)
 
     if slab == 'cot':
-        clip = pd.concat([masktrench[:-3], maskdata, addfirst])
+        clip = pd.concat([masktrench[:-3], maskdata, addfirst],sort=True)
     else:
-        clip = pd.concat([masktrench, maskdata, addfirst])
+        clip = pd.concat([masktrench, maskdata, addfirst],sort=True)
 
     return clip
 
@@ -4409,7 +4426,7 @@ def raiseEQunc(eventlistALL):
     eventlist2 = eventlistALL[eventlistALL.etype == 'EQ']
     eventlist2['unc']=eventlist2.apply(lambda row: uncraise(row['unc']), axis=1)
     frames = [eventlist1, eventlist2]
-    eventlistALL = pd.concat(frames)
+    eventlistALL = pd.concat(frames,sort=True)
     eventlist = eventlistALL.loc[eventlistALL.etype == 'RF', 'unc'] = 5
     eventlistALL = eventlistALL.reset_index(drop=True)
     eventlist = eventlistALL[['lat', 'lon', 'depth', 'unc', 'etype', 'ID', 'mag', 'time', 'S1', 'D1', 'R1', 'S2', 'D2', 'R2', 'src']]
@@ -4647,7 +4664,7 @@ def doublePoints(doubleuse, eventlist, maxID):
     
     newIDs = list(range(maxID+1, maxID+1+len(doubleuse)))
     doubleuse['ID'] = newIDs
-    eventlist = pd.concat([eventlist, doubleuse])
+    eventlist = pd.concat([eventlist, doubleuse],sort=True)
     
     maxID = eventlist['ID'].max()
     maxID += 1
@@ -4697,6 +4714,14 @@ def mkSlabData(depgrid, strgrid, dipgrid, testprint):
     slab1dips = slab1dips[np.isfinite(slab1dips)]
     slab1lons[slab1lons<0]+=360
 
+    # need to convert numpy array to the native system byte order before passing to DataFrame (i.e., force native byteorder)
+    # KLH 09/17/2019
+    slab1lons = slab1lons.astype('<f8') # <f8 = little endian 64-bit floating-point number
+    slab1lats = slab1lats.astype('<f8')
+    slab1deps = slab1deps.astype('<f8')
+    slab1strs = slab1strs.astype('<f8')
+    slab1dips = slab1dips.astype('<f8')
+    
     # store array in dataframe
     slab1data = pd.DataFrame({'lon':slab1lons,'lat':slab1lats,'depth':slab1deps,'strike':slab1strs,'dip':slab1dips})
     slab1data = slab1data[['lon', 'lat', 'depth', 'strike', 'dip']]
@@ -4742,7 +4767,7 @@ def myfilter(data):
         lonsmooth = movingav(x)
         thislon['depth'] = lonsmooth
         frames = [newdf, thislon]
-        newdf = pd.concat(frames)
+        newdf = pd.concat(frames,sort=True)
         newdf = newdf.reset_index(drop=True)
         newdf = newdf[['lon', 'lat', 'depth', 'unc']]
     
@@ -4755,7 +4780,7 @@ def myfilter(data):
         latsmooth = movingav(x)
         thislat['depth'] = latsmooth
         frames = [newdf2, thislat]
-        newdf2 = pd.concat(frames)
+        newdf2 = pd.concat(frames,sort=True)
         newdf2 = newdf2.reset_index(drop=True)
         newdf2 = newdf2[['lon', 'lat', 'depth', 'unc']]
 
@@ -5370,11 +5395,11 @@ def perpPDFdepths(elist, cstr, cdip, lon, lat, loc_depth, maxthickness):
     while diffmax > maxthickness and len(elist) > 1:
         #print 'too wide!! lon,lat,loc_depth,diffmax,maxperp,minperp,meandist,maxthickness',lon,lat,loc_depth,diffmax,maxperp,minperp,meandist,maxthickness
         if abs(maxperp-meandist) > abs(minperp-meandist):
-            removelist = pd.concat([removelist, elist[elist.perpdistance == maxperp]])
+            removelist = pd.concat([removelist, elist[elist.perpdistance == maxperp]],sort=True)
             elist = elist[elist.perpdistance != maxperp]
             maxperp = elist['perpdistance'].max()
         else:
-            removelist = pd.concat([removelist, elist[elist.perpdistance == minperp]])
+            removelist = pd.concat([removelist, elist[elist.perpdistance == minperp]],sort=True)
             elist = elist[elist.perpdistance != minperp]
             minperp = elist['perpdistance'].min()
 
@@ -5780,7 +5805,7 @@ def perpPDFcalc(trimmed, sdepth, ddepth, testprint, nID, lat, lon, loc_depth, wh
     # If there is only one event, we do not solve for the depth at that point unless it is AA, BA, or AS
     elif len(elistBAe) > 0 or len(elistASe) > 0 or len(elistAAe) > 0 or len(elistRFe) > 0 or len(elistTOe) or len(elistCPe)> 0:
         frames = [elistBAe, elistASe, elistAAe, elistRFe, elistTOe, elistCPe]
-        trimmed_once = pd.concat(frames)
+        trimmed_once = pd.concat(frames,sort=True)
         all_depths = trimmed_once['depth'].values
         variance1 = trimmed_once['unc'].values
         peak_depth = np.mean(all_depths)
@@ -6423,10 +6448,10 @@ def cmtfilter(data,seismo_thick,printtest,datainfo,slab):
     shallow_data = shallow_data[shallow_data.kagan < 35]
     
     # Includes shallow data without MT info (1) - comment out next line for (2)
-    # filtered = pd.concat([deep_data, shallow_data, dfn, datanotEQ])
+    # filtered = pd.concat([deep_data, shallow_data, dfn, datanotEQ],sort=True)
 
     # Only includes shallow thrust events (2) - uncomment line below for (2) and comment necessary lines above
-    filtered = pd.concat([deep_data, shallow_data, datanotEQ])
+    filtered = pd.concat([deep_data, shallow_data, datanotEQ],sort=True)
     
     return filtered
 
@@ -6476,12 +6501,12 @@ def getSZthickness(data,folder,slab,maxdep,maxdepdiff,origorcentl,origorcentd,sl
 
     # make depth array for gaussian fitting
     if origorcentd == 'c':
-        depths = alldata.mdep.as_matrix()
+        depths = alldata.mdep.values
     else:
-        depths = alldata.depth.as_matrix()
+        depths = alldata.depth.values
 
     if slaborev == 's':
-        depths = alldata.slab2dep.as_matrix()*-1.0
+        depths = alldata.slab2dep.values*-1.0
 
     N = len(depths)
     depths.shape = (N,1)
@@ -6537,7 +6562,9 @@ def getSZthickness(data,folder,slab,maxdep,maxdepdiff,origorcentl,origorcentd,sl
 
     # calculate normal distribution from mean and stdv.
     depthlist = list(range(maxdep))
-    norm_pdf = matplotlib.mlab.normpdf(depthlist,m0,sd0)
+    # matplotlib.mlab.normpdf depreciated with new version use scipy.stats.norm.pdf - KLH 09/17/2019
+    #  norm_pdf = matplotlib.mlab.normpdf(depthlist,m0,sd0)
+    norm_pdf = scipy.stats.norm.pdf(depthlist,m0,sd0)
 
     # find bimodal distribution using 3 Gaussians
     clf3 = mixture.GaussianMixture(n_components=3, covariance_type='full')
@@ -6565,13 +6592,19 @@ def getSZthickness(data,folder,slab,maxdep,maxdepdiff,origorcentl,origorcentd,sl
     sdd2=np.sqrt(cd2)[0]
 
     # create summed PDF for triple and double distributions
-    norm_pdf1 = matplotlib.mlab.normpdf(depthlist,m1,sd1)*w1
-    norm_pdf2 = matplotlib.mlab.normpdf(depthlist,m2,sd2)*w2
-    norm_pdf3 = matplotlib.mlab.normpdf(depthlist,m3,sd3)*w3
+    # matplotlib.mlab.normpdf depreciated with new version use scipy.stats.norm.pdf - KLH 09/17/2019
+    #norm_pdf1 = matplotlib.mlab.normpdf(depthlist,m1,sd1)*w1
+    #norm_pdf2 = matplotlib.mlab.normpdf(depthlist,m2,sd2)*w2
+    #norm_pdf3 = matplotlib.mlab.normpdf(depthlist,m3,sd3)*w3
+    norm_pdf1 = scipy.stats.norm.pdf(depthlist,m1,sd1)*w1
+    norm_pdf2 = scipy.stats.norm.pdf(depthlist,m2,sd2)*w2
+    norm_pdf3 = scipy.stats.norm.pdf(depthlist,m3,sd3)*w3
     norm_pdfT = norm_pdf1 + norm_pdf2 + norm_pdf3
 
-    norm_pdfd1 = matplotlib.mlab.normpdf(depthlist,md1,sdd1)*wd1
-    norm_pdfd2 = matplotlib.mlab.normpdf(depthlist,md2,sdd2)*wd2
+    #norm_pdfd1 = matplotlib.mlab.normpdf(depthlist,md1,sdd1)*wd1
+    #norm_pdfd2 = matplotlib.mlab.normpdf(depthlist,md2,sdd2)*wd2
+    norm_pdfd1 = scipy.stats.norm.pdf(depthlist,md1,sdd1)*wd1
+    norm_pdfd2 = scipy.stats.norm.pdf(depthlist,md2,sdd2)*wd2
     norm_pdfdT = norm_pdfd1 + norm_pdfd2
     
     # calculate rms for all distributions
@@ -6722,7 +6755,7 @@ def getSZthickness(data,folder,slab,maxdep,maxdepdiff,origorcentl,origorcentd,sl
     sztdata2 = sztdata[sztdata.dipdiff1 >= sztdata.dipdiff2]
     sztdata1['closedip'] = sztdata1['D1'].values*1.0
     sztdata2['closedip'] = sztdata2['D2'].values*1.0
-    sztdata = pd.concat([sztdata1,sztdata2])
+    sztdata = pd.concat([sztdata1,sztdata2],sort=True)
     meanevendip = sztdata['closedip'].mean()
 
     # save figure
@@ -6783,15 +6816,15 @@ def orgEQs(interface,eventlist,maxdepdiff, seismo_thick, slab, maxdep):
     if len(depmt) > 0:
         upperA1 = depmt[depmt.mdep < depmt.slab2dep-maxdepdiff]
         intraA1 = depmt[depmt.mdep >= depmt.slab2dep-maxdepdiff]
-        upperA = pd.concat([upperA, upperA1])
-        intraA = pd.concat([intraA, intraA1])
+        upperA = pd.concat([upperA, upperA1],sort=True)
+        intraA = pd.concat([intraA, intraA1],sort=True)
 
     # within seismogenic zone depths, split non-interface events to above/below
     if len(sztmt) > 0:
         upperA2 = sztmt[sztmt.mdep < sztmt.slab2dep]
         intraA2 = sztmt[sztmt.mdep >= sztmt.slab2dep]
-        upperA = pd.concat([upperA, upperA2])
-        intraA = pd.concat([intraA, intraA2])
+        upperA = pd.concat([upperA, upperA2],sort=True)
+        intraA = pd.concat([intraA, intraA2],sort=True)
         
     # sort events without CMTs based on depth
     sztot = otevents[otevents.depth <= seismo_thick]
@@ -6801,21 +6834,21 @@ def orgEQs(interface,eventlist,maxdepdiff, seismo_thick, slab, maxdep):
     if len(depot) > 0:
         upperB1 = depot[depot.depth < depot.slab2dep-maxdepdiff]
         intraB1 = depot[depot.depth >= depot.slab2dep-maxdepdiff]
-        upperB = pd.concat([upperB, upperB1])
-        intraB = pd.concat([intraB, intraB1])
+        upperB = pd.concat([upperB, upperB1],sort=True)
+        intraB = pd.concat([intraB, intraB1],sort=True)
 
     # get non MT interface events using buffer
     if len(sztot) > 0:
         interB1 = sztot[(sztot.depth <= sztot.slab2dep + maxdepdiff) & (sztot.depth >= sztot.slab2dep-maxdepdiff)]
         sztot = sztot[(sztot.depth > sztot.slab2dep + maxdepdiff) | (sztot.depth < sztot.slab2dep-maxdepdiff)]
-        interB = pd.concat([interB, interB1])
+        interB = pd.concat([interB, interB1],sort=True)
         
         # split remaining events above/below slab
         if len(sztot) > 0:
             upperB2 = sztot[sztot.depth < sztot.slab2dep]
             intraB2 = sztot[sztot.depth >= sztot.slab2dep]
-            upperB = pd.concat([upperB, upperB2])
-            intraB = pd.concat([intraB, intraB2])
+            upperB = pd.concat([upperB, upperB2],sort=True)
+            intraB = pd.concat([intraB, intraB2],sort=True)
 
     interA['qual'] = 'A'
     upperA['qual'] = 'A'
@@ -6832,9 +6865,9 @@ def orgEQs(interface,eventlist,maxdepdiff, seismo_thick, slab, maxdep):
         moveintraB = upperB[upperB.depth > maxdep]
         upperB = upperB[upperB.depth <= maxdep]
     
-    inter = pd.concat([interA, interB])
-    upper = pd.concat([upperA, upperB])
-    intra = pd.concat([intraA, moveintraA, intraB, moveintraB])
+    inter = pd.concat([interA, interB],sort=True)
+    upper = pd.concat([upperA, upperB],sort=True)
+    intra = pd.concat([intraA, moveintraA, intraB, moveintraB],sort=True)
 
     inter = inter[['lat','lon','depth','unc','etype','ID','mag','time','S1','D1','R1','S2','D2','R2','src','slab2str','slab2dip','slab2rak','mrr','mtt','mpp','mrt','mrp','mtp','mrrS','mttS','mppS','mrtS','mrpS','mtpS','kagan','depdiff','slab2dep','mlon','mlat','mdep','qual']]
     upper = upper[['lat','lon','depth','unc','etype','ID','mag','time','S1','D1','R1','S2','D2','R2','src','slab2str','slab2dip','slab2rak','mrr','mtt','mpp','mrt','mrp','mtp','mrrS','mttS','mppS','mrtS','mrpS','mtpS','kagan','depdiff','slab2dep','mlon','mlat','mdep','qual']]
@@ -6891,7 +6924,7 @@ def sortoverlap(slab1, slab2, date1, date2, savedir):
     sulintra = sulintra[~sulintra['ID'].isin(halintraunderBids)]
     
     # make new under intraplate file with overlapping and non-overlapping events
-    halintra = pd.concat([halintraNoverA, halintraunderA, halintraNoverB, halintraunderB])
+    halintra = pd.concat([halintraNoverA, halintraunderA, halintraNoverB, halintraunderB],sort=True)
     
     # rewrite upper and intra file for lower slab, intra file for upper slab
     halintra.to_csv('%s/%s_slab2_intra_%s.csv'%(savedir,slab1,date1),header=True,index=False,na_rep=np.nan)
@@ -7217,11 +7250,11 @@ def nodesift(nodes, spacing):
         #print ('lon, lat, depth, strike, len(nearnodes1), len(nearnodes2)',lon, lat, depth, strike, len(nearnodes1), len(nearnodes2))
         nodedf = nodes[(nodes.lat == lat)&(nodes.lon == lon)&(nodes.depth == depth)]
         if len(nearnodes1)>0 or len(nearnodes2)>0:
-            lowernodes = pd.concat([lowernodes, nodedf])
+            lowernodes = pd.concat([lowernodes, nodedf],sort=True)
         else:
-            uppernodes = pd.concat([uppernodes, nodedf])
+            uppernodes = pd.concat([uppernodes, nodedf],sort=True)
 
-    uppernodes = pd.concat([nodes[nodes.depth <= 50], uppernodes])
+    uppernodes = pd.concat([nodes[nodes.depth <= 50], uppernodes],sort=True)
     return lowernodes, uppernodes
 
 
@@ -7339,7 +7372,7 @@ def extendEdges(nodes,spacing,slab):
     tempcoords = pd.DataFrame({'lon':projlons, 'lat':projlats, 'depth':projdeps, 'stdv':100, 'oglon':oglons, 'oglat':oglats, 'strike':ogstrs, 'strike180':ogstrs180})
     #tempcoords = pd.DataFrame({'lon':oglons, 'lat':oglats, 'depth':projdeps, 'stdv':100, 'oglon':oglons, 'oglat':oglats})
 
-    nodes = pd.concat([tempcoords, nodes])
+    nodes = pd.concat([tempcoords, nodes],sort=True)
 
     return nodes, tempcoords
         
@@ -8086,7 +8119,7 @@ def getReferenceKagan(slab1data, eventlist, origorcentl, origorcentd):
     odata['slab2dep'] = griddata(output[:, 0:2], output[:, 4], oarr[:, 0:2], method='nearest')
     odata['slab2rak'] = 90.0
 
-    newlist = pd.concat([idMT, odata])
+    newlist = pd.concat([idMT, odata],sort=True)
     
     return newlist
 
@@ -8159,7 +8192,7 @@ def getReferenceKagan1(slab1data, eventlist):
 
     idMT['kagan'] = interface_kagans
     idMT['depdiff'] = idMT['mdep'].values - (-1*idMT['slab2dep'].values)
-    newlist = pd.concat([idMT, odata])
+    newlist = pd.concat([idMT, odata],sort=True)
     return newlist
 
 
@@ -8360,7 +8393,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         results1 = results[(results.lon<146)&(results.lon>145.8)]
         results2 = results[(results.lon>158)&(results.lon<158.2)]
         results = results[(results.dep_shift_smooth <= dep45)&(results.lon>=146)&(results.lon<=158)]
-        results = pd.concat([results,results1,results2])
+        results = pd.concat([results,results1,results2],sort=True)
         results = results[np.isfinite(results.dep_shift_smooth)]
         trenches = trenches[(trenches.lon>=146)&(trenches.lon<=158)]
         resultsout1['depth'] = resultsout1['dep_shift_smooth'].values*1.0
@@ -8371,7 +8404,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         results2 = results[(results.lat<15)&(results.lat>14.8)]
         results1 = results[(results.lat<27.2)&(results.lat>27)]
         results = results[(results.dep_shift_smooth <= dep45)&(results.lat<=27)&(results.lat>=15)]
-        results = pd.concat([results,results1,results2])
+        results = pd.concat([results,results1,results2],sort=True)
         results = results[np.isfinite(results.dep_shift_smooth)]
         results['depth'] = results['dep_shift_smooth'].values*1.0
         #results.to_csv('results.csv',header=True,index=False, na_rep=np.nan)
@@ -8382,7 +8415,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     elif slab == 'sum':
         #results1 = results[results.lat<20].iloc[::8, :]
         results2 = results[results.lat >= 20]
-        results = pd.concat([results1, results2])
+        results = pd.concat([results1, results2],sort=True)
         resultsout = results[(results.lon<100)|(results.lon>122)]
         results = results[(results.dep_shift_smooth <= dep45)&(results.lon>=100)&(results.lon<=122)]
         results['depth'] = results['dep_shift_smooth'].values*1.0
@@ -8396,7 +8429,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         resultsout = results[(results.dep_shift_smooth < dep45)|(results.lat>-30)]
         results1 = results[(results.lat > -30)&(results.lat < -30)&(results.dep_shift_smooth<dep45)]
         results = results[(results.dep_shift_smooth <= dep45)&(results.lat<=-30)]
-        results = pd.concat([results,results1])
+        results = pd.concat([results,results1],sort=True)
         results = results[np.isfinite(results.dep_shift_smooth)]
         resultsout['depth'] = resultsout['dep_shift_smooth'].values*1.0
         #resultsout.to_csv('resultsout.csv',header=True, index=False, na_rep=np.nan)
@@ -8406,7 +8439,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         resultsout = results[(results.dep_shift_smooth < dep45)|(results.lat>21)]
         results1 = results[(results.lat>21)&(results.lat<22)]
         results = results[(results.dep_shift_smooth <= dep45)&(results.lat<=21)]
-        results = pd.concat([results,results1])
+        results = pd.concat([results,results1],sort=True)
         results = results[np.isfinite(results.dep_shift_smooth)]
         resultsout['depth'] = resultsout['dep_shift_smooth'].values*1.0
         #resultsout.to_csv('resultsout.csv',header=True, index=False, na_rep=np.nan)
@@ -8434,18 +8467,18 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         nodesE = nodes[nodes.lon > 153]
         nodesW = nodesW.reset_index(drop=True)
         nodesW, nodesout = getoutboard(nodesW, trenches[trenches.lon < 152], slab)
-        nodes = pd.concat([nodesE, nodesW])
+        nodes = pd.concat([nodesE, nodesW],sort=True)
         #nodes.to_csv('nodetest.csv',header=True,index=False, na_rep=np.nan)
         resultsW = results[results.lon <= 153]
         resultsE = results[results.lon > 153]
         resultsW = resultsW.reset_index(drop=True)
         resultsW, resultsout2 = getoutboard(resultsW, trenches[trenches.lon < 152], slab)
         resultsW['dep_shift_smooth'] = resultsW['depth'].values
-        results = pd.concat([resultsE,resultsW])
+        results = pd.concat([resultsE,resultsW],sort=True)
         results = results[np.isfinite(results.dep_shift_smooth)]
         resultsout2['dep_shift_smooth'] = resultsout2['depth'].values*1.0
         #results.to_csv('sol_results.csv',header=True,index=False, na_rep=np.nan)
-        resultsout = pd.concat([resultsout1, resultsout2])
+        resultsout = pd.concat([resultsout1, resultsout2],sort=True)
         #resultsout2.to_csv('resultsout2.csv',header=True, index=False, na_rep=np.nan)
         #resultsout.to_csv('resultsout.csv',header=True, index=False, na_rep=np.nan)
         '''
@@ -8454,7 +8487,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         resultsout = pd.read_csv('resultsout1.csv')
         resultsinout = results[results.lon<146]
         results = results[results.lon >= 146]
-        resultsout = pd.concat([resultsinout,resultsout])
+        resultsout = pd.concat([resultsinout,resultsout],sort=True)
         nodes = nodes[nodes.lon>146]
         '''
 
@@ -8711,9 +8744,9 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     tiltnodes,dSs,dPs = newrefframe(x0,y0,meanstk,nlons,nlats,ndeps,nuncs,slab)
 
     nodes2, deepnodes2, tiltnodes = cliptilt(tiltnodes,newclip,nodes,finaldat,slab,'first')
-    shift_out2 = pd.concat([nodes2, masknodes])
+    shift_out2 = pd.concat([nodes2, masknodes],sort=True)
     nodes, deepnodes, tiltnodes = cliptilt(tiltnodes,nodeclip,nodes,finaldat,slab,'first')
-    shift_out = pd.concat([nodes, masknodes])
+    shift_out = pd.concat([nodes, masknodes],sort=True)
     
     #shift_out.to_csv('%s_shiftout.csv'%slab,header=True,index=False)
     #shift_out2.to_csv('%s_shiftout2.csv'%slab,header=True,index=False)
@@ -8814,7 +8847,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     masknodes['sstr'] = suppstrs
     masknodes['sdip'] = suppdips
 
-    clipnodes = pd.concat([nodesOG,masknodes])
+    clipnodes = pd.concat([nodesOG,masknodes],sort=True)
 
     newres = mkContourClip(clipnodes, TR_data, node, resdata, False,slab)
 
@@ -8943,7 +8976,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     #tiltresults.to_csv('%s_newsupptest.csv'%slab,header=True,index=False,na_rep=np.nan)
 
     #tiltresults = tiltresults.iloc[::4,:]
-    newdata = pd.concat([tiltnodes,tiltresults])
+    newdata = pd.concat([tiltnodes,tiltresults],sort=True)
     data = np.zeros((len(newdata),4))
     data[:,0] = newdata['newlon'].values*1.0
     data[:,1] = newdata['newlat'].values*1.0
@@ -9112,7 +9145,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     resnew = results[['lon','lat','depth']]
     finnew = pd.DataFrame({'lon':clfilons,'lat':clfilats,'depth':clfideps})
 
-    newres = pd.concat([resnew,finnew])
+    newres = pd.concat([resnew,finnew],sort=True)
     #newres.to_csv('%s_extramask.csv'%slab,header=True,index=False)
 
     if len(TR_data)>0:
@@ -9811,10 +9844,10 @@ def makevertmask(clip, mindat, xi, newdat, upmidbound, lomidbound, slab):
         dc = clipdat['d'].values[0]
         pm = gmindat['p'].values[0]
         if pm != -99999 and dm < dc:
-            newclip = pd.concat([newclip,gmindat])
+            newclip = pd.concat([newclip,gmindat],sort=True)
             gmindat2 = gmindat.copy()
             gmindat2['d'] = dm-upmidbound
-            newclip2 = pd.concat([newclip2,gmindat2])
+            newclip2 = pd.concat([newclip2,gmindat2],sort=True)
             pdat = newdat[newdat[:,0] == x]
             pdatdown = pdat[pdat[:,1]>dm-50]
             pdatmid = pdat[(pdat[:,1]>dm-upmidbound)&(pdat[:,1]<dm+lomidbound)]
@@ -9822,13 +9855,13 @@ def makevertmask(clip, mindat, xi, newdat, upmidbound, lomidbound, slab):
             supp = np.vstack((supp,pdatdown))
             supp2 = np.vstack((supp2,pdatmid))
         else:
-            newclip = pd.concat([newclip,clipdat])
-            newclip2 = pd.concat([newclip2,clipdat])
+            newclip = pd.concat([newclip,clipdat],sort=True)
+            newclip2 = pd.concat([newclip2,clipdat],sort=True)
 
     enddf = newclip.iloc[[0]]
-    newclipF = pd.concat([newclip,enddf])
+    newclipF = pd.concat([newclip,enddf],sort=True)
     enddf2 = newclip2.iloc[[0]]
-    newclip2F = pd.concat([newclip2,enddf2])
+    newclip2F = pd.concat([newclip2,enddf2],sort=True)
     supp = supp[~np.isnan(supp).any(axis=1)]
     supp2 = supp2[~np.isnan(supp2).any(axis=1)]
     return newclipF, newclip2F, supp, supp2, newclip
@@ -9917,23 +9950,23 @@ def makevertmask2(clip, mindat, xi, newdat, upmidbound, lomidbound, slab, distcu
         dc = clipdat['d'].values[0]
         pm = gmindat['p'].values[0]
         if pm != -99999 and dm < dc:
-            newclip = pd.concat([newclip,gmindat])
+            newclip = pd.concat([newclip,gmindat],sort=True)
             gmindat2 = gmindat.copy()
             gmindat2['d'] = dm-upmidbound
-            newclip2 = pd.concat([newclip2,gmindat2])
+            newclip2 = pd.concat([newclip2,gmindat2],sort=True)
             pdat = newdat[newdat[:,0] == x]
             pdatmid = pdat[(pdat[:,1]>dm-upmidbound)&(pdat[:,1]<dm+lomidbound)]
             pdatdown = pdat[pdat[:,1]>dm-50]
             supp = np.vstack((supp,pdatdown))
             supp2 = np.vstack((supp2,pdatmid))
         else:
-            newclip = pd.concat([newclip,clipdat])
-            newclip2 = pd.concat([newclip2,clipdat])
+            newclip = pd.concat([newclip,clipdat],sort=True)
+            newclip2 = pd.concat([newclip2,clipdat],sort=True)
 
     enddf = newclip.iloc[[0]]
-    newclip = pd.concat([newclip,enddf])
+    newclip = pd.concat([newclip,enddf],sort=True)
     enddf2 = newclip2.iloc[[0]]
-    newclip2 = pd.concat([newclip2,enddf2])
+    newclip2 = pd.concat([newclip2,enddf2],sort=True)
     supp = supp[~np.isnan(supp).any(axis=1)]
     supp2 = supp2[~np.isnan(supp2).any(axis=1)]
     return newclip, newclip2, supp, supp2
@@ -10038,7 +10071,7 @@ def tiltedmask(data,slab,spacing, distcut, distcut1):
 
     toparr = toparray[::-1]
     tilttop = pd.DataFrame({'lon':toparr, 'lat':np.zeros(len(toparr))})
-    tiltmask = pd.concat([tiltmask, tilttop])
+    tiltmask = pd.concat([tiltmask, tilttop],sort=True)
     return tiltmask
 
 def maskdataT(clip2, xi):
@@ -10213,7 +10246,7 @@ def mkContourClip(nodes, trench, spacing, results, testprint,slab):
         thisres = pd.DataFrame({'lon':rlons,'lat':rlats,'depth':rdeps,'strike':rstrs,'dip':rdips})
         #print ('len(thisres),len(newres)',len(thisres),len(newres))
         thisres = thisres.drop_duplicates(['lon','lat','depth'])
-        newres = pd.concat([newres,thisres])
+        newres = pd.concat([newres,thisres],sort=True)
         #print ('after duplicates',len(thisres),len(newres))
         del thisres
 
@@ -10275,7 +10308,7 @@ def mkContourClip(nodes, trench, spacing, results, testprint,slab):
         thisres = pd.DataFrame({'lon':rlons,'lat':rlats,'depth':rdeps,'strike':rstrs,'dip':rdips})
         thisres = thisres.drop_duplicates(['lon','lat','depth'])
 
-        newres = pd.concat([newres,thisres])
+        newres = pd.concat([newres,thisres],sort=True)
         del thisres
 
     newres = newres.drop_duplicates(['lon','lat','depth'])
@@ -10627,7 +10660,7 @@ def clippingmask(indataOG, trench, spacing, testprint, slab, fors):
     maskdata = maskdata[['lon', 'lat']]
     maskdata = maskdata.reset_index(drop=True)
 
-    clip = pd.concat([masktrench, maskdata, addfirst])
+    clip = pd.concat([masktrench, maskdata, addfirst],sort=True)
     if slab == 'car':
         clip = clip[clip.lon >= 289]
         clip = clip[clip.lat >= 10]
@@ -10660,7 +10693,7 @@ def clippingmask(indataOG, trench, spacing, testprint, slab, fors):
     if slab == 'mue' or slab == 'car':
         if clip['lon'].values[0] != clip['lon'].values[-1] or clip['lat'].values[0] != clip['lat'].values[-1]:
             addfirst = clip.iloc[[0]]
-            clip = pd.concat([clip,addfirst])
+            clip = pd.concat([clip,addfirst],sort=True)
         return clip
     else:
         return inpolydf

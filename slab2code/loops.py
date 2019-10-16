@@ -340,7 +340,7 @@ def loop2(testarea, lons, lats, nIDs1, locdep, locstr, locdip, used_all, eventli
         rft = []
 
     if len(trimmed)<2 and len(rft)>0:
-        trimmed = pd.concat([rft, trimmed])
+        trimmed = pd.concat([rft, trimmed],sort=True)
         if abs(rft['depth'].mean()-trimmed['depth'].mean())>maxthickness:
             trimmed = trimmed[(trimmed.etype == 'RF') | (trimmed.etype == 'AA') | (trimmed.etype == 'AS') | (trimmed.etype == 'CP')]
     if len(rft)>0:

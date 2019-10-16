@@ -8,7 +8,7 @@ import numpy as np
 import fnmatch
 from geopy.distance import vincenty
 from math import *
-from mpl_toolkits.basemap import Basemap
+#from mpl_toolkits.basemap import Basemap # commented out by KLH 09/24/2019
 import matplotlib.pyplot as plt
 from matplotlib import path
 import argparse
@@ -353,11 +353,11 @@ def main(args):
     second1990g = second1990g[['mrr','mtt','mpp','mrp','mtp','mrt','gmlon','gmlat','gmdep']]
     first1990c = first1990c[['id_no','time','lat','lon','depth','mag']]
     second1990c = second1990c[['id_no','time','lat','lon','depth','mag']]
-    first1990 = pd.concat([first1990c, first1990g], axis=1)
-    second1990 = pd.concat([second1990c, second1990g], axis=1)
+    first1990 = pd.concat([first1990c, first1990g], axis=1,sort=True)
+    second1990 = pd.concat([second1990c, second1990g], axis=1,sort=True)
 
     # Save double event association to be added to final dataset
-    wonkychina = pd.concat([first1990,second1990])
+    wonkychina = pd.concat([first1990,second1990],sort=True)
     wonkychina['type'] = 'gcmt'
     wonkychina['mlon'] = wonkychina['gmlon'].values.astype(float)
     wonkychina['mlat'] = wonkychina['gmlat'].values.astype(float)
@@ -426,7 +426,7 @@ def main(args):
 
 
     # Merge all files and write final associated catalog to file
-    final = pd.concat([comcat0,comcat_useGcmt,renamed_gcmt,wonkychina])
+    final = pd.concat([comcat0,comcat_useGcmt,renamed_gcmt,wonkychina],sort=True)
     final = final[['id_no','time','lat','lon','depth','mag','mrr','mtt','mpp','mrt','mrp','mtp','type','mlon','mlat','mdep']]
     final.to_csv(associatedfile,header=True,index=False,na_rep=np.nan)
 

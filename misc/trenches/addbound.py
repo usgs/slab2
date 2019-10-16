@@ -157,7 +157,7 @@ for slab in slablist:
         lontrench = lontrench.sort(['lon'],ascending=False)
         thisnewlat = newaz(lattrench)
         thisnewlon = newaz(lontrench)
-        thisnew = pd.concat([thisnewlat,thisnewlon])
+        thisnew = pd.concat([thisnewlat,thisnewlon],sort=True)
         '''
         thistrench = thistrench.sort(['lon'],ascending=False)
         thisnew = newaz(thistrench)
@@ -168,7 +168,7 @@ for slab in slablist:
         lontrench = lontrench.sort(['lon'],ascending=False)
         thisnewlat = newaz(lattrench)
         thisnewlon = newaz(lontrench)
-        thisnew = pd.concat([thisnewlon,thisnewlat])
+        thisnew = pd.concat([thisnewlon,thisnewlat],sort=True)
     elif slab == 'sam':
         thistrench = thistrench.sort(['lat'],ascending=True)
         thisnew = newaz(thistrench)
@@ -187,7 +187,7 @@ for slab in slablist:
         thisnewlat1 = newaz(lattrench1)
         thisnewlon1 = newaz(lontrench1)
         thisnewlat2 = newaz(lattrench2)
-        thisnew = pd.concat([thisnewlat2,thisnewlon1,thisnewlat1])
+        thisnew = pd.concat([thisnewlat2,thisnewlon1,thisnewlat1],sort=True)
     elif slab == 'kur':
         thistrench = thistrench.sort(['lat'],ascending=False)
         thisnew = newaz(thistrench)
@@ -210,7 +210,7 @@ for slab in slablist:
         lontrench = lontrench.sort(['lon'],ascending=False)
         thisnewlat = newaz(lattrench)
         thisnewlon = newaz(lontrench)
-        thisnew = pd.concat([thisnewlat,thisnewlon])
+        thisnew = pd.concat([thisnewlat,thisnewlon],sort=True)
     elif slab == 'car':
         lattrench = thistrench[thistrench.lon > 300]
         lontrench = thistrench[thistrench.lon <= 300]
@@ -218,7 +218,7 @@ for slab in slablist:
         lontrench = lontrench.sort(['lon'],ascending=True)
         thisnewlat = newaz(lattrench)
         thisnewlon = newaz(lontrench)
-        thisnew = pd.concat([thisnewlon,thisnewlat])
+        thisnew = pd.concat([thisnewlon,thisnewlat],sort=True)
     elif slab == 'cam':
         lattrench = thistrench[thistrench.lat > 18]
         lontrench = thistrench[thistrench.lat <= 18]
@@ -226,7 +226,7 @@ for slab in slablist:
         lontrench = lontrench.sort(['lon'],ascending=False)
         thisnewlat = newaz(lattrench)
         thisnewlon = newaz(lontrench)
-        thisnew = pd.concat([thisnewlon,thisnewlat])
+        thisnew = pd.concat([thisnewlon,thisnewlat],sort=True)
     elif slab == 'hel':
         thistrench = thistrench.sort(['lon'],ascending=False)
         thisnew = newaz(thistrench)
@@ -234,7 +234,7 @@ for slab in slablist:
         lattrench1 = thistrench[thistrench.lat > 40]
         lattrench2 = thistrench[(thistrench.lat <= 40) & (thistrench.lon > 17)]
         lontrench = thistrench[(thistrench.lat <= 40) & (thistrench.lon <= 17)]
-        lattrench = pd.concat([lattrench1,lattrench2])
+        lattrench = pd.concat([lattrench1,lattrench2],sort=True)
         lattrench = lattrench.sort(['lat'],ascending=False)
         lontrench = lontrench.sort(['lon'],ascending=False)
         thisnewlat = newaz(lattrench)
@@ -245,7 +245,7 @@ for slab in slablist:
         #mergelon2,mergelat2 = thisnewlon['lon'].values[-1],thisnewlon['lat'].values[-1]
         #dist, ang, lat1, lon1 = cosine(mergelon1,mergelat1,mergelon2,mergelat2)
         #thisnewlon.set_value(len(thisnewlon),'az',ang)
-        thisnew = pd.concat([thisnewlat,thisnewlon])
+        thisnew = pd.concat([thisnewlat,thisnewlon],sort=True)
     elif slab == 'mak':
         thistrench = thistrench.sort(['lon'],ascending=False)
         thisnew = newaz(thistrench)
@@ -283,7 +283,7 @@ for slab in slablist:
         thisnew = newaz(thistrench)
     thisnew['number'] = range(len(thisnew))
     thisnew = thisnew.sort(['number'],ascending=False)
-    allslabs = pd.concat([allslabs,thisnew])
+    allslabs = pd.concat([allslabs,thisnew],sort=True)
 
 allslabs2 = pd.DataFrame()
 
@@ -291,7 +291,7 @@ for slab in slablist:
     thistrench = allslabs[oldtrench.slab == slab]
     thisnew = newaz(thistrench)
     thisnew['number'] = range(len(thisnew))
-    allslabs2 = pd.concat([allslabs2,thisnew])
+    allslabs2 = pd.concat([allslabs2,thisnew],sort=True)
 
 allslabs2 = oneeighty(allslabs)
 allslabs2 = allslabs2[['lon','lat','az','bound','slab','number']]
