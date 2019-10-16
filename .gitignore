@@ -4,4 +4,8 @@
 __pycache__
 *database
 !0418database
+<<<<<<< HEAD
 .vscode
+=======
+.vscode
+>>>>>>> 5d5685a8a6834600ae8386ecd6aeb7f91342b964
