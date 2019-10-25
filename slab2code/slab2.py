@@ -34,7 +34,7 @@ import matplotlib.pyplot as plt
 def main(args):
 
 # THIS IS A TEST
-# USING TO REVIEWING OF CODE IN GITLAB
+# USING FOR REVIEWING OF CODE IN GITLAB
 
     '''Section 1: Setup
 	In this section:
