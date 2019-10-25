@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-
-### Up to date as of 4.17.2017 GLM ###
+### Up to date as of 10/2019 ###
 '''Section 0: Import python libraries
     This code has a number of dependencies, listed below.
     They can be installed using the virtual environment "slab23"
@@ -12,19 +11,19 @@
         that do not need to be installed separately.
 '''
 # stdlib imports
-from datetime import datetime #**
+from datetime import datetime
 import os.path
 import argparse
-import numpy as np #**
-from pandas import DataFrame #**
-import pandas as pd #**
+import numpy as np
+from pandas import DataFrame
+import pandas as pd
 import warnings
-import slab2functions as s2f #**
+import slab2functions as s2f
 import math
-import mapio.gmt as gmt #**
-from functools import partial #**
-from multiprocess import Pool #**
-import loops as loops #**
+import mapio.gmt as gmt
+from functools import partial
+from multiprocess import Pool
+import loops as loops
 from scipy import ndimage
 import psutil
 import cProfile
@@ -62,7 +61,6 @@ def main(args):
     agesFile = 'library/misc/interp_age.3.2g.nc'
     ageerrorsFile = 'library/misc/interp_ageerror.3.2g.nc'
     polygonFile = 'library/misc/slab_polygons.txt'
-    #badFile = 'library/misc/remove0718.csv'
     addFile = 'library/misc/addagain.csv'
     parFile = args.parFile
     pd.options.mode.chained_assignment = None
@@ -336,7 +334,6 @@ def main(args):
     slabguide2 = None
     for SGfile in os.listdir('library/slabguides'):
         if SGfile[0:3] == polyname:
-            #print ('SGfile',SGfile)
             SGfile1 = SGfile
             slabguide = gmt.GMTGrid.load('library/slabguides/%s'%SGfile1)
             
@@ -358,7 +355,6 @@ def main(args):
         depgrid = gmt.GMTGrid.load('library/slabguides/%s'%SGfile1)
         slabguide = None
 
-    
     # Calculate strike and dip grids
     strgrid, dipgrid = s2f.mkSDgrd(depgrid)
     slab1data = s2f.mkSlabData(depgrid, strgrid, dipgrid, printtest)
@@ -388,7 +384,7 @@ def main(args):
             guidedata = guidedata[guidedata.lat>14]
         slab1data = pd.concat([slab1data, guidedata],sort=True)
         slab1data = slab1data.reset_index(drop=True)
-        
+
     #slab1data.to_csv('slab1data.csv',header=True,index=False)
     ''' ------ (9) Define Trench Locations ------'''
     TR_data = pd.read_csv(trenches)
@@ -522,7 +518,6 @@ def main(args):
     del eventlistALL
     
     ''' ----- (11) Calculate seismogenic zone thickness ------ '''
-
     # define seismogenic thickness parameters. change if needed
     maxdep = 65
     maxdepdiff = 20
@@ -530,7 +525,7 @@ def main(args):
     origorcentd = 'c'
     slaborev = 'e'
     lengthlim = -50
-    
+
     ogcolumns = eventlist.columns
     eventlist = s2f.getReferenceKagan(slab1data, eventlist, origorcentl, origorcentd)
     if slab != 'hin':
@@ -544,10 +539,7 @@ def main(args):
         seismo_thick = 40
     if slab == 'alu' or slab == 'cot' or slab == 'sul':
         seismo_thick = 10
-    
-    #exit()
-    
-    #taper = seismo_thick-taper_start
+
     if slab == 'sol':
         eventlistE = eventlist[eventlist.lon>148]
         eventlistW = eventlist[eventlist.lon<=148]
@@ -602,7 +594,7 @@ def main(args):
     if slab == 'mue' or slab == 'phi' or slab == 'cot' or slab == 'sul' or slab == 'ryu':
         f.write('undergrid: %s \n' % str(undergrid))
     f.close()
-    
+
     ''' ------ (13) Define search grid ------ '''
 
     print('    Creating search grid...')
@@ -648,15 +640,15 @@ def main(args):
     pd.options.mode.chained_assignment = None
 
     '''Section 2: First loop
-    
+
     This Accomplishes:
-    
+
     1) Calculate error for each used tomography model.
         This is accomplished by determining the difference between measured 
         depths for tomography and earthquake data, which will be used 
         outside of the loop.
     2) Identify data to constrain depth/coordinate of center of Benioff Zone.
-    
+
         2a) Identify local strike, dip, and depth of Slab1.0.
             If Slab 1.0 does not exist, acquire strike from closest trench
                 location with a strike oriented perpendicularly to this lon/lat.
@@ -667,7 +659,7 @@ def main(args):
             If extending along strike from Slab1.0, define depth to search from 
                 based on mean depth of data within defined radius of node. The
                 dip of the node is defined as 0.
-                
+
         2b) Filter by ellipsoid oriented perpendicularly to Slab1.0.
             If the local dip is less than mindip, orient ellipsoid vertically
                 and along strike found in (2a).
@@ -681,10 +673,10 @@ def main(args):
             The deep extent of the ellipsoid is defined as sdr at depths above
                 seismo_thick, and is tapered to ddr at depths greater than 
                 seismo_thick.
-        
+
         2c) Nodes outboard of the trench are only constrained by bathymetry.
             Nodes inboard of the trench are constrained by all but bathymetry.
-        
+
         2d) Conditionally add average active source/average reciever functions.
             If within the distance of the longest AS profile from the trench
                 identify the average AS profile depth at that distance from
@@ -695,19 +687,18 @@ def main(args):
                 defined distances from trench and distances along strike from
                 key profiles that need to be utilized in the absence of 
                 seismicity.
-                
+
         2e) If information other than tomography is available above 300 km
                 depth, all tomography is filtered at that node.
                 
         2f) If less than two data points are available to constrain a node, no
                 depth is resolved at that node.
-                
+
         2g) If |strike of Slab1.0 at node - strike of Slab1.0 at farthest data|
             > minstrk, filter data at ends until < minstrk.
             If this node is outside of Slab1.0, reduce long axis of search
                 ellipsoid prior to starting filters.
-        
-            
+
 	The output of this loop is two numpy arrays and list of nodes with data:
 	    used_TO: local difference between tomography and earthquake depths and 
             a tomography dataset identifier
@@ -760,14 +751,14 @@ def main(args):
         theselons = loncuts[cut]
         theseevents = elistcuts[cut]
         indices = range(len(theselats))
-        
+
         if cut == 0:
             i2 = 0
-        
+
         cutcount+=1
         
         if pooling:
-        
+
             pool1 = Pool(args.nCores)
             partial_loop1 = partial(loops.loop1, theselons, theselats, testarea, slab,
                                     depgrid, strgrid, dipgrid, slab1query, theseevents,
@@ -778,7 +769,7 @@ def main(args):
             pts = pool1.map(partial_loop1, indices) #$$#
             pool1.close()
             pool1.join()
-            
+
             for i in range(len(indices)):
                 thisnode = pts[i]
                 if thisnode[13]:
@@ -808,14 +799,14 @@ def main(args):
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
                         elistAA = pd.concat([elistAA, AAadd],sort=True)
-            
+
                 newnodes = thisnode[12]
                 if len(newnodes)>0:
                     if allnewnodes is not None:
                         allnewnodes = np.vstack((allnewnodes,newnodes))
                     else:
                         allnewnodes = newnodes
-                        
+
                 if not thisnode[13] and np.isfinite(thisnode[2]):
                     elons1[i2] = thisnode[0]
                     elats1[i2] = thisnode[1]
@@ -828,14 +819,14 @@ def main(args):
                     ecleng[i2] = thisnode[8]
                     esleng[i2] = thisnode[14]
                     edleng[i2] = thisnode[15]
-    
+
                 i2 += 1
-            
+
         else:
-        
+
             for nodeno in range(len(theselons)):
                 alon, alat, alocdep, alocstr, alocdip, anID, aaleng, ableng, acleng, aused_TO, aused_tmp, atrimmedAA, newnodes, anydata, asleng, adleng = loops.loop1(theselons, theselats, testarea, slab, depgrid, strgrid, dipgrid, slab1query, theseevents, seismo_thick, alen, blen, mdist, sdr, ddr, mindip, maxID, AA_data, TR_data, maxdist, maxthickness, minstk, tomo_sets, meanBA, slab1guide, grid, slab1data, dipthresh, datainfo, nodeinfo, nodeno)
-                
+
                 if anydata:
                     
                     lons1[i2] = alon
@@ -849,7 +840,7 @@ def main(args):
                     cleng[i2] = acleng
                     sleng[i2] = asleng
                     dleng[i2] = adleng
-                    
+
                     nused_TO = aused_TO
                     if len(nused_TO) > 0:
                         if used_TO is not None:
@@ -863,13 +854,13 @@ def main(args):
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
                         elistAA = pd.concat([elistAA, AAadd],sort=True)
-                        
+
                 if len(newnodes)>0:
                     if allnewnodes is not None:
                         allnewnodes = np.vstack((allnewnodes,newnodes))
                     else:
                         allnewnodes = newnodes
-            
+
                 if not anydata and np.isfinite(alocdep):
                     elons1[i2] = alon
                     elats1[i2] = alat
@@ -882,9 +873,9 @@ def main(args):
                     ecleng[i2] = acleng
                     esleng[i2] = asleng
                     edleng[i2] = adleng
-        
+
                 i2 += 1
-                
+
     lons1 = lons1[lons1>-999]
     lats1 = lats1[lats1>-999]
     deps1 = deps1[(deps1>-999)|np.isnan(deps1)]
@@ -896,7 +887,7 @@ def main(args):
     cleng = cleng[cleng>-999]
     sleng = sleng[sleng>-999]
     dleng = dleng[dleng>-999]
-    
+
     elons1 = elons1[edleng>-999]
     elats1 = elats1[edleng>-999]
     edeps1 = edeps1[(edeps1>-999)|np.isnan(edeps1)]
@@ -908,7 +899,7 @@ def main(args):
     ecleng = ecleng[edleng>-999]
     esleng = esleng[edleng>-999]
     edleng = edleng[edleng>-999]
-    
+
     testdf = pd.DataFrame({'lon':lons1,'lat':lats1,'depth':deps1,'strike':strs1,'dip':dips1,'id':nIDs1,'alen':aleng,'blen':bleng,'clen':cleng,'slen':sleng,'dlen':dleng})
     testdf.to_csv('firstloop.csv',header=True,index=False,na_rep=np.nan)
 
@@ -945,7 +936,7 @@ def main(args):
         newclen = []
         newslen = []
         newdlen = []
-        
+
         enewlats = []
         enewlons = []
         enewdeps = []
@@ -970,7 +961,7 @@ def main(args):
             pts = pool1.map(partial_loop1, indices)
             pool1.close()
             pool1.join()
-            
+
             for i in range(len(indices)):
                 thisnode = pts[i]
                 if thisnode[13]:
@@ -1000,7 +991,7 @@ def main(args):
                         if AAadd['unc'].mean() > 5:
                             AAadd['etype'] = 'RF'
                         elistAA = pd.concat([elistAA, AAadd],sort=True)
-            
+
                 if not thisnode[13] and np.isfinite(thisnode[2]):
                     enewlons.append(thisnode[0])
                     enewlats.append(thisnode[1])
@@ -1013,12 +1004,12 @@ def main(args):
                     enewclen.append(thisnode[8])
                     enewslen.append(thisnode[14])
                     enewdlen.append(thisnode[15])
-                    
+
         else:
             for nodeno in range(len(theselons)):
-                
+
                 alon, alat, alocdep, alocstr, alocdip, anID, aalen, ablen, aclen, aused_TO, aused_tmp, atrimmedAA, newnodes, anydata, aslen, adlen = loops.loop1(theselons, theselats, testarea, slab, depgrid, strgrid, dipgrid, slab1query, eventlist, seismo_thick, alen, blen, mdist, sdr, ddr, mindip, maxID, AA_data, TR_data, maxdist, maxthickness, minstk, tomo_sets, meanBA, slab1guide, grid, slab1data, dipthresh, datainfo, nodeinfo, nodeno)
-                
+
                 if anydata:
                     
                     newlons.append(alon)
@@ -1032,7 +1023,7 @@ def main(args):
                     newclen.append(aclen)
                     newslen.append(aslen)
                     newdlen.append(adlen)
-                    
+
                     nused_TO = aused_TO
                     if len(nused_TO) > 0:
                         if used_TO is not None:
@@ -1059,7 +1050,7 @@ def main(args):
                     enewclen.append(aclen)
                     enewslen.append(aslen)
                     enewdlen.append(adlen)
-                    
+
         #np.savetxt('%s_diptest.csv'%slab, allnewnodes, header='lon,lat,depth,strike,dip',fmt='%.2f', delimiter=',',comments='')
 
         if printtest:
@@ -1122,14 +1113,13 @@ def main(args):
         ecleng = np.append(ecleng, [enewclen])
         esleng = np.append(esleng, [enewslen])
         edleng = np.append(edleng, [enewdlen])
-    
+
     #print ('lon',len(elons1),'lat',len(elats1),'ogdep',len(edeps1),'ogstr',len(estrs1),'ogdip',len(edips1),'nID',len(enIDs1),'alen',len(ealeng),'blen',len(ebleng),'clen',len(ecleng),'slen',len(esleng),'dlen',len(edleng))
     emptynodes = pd.DataFrame({'lon':elons1,'lat':elats1,'ogdep':edeps1,'ogstr':estrs1,'ogdip':edips1,'nID':enIDs1,'alen':ealeng,'blen':ebleng,'clen':ecleng,'slen':esleng,'dlen':edleng})
 
     #emptynodes.to_csv('emptynodes.csv',header=True,index=False)
     refdeps = pd.DataFrame({'lon':lons1, 'lat':lats1, 'ogdep':deps1})
-        
-        
+
     if global_average:
         ''' # need to fix this after adjusting based on BA depth at trench
         AA_global['depthtest'] = (AA_global['depth'].values*100).astype(int)
@@ -1158,7 +1148,7 @@ def main(args):
 	For each tomography dataset, we calculate the standard deviation of the distribution of "differences".
 	We apply this standard deviation as the uncertainty value for each tomography datum from that dataset.
     '''
-    
+
     print("Start Section 3 of 7: Assigning tomography uncertainties")
 
     if tomo:
@@ -1172,7 +1162,7 @@ def main(args):
             elif np.isnan(tmp_std):
                 tmp_std = 40
             eventlist['unc'][eventlist['src'] == src] = tmp_std
-    	
+
     '''Section 4: Second loop
 	The purpose of this loop is to determine a set of "pre-shifted" slab points that do not utilize receiver function data.
 	This output dataset will represent a transition from slab surface at shallow depths to slab center at deeper depths.
@@ -1236,7 +1226,7 @@ def main(args):
                 premulti = pd.concat([premulti, multi],sort=True)
 
         del pts2
-        
+
     else:
         npass = 1
         for nodeno in range(len(lats1)):
@@ -1276,7 +1266,6 @@ def main(args):
             if len(multi) > 0:
                 premulti = pd.concat([premulti, multi],sort=True)
 
-
     tmp_res = pd.DataFrame({'bzlon':bzlons,'bzlat':bzlats,'depth':bzdeps,'stdv':stds2,'nID':nIDs2,'lat':lats2,'lon':lons2,'ogstr':str2,'ogdip':dip2,'centsurf':centsurf,'alen':baleng,'blen':bbleng,'clen':bcleng,'onlyto':onlyto})
 
     for j in range(len(bilats)):
@@ -1287,7 +1276,7 @@ def main(args):
         stk = bistrs[j]
         dep = bideps[j]
         dip = bidips[j]
-        
+
         if dip <= mindip:
             peak_depth = s2f.findMultiDepth(lon, lat, nID, tmp_res, grid, premulti, stk, slab, dep, alen, printtest)
             peak_lon = lon
@@ -1303,7 +1292,7 @@ def main(args):
 
     if slab == 'sol':
         tmp_res = tmp_res[(tmp_res.bzlon>142) & (tmp_res.bzlon<164)]
-    
+
     if slab == 'sul':
         tmp_res = tmp_res[(tmp_res.bzlon<123.186518923) | (tmp_res.depth<100)]
         tmp_res = tmp_res[(tmp_res.bzlon<122.186518923) | (tmp_res.depth<200)]
@@ -1334,9 +1323,6 @@ def main(args):
     surfnode = 0.5
     data0 = tmp_res[(tmp_res.stdv > -0.000001)&(tmp_res.stdv < 0.000001)]
     tmp_res = tmp_res[(tmp_res.stdv < -0.000001)|(tmp_res.stdv > 0.000001)]
-    
-    #fillnodes = s2f.preshiftfill(tmp_res, emptynodes, refdeps, mindip, dipthresh)
-    #fillnodes.to_csv('fillnodes.csv',header=True,index=False,na_rep=np.nan,float_format='%.2f')
 
     if use_box == 'yes':
         if lonmin<0:
@@ -1374,7 +1360,6 @@ def main(args):
     '''
     print("Start Section 6 of 7: Third (final) loop")
 
-        
     bilats, bilons, binods, bistds = [], [], [], []
     biindx, bistrs, bidips, bideps = [], [], [], []
 
@@ -1385,7 +1370,7 @@ def main(args):
         pts3 = pool3.map(partial_loop3, indices)
         pool3.close()
         pool3.join()
-        
+
         for i in range(len(indices)):
             thisnode = pts3[i]
             if np.isfinite(thisnode[0]):
@@ -1411,7 +1396,7 @@ def main(args):
                 postmulti = pd.concat([postmulti, multi],sort=True)
 
         del pts3
-        
+
     else:
         for nodeno in shift_out['nID'].values:
             crdepth, crstd, crstrike, crdip, crrake, cbilats, cbilons, cbinods, cbistds, cbiindx, cbistrs, cbidips, cbideps, cnID, cpostmulti, cpeak_lon, cpeak_lat = loops.loop3(shift_out, testarea, used_all, eventlist, sdr, ddr, seismo_thick, these_params, slab, maxthickness, mindip, taper, nodeno)
@@ -1436,9 +1421,9 @@ def main(args):
             multi = cpostmulti
             if len(multi) > 0:
                 postmulti = pd.concat([postmulti, multi],sort=True)
-        
+
     shift_out.loc[shift_out.lon < 0, 'lon']+=360
-    
+
     for j in range(len(bilats)):
         lon = bilons[j]
         lat = bilats[j]
@@ -1447,7 +1432,7 @@ def main(args):
         stk = bistrs[j]
         dep = bideps[j]
         dip = bidips[j]
-        
+
         if dip <= mindip:
             peak_depth = s2f.findMultiDepth(lon, lat, nID, shift_out, grid, postmulti, stk, slab, dep, alen, printtest)
             peak_lon = lon
@@ -1475,7 +1460,7 @@ def main(args):
         shift_out, rempts = s2f.removeSZnodes(shift_out, fracS, 0.1, seismo_thick)
     else:
         rempts = pd.DataFrame()
-    
+
     if len(rempts) > 0:
         rempts = rempts[['lon', 'lat', 'depth', 'stdv', 'smag', 'shiftstd', 'avstr', 'avdip', 'avrke', 'psdepth', 'sstr', 'sdip', 'nID', 'pslon', 'pslat', 'bzlon', 'bzlat', 'centsurf','thickness', 'alen', 'blen', 'clen', 'ogstr', 'ogdip','hstdv','vstdv']]
         rempts.to_csv(rempFile, header=True, index=False, na_rep=np.nan, float_format='%.2f')
@@ -1495,7 +1480,7 @@ def main(args):
     if slab == 'solz' or slab == 'sumz':
         nodesOG, projnodes = s2f.extendEdges(shift_out,grid,slab)
         shift_out = pd.concat([projnodes, shift_out],sort=True)
-        
+
     '''Section 7: Create output
     Here we put together all of the output data into the correct form for saving to output files.
     First we create a surface with fine spacing of the final data, then we filter it and apply the clipping mask.
@@ -1524,7 +1509,6 @@ def main(args):
     thickdata = np.zeros((len(shift_out),4))
     thickdata[:, 0], thickdata[:, 1], thickdata[:, 2], thickdata[:, 3] = shift_out['lon'].values, shift_out['lat'].values, shift_out['thickness'].values, np.ones(len(shift_out))
 
-
     if slab == 'sum':
         Surfgrid, xi, dl = s2f.chunksurface(surfdata, node, T, slab, grid, 'depth', time, 'test.txt', filt, pd.DataFrame(), npass, TR_data, meanBA, kdeg, knot_no, rbfs, shift_out,'fin','og','lon',100,110,105)
         flipornot = 'flip'
@@ -1535,8 +1519,6 @@ def main(args):
         Surfgrid, xi, dl = s2f.pySurface3(surfdata, node, T, slab, grid, 'depth', time, 'test.txt', filt, pd.DataFrame(), npass, TR_data, meanBA, kdeg, knot_no, rbfs, shift_out,'fin','og')
         flipornot = 'dontflip'
 
-    
-    #{‘reflect’, ‘constant’, ‘nearest’, ‘mirror’, ‘wrap’}
     sigma = (filt/2.0) / node
 
     Errorgrid = s2f.makeErrorgrid(Surfgrid, xi, errordata)
@@ -1615,7 +1597,7 @@ def main(args):
     output[:, 0][output[:, 0]<0]+=360
 
     clip.loc[clip.lon < 0, 'lon']+=360
-    
+
     output[:,2][output[:,3] > shift_out['depth'].max()] = np.nan
     output[:,3][output[:,3] > shift_out['depth'].max()] = np.nan
     output[:,4][output[:,3] > shift_out['depth'].max()] = np.nan
@@ -1633,7 +1615,7 @@ def main(args):
         finoutput = output[np.isfinite(output[:,3])]
         newres = pd.DataFrame({'lon':finoutput[:,0], 'lat':finoutput[:,1], 'depth':finoutput[:,3], 'strike':finoutput[:,4], 'dip':finoutput[:,5]})
         clip = s2f.clippingmask(newres,TR_data,node,False,slab,'first')
-    
+
     if slab == 'ryu':
     
         kurfolder = 'kur_slab2_12.22.17'
@@ -1644,7 +1626,7 @@ def main(args):
         clip = s2f.clippingmask(newres,TR_data,node,False,slab,'first')
 
     if slab == 'mue':
-    
+
         carfolder = 'car_slab2_12.22.17'
         print ('clipping grid by underriding model: %s ... '%undergrid)
         output = s2f.underclip(output,undergrid)
@@ -1668,7 +1650,7 @@ def main(args):
             pointbeg = clip.iloc[[0]]
             clip = pd.concat([clip, pointbeg],sort=True)
             clip = clip[['lon','lat']]
-    
+
     # Save results to file
     print("    Saving results and data to file...")
     np.savetxt(outFile, output, header='lon,lat,raw_dep,dep_shift_smooth,str_shift_smooth,dip_shift_smooth,dz1,dz2,dz3,thickness',fmt='%.2f', delimiter=',',comments='')
@@ -1676,7 +1658,7 @@ def main(args):
     # Save clipping mask to file
     clip = clip[['lon', 'lat']]
     clip.to_csv(clipFile, float_format='%.2f', sep=' ', header=False, index=False)
-    
+
     if slab == 'izu' or slab == 'jap' or slab == 'sol' or slab == 'man' or slab == 'ker' or slab == 'hinz' or slab == 'pamz':
         print("    PSYCH! Solving for vertical component of this slab region ...")
         clip, output, supplement, nodes, deepnodes = s2f.splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no, kdeg, rbfs, folder)
@@ -1710,30 +1692,33 @@ def main(args):
     xmax = np.max(output[:,0])
     ymin = np.min(output[:,1])
     ymax = np.max(output[:,1])
-    
+
     deps = pd.DataFrame({'lon':output[:,0], 'lat': output[:,1], 'depth':output[:,3]*-1.0})
     strs = pd.DataFrame({'lon':output[:,0], 'lat': output[:,1], 'str':output[:,4]})
     dips = pd.DataFrame({'lon':output[:,0], 'lat': output[:,1], 'dip':output[:,5]})
     uncs = pd.DataFrame({'lon':output[:,0], 'lat': output[:,1], 'unc':output[:,6]})
     thicks = pd.DataFrame({'lon':output[:,0], 'lat': output[:,1], 'thick':output[:,9]})
-    
+
     deps = deps[['lon','lat','depth']]
     strs = strs[['lon','lat','str']]
     dips = dips[['lon','lat','dip']]
     uncs = uncs[['lon','lat','unc']]
     thicks = thicks[['lon','lat','thick']]
-    
+
     deps.to_csv(depTextFile, header=False, index=False, sep=' ', na_rep=np.nan)
     strs.to_csv(strTextFile, header=False, index=False, sep=' ', na_rep=np.nan)
     dips.to_csv(dipTextFile, header=False, index=False, sep=' ', na_rep=np.nan)
     uncs.to_csv(uncTextFile, header=False, index=False, sep=' ', na_rep=np.nan)
     thicks.to_csv(thickTextFile, header=False, index=False, sep=' ', na_rep=np.nan)
     clip.to_csv(clipFile, float_format='%.2f', header=False, index=False)
-    
+
     rflag="-R%s/%s/%s/%s" %(np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax))
     iflag="-I%s/%s" %(node,node)
-    
+    print(rflag)
+    print(iflag)
+
     gflag="-G%s" % (depGridFile)
+    print(gflag)
     os.system("gmt xyz2grd %s %s %s %s" % (depTextFile,rflag,iflag,gflag))
     gflag="-G%s" % (strGridFile)
     os.system("gmt xyz2grd %s %s %s %s" % (strTextFile,rflag,iflag,gflag))
@@ -1744,14 +1729,14 @@ def main(args):
     gflag="-G%s" % (thickGridFile)
     os.system("gmt xyz2grd %s %s %s %s" % (thickTextFile,rflag,iflag,gflag))
 
-    os.system("rm %s" % depTextFile)
+    #os.system("rm %s" % depTextFile)
     os.system("rm %s" % strTextFile)
     os.system("rm %s" % dipTextFile)
     os.system("rm %s" % uncTextFile)
     os.system("rm %s" % thickTextFile)
 
     if slab == 'izu' or slab == 'jap' or slab == 'sol' or slab == 'man' or slab == 'ker' or slab == 'hinz' or slab == 'pamz':
-    
+
         os.system("rm Output/%s/%s_slab2_con_%s.txt"%(folder,slab,date))
 
         # make array of contours and depths in file
@@ -1788,7 +1773,6 @@ def main(args):
                     dat.to_csv(f,header=False,index=False,sep=' ')
 
         f.close()
-        
 
     print(" All files have been saved in directory: %s/Output/%s"%(os.getcwd(),folder))
     print(" File descriptions:")
@@ -1798,14 +1782,13 @@ def main(args):
     print("       %s_slab2_dip_%s.grd:    dip grid (res columns: lon,lat,dip_shift_smooth)"%(slab,date))
     print("       %s_slab2_thk_%s.grd:    uncertainty grid (res columns: lon,lat,dz1)"%(slab,date))
     print("       %s_slab2_unc_%s.grd:    thickness grid (res columns: lon,lat,thickness)"%(slab,date))
-    
     print("       %s_slab2_nod_%s.csv:    info for all grid nodes constraining final surface "%(slab,date))
     print("       %s_slab2_dat_%s.csv:    filtered input dataset "%(slab,date))
     print("       %s_slab2_clp_%s.csv:    clipping mask "%(slab,date))
     print("       %s_slab2_par_%s.csv:    list of parameters used in this model "%(slab,date))
     print("       %s_slab2_szt_%s.csv:    file listing events used to determine seismogenic width "%(slab,date))
     print("       %s_slab2_szt_%s.png:    depth histogram and PDF of slab related events  "%(slab,date))
-            
+
 # Help/description and command line argument parser
 if __name__=='__main__':
     desc = '''
@@ -1838,10 +1821,10 @@ if __name__=='__main__':
         Sulawesi                sul
         Sumatra/Java            sum
         Vanuatu                 van
-        
+
         '''
     parser = argparse.ArgumentParser(description=desc, formatter_class=argparse.RawDescriptionHelpFormatter)
-    
+
     parser.add_argument('-p', '--parFile', dest='parFile', type=str,
                         required=True, help='file listing slab parameters')
     parser.add_argument('-c', '--nCores', dest='nCores', type=int,
@@ -1853,6 +1836,6 @@ if __name__=='__main__':
     parser.add_argument('-u', '--undergrid', dest='undergrid', type=str,
                         help='depth grid for slab abutting this one, required for ryu (kur grid), mue (car grid), phi, sul, cot (hal grid)')
     pargs = parser.parse_args()
-    
+
     #cProfile.run('main(pargs)')
     main(pargs)

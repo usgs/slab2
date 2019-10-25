@@ -1,4 +1,4 @@
-name: slab2envTest2
+name: slab2env
 channels:
   - conda-forge
   - defaults
