@@ -10,7 +10,7 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
         alen, blen, mdist, sdr, ddr, mindip, maxID2, AA_data,
         TR_data, maxdist, maxthickness, minstk,
         tomo_sets, meanBA, slab1guide, spacing, slab1data, dipthresh, datainfo, nodeinfo, j):
-    
+
     ''' Arguments:  lons - list of longitudes (list of floats)[deg]
                     lats - list of latitudes (list of floats)[deg]
                     nodeIDs - list of nodeIDs (list of ints)
@@ -56,7 +56,7 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
                             record which nodes have a multi-modal distribution
                             and the depths to each peak (dataframe)
                     i - index representing this node. (int)
-        
+
         Returns:    lon - lons[i], search longitude of this node (float)[deg]
                     lat - lats[i], search latitude of this node (float)[deg]
                     locdep - search depth of this node (float)[km]
@@ -77,7 +77,7 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
                             ID,mag,S1,D1,R1,S2,D2,R2,src] representing average
                             active source and receiver functions to 
                             add to input dataset (dataframe) '''
-    
+
     # Define lon,lat coordinate, integer ID of this node, and ID for added data
     lat = lats[j]
     lon = lons[j]
@@ -87,21 +87,21 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
         nID = int('%i0%i'%(lon*10,lat*-10))
     maxID = maxID2+nID-1
     OGmulti = []
-    
+
     if slab == 'sol' and lon > 149 and lon < 155:
         alen = 20.0
     if slab == 'puy' and lat < -48:
         alen = 100
-        
+
     if slab == 'ryu' and lon > 138:
         alen = 20.0
-    
+
     if slab == 'alu' and lat > 63:
         alen = 50.0
-    
+
     if slab == 'man' and lat > 17.0:
         alen = 50.0
-    
+
     if slab == 'izu' and lat < 27 and lat > 23:
         eventlist = eventlist[(eventlist.lon<lon+4.5)&(eventlist.lat<lat+4.5)&(eventlist.lon>lon-4.5)&(eventlist.lat>lat-4.5)]
     else:
@@ -140,19 +140,19 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
     if diptmp > dipthresh:
         newlats = [lat,lat,lat+spacing/2.0,lat-spacing/2.0,lat+spacing/2.0,lat-spacing/2.0,lat+spacing/2.0,lat-spacing/2.0]
         newlons = [lon-spacing/2.0,lon+spacing/2.0,lon,lon,lon+spacing/2.0,lon-spacing/2.0,lon-spacing/2.0,lon+spacing/2.0]
-        
+
         if slab == 'ker':
             newlats1 = [lat,lat,lat+spacing/4.0,lat-spacing/4.0,lat+spacing/4.0,lat-spacing/4.0,lat+spacing/4.0,lat-spacing/4.0]
             newlons1 = [lon-spacing/4.0,lon+spacing/4.0,lon,lon,lon+spacing/4.0,lon-spacing/4.0,lon-spacing/4.0,lon+spacing/4.0]
 
             newlats2 = [lat,lat,lat+3*spacing/4.0,lat-3*spacing/4.0,lat+3*spacing/4.0,lat-3*spacing/4.0,lat+3*spacing/4.0,lat-3*spacing/4.0]
             newlons2 = [lon-3*spacing/4.0,lon+3*spacing/4.0,lon,lon,lon+3*spacing/4.0,lon-3*spacing/4.0,lon-3*spacing/4.0,lon+3*spacing/4.0]
-        
+
             newlats.extend(newlats1)
             newlats.extend(newlats2)
             newlons.extend(newlons1)
             newlons.extend(newlons2)
-            
+
         newnodes = np.zeros((len(newlons),2))
         newnodes[:,0] = np.round(newlons,1)
         newnodes[:,1] = np.round(newlats,1)
@@ -194,26 +194,26 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
         f = open(nodeinfo, 'a')
         f.write('-%i- alen, blen, clen, minstk, seismo_thick %0.2f,%0.2f,%0.2f,%0.2f,%0.2f \n'%(nID, alen, blen, clen, minstk, seismo_thick))
         f.close()
-    
+
     if alen == 1:
     	return lon, lat,slab1, strtmp, diptmp, nID, alen, blen, clen, [], [], [], [], False, 0, 0
     else:
     	farpoint = alen
-    
+
     if slab == 'cam' and lon < 260 and lat > 20.5 and lon > 257.5:
         alen = 20
         clen = 20
-    
+
     if slab == 'man' and lat < 14:
         alen = 20
         if slab1 < 200:
             clen = 20
-    
+
     if slab == 'mue':
         alen = 150
         clen = 150
         strtmp = 270
-        
+
     # Filter data for present node
     trimmed, test, sdepth, ddepth, locstr, locdip, maxID, locdep = s2f.allFilters(
                                 eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick, alen, blen,
@@ -253,7 +253,7 @@ def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
         return lon, lat, locdep, locstr, locdip, nID, alen, blen, clen, [], used_tmp, trimmedAA, newnodes, True, sdepth, ddepth
 
     '''nothing beyond this point in this loop gets used '''
-    
+
     # Trim dataset for PDF calculation and separate tomography data
     # We want to run PDF on non-TO, non-RF data
     TOdata = trimmed[trimmed.etype == 'TO']
@@ -308,7 +308,7 @@ def loop2(testarea, lons, lats, nIDs1, locdep, locstr, locdip, used_all, eventli
     alen = aalen[j]
     blen = ablen[j]
     clen = aclen[j]
-    
+
     if lon>testarea[0] and lon<testarea[1] and lat>testarea[2] and lat<testarea[3]:
         testprint = True
         print('____________________________________ %i ___________________________________________'% nID)
@@ -359,24 +359,16 @@ def loop2(testarea, lons, lats, nIDs1, locdep, locstr, locdip, used_all, eventli
             return np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, rlist, premulti, alen, blen, clen, 0
 
     place_holder, sdepth, ddepth, depthwritten = s2f.depthRange(loc_depth, sdr, ddr, seismo_thick, trimmed, slab, these_parameters, True)
-    
 
-    if cdip <= mindip:# or len(trimmed[trimmed.etype == 'AS' ]) > 0 or len(trimmed[trimmed.etype == 'AA' ]) > 0 or len(rft)>0:
+    if cdip <= mindip:
         if cdip > mindip:
             cdip = mindip
         #try:
         peak_depth, stdv, test2, npeaks, premulti, centsurf = s2f.fullPDFcalc(trimmed, sdepth, ddepth, testprint, nID, lat, lon, loc_depth, 'pre2', slab, cstr, cdip)
-        #except:
-        #    print('full PDF didnt work! lon,lat,nID,cdip,cstr,loc_depth,trimmed', lon, lat, nID, cdip, cstr, loc_depth, trimmed)
-        #    return np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, rlist, premulti
         peak_lon = lon
         peak_lat = lat
     else:
-        #try:
         peak_lon, peak_lat, peak_depth, stdv, test2, npeaks, premulti, centsurf, rlist = s2f.perpPDFcalc(trimmed, sdepth, ddepth, testprint, nID, lat, lon, loc_depth, 'pre2', slab, cstr, cdip, maxthickness)
-        #except:
-        #    print('perp PDF didnt work!lon,lat,nID,cdip,cstr,loc_depth,trimmed', lon, lat, nID, cdip, cstr, loc_depth, trimmed)
-        #    return np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, rlist, premulti
 
     if test2:
         #tmp_res[j,0],tmp_res[j,1],tmp_res[j,2],tmp_res[j,3],tmp_res[j,4],tmp_res[j,5],tmp_res[j,6],tmp_res[j,7],tmp_res[j,8],tmp_res[j,9] = peak_lat,peak_lon,peak_depth,std,nID,lat,lon,cstr,cdip,centsurf
@@ -403,10 +395,10 @@ def loop3(shift_out, testarea, used_all, eventlist, sdr, ddr, seismo_thick, thes
     postmulti = []
     bilats, bilons, binods, bistds = np.nan, np.nan, np.nan, np.nan
     biindx, bistrs, bidips, bideps = np.nan, np.nan, np.nan, np.nan
-    
+
     if len(shift_out)>0: # used to be if slab == 'sam' bc of variable taper
         taper = 0.0
-        
+
     loc_shift_out = shift_out[shift_out.nID == nID]
     lat = loc_shift_out['lat'].values[0]
     lon = loc_shift_out['lon'].values[0]
@@ -415,7 +407,7 @@ def loop3(shift_out, testarea, used_all, eventlist, sdr, ddr, seismo_thick, thes
     bflat = loc_shift_out['bzlat'].values[0]
     bflon = loc_shift_out['bzlon'].values[0]
     dep = loc_shift_out['psdepth'].values[0]
-    
+
     if len(loc_shift_out) == 0:
         #print 'misnamed ID',nID
         return np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, nID, postmulti, np.nan, np.nan
@@ -470,7 +462,7 @@ def loop3(shift_out, testarea, used_all, eventlist, sdr, ddr, seismo_thick, thes
         dep_dif = dep - loc_shift_out['depth'].values[0]
         lon_dif = bflon - lon
         lat_dif = bflat - lat
-        
+
         # Apply shift to non-RF data
         trimmed['depth'][(trimmed.etype != 'RF') & (trimmed.etype != 'AS') & (trimmed.etype != 'AA') & (trimmed.etype != 'CP')] -= dep_dif
         trimmed['lon'][(trimmed.etype != 'RF') & (trimmed.etype != 'AS') & (trimmed.etype != 'AA') & (trimmed.etype != 'CP')] -= lon_dif
@@ -508,5 +500,3 @@ def loop3(shift_out, testarea, used_all, eventlist, sdr, ddr, seismo_thick, thes
         rdepth, rstd, rstrike, rdip, rrake = np.nan, np.nan, np.nan, np.nan, np.nan
 
     return rdepth, rstd, rstrike, rdip, rrake, bilats, bilons, binods, bistds, biindx, bistrs, bidips, bideps, nID, postmulti, peak_lon, peak_lat
-
-

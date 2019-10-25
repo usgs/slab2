@@ -47,7 +47,7 @@ def main(args):
     maxdep = args.maxdep
     maxdepdiff = args.maxdepdiff
     slaborev = args.slaborev
-    
+
     pd.options.mode.chained_assignment = None
     warnings.filterwarnings("ignore", message="invalid value encountered in less")
     warnings.filterwarnings("ignore", message="invalid value encountered in true_divide")
@@ -57,7 +57,7 @@ def main(args):
     # create new directory system for slab output
     os.system('mkdir %s'%slabsbyfile)
     printtest = False
-    
+
     figz = plt.figure(figsize=(15, 10))
     ax1z = figz.add_subplot(111)
     n = 0
@@ -173,7 +173,7 @@ if __name__=='__main__':
         data, nodes, etc.) to a new file structure organized by file type 
         instead of by slab. This also calculates seismogenic zone thickness 
         for each slab using the Slab2 model.
-        
+
         Required arguments include: 
             directory leading to where the original slab2 output folders are stored (-s slabsbyslab)
             a new directory to save the new file structure to (-f slabsbyfile)
@@ -185,9 +185,9 @@ if __name__=='__main__':
             depth distance around slab2 to filter events by (-m maxdepdiff)
             maximum depth to extend distribution to (-x maxdep)
             a flag indicating whether to make histogram of slab depths or event depths (-b slaborev)
-            
+
         The list of slab folders/versions must be changed manually in the code.
-        
+
         '''
     parser = argparse.ArgumentParser(description=desc, formatter_class=argparse.RawDescriptionHelpFormatter)
     
@@ -232,7 +232,6 @@ if __name__=='__main__':
     parser.add_argument('-k','--mask', dest='mask', type=str,
                         required=True, help='optional mask to calculate SZT within')
     pargs = parser.parse_args()
-    
-    #cProfile.run('main(pargs)')
+
     main(pargs)
 

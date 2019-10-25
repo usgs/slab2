@@ -96,7 +96,7 @@ def northcross(x):
     ''' Arguments:  x - longitude value (positive or negative)
         
         Returns:    x - a longitude in the -180/180 domain '''
-    
+
     if x<90:
         return x+360
     else:
@@ -104,9 +104,9 @@ def northcross(x):
 
 def unnorthcross(x):
     ''' Arguments:  x - longitude value (positive or negative)
-        
+
         Returns:    x - a longitude in the -180/180 domain '''
-    
+
     if x>360:
         return x-360
     else:
@@ -139,7 +139,7 @@ def writetofile(input_file, output_file, event_type, uncertainty, args, catalogs
             entered catalogs. Duplicate events are removed from the subsequent entries
             (prioritization is determined by the order in which catalogs are entered).
         Writes filtered dataframe to output file and prints progress to console.
-        
+
         Arguments:  input_file - input file from input or slab2database
                     output_file - file where new dataset will be written
                     event_type - two letter ID that indicates the type of data (AS, EQ, BA, etc)
@@ -147,7 +147,7 @@ def writetofile(input_file, output_file, event_type, uncertainty, args, catalogs
                     args - arguments provided from command line (bounds, magnitude limits, etc)
                     catalogs - a list of EQ catalogs that are being written to this file
                     file_no - file number, used for making event IDs '''
-    
+
     in_file = open(input_file)
     fcsv = (input_file[:-4]+'.csv')
     # Reading .csv file into dataframe - all files must be in .csv format
@@ -174,7 +174,7 @@ def writetofile(input_file, output_file, event_type, uncertainty, args, catalogs
 
     data = makeframe(data, fcsv, event_type, uncertainty, args, seismo_thick,slabname)
     data = inbounds(args, data, slabname)
-    
+
     #If option is chosen at command line, removes duplicate entries for the same event
     #alternate preference for global or regional catalogues depending upon input arguments
     try: 
@@ -226,23 +226,13 @@ def writetofile(input_file, output_file, event_type, uncertainty, args, catalogs
     print ('The file: %s was written to %s' % (input_file, output_file))
     print ('---------------------------------------------------------------------------------')
 
-def stoc(input_file, output_file):
-
-    '''Converts ssv and tsv files to csv'''
-    
-    with open(input_file) as fin, open(output_file, 'w') as fout:
-        writer = csv.writer(fout)
-        for line in fin:
-            writer.writerow(line.split())
-
 def castfloats(data):
 
     '''Casts all numerical and nan values to floats to avoid error in calculations'''
-    
+
     data[['lat']] = data[['lat']].astype(float)
     data[['lon']] = data[['lon']].astype(float)
     data[['depth']] = data[['depth']].astype(float)
-    
     data[['unc']] = data[['unc']].astype(float)
     if 'mag' in data.columns:
         data[['mag']] = data[['mag']].astype(float)
@@ -267,23 +257,21 @@ def castfloats(data):
 
     return data
 
-
 def rid_nans(df):
 
     '''Removes points where lat,lon,depth, or uncertainty values are not provided.'''
-    
+
     df = df[np.isfinite(df['lat'])]
     df = df[np.isfinite(df['lon'])]
     df = df[np.isfinite(df['depth'])]
     df = df[np.isfinite(df['unc'])]
     return df
 
-
 def write_data(df, output_file):
 
     ''' Arguments:  df - filtered dataframe to be written to file
                     output_file - output file where data is to be written  '''
-    
+
     # If file name does not exist, creates file and writes filtered dataframe to it
     df = castfloats(df)
     df = rid_nans(df)
@@ -307,7 +295,6 @@ def write_data(df, output_file):
         with open(output_file, 'w') as f:
             all.to_csv(f, header=True, index=False, float_format='%0.3f', na_rep = float('nan'))
 
-
 def inbounds(args, data, slab):
 
     ''' Originally written by Ginvera, modified by MAF July 2016 ''' 
@@ -316,7 +303,7 @@ def inbounds(args, data, slab):
                     data - dataframe to be filtered based on bounds
                    
         Returns:    data - filtered dataframe based on bounds        '''
- 
+
     # Eliminates data points that are not within specified bounds where provided
     if 'time' in data.columns:
         try:
@@ -345,7 +332,7 @@ def inbounds(args, data, slab):
 
     stime = datetime.datetime(1900,1,1)
     etime = datetime.datetime.utcnow()
-    
+
     if args.startTime and args.endTime and args.startTime >= args.endTime:
         print ('End time must be greater than start time.  Your inputs: Start %s \
         End %s' % (args.startTime, args.endTime))
@@ -430,7 +417,7 @@ def determine_polygon_extrema(slabname):
     inputs: slabname to be referenced against stored slab coordinates
     outputs: the maximum and minimum latitude and longitude values for the input slab
     '''
-    
+
     #calls slabpolygon function to get bounds for this slab region
     slabbounds = slabpolygon(slabname)
 
@@ -444,7 +431,7 @@ def determine_polygon_extrema(slabname):
 
     lons = []
     lats = []
-    
+
     for i in range(coords):
         val = slabbounds[i]
         if is_odd(i):
@@ -458,7 +445,6 @@ def determine_polygon_extrema(slabname):
     y2 = int(max(lats))
 
     return x1,x2,y1,y2   
-    
 
 def create_grid_nodes(grd_space,slabname):
     
@@ -588,12 +574,12 @@ def getDataInPolygon(slabname,data):
             keepers = np.vstack((keepers,points_in_poly))
         else: 
             keepers = points_in_poly
-     
+
     rows_to_drop = []
     for i in range(len(keepers)):
         if np.isnan(keepers[i][0]) == True:
             rows_to_drop.append(i)
-    
+
     return rows_to_drop
 
 def getDataInRect(slabname,data1):
@@ -624,7 +610,7 @@ def getDataInRect(slabname,data1):
 
     lons = []
     lats = []
-    
+
     for i in range(coords):
         val = slabbounds[i][1:]
         try:
@@ -647,7 +633,7 @@ def getDataInRect(slabname,data1):
     data1 = data1[(data1.lon > lonmin) & (data1.lon < lonmax) &(data1.lat > latmin) &(data1.lat < latmax)]
 
     return data1
-   
+
 def cmtfilter(data,seismo_thick):
 
     ''' Arguments:  data - data with all shallow/nonshallow and thrust/nonthrust earthquake
@@ -661,17 +647,17 @@ def cmtfilter(data,seismo_thick):
                                 
                                 (2) filters ALL shallow earthquakes UNLESS they have MT info and that
                                 MT info has the criteria of a thrust event. '''
-    
+
     # Removes non-thrust events from depths shallower than seismogenic zone
     deep_data = data[data.depth >= seismo_thick]
-    
+
     # Includes shallow data without MT info (1) - comment out next two lines for (2)
     dfn = data[np.isnan(data['Paz'])]
     dfn = dfn[data.depth < seismo_thick]
-    
+
     data = data[np.isfinite(data['Paz'])]
     shallow_data = data[data.depth < seismo_thick]
-    
+
     # Depending on which MT info are provided, filters non-thrust, shallow events
     if 'Ndip' in shallow_data.columns:
         thrust_rake = (shallow_data.Tpl>50) & (shallow_data.Ndip<=30)
@@ -679,18 +665,17 @@ def cmtfilter(data,seismo_thick):
         thrust_rake = ((shallow_data.R1>30) & (shallow_data.R2>30)
                        & (shallow_data.R1<150) & (shallow_data.R2<150))
     shallow_data = shallow_data[thrust_rake]
-    
+
     # Includes shallow data without MT info (1) - comment out next line for (2)
     filtered = pd.concat([deep_data, shallow_data, dfn],sort=True)
 
     # Only includes shallow thrust events (2) - uncomment line below for (2) and comment necessary lines above
     # filtered = pd.concat([deep_data, shallow_data],sort=True)
-    
+
     # Rearranges columns / filters out unecessary columns
     filtered=filtered[['lat','lon','depth','unc','ID','etype','mag','time',
                        'Paz','Ppl','Taz','Tpl','S1','D1','R1','S2','D2','R2','mlon','mlat','mdep']]
     return filtered
-
 
 def make_moment_tensor(mrr,mtt,mpp,mrt,mrp,mtp): #r,t,p = x,y,z
 
@@ -698,14 +683,13 @@ def make_moment_tensor(mrr,mtt,mpp,mrt,mrp,mtp): #r,t,p = x,y,z
     
     return obspy.imaging.beachball.MomentTensor(mrr,mtt,mpp,mrt,mrp,mtp,1)
 
-
 def m_to_planes(mrr,mtt,mpp,mrt,mrp,mtp,n):
 
     '''Takes a moment tensor and calculates the P, N, and T axes and nodal plane information.
         
         Used in moment_calc below.  Returns one of these values as specified by input (n). 
         The integer input specifies which index of the array of outputs to return.  '''
-    
+
     mt = make_moment_tensor(mrr,mtt,mpp,mrt,mrp,mtp)
     #axes = obspy.imaging.beachball.MT2Axes(mt) #returns T, N, P
     #fplane = obspy.imaging.beachball.MT2Plane(mt)#returns strike, dip, rake
@@ -740,7 +724,7 @@ def moment_calc(df, args, seismo_thick,slabname):
                     
         Returns:    df - dataframe with mt information in the form Paz,Ppl,Taz,Tpl,S1,D1,R1,S2,D2,R2   
     '''
-    
+
     #try:
     # Only calculates MT info where it exists in EQ datasets
     df = inbounds(args, df, slabname)
@@ -774,13 +758,11 @@ def moment_calc(df, args, seismo_thick,slabname):
                                                     row['mrt'], row['mrp'], row['mtp'],8),axis=1)
         dfm['R2']=dfm.apply(lambda row: m_to_planes(row['mrr'], row['mtt'], row['mpp'],
                                                     row['mrt'], row['mrp'], row['mtp'],9),axis=1)
-        #dfm['Ndip']=dfm.apply(lambda row: m_to_planes(row['mrr'], row['mtt'], row['mpp'],
-        #                                              row['mrt'], row['mrp'], row['mtp'],11),axis=1)
-                                    
+
         # Concatenates events with and without MT info
         #dfm = cmtfilter(dfm,seismo_thick)
         df = pd.concat([dfm,dfn],sort=True)
-        
+
         # Rearranges columns and returns
         if 'mlon' in df.columns:
             df = df[['lat','lon','depth','unc','ID','etype','mag','time',
@@ -791,10 +773,10 @@ def moment_calc(df, args, seismo_thick,slabname):
             df['mlon'] = df['lon'].values*1.0
             df['mlat'] = df['lat'].values*1.0
             df['mdep'] = df['depth'].values*1.0
-        
+
         return df
     except:
-    
+
         # if exception is caught, try to return only events without MT info
        try:
            if len(dfm) == 0:
@@ -819,7 +801,7 @@ def raiseUnc(x):
 
     ''' Raises unreasonably low uncertainties for earthquakes to a value greater 
         than that of average active source data points (which is 5 km).   '''
-    
+
     if x < 6:
         return 6
     else:
@@ -834,11 +816,11 @@ def makeframe(data, fcsv, event_type, uncertainty, args, seismo_thick,slabname):
                     args - input arguments provided from command line arguments 
                     
         Returns:    data - fully filtered dataset to be written to output file '''
-    
+
     # Parses Yr Mo Day Hr Min Sec into one datetime object when provided in distinguished columns
     if 'year' in data.columns and 'sec' in data.columns and 'mag' in data.columns:
         data = ymdhmsparse(fcsv)
-    
+
     # If ISC-GEM data is provided, high quality, low uncertainties are included in place of
     # the default values assigned in s2d.py main method.
     if 'unc' in data.columns and 'q' in data.columns:
@@ -874,10 +856,6 @@ def makeframe(data, fcsv, event_type, uncertainty, args, seismo_thick,slabname):
     # Calculates moment tensor info where applicable and removes shallow, non-thrust events
     if 'mrr' in data.columns:
         data = moment_calc(data,  args, seismo_thick,slabname)
-    #elif 'Paz' in data.columns and event_type == 'EQ':
-    #    data = data[['lat','lon','depth','unc','ID','etype','mag','time',
-    #                 'Paz','Ppl','Taz','Tpl','S1','D1','R1','S2','D2','R2']]
-    #    data = cmtfilter(data,seismo_thick)
     elif 'time' in data.columns and 'mag' in data.columns:
         data = data[['lat','lon','depth','unc','ID','etype','mag','time']]
     else:
@@ -905,7 +883,7 @@ def plot_map(lons, lats, c, legend_label, projection='mill',
                             legend_label - how this set of points will be labeled on the legend
                             
         Returns:            m - a basemap object defined by input bounds with input points included '''
-    
+
     # Creates a basic plot of a series of lat,lon points over a defined region
     m = Basemap(projection=projection, llcrnrlat=llcrnrlat, urcrnrlat=urcrnrlat,
                 llcrnrlon=llcrnrlon, urcrnrlon=urcrnrlon, resolution=resolution)
@@ -928,99 +906,6 @@ def datelinecross(x):
     else:
         return x
 
-def slabplotter(args):
-
-    '''
-        '''
-
-    # Gathers events and bounds from input arguments
-    file = args.outFile
-    #lonmin = args.bounds[0]
-    #lonmax = args.bounds[1]
-    #latmin = args.bounds[2]
-    #latmax = args.bounds[3]
-    data = pd.read_csv(file, low_memory=False)
-    data = castfloats(data)
-    lonmin = data['lon'].min()
-    lonmax = data['lon'].max()
-    latmin = data['lat'].min()
-    latmax = data['lat'].max()
-    data = data[['lat','lon','depth','etype','Paz']]
-    xdim = (abs(lonmax-lonmin)) * .01
-    ydim = (abs(latmax-latmin)) * .01
-
-    # Handles input files that cross the dateline
-    minwest = lonmin > 0 and lonmin < 180
-    maxeast = lonmax < 0 and lonmax > -180
-    if minwest and maxeast:
-        data['lon'] = data.apply(lambda row: datelinecross(row['lon']),axis=1)
-        lonmax += 360
-        xdim = ((180-lonmin) + (180+lonmax)) *.01
-
-    # Distinguishes each data point by event type
-    dataCMT = data[np.isfinite(data['Paz'])]
-    data = data[pd.isnull(data).any(axis=1)]
-    dataEQ = data[data.etype == 'EQ']
-    dataER = data[data.etype == 'ER']
-    dataRF = data[data.etype == 'RF']
-    dataTO = data[data.etype == 'TO']
-    dataBA = data[data.etype == 'BA']
-    dataAS = data[data.etype == 'AS']
-    dataMT = data[data.etype == 'MT']
-    dataCP = data[data.etype == 'CP']
-
-    # Creates a tuple for each event type with a list of lons, lats, and legend label
-    dataEQt = (dataEQ['lon'].values, dataEQ['lat'].values,
-               'EQ: %i points' % len(dataEQ))
-    dataCMTt = (dataCMT['lon'].values, dataCMT['lat'].values,
-                'EQ with MT: %i points' % len(dataCMT))
-    dataERt = (dataER['lon'].values, dataER['lat'].values,
-               'ER: %i points' % len(dataER))
-    dataRFt = (dataRF['lon'].values, dataRF['lat'].values,
-               'RF: %i points' % len(dataRF))
-    dataTOt = (dataTO['lon'].values, dataTO['lat'].values,
-               'TO: %i points' % len(dataTO))
-    dataASt = (dataAS['lon'].values, dataAS['lat'].values,
-               'AS: %i points' % len(dataAS))
-    dataBAt = (dataBA['lon'].values, dataBA['lat'].values,
-               'BA: %i points' % len(dataBA))
-    dataMTt = (dataMT['lon'].values, dataMT['lat'].values,
-               'MT: %i points' % len(dataMT))
-    dataCPt = (dataCP['lon'].values, dataCP['lat'].values,
-               'CP: %i points' % len(dataCP))
-
-    # Makes a list of tuples made above and associated colors to be plotted
-    typelist = [dataBAt,dataEQt,dataCMTt,dataERt,dataRFt,dataTOt,dataCPt,dataASt]
-    colorlist = ['black','gold','red','blueviolet','turquoise',
-                 'lime','darkorange','blue','darkcyan','orchid','yellow','white']
-
-    # Makes the image an appropriate size relative to the bound dimensions
-    while xdim < 14:
-        xdim *= 1.1
-    while ydim < 8:
-        ydim *= 1.1
-    fig = plt.figure(figsize=(xdim,ydim))
-    ax = plt.subplot(111)
-    color = 0
-
-    # Plots the amount and type of data in a given file over a designated region.
-    for type in typelist:
-        if len(type[0]) > 0:
-            plot_map(type[0], type[1], colorlist[color], type[2],
-                     llcrnrlat=latmin, urcrnrlat=latmax, llcrnrlon=lonmin, urcrnrlon=lonmax)
-            color += 1
-    ax.set_title(file[:-4])
-    lgd = ax.legend(loc='center left', bbox_to_anchor=(1,0.5), fontsize=12)
-
-    # The plot is saved to the current directory
-    try:
-        fig.savefig(file[:-4]+'types.png', format='png', bbox_extra_artists=(lgd,),
-                    bbox_inches='tight', pad_inches=1.0)
-    except:
-        print ('No information was written to the file, check bounds to ensure that \
-        they encompass subduction zone information within the bounds of the input file(s)')
-
-
 ##############################################################################################
 #Everything below this point serves the purpose of identifying and
 #eliminating duplicate events between multiple earthquake catalog entries.
@@ -1029,7 +914,7 @@ def slabplotter(args):
 class Earthquake:
 
     '''Creates an earthquake object from which event information can be extracted'''
-    
+
     def __init__(self,time,coords,depth,lat,lon,mag,catalog):
         self.time = time
         self.coords = coords
@@ -1098,11 +983,11 @@ def timetrim(cat1, cat2):
 def earthquake_string(eqo):
 
     ''' Puts earthquake information into a string to be written or printed
-    
+
         Arguments:  eqo - earthquake object
         
         Returns:    eqos - a string of information stored in earthquake object input argument '''
-    
+
     eqos = (str(eqo.lat) + ',' + str(eqo.lon) + ',' + str(eqo.depth) + ','
             + str(eqo.mag) + ',' + str(eqo.time) + ',' + eqo.catalog)
     return eqos
@@ -1116,14 +1001,14 @@ def find_closest(eqo, eqm1, eqm2):
                     eqm2 - the second event in the second catalog that matches eqo
                     
         Returns:    closest - the closest event weighting time first, then distance, then magnitude '''
-    
+
     # Prints information to console to make user aware of more than one match
     print ('-------------------------------------- lat %s lon %s depth %s mag %s time \
         %s catlog' % (',',',',',',',',','))
     print ('There is more than one match for event: %s' % earthquake_string(eqo))
     print ('event1: %s' % earthquake_string(eqm1))
     print ('event2: %s' % earthquake_string(eqm2))
-    
+
     # Gets distance between either event and the common match eqo
     darc1 = vincenty(eqo.coords, eqm1.coords).meters/1000
     darc2 = vincenty(eqo.coords, eqm2.coords).meters/1000
@@ -1131,13 +1016,13 @@ def find_closest(eqo, eqm1, eqm2):
     dh2 = abs(eqo.depth - eqm2.depth)
     dist1 = sqrt(darc1*darc1 + dh1*dh1)
     dist2 = sqrt(darc2*darc2 + dh2*dh2)
-    
+
     # Gets magnitude and time differences between each event and the common match
     dtime1 = abs(eqo.time - eqm1.time)
     dtime2 = abs(eqo.time - eqm2.time)
     dmag1 = abs(eqo.mag - eqm1.mag)
     dmag2 = abs(eqo.mag - eqm2.mag)
-    
+
     # Finds the closest match to eqo by checking time first, then distance, then magnitude
     if dtime1 < dtime2:
         closest = eqm1
@@ -1164,7 +1049,7 @@ def find_closest(eqo, eqm1, eqm2):
 def removematches(dfo, dfm):
 
     '''Eliminates events in dfo (dataframe) that are found in dfm (dataframe) '''
-    
+
     ind = (dfo.time.isin(dfm.time) & dfo.lat.isin(dfm.lat) & dfo.lon.isin(dfm.lon)
            & dfo.mag.isin(dfm.mag) & dfo.depth.isin(dfm.depth))
     dfo = dfo[~ind]
@@ -1173,7 +1058,7 @@ def removematches(dfo, dfm):
 def rid_matches(cat1, cat2, name1, name2):
 
     ''' Compares two catalogs, identifies and removes matching events from cat2.
-        
+
         Arguments:  cat1 - the first catalog (dataframe), no events are removed from this catalog
                     cat2 - the second catalog (dataframe), events in this catalog that are close 
                             in space, time, and magnitude to those in cat1 are filtered out  
@@ -1181,19 +1066,19 @@ def rid_matches(cat1, cat2, name1, name2):
                     name2 - the name of the second catalog, used for printing/bookeeping purposes
                     
         Returns:    df - a filtered version of cat2 without events that match those in cat1 '''
-    
+
     # Setting constants that define matching criteria
     tdelta = 30
     distdelta = 100
     magdelta = 0.5
-    
+
     # Ensuring that all times are in datetime object format & trimming catalogs to only extend
     # accross the bounds and time constraints of the other
     cat1['time'] = pd.to_datetime(cat1['time'])
     cat2['time'] = pd.to_datetime(cat2['time'])
     cat1c,cat2c = timetrim(cat1, cat2)
     cat1c,cat2c = boundtrim(cat1c, cat2c)
-    
+
     # Making dataframe/filename to store matching events for bookeeping
     try:
         name1w = name1[-10:] #this doesn't make sense, and seems to chop the file name inappropriately - will have to resolve this later. 
@@ -1207,12 +1092,12 @@ def rid_matches(cat1, cat2, name1, name2):
     # Compares each event in cat2 to each event in cat1
     for index,row in cat1c.iterrows():
         n = 0
-        
+
         # Getting earthquake info from event and storing it in an Earthquake object (cat1)
         time1, ep1, depth1, lat1, lon1, mag1 = getvals(row)
         eq1 = Earthquake(time1, ep1, depth1, lat1, lon1, mag1, name1w)
         for index, r in cat2c.iterrows():
-        
+
             # Getting earthquake info from event and storing it in an Earthquake object (cat1)
             time2, ep2, depth2, lat2, lon2, mag2 = getvals(r)
             eq2 = Earthquake(time2, ep2, depth2, lat2, lon2, mag2, name2w)
@@ -1236,7 +1121,7 @@ def rid_matches(cat1, cat2, name1, name2):
                     pass
             else:
                 pass
-        
+
         # Add matching events to match dataframe
         if n > 0:
             lat1,lon1,depth1,mag1,time1,name1
@@ -1244,13 +1129,13 @@ def rid_matches(cat1, cat2, name1, name2):
             matches.loc[len(matches)+1] = [match.lat, match.lon, match.depth, match.mag,
                                            match.time, name2w]
             count += 1
-        
+
     # Write matches to matching file
     matchfile = name1w + name2w + '-matches.csv'
-    
+
     # Remove matches from cat2
     df = removematches(cat2, matches)
-    
+
     # Print general results to console
     print ('%i matches were found between the catalogs: %s and %s.' % (count, name1, name2))
     if count > 0:

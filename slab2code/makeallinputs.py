@@ -58,7 +58,7 @@ if __name__=='__main__':
         Vanuatu                 van
         
         This script will make an input file for each slab region
-        
+
         '''
     parser = argparse.ArgumentParser(description=desc, formatter_class=argparse.RawDescriptionHelpFormatter)
     
@@ -70,6 +70,6 @@ if __name__=='__main__':
                         
     parser.add_argument('-c', '--nCores', dest='nCores', type=int,
                         required=True, help='number of cores to run loop over')
-    
+
     pargs = parser.parse_args()
     main(pargs)
