@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-#stdlib
 import argparse
 from datetime import datetime,timedelta
 import os
@@ -11,23 +10,21 @@ import numpy as np
 
 #local library
 from s2d_fnctns import *
-#from slab2functions import * 
-#MF 8.4.16 need to import s2f as well? or copy to s2d?
 
 def main(args):
 
     '''What is executed upon running the program. 
-        
+
         Runs through the provided input files and calls writetofile (above) for each. 
         The result is a new comma delimited file with information pertinent to Slab 2.0.  '''
-    
+
     slab_ = args.outFile
     os.system("rm %s"%args.outFile)
     default_uncertainty = 15 #km
     seismo_thick = args.seis
-    
+
     filelist = []
-    
+
     # If the database is called, compiles all files within bounds into a list to be written to
     # output file.
     if args.database is not None:
@@ -107,11 +104,6 @@ def main(args):
                         # Creates file object to be written to output file
                         f = NewFile(args.database+'/'+filename, default_uncertainty, etype)
                         filelist.append(f)
-                    #MF 8.4.16 this won't be an option
-                        #elif slabname == 'ALL':
-                        # Creates file object to be written to output file
-                        #f = NewFile(args.database+'/'+filename, default_uncertainty, etype)
-                        #filelist.append(f)
                     else:
                         pass
                 else:
@@ -201,24 +193,21 @@ def main(args):
         writetofile(file.filename, slab_, file.event_type, file.unc, args, catalogs, file_no, seismo_thick, slab, file.name)
         file_no = file_no+2
 
-    # Makes rough plot of data for the region
-    # slabplotter(args)
-
 #Help/description and command line argument parser
 if __name__=='__main__':
     desc = '''
         Writes a file in csv format with the information pertinent to Slab 2.0. Columns
             specified as:
-        
+
         (lat,lon,depth,uncertainty,event-type,mag,time,P-azimuth,P-plunge,T-azimuth,
             T-plunge,strike1,dip1,rake1,strike2,dip2,rake2,ID)
-        
+
         Fields are represented by 'nan' where information is not available. Minimum input information
             includes columns labeled as lat,lon,depth. If the type of event is an earthquake, time 
             and mag are also required data columns.
         Where applicable, CMT information should be represented in tensorial form with 
             columns labeled: mrr,mtt,mpp,mrt,mrp and mtp.
-        
+
         Expected event type input:
             Earthquake: EQ
             Receiver Function: RF
@@ -228,44 +217,44 @@ if __name__=='__main__':
             Earthquake Relocation: ER
             Centroid Moment Tensor: MT
             GPS: GP
-            
+    
         EXAMPLE: to compile slab and moment tensor information around Southern Peru in 2013 from
             original data files:
-        
+
         s2d.py -b -85 -60 -25 -15 -s 2013-01-01 -e 2014-01-01 -f speru13slab.csv 
             -i isc-gem.csv,15,EQ -i csn_cat2.txt,15,EQ -i so_peru_rf.txt,10,RF 
             -i s_peru_to.tsv,10,TO
-        
+
         EXAMPLE: to compile slab and moment tensor information around Southern Peru from all 
             available files in slab2database:
-        
+
         s2d.py -b -85 -60 -25 -15 -d /some/directory/slab2database -f speru_slab.csv
-        
+
         The database and original files can be added in the same call of s2d.py.
         
         Note that output file and lat/lon bounds are required arguments. If mag and time bounds 
             are not specified, the values are set to all magnitudes and dates from 1900 to present.
-        
+
         Note that when specifying a search box that crosses the -180/180 meridian, specify 
             longitudes as you would if you were not crossing that meridian (i.e., lonmin=179, 
             lonmax=-179).  The program will resolve the discrepancy.
-        
+
         If more than one earthquake dataset is provided, the files will be compared and matching 
             events will not be written to the slab file. The program prioritizes catalogs in 
             the order in which they are entered, writing the matching events from the first entry 
             and disregarding the associated match(es) in later entries.
         If more than one match is found for a single event, the program selects the closest match 
             and determines the remaining potential matches as independent.
-        
+
         Where CMT information is provided, non-thrust earthquakes at depths shallower than 60 km 
             are filtered out.
-        
+
         The file is saved, and more information can be appended to it by calling to s2d.py.
-        
+
         A local copy of s2d_fnctns.py is required to run this program.
-        
+
         '''
-    
+
     parser = argparse.ArgumentParser(description=desc, formatter_class=argparse.RawDescriptionHelpFormatter)
     group = parser.add_mutually_exclusive_group(required=True)
     group2 = parser.add_mutually_exclusive_group(required=True)
@@ -302,8 +291,6 @@ if __name__=='__main__':
                         type=float,nargs=2,
                         help='Min/max (authoritative) magnitude to restrict search.')
 
-                        
     pargs = parser.parse_args()
-                        
-                        
+
     main(pargs)

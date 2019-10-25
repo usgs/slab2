@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""This is a compilation of all functions used by distributed Slab2.0 code (and maybe some extras), including:
+"""This is a compilation of all functions used by distributed Slab2.0 code including:
     2) s2d.py
     2) slab2.py
     3) tomo_slab.py
@@ -50,11 +50,11 @@ from datetime import datetime
 from scipy.interpolate import Rbf
 from copy import deepcopy
 from pylab import arccos,argsort,cross,dot,double,eigh,pi,trace,zeros
+from mapio.geodict import GeoDict
+
 ###
 # The following functions cannot be translated to lon,lat:
 #   getValue (imported from external library)
-
-
 
 ###############################################
 
@@ -209,65 +209,6 @@ def getEllipseRad(a, e, azi, ang):
 
 ###############################################
 
-## Written GLM
-
-def getstrike(lon, lat, strgrid):
-    
-    ''' Arguments:  lat - latitude of grid node that is being searched over
-                    lon - longitude of grid node that is being searched over
-                    strgrid - GMT surface of strike values
-        
-        Returns:    cstr - nearest local strike at this grid node from Slab 1.0
-                            Used when there is not a local strike at the exact lat/lon grid point'''
-    
-    # Searches in concentric circles to find the nearest strike value to this grid node
-    for radius in np.arange(0, 1, .05): #degrees
-        for theta in np.arange(0, 2*np.pi, np.pi/4.): #radians
-            lat2 = lat + radius*math.sin(theta)
-            lon2 = lon + radius*math.cos(theta)
-            cstr = strgrid.getValue(lat2, lon2)
-            if cstr != np.nan:
-                return cstr
-    return cstr
-
-###############################################
-
-### 6 ###
-
-###############################################
-
-## Written GLM
-
-def getdip(lat, lon, dipgrid):
-    
-    ''' Arguments:  lat - latitude of grid node that is being searched over
-                    lon - longitude of grid node that is being searched over
-                    dipgrid - GMT surface of strike values
-        
-        Returns:    dip - nearest local strike at this grid node from Slab 1.0
-                    Used when there is not a local strike at the exact lat/lon grid point'''
-    
-    # Searches in concentric circles to find the nearest dip value to this grid node
-    # Returns nan if a valid nearby dip cannot be found
-    dip = np.NaN
-    for radius in np.arange(0, 1, .05): #degrees
-        for theta in np.arange(0, 2*np.pi, np.pi/4.): #radians
-            lat2 = lat + radius*math.sin(theta)
-            lon2 = lon + radius*math.cos(theta)
-            try:
-                dip = dipgrid.getValue(lat2, lon2)
-            except:
-                dip = np.NaN
-            if np.isfinite(dip) and dip is not None:
-                return dip
-    return dip
-
-###############################################
-
-### 7 ###
-
-###############################################
-
 ## Written GLM (Translated From G. Hayes Perl Script)
 
 def heading(lon, lat, dist, az):
@@ -326,7 +267,7 @@ def heading(lon, lat, dist, az):
 
 ###############################################
 
-### 8 ###
+### 6 ###
 
 ###############################################
 
@@ -345,7 +286,7 @@ def datelinecross(x):
 
 ###############################################
 
-### 9 ###
+### 7 ###
 
 ###############################################
 
@@ -399,7 +340,7 @@ def notnorthanymore(data):
 
 ###############################################
 
-### 10 ###
+### 8 ###
 
 ###############################################
 
@@ -444,7 +385,7 @@ def cosrule(d2r, lat1, lon1, lat2, lon2):
 
 ###############################################
 
-### 10 ###
+### 9 ###
 
 ###############################################
 
@@ -490,7 +431,7 @@ def cosine(lon1, lat1, lon2, lat2):
 
 ###############################################
 
-### 11 ###
+### 10 ###
 
 ###############################################
 
@@ -501,146 +442,12 @@ def round_to_nths(num, n):
 
 ###############################################
 
-### 12 ###
-
-###############################################
-
-## Written GM
-## Modified MF.8.4.16
-## Edited DEP.8.12.16 removing "yes" output
-
-def trenchDist(slat, slon, sstrike, TR_data):
-    
-    ''' Arguments:  slat - latitude of the grid node
-                    slon - longitude of the grid node
-                    sstrike - local strike at the grid node
-                    TR_data - local trench file (contains lat,lon,azimuth information)
-                    minlon, maxlon - longitude bounds of slab model
-                    minlon, minlat - latitude bounds of slab model
-        
-        Returns:    lat3 - latitude of nearest trench point
-                    lon3 - longitude of nearest trench point
-                    dist3 - distance between node and nearest trench point
-                    yes - indicates whether or not a valid point was found. If not valid, point is not used
-                    raz - azimuth between this node and the nearest trench point (clockwise from 90 deg)  '''
-    
-    # Ensuring that all longitude values are positive in the trench file (0-360)
-    TR_data['lon']=TR_data.apply(lambda row: datelinecross(row['lon']), axis=1)
-    
-    # Storing longitude/latitude values of trench files in array
-    lons2 = TR_data['lon'].values
-    lats2 = TR_data['lat'].values
-    
-    # Setting minimum values and longitude bounds relative to grid node
-    minlon2 = slon-1
-    maxlon2 = slon+1
-    mindaz = 999
-    dist3 = 9999
-    raz = 0
-    
-    # Finding local strike-90 - search along this azimuth to find nearest trench point
-    az = sstrike-90
-    if az<0:
-        az = az+360
-    
-    # Looping through local trench points to find nearest one to grid node
-    for i in range(len(lons2)-1):
-        if lons2[i]>minlon2 and lons2[i]<maxlon2:
-            ssdist, saz, lat3, lon3 = cosine(slon, slat, lons2[i], lats2[i])
-            ssdist = round_to_nths(ssdist, 100)
-            saz = round_to_nths(saz, 100)
-            if saz < 0:
-                saz = saz +360
-            lon3 = lons2[i]
-            lat3 = lats2[i]
-            dist3 = ssdist
-            raz = saz
-    return dist3
-
-###############################################
-
-### 13 ###
+### 11 ###
 
 ###############################################
 
 ## Written GM
 
-# GAVIN'S VERSION
-def makePDF3(frame, dep_range, etypes):
-    frame = frame.reset_index(drop=True)
-    probs = np.zeros(np.size(dep_range))
-    for l in range(np.size(dep_range)):
-        psum = 0
-        o = 0
-        test_depth = dep_range[l]
-        for type in etypes:
-            frame2 = frame[frame.etype == type]
-            adepths = frame2['depth'].values
-            variance = frame2['unc'].values
-            for i in range(len(adepths)):
-                dpth, var = adepths[i], variance[i]
-                stdv = math.sqrt(var)
-                p=(1/(stdv*((2*np.pi)**0.5)))*np.exp(-((test_depth-dpth)**2)/(2*var))
-                psum = psum+p
-            probs[l] = probs[l] + psum/len(frame2)
-            o = o+1
-        probs[l] = probs[l]/o
-    return probs
-
-###############################################
-
-### 14.5 ###
-
-###############################################
-
-def finiteUnc2(data):
-    ''' Arguments:  data - dataframe
-        
-        Returns:    data - with finite default uncertainties
-        '''
-    for index, row in data.iterrows():
-        unc, lat, lon, etype = row['unc'], row['lat'], row['lon'], row['etype']
-        if np.isfinite(unc):
-            continue
-        else:
-            if etype == 'AA':
-                row['unc'] = 5
-            if etype == 'AS':
-                row['unc'] = 2.5
-            if etype == 'TO':
-                row['unc'] = 40
-            if etype == 'EQ':
-                row['unc'] = 15
-            if etype == 'ER':
-                row['unc'] = 10
-            if etype == 'RF':
-                row['unc'] = 10
-            if etype == 'CP':
-                row['unc'] = 10
-            if etype == 'BA':
-                row['unc'] = 1
-    return data
-
-def finiteUnc(x):
-    ''' Arguments:  x - uncertainty value
-        
-        Returns:    x - a finite uncertainty value, the same as the argument if initially finite '''
-    
-    if np.isfinite(x):
-        return x
-    else:
-        return 40.
-
-
-###############################################
-
-### 14 ###
-
-###############################################
-
-## Written GM
-
-# GINEVRA'S VERSION
 def makePDF4(frame, dep_range, etypes, testprint, dpstring):
     
     ''' Arguments:  frame - filtered list of events that will be used to find the local depth
@@ -714,7 +521,7 @@ def makePDF4(frame, dep_range, etypes, testprint, dpstring):
 
 ###############################################
 
-### 15 ###
+### 12 ###
 
 ###############################################
 
@@ -846,40 +653,9 @@ def getangle(a1, b1, c1, a2, b2, c2):
 
 ###############################################
 
-### 15.25 ###
+### 13 ###
 
 ###############################################
-
-def perpfilt(rmaxS, rmaxD, rmin, elist, shallow_cutoff):
-    #ms = 90.0/(rmaxS - rmin)
-    #md = 90.0/(rmaxD - rmin)
-
-    #bs = -1.0 * ms * rmin
-    #bd = -1.0 * md * rmin
-    
-    ms = -90.0/(rmaxS - rmin)
-    md = -90.0/(rmaxD - rmin)
-
-    bs = -1.0 * ms * rmaxS
-    bd = -1.0 * md * rmaxD
-    
-    shallowsearch = elist[elist.angle < 90]
-    deepsearch = elist[elist.angle >= 90]
-    shallowsearch['maxdist'] = (shallowsearch['phi'] - bs)/ms
-    deepsearch['maxdist'] = (deepsearch['phi'] - bd)/md
-    
-    #print 'lat,lon,loc_depth,cstr,cdip,xnode,ynode,znode,rs,rd,shallowsearch',lat,lon,loc_depth,cstr,cdip,xnode,ynode,znode,rs,rd,shallowsearch
-    #print 'lat,lon,loc_depth,cstr,cdip,xnode,ynode,znode,rs,rd,deepsearch',lat,lon,loc_depth,cstr,cdip,xnode,ynode,znode,rs,rd,deepsearch
-
-    #shallowsearch = shallowsearch[(shallowsearch['xyzdist'] < shallowsearch['maxdist']) & (shallowsearch['hdist'] >= shallowsearch['vdist'])]#12.28.9-10AM
-    shallowsearch = shallowsearch[(shallowsearch['xyzdist'] < shallowsearch['maxdist'])]
-    #deepsearch = deepsearch[(deepsearch['xyzdist']<rmin) | ((deepsearch['xyzdist'] < deepsearch['maxdist']) & (deepsearch['hdist'] >= deepsearch['vdist']))] #12.28.9-10AM
-    deepsearch = deepsearch[(deepsearch['xyzdist'] < deepsearch['maxdist'])]
-
-    frames = [deepsearch, shallowsearch]
-    elist2 = pd.concat(frames,sort=True)
-    elist2 = elist2.reset_index(drop=True)
-    return elist2
 
 def dualdepthperp(loc_depth, sdr, ddr, seismo_thick, elist, slabname, cstr, lon, lat, cdip, alen, blen, these_parameters, perpwritten):
 
@@ -1069,7 +845,7 @@ def dualdepthperp(loc_depth, sdr, ddr, seismo_thick, elist, slabname, cstr, lon,
 
 ###############################################
 
-### 17 ###
+### 14 ###
 
 ###############################################
 
@@ -1148,31 +924,9 @@ def getTrenchStrike(TR_data, lat, lon, tooFardist, testprint):
 
 ###############################################
 
-### 18 ###
+### 15 ###
 
 ###############################################
-
-## Written GM
-
-def make_indices(N, P):
-    ''' Arguments:  N - number of latitude rows in the slab model
-                    P - number of cores used for processing
-        
-        Returns:    index_array - array of indeces associated with respective model rows
-                                    notifies each core of the part of the model it needs to complete '''
-    index_array = np.zeros(P+1)
-    for i in range(P+1):
-        index_array[i] = i*np.floor(N/P)
-    for i in range(np.mod(N, P)):
-        index_array[i+1:] += 1
-    return index_array
-
-###############################################
-
-### 19 ###
-
-###############################################
-
 ## Written GM
 
 def isoutboard(az, ang):
@@ -1201,6 +955,11 @@ def isoutboard(az, ang):
     else:
         return False
 
+###############################################
+
+### 16 ###
+
+###############################################
 
 def npoutboard(az, ang):
 
@@ -1231,7 +990,7 @@ def npoutboard(az, ang):
 
 ###############################################
 
-### 20 ###
+### 17 ###
 
 ###############################################
 
@@ -1263,7 +1022,7 @@ def slabpolygon(slabname, slabfile):
 
 ###############################################
 
-### 21 ###
+### 18 ###
 
 ###############################################
 
@@ -1310,7 +1069,11 @@ def determine_polygon_extrema(slabname, slabfile):
     
     return x1, x2, y1, y2
 
+###############################################
 
+### 19 ###
+
+###############################################
 
 def create_grid_nodes3(grid, lonmin, lonmax, latmin, latmax):
 
@@ -1332,7 +1095,7 @@ def create_grid_nodes3(grid, lonmin, lonmax, latmin, latmax):
 
 ###############################################
 
-### 23 ###
+### 20 ###
 
 ###############################################
 
@@ -1381,7 +1144,7 @@ def createGridInPolygon2(nodes, slabname, slabfile):
 
 ###############################################
 
-### 24 ###
+### 21 ###
 
 ###############################################
 
@@ -1431,7 +1194,7 @@ def getDFinMask(datadf, maskdf):
 
 ###############################################
 
-### 24 ###
+### 21 ###
 
 ###############################################
 
@@ -1501,7 +1264,7 @@ def getDataInPolygon(slabname, data, slabfile):
 
 ###############################################
 
-### 25 ###
+### 22 ###
 
 ###############################################
 
@@ -1622,6 +1385,12 @@ def epCalc(lon, lat, dep, dip, strike, posmag, negmag, step):
     
     return EPs
 
+###############################################
+
+### 23 ###
+
+###############################################
+
 def mkSDgrd(Slabgrid):
     
     # Get depth grid boundaries, size, and spacing
@@ -1713,6 +1482,12 @@ def mkSDgrd_old(Slabgrid):
         
     return Strikegrid, Dipgrid
 
+###############################################
+
+### 24 ###
+
+###############################################
+
 def mkSDgrddata(xi, zi, flipornot):
     
     # get dx, dy, and list of lats from zi coordinates (listed in xi)
@@ -1775,82 +1550,11 @@ def mkSDgrddata(xi, zi, flipornot):
 
     return Strikegrid, Dipgrid
 
-def mkSDgrddata_old(xi, zi, flipornot):
-    
-    dx = abs(xi[1, 0]-xi[0, 0])*111.19
-    dy = dx
-
-    if flipornot == 'flip':
-
-        Xgrad, Ygrad = np.gradient(np.flipud(zi), dx, dy)  ## Define grids of the gradients in the x and y directions
-        Maggrid = np.sqrt((Xgrad**2)+(Ygrad**2))  ## Define a grid file that is the gradient magnitude at any given node
-        Strikegrid = np.degrees(np.arctan2(Xgrad, Ygrad))  ## Define a grid file that is the direction perpendicular to the max gradient - in degrees clockwise from N (0 - 360)
-        Strikegrid[(Strikegrid<0)&(np.isfinite(Strikegrid))] += 360
-        #Strikegrid = np.where(Dirgrid < 0, Dirgrid+360, Dirgrid) # caused runtime
-
-        Dipgrid = np.degrees(np.arctan2(Maggrid, 1))
-    
-        Strikegrid = np.flipud(Strikegrid)
-        Dipgrid = np.flipud(Dipgrid)
-    
-    else:
-    
-        Xgrad, Ygrad = np.gradient(zi, dx, dy)  ## Define grids of the gradients in the x and y directions
-        Maggrid = np.sqrt((Xgrad**2)+(Ygrad**2))  ## Define a grid file that is the gradient magnitude at any given node
-        Strikegrid = np.degrees(np.arctan2(Xgrad, Ygrad))  ## Define a grid file that is the direction perpendicular to the max gradient - in degrees clockwise from N (0 - 360)
-        Strikegrid[(Strikegrid<0)&(np.isfinite(Strikegrid))] += 360
-        #Strikegrid = np.where(Dirgrid < 0, Dirgrid+360, Dirgrid) # caused runtime
-
-        Dipgrid = np.degrees(np.arctan2(Maggrid, 1))
-
-    return Strikegrid, Dipgrid
-
 ###############################################
 
-### 30 ###
+### 25 ###
 
 ###############################################
-
-## Written DEP
-
-# point_in_poly was written by some guy on the internet at http://geospatialpython.com/2011/01/point-in-polygon.html.  Its purpose is to identify whether or not a point is located within a provided polygon.  I am using it to create an array of 1s and 0s based on a clipping mask.  Takes in lists for x and y.
-
-def point_in_poly(x_all, y_all, poly):
-    
-    ans = np.zeros((len(x_all), 1))
-    for j in range(len(ans)):
-        x = x_all[j]
-        y = y_all[j]
-        n = len(poly)
-        
-        p1x, p1y = poly[0]
-        cnt = 0
-        for i in range(n+1):
-            inside = False
-            p2x, p2y = poly[i % n]
-            if y > min(p1y, p2y):
-                if y <= max(p1y, p2y):
-                    if x <= max(p1x, p2x):
-                        if p1y != p2y:
-                            xints = (y-p1y)*(p2x-p1x)/(p2y-p1y)+p1x
-                            if p1x == p2x or x <= xints:
-                                inside = not inside
-                                p1x, p1y = p2x, p2y
-        if inside == True:
-            cnt = cnt + 1
-        if (cnt % 2) == 0:
-            ans[j] = np.nan
-        else:
-            ans[j] = 1
-                
-    return ans
-
-###############################################
-
-### 36 ###
-
-###############################################
-
 ## Written  DEP.7.7.16
 
 # pointShift is essentially epCalc, but for a single point.  It is used to calculate the endpoint of a vector within the earth given a local lat/lon/dep, strike/dip, and distance.
@@ -1954,7 +1658,7 @@ def pointShift(lon, lat, dep, dip, strike, mag):
 
 ###############################################
 
-### 37 ###
+### 26 ###
 
 ###############################################
 
@@ -1989,7 +1693,7 @@ def findLocDep(slab1, tooFar, elist, seismo_thick, testprint, balist, out, slab,
 
 ###############################################
                           
-### 38 ###
+### 27 ###
                           
 ###############################################
                           
@@ -2011,22 +1715,11 @@ def ellipseFilt(elist, lat, lon, alen, blen, cstr, mdist):
 
         return trimmed
 
-def haversine(lon1, lat1, lon2, lat2):
-    """
-    Calculate the great circle distance between two points 
-    on the earth (specified in decimal degrees)
-    """
-    # convert decimal degrees to radians 
-    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
-
-    # haversine formula 
-    dlon = lon2 - lon1 
-    dlat = lat2 - lat1 
-    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-    c = 2 * asin(sqrt(a)) 
-    r = 6371 # Radius of earth in kilometers. Use 3956 for miles
-    return c * r
-
+###############################################
+                          
+### 28 ###
+                          
+###############################################
 
 def trimByTrench(trimmed, outside, AA_data, lat, lon, maxID, size, TR_data, strike, mindist, testprint, slab):
 
@@ -2044,6 +1737,12 @@ def trimByTrench(trimmed, outside, AA_data, lat, lon, maxID, size, TR_data, stri
                 trimmed.loc[len(trimmed)+1] = ([lat, lon, locAA, 5.0, str('AA'), (maxID+1), np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, np.nan, 0.0])
                 maxID += 1
     return trimmed, maxID
+
+###############################################
+                          
+### 29 ###
+                          
+###############################################
 
 def trimByTrench_alu(trimmed, outside, AA_data, lat, lon, maxID, size, TR_data, strike, mindist, testprint, slab):
 
@@ -2095,29 +1794,8 @@ def trimByTrench_alu(trimmed, outside, AA_data, lat, lon, maxID, size, TR_data, 
 
 ###############################################
                           
-### 40 ###
+### 30 ###
                           
-###############################################
-                          
-## DEP.8.4.16
-## DEP.8.5.16 edited typo
-                          
-# addData adds the data used for a given node to the full used data list
-                          
-def addData(trimmed, lat, lon):
-    IDs = trimmed['ID'].values
-    LONlist = np.ones(len(IDs))
-    LATlist = np.ones(len(IDs))
-    LONlist = LONlist * lon
-    LATlist = LATlist * lat
-    used = trimmed[trimmed['ID'].isin(IDs)]
-
-    return used, IDs, LONlist, LATlist
-
-###############################################
-
-### 41 ###
-
 ###############################################
 
 def rectangleIntersectsPolygon(x1, x2, y1, y2, slabfile):
@@ -2173,6 +1851,12 @@ def rectangleIntersectsPolygon(x1, x2, y1, y2, slabfile):
 
     return slab
 
+###############################################
+                          
+### 31 ###
+                          
+###############################################
+
 def noDataNeedAA(trimmed, cstr, minang, AA_data, lat, lon, maxID, TR_data, mindist, testprint, sdr, ddr, seismo_thick, slab, these_parameters, depthwritten, perpwritten, trenchlon, trenchlat, AARF, loc_depth):
     trimmed = trimmed[['lat', 'lon', 'depth', 'unc', 'etype', 'ID', 'mag', 'time', 'S1', 'D1', 'R1', 'S2', 'D2', 'R2', 'src', 'distance']]
     if len(trimmed)>0:
@@ -2205,93 +1889,11 @@ def noDataNeedAA(trimmed, cstr, minang, AA_data, lat, lon, maxID, TR_data, mindi
         test=False
         return trimmed, test, np.nan, np.nan, cstr, maxID, np.nan, True, True
 
-def makealuAA(lon, lat, AA_data):
-
-    distdata = AA_data.drop_duplicates(['sect'])
-    if lon < distdata['avlon'].min():
-        AA_data = AA_data[AA_data.sect == 'west']
-    elif lon > distdata['avlon'].max():
-        AA_data = AA_data[AA_data.sect == 'east']
-    else:
-        xdist = distdata['avlon'].values - lon
-        ydist = distdata['avlat'].values - lat
-        distdata['hdist'] = np.sqrt(xdist*xdist + ydist*ydist)
-        mindist = distdata['hdist'].min()
-        meddist = distdata['hdist'].median()
-        minAA = distdata[distdata.hdist == mindist]
-        medAA = distdata[distdata.hdist == meddist]
-        minsect = minAA['sect'].values[0]
-        medsect = medAA['sect'].values[0]
-        if meddist > 2*mindist:
-            AA_data = AA_data[AA_data.sect == minsect]
-        else:
-            mindata = AA_data[AA_data.sect == minsect]
-            meddata = AA_data[AA_data.sect == medsect]
-            maxoutmin = mindata['dist'].max()
-            maxoutmed = meddata['dist'].max()
-            minmin = max(mindata['dist'].min(), meddata['dist'].min())
-            maxout = mindist/(mindist+meddist)*maxoutmed + meddist/(mindist+meddist)*maxoutmin
-            if maxoutmed > maxoutmin:
-                meddata = meddata[meddata.dist<maxout]
-                add = meddata[meddata.dist > maxoutmin]
-                mindata = pd.concat([mindata, add],sort=True)
-                mindata = mindata.reset_index(drop=True)
-            else:
-                mindata = mindata[mindata.dist<maxout]
-                add = mindata[mindata.dist > maxoutmed]
-                meddata = pd.concat([meddata, add],sort=True)
-                meddata = meddata.reset_index(drop=True)
-            mindata = mindata[mindata.dist > minmin]
-            meddata = meddata[meddata.dist > minmin]
-
-            ind = meddata.dist.isin(mindata.dist)
-            meddata = meddata[ind]
-            mindata = meddata[ind]
-
-            meddata2 = meddata[~ind]
-            #if len(meddata2>0):
-            #    print('MEDDATA2', meddata2)
-            mindepths = mindata['depth'].values
-            meddepths = meddata['depth'].values
-
-            weighted_depths = mindist/(mindist+meddist)*meddepths + meddist/(mindist+meddist)*mindepths
-
-            weightedAA = pd.DataFrame({'dist':mindata['dist'].values,'depth':weighted_depths})
-            return weightedAA
-
-    AA_data = AA_data[['dist', 'depth']]
-    return AA_data
-
-def getextraRF2(lon, lat, alen, blen, eventlist, elistRF, slab, cstr, mindist, trenchlon, trenchlat, AARF, maxID):
-
-    if slab == 'alu' or slab == 'cam':
-        elist = eventlist[eventlist.etype == 'RF']
-        if len(elist)>0:
-            #print 'elistRF2',lon,lat,elist
-            elist = getEventsInCircle(lon, lat, 100, elist)
-            if len(elist) > 0:
-                #print 'elistRF1',lon,lat,elist
-                elist = ellipseFilt(elist, lat, lon, 100, blen/3, cstr, mdist)
-                if len(elist)>0:
-                    mindist = elist['distance'].min()
-                    elistRF = elist[elist.distance == mindist]
-                    #print 'elistRF4',lon,lat,mindist,elistRF
-                    if mindist > alen:
-                        addunc = ((mindist-alen)/(100-alen)/2+1) * elistRF['unc'].values[0]
-                        first = (mindist-alen)/(100-alen)+1
-                        #print 'first',lon,lat,first,mindist,alen
-                        #print 'second',lon,lat,elistRF['unc'].values[0]
-                        elistRF['unc'] = addunc
-                    #print 'elistRF5',lon,lat,elistRF
-                    return elistRF
-                else:
-                    return elistRF
-            else:
-                return elistRF
-        else:
-            return elistRF
-    else:
-        return elistRF
+###############################################
+                          
+### 32 ###
+                          
+###############################################
 
 def getextraRF(trimmed, slab, cstr, mindist, trenchlon, trenchlat, AARF, maxID, lon, lat):
 
@@ -2315,7 +1917,7 @@ def getextraRF(trimmed, slab, cstr, mindist, trenchlon, trenchlat, AARF, maxID, 
 
 ###############################################
 
-### 42 ###
+### 33 ###
 
 ###############################################
 
@@ -2808,7 +2410,7 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
 
 ###############################################
 
-### 43 ###
+### 34 ###
 
 ###############################################
 
@@ -2875,7 +2477,7 @@ def avStrDipRak(trimmed):
 
 ###############################################
 
-### 43.5 ###
+### 35 ###
 
 ###############################################
 
@@ -2946,7 +2548,7 @@ def makeMultiDFP(multi_peak2, multipeaks, lon, lat, nID, strike, dip, loc_depth)
 
 ###############################################
 
-### 43.75 ###
+### 36 ###
 
 ###############################################
 
@@ -3029,7 +2631,7 @@ def getLocalMax(multi_peak):
 
 ###############################################
 
-### 44 ###
+### 37 ###
 
 ###############################################
 
@@ -3355,6 +2957,12 @@ def fullPDFcalc(trimmed, sdepth, ddepth, testprint, nID, lat, lon, loc_depth, wh
     except:
         return peak_depth, stdv, test, n, multipeaks, stdv
 
+###############################################
+
+### 38 ###
+
+###############################################
+
 def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, ages_error, filterwidth, slab, maxthickness, spacing, lonname, latname, depthname, fracS, nCores, meanBA, testprint, kdeg, knot_no, rbfs, use_box):
     
     tmpdata = np.zeros((len(tmp_res), 4))
@@ -3451,7 +3059,6 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
         if len(trenches) > 0 and slab != 'helz':
             all_pts[:, 5] = griddata(trench_age[:, 0:2], trench_age[:, 2], all_pts[:, 0:2], method='nearest')
             all_pts[:, 8] = griddata(trench_age[:, 0:2], trench_age[:, 3], all_pts[:, 0:2], method='nearest')
-            np.savetxt('TrenchAgeWithError.csv', (all_pts[:, 0], all_pts[:, 1], all_pts[:, 5], all_pts[:, 8]),fmt='%.2f', delimiter=',',comments='') # KLH DELETE
         else:
             all_pts[:, 5] = 75
             all_pts[:, 8] = 20
@@ -3560,6 +3167,12 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
 
     return shift_out, maxthickness
 
+###############################################
+
+### 39 ###
+
+###############################################
+
 ## Written GLM 11.21.2016
 def az_perp(x):
     ''' Arguments:  x - azimuth
@@ -3584,15 +3197,9 @@ def npaz_perp(x):
     x[x > 360] -= 360
     return x
 
-def npaz_other_perp(x):
-
-    x -= 270
-    x[x  < 0] += 360
-    return x
-
 ###############################################
 
-### 48 ###
+### 40 ###
 
 ###############################################
 
@@ -3606,20 +3213,6 @@ def uncraise(x):
         return minunc
     else:
         return x
-
-
-def distchecker(maskdata, distcheck):
-
-    for i in range(1, len(maskdata)-1):
-        lastdist = distcheck[i-1]
-        thisdist = distcheck[i]
-        nextdist = distcheck[i+1]
-
-        if thisdist < lastdist and thisdist < nextdist:
-            maskdata = maskdata[maskdata.dists != thisdist]
-    
-    return maskdata
-
 
 def movingav2(x,y,testprint,filtdist):
     x2 = np.copy(x)
@@ -3650,350 +3243,11 @@ def movingav2(x,y,testprint,filtdist):
     y2[-1] = y[-1]
     return x2,y2,n
 
-def mkClipPolygon(indataOG, trench, spacing, testprint):
-    
-    indatadat = np.zeros((len(indataOG),3)).astype(np.float64)
-    indatadat[:,0] = np.round(indataOG['lon'].values, 2)
-    indatadat[:,1] = np.round(indataOG['lat'].values, 2)
-    indatadat[:,2] = np.round(indataOG['depth'].values, 2)
-    
-    #print (indatadat)
-    
-    slab = trench['slab'].values[0]
-    
-    if slab == 'sulz' or slab == 'cotz':
-        dw = 0.3
-    elif slab != 'phi':
-        dw = spacing*1.5
-    else:
-        dw = spacing
-    
-    dl = 20.0
-    if slab == 'sol' or slab == 'sul':
-        dist = 150.0
-    elif slab == 'hel':
-        dist = 25
-    else:
-        dist = 75.0
-    idnot = (np.ones(len(indataOG))*-9999).astype(int)
+###############################################
 
-    if slab == 'sum':
-        minempty = 0
-        mindepth = 100.0
-        distthresh = 800
-    elif slab == 'hel':
-        minempty = 0
-        mindepth = 70.0
-        distthresh = 400
-    elif slab == 'kur':
-        minempty = 0
-        mindepth = 100.0
-        distthresh = 800
-    elif slab == 'alu':
-        mindepth = 10.0
-        minempty = 0
-        distthresh = 800
-    elif slab == 'sol' or slab == 'png':
-        mindepth = 10.0
-        distthresh = 500
-        minempty = 0
-    elif slab == 'sul' or slab == 'cot':
-        mindepth = 10.0
-        distthresh = 300
-        minempty = 0
-    elif slab == 'phi' or slab == 'man':
-        mindepth = 30.0
-        minempty = 0
-        distthresh = 800
-    elif slab == 'cam':
-        mindepth = 40
-        minempty = 0
-        distthresh = 800
-    elif slab == 'cam':
-        mindepth = 40
-        minempty = 0
-        distthresh = 1100
-    elif slab == 'cas':
-        mindepth = 40
-        minempty = 0
-        distthresh = 800
-    else:
-        minempty = 0
-        mindepth = 25.0
-        distthresh = 800
-    # make trench-side of clipping mask
-    trench.loc[trench.lon<0,'lon'] += 360
-    trench['az90'] = npaz_perp(trench['az'].values*1.0)
-    dists = np.ones(len(trench))*dist
-    tlons = trench['lon'].values*1.0
-    tlats = trench['lat'].values*1.0
-    #lon90, lat90 = npheading(tlons,tlats,az90,dists)
-    lon90, lat90=zip(*trench.apply(lambda row: heading(row['lon'], row['lat'], dist, row['az90']), axis=1))
-    
-    masktrench = pd.DataFrame({'lon':lon90,'lat':lat90})
-    idlist = []
-    for i in range (len(indatadat)):
-        nodelon = indatadat[i,0]
-        nodelat = indatadat[i,1]
-        nodedepth = indatadat[i,2]
+### 41 ###
 
-        if nodedepth < mindepth:
-            idnot[i] = i
-        elif slab == 'sam' and nodelon < 286 and nodelat > -30:
-            idnot[i] = i
-        elif slab == 'sam' and nodelon < 287.5 and nodelon > 285 and nodelat < -40:
-            idnot[i] = i
-        elif slab == 'sam' and nodelon < 287.5 and nodelon > 285 and nodelat < 10 and nodelat > 5:
-            idnot[i] = i
-        elif slab == 'sam' and nodelat > -40 and nodelat < 2 and nodedepth < 300:
-            idnot[i] = i
-        elif slab == 'png' and nodelon > 135 and nodelon < 140 and nodedepth<100:
-            idnot[i] = i
-        elif slab == 'hal' and nodelat > 8 and nodedepth<500:
-            idnot[i] = i
-        elif slab == 'sol' and nodelat > -8 and nodelat<-6.5 and nodelon>147 and nodelon<150:
-            idnot[i] = i
-        elif slab == 'ker' and nodelat > -25 and nodelat < -23 and nodelon <178:
-            idnot[i] = i
-        elif slab == 'kur' and nodelat > 45 and nodelat < 50 and nodelon <142 and nodelon > 140:
-            idnot[i] = i
-        elif slab == 'kur' and nodelat > 42 and nodelat < 45 and nodelon <132:
-            idnot[i] = i
-        elif slab == 'kur' and nodelat > 54 and nodedepth < 500 and nodelon <156:
-            idnot[i] = i
-        elif slab == 'cam' and nodelon > 258 and nodelon <261 and nodelat < 19.8:
-            idnot[i] = i
-        elif slab == 'cam' and nodelon > 262 and nodedepth < 300 and nodelon <265:
-            idnot[i] = i
-        elif slab == 'ita' and nodelon > 13 and nodelat < 40.5 and nodelat>40  and nodelon <14:
-            idnot[i] = i
-        elif slab == 'png' and nodelon > 132 and nodelat> -2  and nodelon <135:
-            idnot[i] = i
-        elif slab == 'puy' and nodelon > 165 and nodedepth< 150  and nodelon <166:
-            idnot[i] = i
-        elif slab == 'mak' and nodelon < 65 and nodelat <29.4:
-            idnot[i] = i
-        elif slab == 'mak' and nodelat <28 and nodelat > 65:
-            idnot[i] = i
-        elif slab == 'hel' and nodelon > 30 and nodelat>36 and nodedepth < 400:
-            idnot[i] = i
-        elif slab == 'hel' and nodelon < 25 and nodelat<39:
-            idnot[i] = i
-        elif slab == 'hel' and nodelon < 26 and nodelat<38:
-            idnot[i] = i
-        elif slab == 'sul' and nodelon < 122.5 and nodelon > 120 and nodedepth<200:
-            idnot[i] = i
-        elif slab == 'cas' and nodelon > 235 and nodelat < 50 and nodelat > 45 and nodedepth < 200:
-            idnot[i] = i
-        elif slab == 'alu' and nodelon > 199 and nodelon < 201 and nodedepth < 220:
-            idnot[i] = i
-        elif slab == 'alu' and nodelon > 168 and nodelon < 172:
-            idnot[i] = i
-        elif slab == 'man' and nodelat > 15 and nodelat < 20 and nodedepth < 150:
-            idnot[i] = i
-        
-    idnot = idnot[idnot>-999]
-    notbytrench = np.delete(indatadat, idnot, 0)
-    
-    lons = np.ones(len(notbytrench))*-9999
-    lats = np.ones(len(notbytrench))*-9999
-    northlist = np.ones(len(notbytrench))*-9999
-    eastlist = np.ones(len(notbytrench))*-9999
-    southlist = np.ones(len(notbytrench))*-9999
-    westlist = np.ones(len(notbytrench))*-9999
-
-    lonEmin = 999
-    lonEmax = -999
-    latEmin = 999
-    latEmax = -999
-
-    for i in range(len(notbytrench)):
-        dw1 = dw
-        if slab == 'sum' and nodelat > 12:
-            dw1 = 0.1
-        if slab == 'cam' and nodelon > 270:
-            dw1 = 0.15
-        if slab == 'png' and nodelon > 136:
-            dw1 = 0.1
-        if slab == 'png' and nodelon > 137.5:
-            dw1 = 0.3
-        if slab == 'hel' and nodelon < 22.5:
-            dw1 = 0.1
-        if slab == 'mak' and nodelat < 29:
-            dw1 = 0.3
-            
-        nodelon, nodelat = notbytrench[i,0], notbytrench[i,1]
-        NS = indatadat[(indatadat[:,0] < nodelon+dw1) & (indatadat[:,0] > nodelon-dw1)]
-        EW = indatadat[(indatadat[:,1] < nodelat+dw1) & (indatadat[:,1] > nodelat-dw1)]
-        north = NS[(NS[:,1] > nodelat) & (NS[:,1] < nodelat+dl)]
-        south = NS[(NS[:,1] < nodelat) & (NS[:,1] > nodelat-dl)]
-        east = EW[(EW[:,0] > nodelon) & (EW[:,0] < nodelon+dl)]
-        west = EW[(EW[:,0] < nodelon) & (EW[:,0] > nodelon-dl)]
-        
-        n = 0
-        if len(north) < 1:
-            n += 1
-            northlist[i] = 1
-        else:
-            northlist[i] = 0
-        if len(south) < 1 and slab != 'mak' and slab != 'him':
-            n += 1
-            southlist[i] = 1
-        else:
-            southlist[i] = 0
-        if len(east) < 1 and slab != 'mak':
-            n += 1
-            eastlist[i] = 1
-        else:
-            eastlist[i] = 0
-        if len(west) < 1 and slab !='him':
-            n += 1
-            westlist[i] = 1
-        else:
-            westlist[i] = 0
-
-        if n > minempty:
-            lons[i] = nodelon
-            lats[i] = nodelat
-        elif slab == 'sam' and n>0 and nodelon > 289 and nodelat > -14:
-            lons[i] = nodelon
-            lats[i] = nodelat
-        elif slab == 'kur' and n>0 and nodelat > 55:
-            lons[i] = nodelon
-            lats[i] = nodelat
-
-    lonbool = lons > -999
-    maskN = southlist == 0
-    maskE = westlist == 0
-    maskS = northlist == 0
-    maskW = eastlist == 0
-
-    northlist = northlist[lonbool]
-    eastlist = eastlist[lonbool]
-    southlist = southlist[lonbool]
-    westlist = westlist[lonbool]
-    
-    lons = lons[lons>-999]
-    lats = lats[lats>-999]
-    
-    trenchtest = masktrench[(masktrench.lat<=np.max(lats))&(masktrench.lat>=np.min(lats))&(masktrench.lat<=np.max(lons))&(masktrench.lat<=np.max(lats))]
-    addfirst = masktrench.iloc[[0]]
-    lastpoint = masktrench.iloc[[-1]]
-    lastlon = lastpoint['lon'].values[0]
-    lastlat = lastpoint['lat'].values[0]
-    lastN,lastE,lastS,lastW = 1,1,1,1
-    sortedlons = np.ones(len(lons))*-9999
-    sortedlats = np.ones(len(lats))*-9999
-    sortedangs = np.ones(len(lats))*-9999
-    gotOne = True
-    alons = np.array(lons)
-    alats = np.array(lats)
-    
-    awest = np.array(westlist)
-    aeast = np.array(eastlist)
-    anorth = np.array(northlist)
-    asouth = np.array(southlist)
-
-    presort = pd.DataFrame({'lon':lons, 'lat':lats, 'depth':1})
-    #presort.to_csv('cliptest.csv',header=True,index=False,na_rep=np.nan)
-
-    if slab == 'car':
-        lastlon = 290
-        lastlat = 20
-    
-    n = 0
-    while gotOne == True:
-        dists, angs = npcosine(lastlon, lastlat, alons, alats)
-        
-        if n>1:
-            if lastN == 1:
-                maskN = asouth == 0
-            else:
-                maskN = np.ones(len(dists), dtype=bool)
-            if lastE == 1:
-                maskE = awest == 0
-            else:
-                maskE = np.ones(len(dists), dtype=bool)
-            if lastS == 1:
-                maskS = anorth == 0
-            else:
-                maskS = np.ones(len(dists), dtype=bool)
-            if lastW == 1:
-                maskW = aeast == 0
-            else:
-                maskW = np.ones(len(dists), dtype=bool)
-
-            distsT = dists[maskN & maskE & maskS & maskW]
-        
-        if len(dists)>0:
-            #print ('len(dists)',len(dists))
-            #print ('dists,angs,alons,alats,lastlon,lastlat',dists,angs,alons,alats,lastlon,lastlat)
-            
-            if n>1 and len(distsT)>0 and slab != 'cot':
-                minT = np.min(distsT)
-                imindista = np.where(dists == minT)
-                imindist = imindista[0][0]
-            else:
-                imindist = np.argmin(dists)
-
-            if dists[imindist] < distthresh or n == 0:
-            
-                lastE, lastW = aeast[imindist], awest[imindist]
-                lastN, lastS = anorth[imindist], asouth[imindist]
-                
-                lastlon, lastlat = alons[imindist], alats[imindist]
-                lastang = angs[imindist]
-                
-                sortedlons[n] = lastlon
-                sortedlats[n] = lastlat
-                sortedangs[n] = lastang
-                
-                alons = np.delete(alons, imindist)
-                alats = np.delete(alats, imindist)
-
-                anorth = np.delete(anorth, imindist)
-                aeast = np.delete(aeast, imindist)
-                asouth = np.delete(asouth, imindist)
-                awest = np.delete(awest, imindist)
-                
-                n+=1
-            else:
-                gotOne = False
-        else:
-            gotOne = False
-    sortedlons = sortedlons[sortedlons>-999]
-    sortedlats = sortedlats[sortedlats>-999]
-    sortedangs = sortedlats[sortedlats>-999]
-    #print ('sortedlons,sortedlats',sortedlons,sortedlats)
-
-    if slab == 'mak':
-        maskdata = pd.DataFrame({'lon':lons,'lat':lats})
-        maskdata = maskdata.sort_values(by=['lon'],ascending = False)
-    elif slab == 'cas':
-        maskdata = pd.DataFrame({'lon':lons,'lat':lats})
-        maskdata = maskdata.sort_values(by=['lat'],ascending = True)
-    else:
-        maskdata = pd.DataFrame({'lon':sortedlons,'lat':sortedlats})
-
-    filtno = 10
-    filtnum = 0
-    n2 = 1
-
-    while n2>0:
-        maskdata['lon'], maskdata['lat'], n2 = movingav2(maskdata['lon'].values, maskdata['lat'].values,testprint,1)
-        filtnum += 1
-        print (filtnum)
-
-    maskdata = maskdata[['lon', 'lat']]
-    maskdata = maskdata.reset_index(drop=True)
-
-    if slab == 'cot':
-        clip = pd.concat([masktrench[:-3], maskdata, addfirst],sort=True)
-    else:
-        clip = pd.concat([masktrench, maskdata, addfirst],sort=True)
-
-    return clip
-
+###############################################
 
 def noTrenchPolygon(indataOG, spacing, testprint, slab):
 
@@ -4226,71 +3480,9 @@ def noTrenchPolygon(indataOG, spacing, testprint, slab):
     
 ###############################################
 
-### 50 ###
+### 42 ###
 
 ###############################################
-
-## Written MF
-
-def assignNodes(nodes, num_ranks, your_rank):
-
-    len_data = len(nodes)
-    q, r = divmod(len_data, num_ranks)
-    my_nodes = (q*your_rank+min(your_rank, r), q*(your_rank+1)+min(your_rank+1, r))
-
-    return my_nodes
-
-###############################################
-
-### 51 ###
-
-###############################################
-
-## Written GLM 11.22.16
-
-def raiseEQunc(eventlistALL):
-    ## GLM 11.21.16 raising earthquake uncertainties to a minimum of 10 km
-    eventlist1 = eventlistALL[eventlistALL.etype != 'EQ']
-    eventlist2 = eventlistALL[eventlistALL.etype == 'EQ']
-    eventlist2['unc']=eventlist2.apply(lambda row: uncraise(row['unc']), axis=1)
-    frames = [eventlist1, eventlist2]
-    eventlistALL = pd.concat(frames,sort=True)
-    eventlist = eventlistALL.loc[eventlistALL.etype == 'RF', 'unc'] = 5
-    eventlistALL = eventlistALL.reset_index(drop=True)
-    eventlist = eventlistALL[['lat', 'lon', 'depth', 'unc', 'etype', 'ID', 'mag', 'time', 'S1', 'D1', 'R1', 'S2', 'D2', 'R2', 'src']]
-    return eventlist
-
-###############################################
-
-### 52 ###
-
-###############################################
-
-def getNearbyNodes(lat, lon, radius, eventlist):
-    
-    ''' Arguments:  lat - latitude of grid node that is being searched over
-                    lon - longitude of grid node that is being searched over
-                    radius - radius of circle to search within (km)
-                    eventlist - list of events to search over. Must include lat/lon info
-        
-        Returns:    elist - dataframe of events that are within the specified radius of
-                            the lat lon node point. Has all information that the original
-                            eventlist contained for nearby data points of all types. '''
-    
-    # Gather latitudes and longitudes for each point in eventlist
-    elat = eventlist['lat'].as_matrix()
-    elon = eventlist['lon'].as_matrix()
-    # Make array of length eventlist with distances from each lat/lon point from node
-    a = abs(lat-eventlist['lat'])
-    a2 = (lat-eventlist['lat'])*(lat-eventlist['lat'])
-    b2 = (lon-eventlist['lon'])*(lon-eventlist['lon'])
-    c = np.sqrt(a2+b2)
-    pd.options.mode.chained_assignment = None
-    # Filter points from eventlist that are outside of the radius
-    eventlist['distance'] = list(c)
-    elist = eventlist.loc[eventlist.distance <= radius]
-    elist = elist[elist.depth > 0]
-    return elist
 
 def getNodesInEllipse(lat, lon, stk, radius, eventlist, alen):
 
@@ -4321,7 +3513,7 @@ def getNodesInEllipse(lat, lon, stk, radius, eventlist, alen):
 
 ###############################################
 
-### 53 ###
+### 43 ###
 
 ###############################################
 
@@ -4428,7 +3620,7 @@ def findMultiDepthP(lon, lat, nID, nonbinodes, spacing, multidepths, stk, slab, 
 
 ###############################################
 
-### 54 ###
+### 44 ###
 
 ###############################################
 
@@ -4581,39 +3773,6 @@ def movingav(x):
         x2[-1] = x[-1]
     return x2
 
-def myfilter(data):
-    datalon = data.drop_duplicates(['lon'])
-    datalat = data.drop_duplicates(['lat'])
-    lons = datalon['lon'].values
-    lats = datalat['lat'].values
-    newdf = pd.DataFrame(columns = ['lon', 'lat', 'depth', 'unc'])
-    for lon in lons:
-        #print 'lon',lon
-        thislon = data[data.lon == lon]
-        thislon.sort(columns = 'lat')
-        x = thislon['depth'].values
-        lonsmooth = movingav(x)
-        thislon['depth'] = lonsmooth
-        frames = [newdf, thislon]
-        newdf = pd.concat(frames,sort=True)
-        newdf = newdf.reset_index(drop=True)
-        newdf = newdf[['lon', 'lat', 'depth', 'unc']]
-    
-        newdf2 = pd.DataFrame(columns = ['lon', 'lat', 'depth', 'unc'])
-    for lat in lats:
-        #print 'lat',lat
-        thislat = newdf[newdf.lat == lat]
-        thislat.sort(columns = 'lon')
-        x = thislat['depth'].values
-        latsmooth = movingav(x)
-        thislat['depth'] = latsmooth
-        frames = [newdf2, thislat]
-        newdf2 = pd.concat(frames,sort=True)
-        newdf2 = newdf2.reset_index(drop=True)
-        newdf2 = newdf2[['lon', 'lat', 'depth', 'unc']]
-
-    return newdf2
-
 def maskdatag(clip2, xi):
 
     clip = clip2.copy()
@@ -4651,11 +3810,6 @@ def makeErrorgrid(Surfgrid,xi,errordata):
 
     zi.shape = Surfgrid.shape
     return zi
-
-def unique_rows(a):
-    a = np.ascontiguousarray(a)
-    unique_a = np.unique(a.view([('', a.dtype)]*a.shape[1]))
-    return unique_a.view(a.dtype).reshape((unique_a.shape[0], a.shape[1]))
 
 def extendslightly(newdat,clip,data,dist,slab,shiftorfin,TRdata):
 
@@ -5068,106 +4222,6 @@ def pySurface3(data, node, T, slab, spacing, deptherr, time, these_parameters, f
 
     return interpdepths, xi, dl
 
-def pySurface4(data, node, T, slab, spacing, deptherr, time, these_parameters, filter, filldat, nCores, TRdata, meanBA, kdeg, knot_no, rbfs, shift_out, shiftorfin, extra):
-
-    knot_no = 2
-    data[:, 0][data[:, 0]<0] += 360
-    if len(filldat) > 0:
-        filldat[:, 0][filldat[:, 0]<0] += 360
-    xmin, xmax = np.min(data[:, 0]), np.max(data[:, 0])
-    ymin, ymax = np.min(data[:, 1]), np.max(data[:, 1])
-    
-    deglats = (data[:, 1] - 90)*-1.0
-    radlats = np.radians(deglats)
-    radlons = np.radians(data[:, 0])
-
-    rxn,rxx,ryn,ryx = np.min(radlons),np.max(radlons),np.min(radlats),np.max(radlats)
-
-    rnode = np.radians(node)
-    rbuff = np.radians(3.0)
-    xall = np.arange(rxn-rbuff, rxx+rbuff, rnode)
-    if slab == 'kur':
-        xall = np.arange(rxn-(rbuff*2.5), rxx+rbuff, rnode)
-    yall = np.arange(ryn-rbuff, ryx+rbuff, rnode)
-    dl = False
-
-    n = len(xall)
-    m = len(yall)
-
-    xpts, ypts = np.meshgrid(xall, yall)
-    xi = np.zeros((m*n, 2))
-
-    xi[:, 0] = np.degrees(xpts.flatten())
-    xi[:, 1] = 90.0 - np.degrees(ypts.flatten())
-
-    if len(filldat) > 0:
-        data = np.vstack((data[:,:4], filldat[:,:4]))
-    data[:, 3][np.isnan(data[:, 3])] = 40
-
-    x = data[:, 0]
-    y = (data[:, 1]-90)*-1
-    z = data[:, 2]
-    w = 1.0/data[:, 3]
-
-    xrad = np.radians(x)
-    yrad = np.radians(y)
-    yrad[yrad<0] = math.pi/2.0+np.abs(yrad[yrad<0])
-    zrad = z
-
-    ntx = int(abs(np.floor(xmin)-np.ceil(xmax))*knot_no)
-    nty = int(abs(np.floor(ymin)-np.ceil(ymax))*knot_no)
-
-    tx = np.linspace(xall.min(), xall.max(), ntx)
-    ty = np.linspace(yall.min(), yall.max(), nty)
-    
-    if deptherr == 'depth':
-        f = open(these_parameters, 'a')
-        f.write('knot_no: %s \n' % str(knot_no))
-        f.write('kdeg: %s \n' % str(kdeg))
-        f.close()
-    print ('               interpolating ....')
-    lut = LSQSphereBivariateSpline(yrad, xrad, zrad, ty[1:-1], tx[1:-1], w=w)
-    print ('               interpolated')
-    interpdepths = lut.ev(ypts.flatten(), xpts.flatten())
-    interpdepths.shape = xpts.shape
-
-    return interpdepths, xi, dl
-
-
-def gblockmean(xpts,ypts,interpdepths,tx,ty,bwidth,w,xrad,yrad):
-
-    pbarr = np.zeros((len(xpts.flatten()),4))
-    pbarr[:,0] = xpts.flatten()
-    pbarr[:,1] = ypts.flatten()
-    pbarr[:,2] = interpdepths.flatten()
-    xyrad = np.zeros((len(xrad),2))
-    xyrad[:,0] = xrad
-    xyrad[:,1] = yrad
-    pbarr[:,3] = griddata(xyrad, w, pbarr[:, 0:2], method='nearest')
-
-    txx, tyy = np.meshgrid(tx,ty)
-    blockx = txx.flatten()
-    blocky = tyy.flatten()
-
-    rwidth = np.radians(bwidth/2)
-    blockd, blockw = [],[]
-    for i in range(len(blockx)):
-        rlon, rlat = blockx[i], blocky[i]
-        thisarr = pbarr[(pbarr[:,0] > rlon-rwidth) & (pbarr[:,0] < rlon+rwidth) & \
-                        (pbarr[:,1] > rlat-rwidth) & (pbarr[:,1] < rlat+rwidth)]
-        newdep = np.average(thisarr[:,2], weights = thisarr[:,3])
-        newwht = np.average(thisarr[:,3], weights = thisarr[:,3])
-        blockd.append(newdep)
-        blockw.append(newwht)
-
-    blockdata = np.zeros((len(blockx),4))
-    blockdata[:,0] = blockx
-    blockdata[:,1] = blocky
-    blockdata[:,2] = blockd
-    blockdata[:,3] = blockw
-
-    return blockdata
-
 def perpPDFdepths(elist, cstr, cdip, lon, lat, loc_depth, maxthickness):
 
     hd2 = math.cos(math.radians(cdip))
@@ -5239,7 +4293,6 @@ def perpPDFdepths(elist, cstr, cdip, lon, lat, loc_depth, maxthickness):
     #if len(removelist) > 0:
     #    print ('removelist!!',lon,lat,removelist)
     return elist, hd2, zd2, removelist
-
 
 def perpPDFcalc(trimmed, sdepth, ddepth, testprint, nID, lat, lon, loc_depth, whichpdf, slab, strike, dip, maxthickness):
 
@@ -5977,21 +5030,6 @@ def getlatloncutoffs(lons,lats,eventlist, testprint):
 
     return listoflons,listoflats,listofelists
     #return [lons],[lats],[eventlist]
-
-def getlatloncutoffs2(lons,lats,eventlist):
-
-    listoflons,listoflats,listofelists = getlatloncutoffs(lons,lats,eventlist)
-    secondlonlist,secondlatlist,secondelist = [],[],[]
-    for cut in range(len(listoflons)):
-        theselons = listoflons[cut]
-        theselats = listoflats[cut]
-        theseevents = listofelists[cut]
-        thislonlist,thislatlist,thiselist = getlatloncutoffs(theselons,theselats,theseevents)
-        secondlonlist.extend(thislonlist)
-        secondlatlist.extend(thislatlist)
-        secondelist.extend(thiselist)
-
-    return secondlonlist,secondlatlist,secondelist
 
 def makeReference(slab1data,lons,lats,grid,testprint,slab):
 
@@ -6759,282 +5797,6 @@ def sortoverlap(slab1, slab2, date1, date2, savedir):
     halupper.to_csv('%s/%s_slab2_upper_%s.csv'%(savedir,slab1,date1),header=True,index=False,na_rep=np.nan)
     sulintra.to_csv('%s/%s_slab2_intra_%s.csv'%(savedir,slab2,date2),header=True,index=False,na_rep=np.nan)
 
-
-def getSZthickness1(data,folder,slab):
-
-    warnings.filterwarnings("ignore", category=DeprecationWarning)
-    pd.options.mode.chained_assignment = None
-
-    if slab == 'camz':
-        maxdep=50
-    elif slab == 'pan':
-        maxdep=60
-    else:
-        maxdep = 65
-
-    maxdep = 65
-    if slab == 'sol':
-        data = data[data.lon > 148]
-
-    if slab == 'hel' or slab == 'car' or slab == 'mak':
-        mindata = 40
-    else:
-        mindata = 20
-        
-    maxdepdiff = 20
-
-    #testfile = 'gausstest_full_10000_48_50_2_2_0.5_0.5'
-    #data = pd.read_csv('%s.csv'%testfile)
-    alldata = data[np.isfinite(data.S1)]
-    alldata = alldata[(alldata.mag < 7.5)&(alldata.depdiff < maxdepdiff)&(alldata.depdiff > -1*maxdepdiff)]
-    #alldata = alldata[(alldata.R1>30) & (alldata.R2>30)
-    #                       & (alldata.R1<150) & (alldata.R2<150)]
-
-    alldata = alldata[alldata.mdep<=maxdep]
-    
-    maxadd = 120-35
-    for i in range(maxadd):
-        dat = alldata[alldata.kagan < 35+i]
-        if len(dat) > mindata:
-            maxkagan = 35+i
-            break
-
-    try:
-        alldata = alldata[alldata.kagan < maxkagan]
-    except:
-        print ('not enough events within surface filter')
-        maxkagan = 100
-        alldata = alldata[alldata.kagan < maxkagan]
-    
-    alldata = alldata[['lat','lon','depth','unc','etype','ID','mag','time','S1','D1','R1','S2','D2','R2','src','slab2str','slab2dip','slab2rak','mrr','mtt','mpp','mrt','mrp','mtp','mrrS','mttS','mppS','mrtS','mrpS','mtpS','kagan','depdiff','slab2dep','mlon','mlat','mdep']]
-
-    try:
-        (slab,slab2k,date) = folder.split('_')
-        alldata.to_csv('Output/%s/%s_slab2_szt_%s.csv' % (folder, slab, date),header=True,index=False,na_rep=np.nan)
-    except:
-        #print ('requested directory does not exist:','Output/%s/%s_slab2_szt_%s.csv' % (folder, slab, date))
-        #print ('saving file in current directory as:', 'SZdist_%s.png' % (folder))
-        alldata.to_csv('SZdist_%s.csv' % (folder),header=True,index=False,na_rep=np.nan)
-
-    lendata = len(alldata)
-
-    # make depth array for gaussian fitting
-    depths = alldata.mdep.as_matrix()
-    N = len(depths)
-    depths.shape = (N,1)
-
-    # initialize empty list for smooth depths and array of 0s for histogram rep.
-    dc = [0 for i in range(maxdep)]
-    depth2 = []
-    i = 0
-
-    # loop through range of depths
-    for i in range(maxdep):
-
-        # make window for smoothing
-        mind = i-2
-        if mind < 0:
-            mind = 0
-        maxd = i+2
-        if maxd > maxdep:
-            maxd = maxdep
-
-        # loop through depth array
-        for d in depths:
-        
-            # if within window, append depth to smooth depths, incrament hist. value
-            if d >= mind and d <= maxd:
-                dc[i] = dc[i]+1
-                depth2.append(i)
-
-    # normalize histogram value by dividing by amount of depths
-    i2 = float(len(depth2))
-    dc2 = [x / i2 for x in dc]
-
-    # make smooth depth array for gaussian fitting
-    N2 = len(depth2)
-    depths2 = np.array(depth2)
-    depths2.shape = (N2,1)
-
-    # get mean and stdv.
-    m0 = np.mean(depths2)
-    sd0 = np.std(depths2)
-
-    # calculate normal distribution from mean and stdv.
-    depthlist = list(range(maxdep))
-    norm_pdf = matplotlib.mlab.normpdf(depthlist,m0,sd0)
-
-    # find bimodal distribution using 3 Gaussians
-    clf3 = mixture.GaussianMixture(n_components=3, covariance_type='full')
-    clf3.fit(depths2)
-
-    clf2 = mixture.GaussianMixture(n_components=2, covariance_type='full')
-    clf2.fit(depths2)
-    # acquire weights, means, and covariances from contributing distributions
-
-    m1, m2, m3 = clf3.means_
-    w1, w2, w3 = clf3.weights_
-    c1, c2, c3 = clf3.covariances_
-
-    md1, md2 = clf2.means_
-    wd1, wd2= clf2.weights_
-    cd1, cd2 = clf2.covariances_
-
-    # calculate standard deviations
-    sd1=np.sqrt(c1)[0]
-    sd2=np.sqrt(c2)[0]
-    sd3=np.sqrt(c3)[0]
-    
-    sdd1=np.sqrt(cd1)[0]
-    sdd2=np.sqrt(cd2)[0]
-
-    norm_pdf1 = matplotlib.mlab.normpdf(depthlist,m1,sd1)*w1
-    norm_pdf2 = matplotlib.mlab.normpdf(depthlist,m2,sd2)*w2
-    norm_pdf3 = matplotlib.mlab.normpdf(depthlist,m3,sd3)*w3
-
-    norm_pdfT = norm_pdf1 + norm_pdf2 + norm_pdf3
-
-    norm_pdfd1 = matplotlib.mlab.normpdf(depthlist,md1,sdd1)*wd1
-    norm_pdfd2 = matplotlib.mlab.normpdf(depthlist,md2,sdd2)*wd2
-
-    norm_pdfdT = norm_pdfd1 + norm_pdfd2
-    
-    # calculate rms for all distributions
-    rms1a = math.sqrt(mean_squared_error(dc2, norm_pdf))
-    rms3a = math.sqrt(mean_squared_error(dc2, norm_pdfT))
-    rms2a = math.sqrt(mean_squared_error(dc2, norm_pdfdT))
-
-    sumtest = 0.0
-    tapindex = -999
-    sumindex = -999
-    lowindex = -999
-
-    if lendata < -50:
-        lobound = 0.1
-        hibound = 0.9
-    else:
-        lobound = 0.05
-        hibound = 0.95
-
-    for i in range(len(norm_pdfT)):
-        sumtest += norm_pdfT[i]
-        if sumtest < lobound:
-            lowindex = i
-        if sumtest >= 0.65 and tapindex < 0:
-            tapindex = i
-        if sumtest >= hibound:
-            sumindex = i
-            break
-
-    if sumindex == -999:
-        sumindex = len(depthlist) - 1
-    szT_triple = depthlist[sumindex]
-    tap_triple = depthlist[tapindex]
-    low_triple = depthlist[lowindex]
-
-    sumtest = 0.0
-    tapindex = -999
-    sumindex = -999
-    lowindex = -999
-    for i in range(len(norm_pdfdT)):
-        sumtest += norm_pdfdT[i]
-        if sumtest < lobound:
-            lowindex = i
-        if sumtest >= 0.65 and tapindex < 0:
-            tapindex = i
-        if sumtest >= hibound:
-            sumindex = i
-            break
-
-    if sumindex == -999:
-        sumindex = len(depthlist) - 1
-    szT_double = depthlist[sumindex]
-    tap_double = depthlist[tapindex]
-    low_double = depthlist[lowindex]
-
-    sumtest = 0.0
-    tapindex = -999
-    sumindex = -999
-    lowindex = -999
-    for i in range(len(norm_pdf)):
-        sumtest += norm_pdf[i]
-        if sumtest < lobound:
-            lowindex = i
-        if sumtest >= 0.65 and tapindex < 0:
-            tapindex = i
-        if sumtest >= hibound:
-            sumindex = i
-            break
-    if sumindex == -999:
-        sumindex = len(depthlist) - 1
-
-    szT_single = depthlist[sumindex]
-    tap_single = depthlist[tapindex]
-    low_single = depthlist[lowindex]
-
-    # plot to show fit compared to data
-    fig = plt.figure(figsize=(15, 10))
-    ax1 = fig.add_subplot(111)
-    ax1.plot([depthlist[0],depthlist[0]],[0,dc2[0]],linewidth=10,c='k',label='Data')
-    for i in range(1,len(dc2)):
-        ax1.plot([depthlist[i],depthlist[i]],[0,dc2[i]],linewidth=10,c='k')
-    #ax1.plot(depthlist,norm_pdf1,linewidth=2,c='skyblue',label='m=%.2f, s=%.2f, w=%.2f'%(m1,sd1,w1))
-    #ax1.plot(depthlist,norm_pdf2,linewidth=2,c='skyblue',label='m=%.2f, s=%.2f, w=%.2f'%(m2,sd2,w2))
-    #ax1.plot(depthlist,norm_pdf3,linewidth=2,c='skyblue',label='m=%.2f, s=%.2f, w=%.2f'%(m3,sd3,w3))
-    ax1.plot(depthlist,norm_pdfd1,linewidth=2,c='springgreen',label='m=%.2f, s=%.2f, w=%.2f'%(m1,sd1,w1))
-    ax1.plot(depthlist,norm_pdfd2,linewidth=2,c='springgreen',label='m=%.2f, s=%.2f, w=%.2f'%(m2,sd2,w2))
-    ax1.plot(depthlist,norm_pdf,label='RMS1: %.4f'%rms1a,linewidth=2,c='y')
-    ax1.plot(depthlist,norm_pdfdT,label='RMS2: %.4f'%rms2a,linewidth=2,c='g')
-    #ax1.plot(depthlist,norm_pdfT,label='RMS3: %.4f'%rms3a,linewidth=2,c='b')
-    if lendata < -50:
-        ax1.plot([szT_single,szT_single],[0,np.max(dc2)],'r:',label='90th_single (%.4f)'%szT_single,linewidth=2)
-        ax1.plot([szT_double,szT_double],[0,np.max(dc2)],'r-.',label='90th_double (%.4f)'%szT_double,linewidth=2)
-        ax1.plot([low_single,low_single],[0,np.max(dc2)],'c:',label='10th_single (%.4f)'%low_single,linewidth=2)
-        ax1.plot([low_double,low_double],[0,np.max(dc2)],'c-.',label='10th_double (%.4f)'%low_double,linewidth=2)
-    else:
-        ax1.plot([szT_single,szT_single],[0,np.max(dc2)],'r:',label='95th_single (%.4f)'%szT_single,linewidth=2)
-        ax1.plot([szT_double,szT_double],[0,np.max(dc2)],'r-.',label='95th_double (%.4f)'%szT_double,linewidth=2)
-        ax1.plot([low_single,low_single],[0,np.max(dc2)],'c:',label='5th_single (%.4f)'%low_single,linewidth=2)
-        ax1.plot([low_double,low_double],[0,np.max(dc2)],'c-.',label='5th_double (%.4f)'%low_double,linewidth=2)
-    #ax1.plot([szT_triple,szT_triple],[0,np.max(dc2)],'r--',label='szT_triple (%.4f)'%szT_triple,linewidth=2)
-    if rms1a < rms3a:
-        if rms1a < rms2a:
-            ax1.plot(szT_single,np.max(dc2),'go',linewidth=5)
-            szt, tap = szT_single, tap_single
-        else:
-            ax1.plot(szT_double,np.max(dc2),'go',linewidth=5)
-            szt, tap = szT_double, tap_double
-        #ax1.plot([tap_single,tap_single],[0,np.max(dc2)],'p-.',label='taper depth (%.4f)'%tap_single,linewidth=2)
-    else:
-        if rms3a < rms2a:
-            ax1.plot(szT_triple,np.max(dc2),'go',linewidth=5)
-            szt, tap = szT_triple, tap_triple
-        else:
-            ax1.plot(szT_double,np.max(dc2),'go',linewidth=5)
-            szt, tap = szT_double, tap_double
-        #ax1.plot([tap_triple,tap_triple],[0,np.max(dc2)],'p--',label='taper depth (%.4f)'%tap_triple,linewidth=2)
-
-    ax1.set_xlim([0,65])
-    ax1.legend(loc='best')
-    ax1.grid()
-    ax1.set_xlabel('Depths')
-    ax1.set_ylabel('P')
-    ax1.set_title('Depth distribution (%s) %i EQs (surfacefilt = %i km, kaganfilt = %i deg)'%(slab,len(alldata),maxdepdiff,maxkagan))
-    
-    try:
-        figtitle = 'Output/%s/%s_slab2_szt_%s.png' % (folder,slab,date)
-        #figtitle = '%s_notsmoothed.png'%testfile
-        fig.savefig(figtitle)
-        plt.close()
-    except:
-        #print ('requested directory does not exist:','Output/%s/%s_slab2_szt_%s.png' % (folder,slab,date))
-        #print ('saving file in current directory as:', 'SZdist_%s.png' % (folder))
-        figtitle = 'SZdist_%s.png' % (folder)
-        fig.savefig(figtitle)
-        plt.close()
-
-    return szt, tap
-
 def nodesift(nodes, spacing):
 
     uppernodes = pd.DataFrame()
@@ -7223,8 +5985,6 @@ def addToDataInfo(data, node, infostr, datainfo, dfORindiv):
     else:
         print ('need to specify dfORindiv, not written',node, data)
 
-
-    
 def removeSZnodes(nodes, fracS, percshift, SZT):
 
     names = list(nodes)
@@ -7237,7 +5997,6 @@ def removeSZnodes(nodes, fracS, percshift, SZT):
     nodes = nodes[names]
 
     return nodes, nodesSZ
-
 
 def nodeMisfit(nodes, results, clip):
 
@@ -7425,8 +6184,6 @@ def plotLcurve(misfitdf, figsave):
 
     return 1.0/bestfilt, misfitdf
 
-
-
 def histofdiffs(mindist, knot_no, rbfs, filt, kdeg, slab, fullfolder, date):
 
     absdist = np.abs(mindist['diff'].values)
@@ -7549,165 +6306,6 @@ def SDRtoMT(data, strikename, dipname, rakename, mrrn, mttn, mppn, mrtn, mrpn, m
 
     return data
 
-# output format: lon(0) lat(1) raw_dep(2) smooth_dep(3) strike(4) dip(5) raw_unc(6) shift_unc(7) raw-smooth(8) thickness(9)
-def getKagan(inFile, used_data, seismo_thick, output, slab, folder):
-
-    # identify interface events from list of filtered data
-    idata = used_data[(used_data.depth <= seismo_thick)&(np.isfinite(used_data.S1))]
-    idata = idata.reset_index(drop=True)
-    
-    # identify all other events in dataset
-    tdata = pd.read_csv(inFile)
-    tdata.loc[tdata.lon < 0, 'lon']+=360
-    ndata = removePoints(idata, tdata, tdata['lon'].min(), tdata['lon'].max(),
-                            tdata['lat'].min(), tdata['lat'].max(), False,
-                            'removingpoints.csv', False, slab)
-    
-    ndata = ndata[np.isfinite(ndata.S1)]
-
-    ndata.to_csv('ndata.csv',header=True,index=False,na_rep=np.nan)
-    idata.to_csv('idata.csv',header=True,index=False,na_rep=np.nan)
-    
-    
-    # get strike and dip of slab at all interface locations (lon, lat)
-    iarr = np.zeros((len(idata),2))
-    iarr[:,0] = idata['lon'].values
-    iarr[:,1] = idata['lat'].values
-    idata['slab2str'] = griddata(output[:, 0:2], output[:, 4], iarr[:, 0:2], method='nearest')
-    idata['slab2dip'] = griddata(output[:, 0:2], output[:, 5], iarr[:, 0:2], method='nearest')
-    idata['slab2rak'] = 90.0
-
-    # get strike and dip of slab at all NON interface locations (lon, lat)
-    narr = np.zeros((len(ndata),2))
-    narr[:,0] = ndata['lon'].values
-    narr[:,1] = ndata['lat'].values
-    ndata['slab2str'] = griddata(output[:, 0:2], output[:, 4], narr[:, 0:2], method='nearest')
-    ndata['slab2dip'] = griddata(output[:, 0:2], output[:, 5], narr[:, 0:2], method='nearest')
-    ndata['slab2rak'] = 90.0
-
-    # get moment tensors from strike, dip, and rake (data)
-    idMT = SDRtoMT(idata, 'S1', 'D1', 'R1', 'mrr', 'mtt', 'mpp', 'mrt', 'mrp', 'mtp')
-    ndMT = SDRtoMT(ndata, 'S1', 'D1', 'R1', 'mrr', 'mtt', 'mpp', 'mrt', 'mrp', 'mtp')
-    
-    # get moment tensors from strike, dip, and rake (slab2)
-    isMT = SDRtoMT(idata, 'slab2str', 'slab2dip', 'slab2rak', 'mrrS', 'mttS', 'mppS', 'mrtS', 'mrpS', 'mtpS')
-    nsMT = SDRtoMT(ndata, 'slab2str', 'slab2dip', 'slab2rak', 'mrrS', 'mttS', 'mppS', 'mrtS', 'mrpS', 'mtpS')
-    
-    idMT = idMT[np.isfinite(idMT.mrr)]
-    idMT = idMT[np.isfinite(idMT.mrrS)]
-    
-    ndMT = ndMT[np.isfinite(ndMT.mrr)]
-    ndMT = ndMT[np.isfinite(ndMT.mrrS)]
-    
-    # initialize kagan angle arrays
-    interface_kagans = []
-    allother_kagans = []
-    
-    # loop through interface dataset
-    for index,row in idMT.iterrows():
-    
-        # make moment tensor from interface EVENTS
-        mrrD = row['mrr']
-        mttD = row['mtt']
-        mppD = row['mpp']
-        mrtD = row['mrt']
-        mrpD = row['mrp']
-        mtpD = row['mtp']
-        vm1 = [mrrD, mttD, mppD, mrtD, mrpD, mtpD]
-    
-        # make moment tensor from local SLAB
-        mrrS = row['mrrS']
-        mttS = row['mttS']
-        mppS = row['mppS']
-        mrtS = row['mrtS']
-        mrpS = row['mrpS']
-        mtpS = row['mtpS']
-        vm2 = [mrrS, mttS, mppS, mrtS, mrpS, mtpS]
-        
-        # calculate kagan angle between event and slab
-        kagan = calc_theta(vm1,vm2)
-        interface_kagans.append(kagan)
-
-    # loop through interface dataset
-    for index,row in ndMT.iterrows():
-    
-        # make moment tensor from interface EVENTS
-        mrrD = row['mrr']
-        mttD = row['mtt']
-        mppD = row['mpp']
-        mrtD = row['mrt']
-        mrpD = row['mrp']
-        mtpD = row['mtp']
-        vm1 = [mrrD, mttD, mppD, mrtD, mrpD, mtpD]
-    
-        # make moment tensor from local SLAB
-        mrrS = row['mrrS']
-        mttS = row['mttS']
-        mppS = row['mppS']
-        mrtS = row['mrtS']
-        mrpS = row['mrpS']
-        mtpS = row['mtpS']
-        vm2 = [mrrS, mttS, mppS, mrtS, mrpS, mtpS]
-        
-        # calculate kagan angle between event and slab
-        kagan = calc_theta(vm1,vm2)
-        allother_kagans.append(kagan)
-
-    idMT['kagan'] = interface_kagans
-    ndMT['kagan'] = allother_kagans
-
-    # writing interface/non interface kagan info to file
-    idMT.to_csv('%s_interfaceevents.csv'%folder,header=True,index=False,na_rep=np.nan)
-    ndMT.to_csv('%s_noninterfaceevents.csv'%folder,header=True,index=False,na_rep=np.nan)
-    
-    # ensuring that both histograms have the same amount of bins
-    ihist, ibins = np.histogram(interface_kagans, bins='auto')
-    autobins = len(ibins)
-    ihist, ibins = np.histogram(interface_kagans, bins=autobins)
-    nhist, nbins = np.histogram(allother_kagans, bins=autobins)
-
-    # calculating mean and stdv of each dataset
-    imean = idMT['kagan'].mean()
-    istd = idMT['kagan'].std()
-    nmean = ndMT['kagan'].mean()
-    nstd = ndMT['kagan'].std()
-
-    # plotting histograms and statistics for this slab
-    fig = plt.figure(figsize=(10, 20))
-
-    ax1 = fig.add_subplot(211)
-    ax1.hist(interface_kagans, bins=autobins, color='skyblue')
-    ax1.plot([imean, imean], [0, np.max(ihist)], '-r', linewidth=4, label='mean: %.2f'%imean)
-    ax1.plot([imean-istd, imean+istd], [np.max(ihist), np.max(ihist)], '-b', linewidth=4)
-    ax1.plot([imean-istd, imean-istd], [np.max(ihist), np.max(ihist)-2], '-b', linewidth=4, label='stdv: %.2f'%istd)
-    ax1.plot([imean+istd, imean+istd], [np.max(ihist), np.max(ihist)-2], '-b', linewidth=4)
-    ax1.set_ylabel('no. Events')
-    ax1.set_xlabel('Kagan Angle')
-    ax1.set_xlim([0, 120])
-    ax1.grid()
-    title = 'Interface Events vs Slab'
-    ax1.set_title(title)
-    ax1.legend(loc='best')
-
-    ax2 = fig.add_subplot(212)
-    ax2.hist(allother_kagans, bins=autobins, color='skyblue')
-    ax2.plot([nmean, nmean], [0, np.max(nhist)], '-r', linewidth=4, label='mean: %.2f'%nmean)
-    ax2.plot([nmean-nstd, nmean+nstd], [np.max(nhist), np.max(nhist)], '-b', linewidth=4)
-    ax2.plot([nmean-nstd, nmean-nstd], [np.max(nhist), np.max(nhist)-2], '-b', linewidth=4, label='stdv: %.2f'%nstd)
-    ax2.plot([nmean+nstd, nmean+nstd], [np.max(nhist), np.max(nhist)-2], '-b', linewidth=4)
-    ax2.set_ylabel('no. Events')
-    ax2.set_xlabel('Kagan Angle')
-    ax2.set_xlim([0, 120])
-    ax2.grid()
-    title = 'Non-Interface Events vs Slab'
-    ax2.set_title(title)
-    ax2.legend(loc='best')
-
-    figtitle = '%s_kaganinfo.png'%folder
-    fig.savefig(figtitle)
-    plt.close()
-
-
 def set_mt(vm):
     TM      = zeros([3,3],dtype='double')
     TM[0,0] = vm[0]
@@ -7744,7 +6342,6 @@ def calc_theta(vm1,vm2):
         if x < th:
             th = x
     return th*180./pi
-
 
 def addGuidePoints(tmp_res, slab):
 
@@ -7848,7 +6445,6 @@ def addGuidePoints(tmp_res, slab):
     #    tmp_res.loc[len(tmp_res)+1] = ([24.886,94.002,40,73.800,17.5,122.0,4,65,180,20])
     return tmp_res
 
-
 def getReferenceKagan(slab1data, eventlist, origorcentl, origorcentd):
 
     # ensure all longitude and CMT longitudes are in 0-360
@@ -7950,231 +6546,6 @@ def getReferenceKagan(slab1data, eventlist, origorcentl, origorcentd):
     newlist = pd.concat([idMT, odata],sort=True)
     
     return newlist
-
-
-def getReferenceKagan1(slab1data, eventlist):
-
-    slab1data.loc[slab1data.lon < 0, 'lon'] += 360
-    eventlist.loc[eventlist.lon < 0, 'lon'] += 360
-    eventlist.loc[eventlist.mlon < 0, 'mlon'] += 360
-    
-    ogcolumns = eventlist.columns
-    
-    odata = eventlist[np.isnan(eventlist.S1)]
-    idata = eventlist[np.isfinite(eventlist.mlon)]
-    
-    output = np.zeros((len(slab1data),5))
-    output[:,0] = slab1data['lon'].values*1.0
-    output[:,1] = slab1data['lat'].values*1.0
-    output[:,2] = slab1data['strike'].values*1.0
-    output[:,3] = slab1data['dip'].values*1.0
-    output[:,4] = slab1data['depth'].values*1.0
-    
-    # get strike and dip of slab at all interface locations (lon, lat)
-    iarr = np.zeros((len(idata),2))
-    iarr[:,0] = idata['mlon'].values
-    iarr[:,1] = idata['mlat'].values
-    #print (iarr)
-    #print (output)
-    idata['slab2str'] = griddata(output[:, 0:2], output[:, 2], iarr[:, 0:2], method='nearest')
-    idata['slab2dip'] = griddata(output[:, 0:2], output[:, 3], iarr[:, 0:2], method='nearest')
-    idata['slab2dep'] = griddata(output[:, 0:2], output[:, 4], iarr[:, 0:2], method='nearest')
-    idata['slab2rak'] = 90.0
-
-    # get moment tensors from strike, dip, and rake (data)
-    idMT = SDRtoMT(idata, 'S1', 'D1', 'R1', 'mrr', 'mtt', 'mpp', 'mrt', 'mrp', 'mtp')
-    
-    # get moment tensors from strike, dip, and rake (slab2)
-    isMT = SDRtoMT(idata, 'slab2str', 'slab2dip', 'slab2rak', 'mrrS', 'mttS', 'mppS', 'mrtS', 'mrpS', 'mtpS')
-    
-    idMT = idMT[np.isfinite(idMT.mrr)]
-    idMT = idMT[np.isfinite(idMT.mrrS)]
-    
-    # initialize kagan angle arrays
-    interface_kagans = []
-    
-    # loop through interface dataset
-    for index,row in idMT.iterrows():
-    
-        # make moment tensor from interface EVENTS
-        mrrD = row['mrr']
-        mttD = row['mtt']
-        mppD = row['mpp']
-        mrtD = row['mrt']
-        mrpD = row['mrp']
-        mtpD = row['mtp']
-        vm1 = [mrrD, mttD, mppD, mrtD, mrpD, mtpD]
-    
-        # make moment tensor from local SLAB
-        mrrS = row['mrrS']
-        mttS = row['mttS']
-        mppS = row['mppS']
-        mrtS = row['mrtS']
-        mrpS = row['mrpS']
-        mtpS = row['mtpS']
-        vm2 = [mrrS, mttS, mppS, mrtS, mrpS, mtpS]
-        
-        # calculate kagan angle between event and slab
-        kagan = calc_theta(vm1,vm2)
-        interface_kagans.append(kagan)
-
-    idMT['kagan'] = interface_kagans
-    idMT['depdiff'] = idMT['mdep'].values - (-1*idMT['slab2dep'].values)
-    newlist = pd.concat([idMT, odata],sort=True)
-    return newlist
-
-
-def makenewclip(clip,shift_out,griddf,TRdata,node,slab):
-
-    clip = clip.reset_index(drop=True)
-
-    newlons, newlats = [], []
-    for index,row in clip.iterrows():
-        lon, lat = row['lon'], row['lat']
-        
-        #print (index,lon,lat)
-        if len(TRdata)>0 and (slab != 'sol' or lon > 150):
-            loc_tr = TRdata[(TRdata.lon > lon-3) & (TRdata.lon < lon+3) & (TRdata.lat > lat-3) & (TRdata.lat < lat+3)]
-            if len(loc_tr)>0:
-                #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
-                loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
-                mindist = loc_tr['dist'].min()
-                loc_tr = loc_tr[loc_tr.dist == mindist]
-                lonT = loc_tr['lon'].values[0]
-                latT = loc_tr['lat'].values[0]
-                azT = loc_tr['az'].values[0]
-                thisdist, thisang, latB, lonB = cosine(lonT, latT, lon, lat)
-                out = isoutboard(azT, thisang)
-                if out:
-                    #print ('trench side of mask', lon, lat)
-                    newlons.append(lon)
-                    newlats.append(lat)
-                    continue
-        locnodes = shift_out[(shift_out.lon > lon - node*4) & \
-                                (shift_out.lon < lon + node*4) & \
-                                (shift_out.lat > lat - node*4) & \
-                                (shift_out.lat < lat + node*4)]
-        maxdep = locnodes['depth'].max()
-        locgrd = griddf[(griddf.depth < maxdep + 5) & \
-                        (griddf.depth > maxdep - 1) & \
-                        (griddf.lon > lon - 0.5) & \
-                        (griddf.lon < lon + 0.5) & \
-                        (griddf.lat > lat - 0.5) & \
-                        (griddf.lat < lat + 0.5)]
-        if len(locgrd) < 1:
-            #print ('no grid at this depth within 111 km',lon,lat,maxdep)
-            newlons.append(lon)
-            newlats.append(lat)
-            continue
-            
-        locgrd['dist'] = gps2dist_azimuth(lat, lon, locgrd['lat'], locgrd['lon'])[0]
-        neargrd = locgrd[locgrd.dist == locgrd['dist'].min()]
-        newlon = neargrd['lon'].values[0]
-        newlat = neargrd['lat'].values[0]
-        
-        if slab == 'man' and newlat < 18 and newlat > 17.5:
-            newlons.append(lon)
-            newlats.append(lat)
-            continue
-        
-        #print ('new lon lat',lon,lat,newlon,newlat,maxdep)
-
-        newlons.append(newlon)
-        newlats.append(newlat)
-
-    newmask = pd.DataFrame({'lon':newlons, 'lat':newlats})
-
-    return newmask
-
-def maketiltclip(clip,shift_out,griddf,trenches,node,slab):
-
-    clip = clip.reset_index(drop=True)
-
-    newlons, newlats = [], []
-    for index,row in clip.iterrows():
-        lon, lat = row['lon'], row['lat']
-        
-        #print (index,lon,lat)
-        if len(trenches)>0 and (slab != 'sol' or lon > 150):
-            loc_tr = trenches[(trenches.lon > lon-3) & (trenches.lon < lon+3) & (trenches.lat > lat-3) & (trenches.lat < lat+3)]
-            if len(loc_tr)>0:
-                #loc_tr['dist'] = gps2dist_azimuth(lat, lon, loc_tr['lat'], loc_tr['lon'])[0]/1000.0
-                loc_tr['dist'], tempangles = npcosine(lon, lat, loc_tr['lon'].values, loc_tr['lat'].values)
-                mindist = loc_tr['dist'].min()
-                loc_tr = loc_tr[loc_tr.dist == mindist]
-                lonT = loc_tr['lon'].values[0]
-                latT = loc_tr['lat'].values[0]
-                azT = loc_tr['az'].values[0]
-                thisdist, thisang, latB, lonB = cosine(lonT, latT, lon, lat)
-                out = isoutboard(azT, thisang)
-                if out:
-                    #print ('trench side of mask', lon, lat)
-                    newlons.append(lon)
-                    newlats.append(lat)
-                    continue
-
-    upclip = pd.DataFrame({'lon':newlons, 'lat':newlats})
-    x00, y00 = trenches['lon'].values[-1], trenches['lat'].values[-1]
-    if x00<0:
-        x00 += 360
-
-    # if trench azimuth crosses 360-0 azimuth, flip to opposing azimuth
-    if trenches['az'].min() < 90 and trenches['az'].max() > 270:
-        newaz = trenches['az'].values
-        newaz-=180
-        newaz[newaz<0]+=360
-        trenches['az'] = newaz
-
-    # find mean azimuth, ensure oriented in correct direction depending on slab
-    if slab == 'izu' or slab == 'jap':
-        meanstk = 170.0
-    elif slab == 'man':
-        meanstk = 180
-    else:
-        meanstk = trenches['az'].mean()
-    if slab == 'phi':
-        meanstk += 180
-        if meanstk > 360:
-            meanstk -= 360
-
-    # find perpendicular azimuth to mean strike of trench
-    if meanstk < 270.0:
-        perpstk = meanstk + 90.0
-    else:
-        perpstk = meanstk - 270
-
-    # offset reference point (behaves better closer or further from slab in different regions)
-    if trenches['az'].min() < 90 and trenches['az'].max() > 270 or slab == 'phi' or slab == 'solz':
-        x0, y0 = heading(x00, y00, 100, meanstk)
-
-    elif trenches['az'].min() < 90 and trenches['az'].max() > 270 or slab == 'sul' or slab == 'sol':
-        x0, y0 = heading(x00, y00, 800, meanstk)
-
-    # most regions need to be flipped 180 degrees
-    else:
-        meanstkshift = meanstk+180
-        if meanstkshift>360:
-            meanstkshift -= 360
-        if slab == 'izu' or slab == 'jap':
-            if meanstkshift > 270:
-                meanstkshift -= 270
-            else:
-                meanstkshift += 90
-            x0, y0 = heading(x00, y00, 1800, meanstkshift)
-        else:
-            x0, y0 = heading(x00, y00, 800, meanstkshift)
-
-    lons = griddf['lon'].values
-    lats = griddf['lat'].values
-    uncs = np.ones(len(griddf))
-    deps = griddf['depth'].values
-    tiltdata2,dSs,dPs = newrefframe(x0,y0,meanstk,lons,lats,deps,uncs,slab)
-    tiltmask = tiltedmask(tiltdata2, slab, 10)
-    tiltmask = tiltmask[tiltmask.lat > 0]
-
-    tiltarr
-    xP, yP, depi = sdptoxyz(supplement, x0, y0, meanstk)
-
 
 def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no, kdeg, rbfs, folder):
 
@@ -8288,7 +6659,6 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
 
     # if sol, only consider slab outboard trench (not opposing arm on W end)
     if slab == 'sol':
-
 
         nodes = nodes[(nodes.lon>=146) & (nodes.lon<=158)]
         nodesW = nodes[nodes.lon <= 153]
@@ -9174,54 +7544,6 @@ def cliptilt(tiltresults,newclip,results,suppdat,slab,fors):
         results = results[np.isfinite(results.inorout)]
     return results, deepresults, tiltresults
 
-def cliptiltopp(tiltresults,newclip,results,suppdat,slab):
-    xyzip = np.zeros((len(tiltresults),2))
-    xyzip[:,0] = tiltresults['newlon'].values
-    xyzip[:,1] = tiltresults['newlat'].values
-    rmask = maskdataT(newclip,xyzip)
-    tiltresults['inorout'] = rmask
-    minlon, maxlon = suppdat['lon'].min(0), suppdat['lon'].max(0)
-    minlat, maxlat = suppdat['lat'].min(0), suppdat['lat'].max(0)
-    if slab == 'sol':
-        tiltresults.loc[tiltresults.lon < minlon, 'inorout'] = np.nan
-        tiltresults.loc[tiltresults.lon > maxlon, 'inorout'] = np.nan
-    if slab == 'izu' or slab == 'jap' or slab == 'manz' or slab == 'ker' or slab == 'puyz':
-        tiltresults.loc[tiltresults.lat < minlat, 'inorout'] = np.nan
-        tiltresults.loc[tiltresults.lat > maxlat, 'inorout'] = np.nan
-    results['inorout'] = tiltresults['inorout'].values
-    deepresults = results[np.isnan(results.inorout)]
-    results = results[np.isfinite(results.inorout)]
-    return results, deepresults, tiltresults
-
-def nodecliptilt(tiltresults,newclip,results,suppdat):
-
-    dxy = np.zeros((len(tiltresults),4))
-    dxy[:,0] = tiltresults['newlon'].values
-    dxy[:,1] = tiltresults['newlat'].values
-    newclip = newclip[newclip.lat > 10]
-    dxy[:,2] = griddata(newclip['lon'].values, newclip['lat'].values, dxy[:,1], method = 'nearest')
-    for i in range(len(dxy)):
-        if dxy[i,1] < dxy[i,2]:
-            dxy[i,3] = 1
-        else:
-            #print (dxy[i,0],dxy[i,1], dxy[i,2])
-            dxy[i,3] = 0
-
-    tiltresults['inorout'] = dxy[:,3]
-    #print (tiltresults[tiltresults.inorout == 0])
-    minlon, maxlon = suppdat['lon'].min(0), suppdat['lon'].max(0)
-    minlat, maxlat = suppdat['lat'].min(0), suppdat['lat'].max(0)
-    tiltresults.loc[tiltresults.lon < minlon, 'inorout'] = 1
-    tiltresults.loc[tiltresults.lon > maxlon, 'inorout'] = 1
-    tiltresults.loc[tiltresults.lat < minlat, 'inorout'] = 1
-    tiltresults.loc[tiltresults.lat > maxlat, 'inorout'] = 1
-    #print (tiltresults[tiltresults.inorout == 0])
-    results['inorout'] = tiltresults['inorout'].values
-    deepresults = results[results.inorout == 0]
-    results = results[results.inorout == 1]
-
-    return results, deepresults, tiltresults
-    
 def gridthedata6(data, filldat1, filt, clip, slab, kdeg, knot_no, node, dedep, distcut, fors, meanstk, geodata, sminz,thck,uncs,sunc,tiltdata):
     
     # get coordinates for finding extrema of dataset
@@ -10170,7 +8492,6 @@ def mkContourClip(nodes, trench, spacing, results, testprint,slab):
     newres.loc[newres.lon<0,'lon'] += 360
     return newres
 
-
 def clippingmask(indataOG, trench, spacing, testprint, slab, fors):
     
     indatadat = np.zeros((len(indataOG),3)).astype(np.float64)
@@ -10902,4 +9223,3 @@ def preshiftfill(tmp_res, emptynodes, refdeps, mindip, dipthresh):
     emptynodes = emptynodes[np.isfinite(emptynodes.bzlon)]
 
     return emptynodes
-

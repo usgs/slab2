@@ -1,8 +1,0 @@
-# GMT 5 Session common arguments shelf
-BEGIN GMT 5.1.2
-B	50
-J	M
-JM	M6i
-R	121/135/-7/9
-L	5
-END

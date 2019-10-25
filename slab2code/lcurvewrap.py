@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 
-from datetime import datetime #**
+from datetime import datetime
 import os.path
 import argparse
-import numpy as np #**
-from pandas import DataFrame #**
-import pandas as pd #**
+import numpy as np
+from pandas import DataFrame
+import pandas as pd
 import warnings
-import slab2functions as s2f #**
+import slab2functions as s2f
 import math
-import mapio.gmt as gmt #**
-from functools import partial #**
-from multiprocess import Pool #**
-import loops as loops #**
+import mapio.gmt as gmt
+from functools import partial 
+from multiprocess import Pool
+import loops as loops
 from scipy import ndimage
 import psutil
 import cProfile
@@ -26,7 +26,6 @@ def main(args):
     agesFile = 'library/misc/interp_age.3.2g.nc'
     ageerrorsFile = 'library/misc/interp_ageerror.3.2g.nc'
     polygonFile = 'library/misc/slab_polygons.txt'
-    addFile = 'library/misc/addagain.csv'
     parFile = args.parFile
     pd.options.mode.chained_assignment = None
     warnings.filterwarnings("ignore", message="invalid value encountered in less")
@@ -105,19 +104,13 @@ def main(args):
     (slab,slk,date) = folder.split('_')
     
     dataornodes = 'nodes'
-    # Change file path below
-# inputfolder = '/Users/ginevramoore/Documents/Slab2/Ginevra2017/gmtfiles/inputfiles'
-#  inputfolder = '/Users/khaynie/Src/Slab2/slab2-master/slab2code/Input'
     shift_out = pd.read_csv('%s/%s_slab2_nod_%s.csv'%(fullfolder,slab,date))
     used_data = pd.read_csv('%s/%s_slab2_dat_%s.csv'%(fullfolder,slab,date))
-    #  clip = pd.read_csv('%s/%s_slab2_clp_%s.csv'%(fullfolder,slab,date),  names=['lon','lat'],delim_whitespace=True) # commented out by KLH 09/18/2019 was not splitting into 2 columns
     clip = pd.read_csv('%s/%s_slab2_clp_%s.csv'%(fullfolder,slab,date), names=['lon','lat']) # this way splits the csv file into 2 columns with names lon, lat - KLH 09/18/2019
 
     npass = 1
 
-
     print("    Creating surfaces...")
-
 
     surfdata = np.zeros((len(shift_out), 4))
     if dataornodes == 'nodes':
@@ -139,7 +132,6 @@ def main(args):
     meanBA = 5
 
     for b in range(len(smoothers)):
-
         misfits = []
         theoutput = []
         objfvs = []
@@ -157,14 +149,12 @@ def main(args):
             else:
                 Surfgrid, xi, dl = s2f.pySurface3(surfdata, node, T, slab, grid, 'depth', time, 'test.txt', filt, pd.DataFrame(), npass, TR_data, meanBA, kdeg, knot_no, rbfs, shift_out,'fin','og')
                 flipornot = 'dontflip'
-            
-            #{‘reflect’, ‘constant’, ‘nearest’, ‘mirror’, ‘wrap’}
+
             sigma = (filt/2.0) / node
 
             Filtgrid = ndimage.filters.gaussian_filter(Surfgrid, sigma, mode='reflect')
 
             # Create output array
-
             output = (np.zeros([len(xi), 10]) * np.nan)
 
             output[:, 0] = xi[:, 0]  # lon Longitude at node (not shifted)
@@ -173,9 +163,8 @@ def main(args):
             output[:, 0][output[:, 0]<0]+=360
 
             # Want to make lon in the clip file positive (had to change how clip file was read in above):
-            # clip.loc[clip.lon < 0, 'lon']+=360 # commented out by KLH 09/18/2019
             clip.loc[(clip['lon'] < 0), ['lon']]+=360 # KLH 09/18/2019
-            
+
             output[:,2][output[:,3] > shift_out['depth'].max()] = np.nan
             output[:,3][output[:,3] > shift_out['depth'].max()] = np.nan
             output[:,4][output[:,3] > shift_out['depth'].max()] = np.nan
@@ -184,31 +173,28 @@ def main(args):
             output[:,7][output[:,3] > shift_out['depth'].max()] = np.nan
             output[:,8][output[:,3] > shift_out['depth'].max()] = np.nan
             output[:,9][output[:,3] > shift_out['depth'].max()] = np.nan
-        
+
             if dataornodes == 'nodes':
                 addextra = shift_out[shift_out.depth < 35]*1.0
                 shift_out2 = pd.concat([shift_out,addextra,addextra,addextra],sort=True)
                 misfit, datafit = s2f.nodeMisfit(shift_out, output, clip)
-                #misfit, datafit = s2f.depthMisfit(shift_out, output, clip)
+
             elif dataornodes == 'data':
-                #used_data.loc[used_data.depth < 50, 'unc'] /= 100
-                #used_data.loc[used_data.depth >= 50, 'unc'] *= 100
                 doubleweight = used_data[(used_data.etype == 'AA')|\
                                             (used_data.etype == 'AS')|\
                                             (used_data.etype == 'BA')|\
                                             (used_data.etype == 'RF')]
                 used_data2 = pd.concat([used_data,doubleweight,doubleweight,doubleweight,doubleweight,doubleweight],sort=True)
                 misfit, datafit = s2f.nodeMisfit(used_data2, output, clip)
-                #misfit, datafit = s2f.depthMisfit(used_data, output, clip)
-        
+
             print ('----------------- kdeg, knot_no, rbfs, filt, filters[i], datafilt (%i of %i loops)'%(i,len(filters)),kdeg, knot_no, rbfs, filt, filters[i], datafit)
             surf = str(filt)
-            
+
             s2f.histofdiffs(misfit, knot_no, rbfs, filt, kdeg, slab, fullfolder, date)
             objfv = math.sqrt(datafit*datafit + filters[i]*filters[i])
             misfits.append(datafit)
             objfvs.append(objfv)
-            
+
             if objfvmin != 0:
                 if objfv < objfvmin:
                     finaloutput = np.copy(output)
@@ -219,13 +205,11 @@ def main(args):
                 minfilt = filt
                 finaloutput = np.copy(output)
 
-
         filtfitdf = pd.DataFrame({'filt':filters, 'dfit':misfits, 'objf':objfvs})
         bestfilt, filtfitdf = s2f.plotLcurve(filtfitdf, ('%s/%s_slab2_lcv_%s.png' % (fullfolder,slab,date)))
         filtfitdf.to_csv('%s/%s_slab2_lcv_%s.csv' % (fullfolder,slab,date),header=True,index=False,na_rep=np.nan,float_format='%.4f')
         print ('bestfilt',bestfilt)
 
-            
 # Help/description and command line argument parser
 if __name__=='__main__':
     desc = '''
@@ -245,7 +229,7 @@ if __name__=='__main__':
             Sumatra-Java             > sum
         '''
     parser = argparse.ArgumentParser(description=desc, formatter_class=argparse.RawDescriptionHelpFormatter)
-    
+
     parser.add_argument('-p', '--parFile', dest='parFile', type=str,
                         required=True, help='file listing slab parameters')
     parser.add_argument('-f', '--folder', dest='folder', type=str,
@@ -255,7 +239,6 @@ if __name__=='__main__':
                         dest='test', type=float, nargs=4,
                         help='test box [lonmin lonmax latmin latmax]')
     pargs = parser.parse_args()
-    
-    #cProfile.run('main(pargs)')
+
     main(pargs)
 
