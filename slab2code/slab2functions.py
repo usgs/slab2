@@ -1968,10 +1968,6 @@ def allFilters(eventlist, lat, lon, inside, slab1, strtmp, diptmp, seismo_thick,
 
     # Creating a list of events within a search radius
     elistPD = getEventsInCircle(lon, lat, clen, eventlist)
-    #if testprint:
-    #    idlist = list(elistPD['ID'].values)
-    #    noelist = eventlist[~eventlist['ID'].isin(idlist)]
-    #    addToDataInfo(noelist, nID, 'getEventsInCircle', datainfo,'df')
 
     if diptmp > 85 or slab == 'sam' or slab == 'him' or (slab == 'sol' and diptmp > 60):
         elistRF01 = getEventsInCircle(lon, lat, clen, eventlist[eventlist.etype == 'RF'])
