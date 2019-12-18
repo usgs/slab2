@@ -64,7 +64,6 @@ def notnorthanymore(data):
     data['az']=data.apply(lambda row: unnorthcross(row['az']),axis=1)
     return data
 
-
 def cosrule(d2r,lat1,lon1,lat2,lon2):
     # Logic by Gavin Hayes
     cl1 = (90-lat1) * d2r

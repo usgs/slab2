@@ -1,4 +1,5 @@
-#import standard libraries
+#!/usr/bin/env python
+
 import obspy.imaging.beachball
 import datetime
 import os
@@ -8,7 +9,6 @@ import numpy as np
 import fnmatch
 from geopy.distance import vincenty
 from math import *
-#from mpl_toolkits.basemap import Basemap # commented out by KLH 09/24/2019
 import matplotlib.pyplot as plt
 from matplotlib import path
 import argparse
@@ -184,8 +184,7 @@ def rid_matches(cat1c, cat2c, name1, name2, whichcat):
                     n += 1
             else:
                 pass
-    
-        
+
         # Add matching events to match dataframe
         if n > 0:
             if name2 == 'C':
