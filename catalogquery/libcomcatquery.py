@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 
-#imports
 import os
 import csv
 from datetime import datetime
 import numpy as np
 import pandas as pd
 from libcomcat.search import search
-#from libcomcat.utils import get_summary_data_frame
 from libcomcat.dataframes import get_summary_data_frame # KLH 09/23/2019
-#from libcomcat.utils import get_detail_data_frame
 from libcomcat.dataframes import get_detail_data_frame # KLH 09/23/2019
 import argparse
 

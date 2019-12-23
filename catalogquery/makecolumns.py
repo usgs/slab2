@@ -170,7 +170,7 @@ for filename in files:
             rak2s.append(linelist[16])
             i = 0
         else:
-            print ('not any number') # KLH added () 09/23/2019
+            print ('not any number')
             continue
 
 alldat = pd.DataFrame({'srccs': srccs,'year': years,'month': monts,'day': dayzs,'hour': hours,'minute':minus ,'second': secos,'lat': olats,'lon': olons,'depth': odeps,'mag': omags ,'gmlat': clats ,'gmlon': clons ,'gmdep': cdeps,'expo': cexps,'mrr':mrr1s ,'mtt': mtt1s ,'mpp': mpp1s ,'mrt': mrt1s ,'mrp':mrp1s,'mtp': mtp1s,'smo':1,'fss':1,'fth':1,'fclvd':1})
@@ -181,6 +181,6 @@ justthisfile = 'gcmt_%s_to_%s'%(oldcatalog,newcatalog)
 alldat.to_csv('%s.txt'%justthisfile,header=True,index=False,sep = '\t')
 
 oldgcmt = pd.read_csv(oldcatalog,delim_whitespace=True)
-allgcmt = pd.concat([alldat,oldgcmt],sort=True)
+allgcmt = pd.concat([alldat,oldgcmt],sort=False)
 allgcmt.to_csv(newcatalog,header=True,index=False,na_rep=np.nan,sep = '\t')
 

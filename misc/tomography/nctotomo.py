@@ -6,7 +6,6 @@ from mpl_toolkits.basemap import Basemap, addcyclic, shiftgrid
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 
-
 class MidpointNormalize(Normalize):
     def __init__(self, vmin=None, vmax=None, midpoint=None, clip=False):
         self.midpoint = midpoint
@@ -17,7 +16,6 @@ class MidpointNormalize(Normalize):
         # simple example...
         x, y = [self.vmin, self.midpoint, self.vmax], [0, 0.5, 1]
         return np.ma.masked_array(np.interp(value, x, y))
-
 
 nc_f = 'DNA13_percent.nc'  # Your filename
 nc_fid = Dataset(nc_f, 'r')

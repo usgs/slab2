@@ -4,9 +4,7 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 from libcomcat.search import search
-#from libcomcat.utils import get_summary_data_frame
 from libcomcat.dataframes import get_summary_data_frame # KLH 09/24/2019
-#from libcomcat.utils import get_detail_data_frame
 from libcomcat.dataframes import get_detail_data_frame # KLH 09/24/2019
 from libcomcat.search import get_event_by_id
 import argparse
@@ -35,7 +33,6 @@ def main(args):
     print ('getting details for %i events: '%(len(idlist)),idlist)
     print ('these events %i still failed: '%(len(badlist)),badlist)
     detaildf = get_summary_data_frame(searchlist)
-    #detaildf = get_detail_data_frame(searchlist,get_tensors='preferred')#,get_moment_supplement=True)
     detaildf.to_csv('%s/%sfailed.csv'%(queried,queried),header=True,index=False,na_rep=np.nan)
 
 if __name__=='__main__':

@@ -161,7 +161,6 @@ def npcosrule(d2r, lon1, lat1, lon2, lat2):
     
     return dist2, ang2
 
-
 def npcosine(lon1, lat1, lon2, lat2):
     
     # Written GLM 4.25.17
@@ -275,7 +274,6 @@ def refilter(OBdata,TRdata):
             
     return OBdata
 
-
 vcosine = np.vectorize(cosine)
 voutboard = np.vectorize(outboard)
 
@@ -335,13 +333,11 @@ for slab in slablist:
         n+=1
         print(n)
 
-
     slabBA2 = slabBA.drop_duplicates(['baID'])
 
     slabBA2.to_csv('%s_BAth2.csv' % slab,header=True,index=False,float_format='%0.4f')
     itterBA = slabBA2['baID'].values
     BAids = slabBA['baID'].values
-
 
     slabBA = slabBA.drop_duplicates(['baID'])
 
