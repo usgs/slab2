@@ -9273,7 +9273,7 @@ def xyz2grd(data,xmin,xmax,ymin,ymax,dx,fname,slab):
         # loop through edge data and add a row of lon with z value of nan then add to data
         for i in range(len(slabEdge)):
             if slab == 'man':
-                slabEdge[i,0] = slabEdge[i,0] + 0.02
+                slabEdge[i,0] = slabEdge[i,0] + 0.04
                 slabEdge[i,1] = slabEdge[i,1]
             if slab == 'sol':
                 slabEdge[i,0] = slabEdge[i,0]
