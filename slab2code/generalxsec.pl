@@ -123,6 +123,27 @@ foreach(@string){
     $minlat=$so;
     $maxlat=$no;
 }
+# Convert lon if needed
+if($minlon < 0 and $maxlon < 0){
+   $minlon=$minlon + 360;
+   $maxlon=$maxlon + 360;
+   `$gmt grd2xyz $raw >> temp.xyz`;
+   $cmd = q(awk '{print $1+360,$2,$3}' temp.xyz >> temp2.xyz);
+   $n = system($cmd);
+   `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$raw`;
+   `rm -R temp.xyz`;
+   `rm -R temp2.xyz`;
+}
+if($ID eq "alu" and $minlon < 90 or $ID eq "van" and $minlon < 90 or $ID eq "ker" and $minlon < 90 or $ID eq "cas" and $minlon < 90){
+   $minlon=$minlon+180;
+   $maxlon=$maxlon+180;
+   `$gmt grd2xyz $raw >> temp.xyz`;
+   $cmd = q(awk '{print $1+180,$2,$3}' temp.xyz >> temp2.xyz);
+   $n = system($cmd);
+   `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$raw`;
+   `rm -R temp.xyz`;
+   `rm -R temp2.xyz`;
+}
 #####
 # CREATES BOUNDS OF SLAB
 #####
@@ -289,7 +310,6 @@ foreach(@sftrlon) {
    $n++;
 }
 
-
 ## Data files:
 $data="$folderloc/$ID\_slab2_dat_$folder.csv";
 $nodes="$folderloc/$ID\_slab2_nod_$folder.csv";
@@ -299,7 +319,6 @@ $tilted = "$folderloc/$ID\_slab2_sup_$folder.csv";
 $clipmask="$folderloc/$ID\_slab2_clp_$folder.csv";
 $depcpt="$folderloc/$ID\_slab2_xsecs_$folder/dep.cpt";
 `$gmt makecpt -Cseis -I -D -Fr -T$z0/$z1/10 -Z > $depcpt`;
-
 
 $cont340="$folderloc/$ID\_slab2_340_$folder.csv";
 $cont360="$folderloc/$ID\_slab2_360_$folder.csv";
@@ -421,7 +440,6 @@ if ($tilted3 ne "na"){
 
 #______________________ FOR SHIFTED DATA ______________________________________
 
-
 #______________________ FOR unfiltered DATA ______________________________________
 
 $indataEQu="$folderloc/$ID\_slab2_xsecs_$folder/indataEQu.dat";
@@ -480,7 +498,6 @@ open(RESULTS1,">$rezultz1");
 $rezultz2="$folderloc/$ID\_slab2_xsecs_$folder/rezultz2.dat";
 open(RESULTS2,">$rezultz2");
 
-
 open(DAT,"$nodes");
    @dta=<DAT>;close(DAT);
    $n=0;
@@ -518,8 +535,6 @@ open(DAT,"$filler");
    }
 close(OUTPOS2);
 close(OUTPRE2);
-
-
 
 ############################
 
@@ -662,7 +677,8 @@ foreach(@sftrlon) {
     `$gmt project $folderloc/$ID\_slab2_xsecs_$folder/indata/$ID\_$n\_traw.dat -C$sftrlon[$n]/$sftrlat[$n] -A$sftraz[$n] $pL $pW -Q -Fpz > $folderloc/$ID\_slab2_xsecs_$folder/indata/$ID\_$n\_traw2.dat`;
     `awk '{print \$1,-\$2}' $folderloc/$ID\_slab2_xsecs_$folder/indata/$ID\_$n\_traw2.dat | $gmt psxy -R -J -W1.75,red -O -K >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
     `awk '{print \$1,-\$2}' $folderloc/$ID\_slab2_xsecs_$folder/indata/$ID\_$n\_traw2.dat | $gmt psxy -R -J -Sc0.15 -Gred -W0.25,black -O -K >>  $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
-    
+
+   
     ## Project and plot bathymetry data
     `$gmt project -C$sftrlon[$n]/$sftrlat[$n] -A$sftraz[$n] -G10 $pL -Q | awk '{print \$1, \$2}' | $gmt grdtrack -G$GEBCO | $gmt project -C$sftrlon[$n]/$sftrlat[$n] -A$sftraz[$n] $pL $pW -Q -Fpz | awk '{print \$1,-\$2/1000}' | $gmt psxy -R -J -W2.5,blue -O -K >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
 
@@ -683,7 +699,7 @@ foreach(@sftrlon) {
     ## Add an overview map
     `$gmt psbasemap -JM15 -R$minlon/$maxlon/$minlat/$maxlat -Bx5g -By5g -BSWen -X14.5i -O -K >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
     `$gmt grdimage $GEBCO --MAP_GRID_PEN_PRIMARY=lightgrey -JM15 -R$minlon/$maxlon/$minlat/$maxlat -O -K -Crelief >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
-    
+
     `$gmt psclip $clipmask -JM15 -R$minlon/$maxlon/$minlat/$maxlat -O -K >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
     `$gmt grdimage $raw -C$depcpt -JM15 -R$minlon/$maxlon/$minlat/$maxlat -O -K >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
     `$gmt grdcontour $raw -C20 -A40 -JM15 -R$minlon/$maxlon/$minlat/$maxlat -O -K >> $folderloc/$ID\_slab2_xsecs_$folder/$ID\_$n\_csec.ps`;
@@ -721,7 +737,7 @@ unlink "$folderloc/$ID\_slab2_xsecs_$folder/posShift.dat";
 unlink "$folderloc/$ID\_slab2_xsecs_$folder/preShift.dat";
 unlink "$folderloc/$ID\_slab2_xsecs_$folder/rezultz1.dat";
 unlink "$folderloc/$ID\_slab2_xsecs_$folder/rezultz2.dat";
-unlink "$folderloc/$ID\_slab2_xsecs_$folder/tilted.dat";
+#unlink "$folderloc/$ID\_slab2_xsecs_$folder/tilted.dat";TETETETETTEst
 unlink "$folderloc/$ID\_slab2_xsecs_$folder/temp.dat";
 unlink "$folderloc/$ID\_slab2_xsecs_$folder/posShift2.dat";
 unlink "$folderloc/$ID\_slab2_xsecs_$folder/preShift2.dat";

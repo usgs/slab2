@@ -586,6 +586,5 @@ def pointShift(lon,lat,dep,dip,strike,mag):
     eptlat = 90 - (m.degrees(eptthetarad))
     eptlon = m.degrees(eptphirad)
 
-
     return eptlon,eptlat,eptdep
 

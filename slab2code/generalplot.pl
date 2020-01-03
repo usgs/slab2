@@ -146,8 +146,6 @@ open(DAT,"$nodes");
 close(OUTPOS);
 close(OUTPRE);
 
-
-
 $thistrench="$folderloc/$ID\_slab2_figs_$folder/outtrench1";
 $plottrench="$folderloc/$ID\_slab2_figs_$folder/outtrench2";
 open(PLOT,">$plottrench");
@@ -188,6 +186,58 @@ foreach(@string){
     $maxlon=$ea;
     $minlat=$so;
     $maxlat=$no;
+}
+# get lon lat from thickness as well to use in if statment for converting lon (if needed) below - need to use another file since the grd files are overwritten;
+# if the cross-section plots are done first, those only use slab depth, so that grd file will be over written & other grd files will not, so need to overwrite those other files here.
+@string=`$gmt grdinfo $rawt -C`;
+foreach(@string){
+    ($at,$wet,$eat,$sot,$not,$z0t,$z1t,$dxt,$dyt,$nxt,$nyt)=split;
+    $minlon2t=$wet;
+    $maxlon2t=$eat;
+    $minlat2t=$sot;
+    $maxlat2t=$not;
+    $minlont=$wet;
+    $maxlont=$eat;
+    $minlatt=$sot;
+    $maxlatt=$not;
+}
+if($ID eq "alu" or $ID eq "van" or $ID eq "ker" or $ID eq "cas"){
+    if($minlon < 90){ # if slab depth is < 90, modify lon in depth grd file
+        $minlon=$minlon+180;
+        $maxlon=$maxlon+180;
+        `$gmt grd2xyz $raw >> temp.xyz`;
+        $cmd = q(awk '{print $1+180,$2,$3}' temp.xyz >> temp2.xyz);
+        $n = system($cmd);
+        `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$raw`;
+        `rm -R temp.xyz`;
+        `rm -R temp2.xyz`;
+    }
+    if($minlont < 90){ # if slab thick is < 90, modify lon for all other grd files
+        `$gmt grd2xyz $raws >> temp.xyz`;
+        $cmd = q(awk '{print $1+180,$2,$3}' temp.xyz >> temp2.xyz);
+        $n = system($cmd);
+        `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$raws`;
+        `rm -R temp.xyz`;
+        `rm -R temp2.xyz`;
+        `$gmt grd2xyz $rawd >> temp.xyz`;
+        $cmd = q(awk '{print $1+180,$2,$3}' temp.xyz >> temp2.xyz);
+        $n = system($cmd);
+        `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$rawd`;
+        `rm -R temp.xyz`;
+        `rm -R temp2.xyz`;
+        `$gmt grd2xyz $rawu >> temp.xyz`;
+        $cmd = q(awk '{print $1+180,$2,$3}' temp.xyz >> temp2.xyz);
+        $n = system($cmd);
+        `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$rawu`;
+        `rm -R temp.xyz`;
+        `rm -R temp2.xyz`;
+        `$gmt grd2xyz $rawt >> temp.xyz`;
+        $cmd = q(awk '{print $1+180,$2,$3}' temp.xyz >> temp2.xyz);
+        $n = system($cmd);
+        `$gmt xyz2grd temp2.xyz -R$minlon/$maxlon/$minlat/$maxlat -I$dx/$dy -G$rawt`;
+        `rm -R temp.xyz`;
+        `rm -R temp2.xyz`;
+    }
 }
 #####
 # CREATES BOUNDS OF SLAB
@@ -314,11 +364,9 @@ if ($depdiff < -200){
 if ($depdiff > 500){$C="-B100";}
 if ($depdiff < -500){$C="-B100";}
 
-$JM="-JM6i";
+$JM="-JM12.5i";
 if($latdiff>(1.5*$londiff)){$JM="-JM8.2i";}
-if($ID eq "sco"){$JM="-JM8.2i";}
-
-
+if($ID eq "sco"){$JM="-JM4.2i";}
 
 ####
 # PLOT Final surface
@@ -362,7 +410,6 @@ if($ID eq "ker" or $ID eq "izu" or $ID eq "sol" or $ID eq "man"){
 `$gmt psxy -J -R -O -K -W2p $clipmask -P >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_dip.ps`;
 `$gmt psscale -D0.5/3.0/5/0.5 -C$dipcpt $CD -O -K >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_dip.ps`;
 
-
 `$gmt grdimage $bath -C$ghayscpt $reg $JM -P -K -BSnWe+t"Unc Grid$ID\_slab2_$folder" >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_unc.ps`;
 `$gmt psclip $clipmask $JM $reg -P -O -K >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_unc.ps`;
 `$gmt grdimage $rawu -C$unccpt -R -J -O -K >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_unc.ps`;
@@ -404,7 +451,6 @@ if($ID eq "ker" or $ID eq "izu" or $ID eq "sol" or $ID eq "man"){
 `$gmt psxy -J -R -O -K -W2p $clipmask -P >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_unfiltered.ps`;
 `$gmt pscoast -J -R -O -K -Df -W0.75p,100 $B >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_unfiltered.ps`;
 `$gmt psscale -D0.5/3.0/5/0.5 -C$depcpt $CP -O -K >> $folderloc/$ID\_slab2_figs_$folder/$ID\_slab2_$folder\_unfiltered.ps`;
-
 
 #unlink "$folderloc/$ID\_slab2_figs_$folder/nodes.out";
 unlink "$folderloc/$ID\_slab2_figs_$folder/$folderloc/$ID\_slab2_figs_$folder/dep.cpt";
