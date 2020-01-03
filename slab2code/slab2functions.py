@@ -5,7 +5,7 @@
     2) slab2.py
     3) tomo_slab.py
 
-    The functions were written variably by Ginevra Moore (GLM), Maria Furtney (MF) and Daniel Portner (DEP).
+    The functions were written variably by Ginevra Moore (GLM), Maria Furtney (MF), Daniel Portner (DEP), and Kirstie L Haynie (KLH).
     """
 
 ###############################################
@@ -24,8 +24,8 @@ import os
 import csv
 #import urllib.request, urllib.error, urllib.parse
 import os.path
-from os import path as ospath # KLH 10/04/2019
-import scipy  # KLH 09/17/2019
+from os import path as ospath
+import scipy
 from scipy import interpolate
 from scipy.interpolate import griddata
 from matplotlib import path
@@ -33,7 +33,6 @@ from scipy import ndimage
 from shapely.geometry import Polygon 
 from pandas import DataFrame
 from obspy.geodetics.base import gps2dist_azimuth
-
 from scipy.interpolate import LSQBivariateSpline
 from scipy.interpolate import SmoothBivariateSpline
 from scipy.interpolate import LSQSphereBivariateSpline
@@ -51,6 +50,9 @@ from scipy.interpolate import Rbf
 from copy import deepcopy
 from pylab import arccos,argsort,cross,dot,double,eigh,pi,trace,zeros
 from mapio.geodict import GeoDict
+from mapio.reader import read, get_file_geodict
+from mapio.writer import write
+from mapio.grid2d import Grid2D
 
 ###
 # The following functions cannot be translated to lon,lat:
@@ -1209,7 +1211,7 @@ def getDataInPolygon(slabname, data, slabfile):
     ### Summary:
     #This is very similar to nodesInPolygon except that it takes in input data without needing
     #to define a regular grid. The data are then formatted for the point in polygon search,
-    #and only those data which are within th slabname (polygon) are kept.  
+    #and only those data which are within the slabname (polygon) are kept.  
 
     ### Input:
     # slabname: a 3 digit character code identifying a slab region 
@@ -3060,7 +3062,7 @@ def slabShift_noGMT(tmp_res, node, T, trenches, taper_depth, taper_width, ages, 
             all_pts[:, 8] = 20
     else:
     # Fill in plate thickness from user specified thickness file - KLH 10/07/2019
-        all_pts[:,6] = griddata(tmpThick[:,0:2], tmpThick[:,2], all_pts[:,0:2], method='nearest') # TESTING
+        all_pts[:,6] = griddata(tmpThick[:,0:2], tmpThick[:,2], all_pts[:,0:2], method='nearest')
     
     # Fill in strike and dip from original slab center surface
     all_pts[:, 3] = griddata(surfarr[:, 0:2], surfarr[:, 2], all_pts[:, 0:2], method='nearest')
@@ -3783,7 +3785,6 @@ def maskdatag(clip2, xi):
         
     return mask1
 
-
 def makeErrorgrid(Surfgrid,xi,errordata):
 
     xpts = xi[:,0]
@@ -3794,7 +3795,7 @@ def makeErrorgrid(Surfgrid,xi,errordata):
     x = errordata[:,0]
     y = errordata[:,1]
     z = errordata[:,2]
-    
+
     try:
         zi = griddata((x, y), z, (xpts, ypts), method='nearest')
     except:
@@ -6578,7 +6579,6 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     dep45 = results['dep_shift_smooth'].mean()
     shdep = dep45 - 10
     dedep = dep45 + 10
-    
 
     # define different parts of different slabs that may turn over (to minimize computation time)
     nodes = nodesOG[nodesOG.depth > dep45]
@@ -6941,7 +6941,6 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     shift_out2 = pd.concat([nodes2, masknodes],sort=True)
     nodes, deepnodes, tiltnodes = cliptilt(tiltnodes,nodeclip,nodes,finaldat,slab,'first')
     shift_out = pd.concat([nodes, masknodes],sort=True)
-    
     #shift_out.to_csv('%s_shiftout.csv'%slab,header=True,index=False)
     #shift_out2.to_csv('%s_shiftout2.csv'%slab,header=True,index=False)
 
@@ -7069,7 +7068,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     rdeps = results['dep_shift_smooth'].values
     runcs = results['dz1'].values
     tiltresults,dSs,dPs = newrefframe(x0,y0,meanstk,rlons,rlats,rdeps,runcs,slab)
-    
+
     geodata = np.zeros((len(tiltresults),3))
     geodata[:,0] = tiltresults['newlon'].values
     geodata[:,1] = tiltresults['newlat'].values
@@ -7131,7 +7130,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     figtitle = '%s_tiltdata2.png'%slab
     #fig.savefig(figtitle)
     plt.close()
-    
+
     ''' re making supplemental surface with geo surface'''
 
     # identify constants associated with OG r.f. surface
@@ -7205,7 +7204,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
         finaldat = finaldat[(finaldat.lon >= 146)&(finaldat.lon <= 158)]
     if slab == 'man':
         finaldat = finaldat[(finaldat.lat >= clip['lat'].min()) & (finaldat.lat <= clip['lat'].max())]
-    
+
     fig = plt.figure(figsize=(10, 10))
     ax1 = fig.add_subplot(311)
     con = ax1.scatter(tiltresults['newlon'].values,tiltresults['newlat'].values,c=tiltresults['depth'].values,s=10,edgecolors='none',cmap='plasma')
@@ -7249,7 +7248,7 @@ def splitsurface(nodeFile,outFile,clipFile,trenches,node,filt,grid,slab, knot_no
     ax3.legend(loc='best')
     cbar = fig.colorbar(con)
     cbar.set_label('Distance from S-D plane')
-    
+
     # save figure
     figtitle = '%s_tiltdata3.png'%slab
     #fig.savefig(figtitle)
@@ -7370,6 +7369,7 @@ def gridthedata5(data, sigma, slab, spacing, rbfs, dedep, meanstk):
     # separate upper and lower datasets (surface and nodes)
     dataup = data[data[:,1] <= dedep]
     datado = data[data[:,1] > dedep]
+   # dataup.to_csv('man_DataupTest.csv', header=False, index=False, sep=' ')
 
     # resample upper part of dataset to this grid size (too big)
     resdataup = np.zeros((len(xyzip),4))
@@ -8390,10 +8390,8 @@ def mkContourClip(nodes, trench, spacing, results, testprint,slab):
                 continue
 
         thisres = pd.DataFrame({'lon':rlons,'lat':rlats,'depth':rdeps,'strike':rstrs,'dip':rdips})
-        #print ('len(thisres),len(newres)',len(thisres),len(newres))
         thisres = thisres.drop_duplicates(['lon','lat','depth'])
         newres = pd.concat([newres,thisres],sort=True)
-        #print ('after duplicates',len(thisres),len(newres))
         del thisres
 
     newres = newres.drop_duplicates(['lon','lat','depth'])
@@ -8470,19 +8468,19 @@ def mkContourClip(nodes, trench, spacing, results, testprint,slab):
         polyclip = makepolymask(slab,'library/misc/slab_polygons.txt')
         newres.loc[newres.lon < 0, 'lon']+=360
         polyclip.loc[polyclip.lon < 0, 'lon']+=360
-        
+
         pts = np.zeros((len(newres),2))
         pts[:, 0] = newres['lon'].values
         pts[:, 1] = newres['lat'].values
-        
+
         mask = maskdatag(polyclip, pts)
-    
+
         newres['depth'] = newres['depth'].values*mask
         newres = newres[np.isfinite(newres.depth)]
         newres = newres[newres.lon < 76]
         newres = newres.reset_index(drop=True)
         #newres.to_csv('%s_newres.csv'%slab,header=True,index=False)
-    
+
     #newres.to_csv('%s_cliptest.csv'%slab,header=True,index=False)
 
     newres.loc[newres.lon<0,'lon'] += 360
@@ -8697,8 +8695,7 @@ def clippingmask(indataOG, trench, spacing, testprint, slab, fors):
     while gotOne == True and slab != 'cas' and slab != 'puy' and slab != 'mak':
         dists, angs = npcosine(lastlon, lastlat, alons, alats)
         distf,angf,lonf,latf = cosine(lastlon,lastlat,firstlon,firstlat)
-        
-        
+
         if n>1:
             if lastN == 1:
                 maskN = asouth == 0
@@ -9219,3 +9216,119 @@ def preshiftfill(tmp_res, emptynodes, refdeps, mindip, dipthresh):
     emptynodes = emptynodes[np.isfinite(emptynodes.bzlon)]
 
     return emptynodes
+
+# Python version of GMT command xyz2grd
+# Uses MapIO for converting ascii file to NetCDF/HDF
+# KLH 11/01/2019
+# KLH 12/30/2019 additions for titled slabs (man, sol, ker, izu)
+def xyz2grd(data,xmin,xmax,ymin,ymax,dx,fname,slab):
+    # make np array with lon, lat, z data
+    edges = np.genfromtxt(data)
+    data = np.genfromtxt(data)
+
+    # find edge of deepest part of slab for the titled slabs:
+    if slab == 'man' or slab == 'sol' or slab == 'ker' or slab == 'izu':
+        slabEdge = []
+        if slab == 'man':
+            # find max lon for edges
+            maxLon=[]
+            for i in range(len(edges)-1):
+                n=i+1
+                if edges[i,1] == edges[n,1]:
+                    if edges[i,0] > edges[n,0]:
+                        edges[n,0] = edges[i,0]
+                    else:
+                        edges[i,0] = edges[n,0]
+                else:
+                    maxLon.append(edges[i,0:2])
+            slabEdge = np.asarray(maxLon)
+        if slab == 'sol':
+            # need to find max lat for edges, but first need to sort
+            maxLat=[]
+            columnIndex = 0
+            edges = edges[edges[:,columnIndex].argsort()] 
+            for i in range(len(edges)-1):
+                n=i+1
+                if edges[i,0] == edges[n,0]:
+                    if edges[i,1] > edges[n,1]:
+                        edges[n,1] = edges[i,1]
+                    else:
+                        edges[i,1] = edges[n,1]
+                else:
+                    maxLat.append(edges[i,0:2])
+            slabEdge = np.asarray(maxLat)
+        if slab == 'ker' or slab == 'izu':
+            # find min lon for edges
+            minLon=[]
+            for i in range(len(edges)-1):
+                n=i+1
+                if edges[i,1] == edges[n,1]:
+                    if edges[i,0] < edges[n,0]:
+                        edges[n,0] = edges[i,0]
+                    else:
+                        edges[n,0] = edges[n,0]
+            edges = edges[:,0:2]         
+            minLon = np.unique(edges, axis=0)
+            slabEdge = np.asarray(minLon)
+        # loop through edge data and add a row of lon with z value of nan then add to data
+        for i in range(len(slabEdge)):
+            if slab == 'man':
+                slabEdge[i,0] = slabEdge[i,0] + 0.02
+                slabEdge[i,1] = slabEdge[i,1]
+            if slab == 'sol':
+                slabEdge[i,0] = slabEdge[i,0]
+                slabEdge[i,1] = slabEdge[i,1]+ 0.08
+            if slab == 'ker' or slab == 'izu':
+                slabEdge[i,0] = slabEdge[i,0] - 0.08
+                slabEdge[i,1] = slabEdge[i,1]
+        # make column of nan for edge data & add to data
+        newCol = np.array([[np.nan for x in range(len(slabEdge))]]).T
+        slabEdge = np.concatenate([slabEdge, newCol], axis=1)
+        # add to data
+        data = np.concatenate((data, slabEdge), axis=0)
+
+    # If needed, convert lon to -180/180 domain (required for MapIO)
+    lon = data[:,0]
+    if xmax > 270 and xmin > 270:
+        lon[lon > 270] = lon[lon > 270] - 360
+        data[:,0] = lon
+        xmin = xmin - 360
+        xmax = xmax - 360
+
+    if xmax < 270 and xmin > 160:
+        lon= lon - 180
+        data[:,0] = lon
+        xmin = xmin - 180
+        xmax = xmax - 180
+
+    if xmax > 270 and xmin < 270:
+        lon= lon - 360
+        data[:,0] = lon
+        xmin = xmin - 360
+        xmax = xmax - 360
+
+    # Make grid
+    dy = dx
+    xi = np.arange(xmin, xmax+0.01, dx)
+    if slab == 'puy' or slab == 'hin' or slab == 'pam' or slab == 'mue':
+        yi = np.arange(ymin, ymax+0.01, dy)
+    else:
+        yi = np.arange(ymin, ymax+dy, dy)
+    ncols = len(xi)
+    nrows = len(yi)
+    xi.shape = (1,ncols)
+    yi.shape = (nrows,1)
+    xi_2d = np.tile(xi, (nrows, 1))
+    yi_2d = np.tile(yi, (1, ncols))
+    if slab == 'sol' or slab == 'ker' or slab == 'izu':
+        zdata = griddata(data[:,0:2],data[:,2],(xi_2d,yi_2d),method='linear')
+    else:
+        zdata = griddata(data[:,0:2],data[:,2],(xi_2d,yi_2d),method='nearest')
+    zdata = np.flipud(zdata) # MapIO writer flips z, so need to account for that here
+    # Make geoDict and grid
+    gdict = {'xmin':xmin, 'xmax':xmax,'ymin':ymin,'ymax':ymax,'dx':dx,'dy':dy,'nx':ncols,'ny':nrows}
+    geodict = GeoDict(gdict)
+    tmpGrid = Grid2D(zdata, geodict)
+
+    # Write file 
+    write(tmpGrid, fname, 'hdf')

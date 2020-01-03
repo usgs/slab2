@@ -1485,7 +1485,7 @@ def main(args):
     Here we put together all of the output data into the correct form for saving to output files.
     First we create a surface with fine spacing of the final data, then we filter it and apply the clipping mask.
     Second we populate the output array, and finally we save it.
-    The output file is of the format [ lon lat dep_raw str_raw dip_raw shift_mag dep_shift dep_shift_smooth str_shift_smooth dip_shift_smooth dz1 dz2 dz3 avg_str avg_dip avg_rak ]
+    The output file is of the format [lon lat dep_raw str_raw dip_raw shift_mag dep_shift dep_shift_smooth str_shift_smooth dip_shift_smooth dz1 dz2 dz3 avg_str avg_dip avg_rak]
         This file has a regular spacing of fine nodes corresponding to the final surface
         The columns for shift_mag, avg_str, avg_dip, and avg_rak are only populated where there was a pre-shift datum.
     '''
@@ -1712,24 +1712,15 @@ def main(args):
     thicks.to_csv(thickTextFile, header=False, index=False, sep=' ', na_rep=np.nan)
     clip.to_csv(clipFile, float_format='%.2f', header=False, index=False)
 
-    rflag="-R%s/%s/%s/%s" %(np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax))
-    iflag="-I%s/%s" %(node,node)
-    print(rflag)
-    print(iflag)
+    # Write ascii files out to netCDF4 grid (python version of GMT command xyz2grd)
+    # KLH 11/01/2019
+    s2f.xyz2grd(depTextFile,np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax),node,depGridFile,slab)
+    s2f.xyz2grd(strTextFile,np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax),node,strGridFile,slab)
+    s2f.xyz2grd(dipTextFile,np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax),node,dipGridFile,slab)
+    s2f.xyz2grd(uncTextFile,np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax),node,uncGridFile,slab)
+    s2f.xyz2grd(thickTextFile,np.floor(xmin),np.ceil(xmax),np.floor(ymin),np.ceil(ymax),node,thickGridFile,slab)
 
-    gflag="-G%s" % (depGridFile)
-    print(gflag)
-    os.system("gmt xyz2grd %s %s %s %s" % (depTextFile,rflag,iflag,gflag))
-    gflag="-G%s" % (strGridFile)
-    os.system("gmt xyz2grd %s %s %s %s" % (strTextFile,rflag,iflag,gflag))
-    gflag="-G%s" % (dipGridFile)
-    os.system("gmt xyz2grd %s %s %s %s" % (dipTextFile,rflag,iflag,gflag))
-    gflag="-G%s" % (uncGridFile)
-    os.system("gmt xyz2grd %s %s %s %s" % (uncTextFile,rflag,iflag,gflag))
-    gflag="-G%s" % (thickGridFile)
-    os.system("gmt xyz2grd %s %s %s %s" % (thickTextFile,rflag,iflag,gflag))
-
-    #os.system("rm %s" % depTextFile)
+    os.system("rm %s" % depTextFile)
     os.system("rm %s" % strTextFile)
     os.system("rm %s" % dipTextFile)
     os.system("rm %s" % uncTextFile)
