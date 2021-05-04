@@ -1,4 +1,4 @@
-(1) USGS trench file
+(1) USGS trench file  - modified from Bird, 2003 with handmade modifications from the Slab2 team and Antonio Villasenor (personal communication)
 (2) Peter Bird (2003)
 (3) Maesano et al. 2017
 (4) Digitized based on topography
