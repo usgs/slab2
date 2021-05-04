@@ -8,7 +8,7 @@ import csv
 import pandas as pd
 import numpy as np
 import fnmatch
-from geopy.distance import vincenty
+from geopy.distance import geodesic
 from math import *
 #from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
@@ -1010,8 +1010,8 @@ def find_closest(eqo, eqm1, eqm2):
     print ('event2: %s' % earthquake_string(eqm2))
 
     # Gets distance between either event and the common match eqo
-    darc1 = vincenty(eqo.coords, eqm1.coords).meters/1000
-    darc2 = vincenty(eqo.coords, eqm2.coords).meters/1000
+    darc1 = geodesic(eqo.coords, eqm1.coords).meters/1000
+    darc2 = geodesic(eqo.coords, eqm2.coords).meters/1000
     dh1 = abs(eqo.depth - eqm1.depth)
     dh2 = abs(eqo.depth - eqm2.depth)
     dist1 = sqrt(darc1*darc1 + dh1*dh1)
