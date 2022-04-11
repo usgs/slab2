@@ -47,4 +47,3 @@ dependencies:
     - scikit-learn
     - sklearn
     - utm
-    - git+git://github.com/usgs/neicmap.git
