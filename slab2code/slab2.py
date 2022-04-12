@@ -67,12 +67,7 @@ def main(args):
                 parent_conn, child_conn = multiprocess.Pipe()
                 parent_connections.append(parent_conn)
                 process = multiprocess.Process(
-                    target=self.calculation,
-                    args=(
-                        self.fmfunction,
-                        datum,
-                        child_conn,
-                    ),
+                    target=self.calculation, args=(self.fmfunction, datum, child_conn,),
                 )
                 processes.append(process)
 
@@ -2409,6 +2404,14 @@ def main(args):
         thickGridFile,
         slab,
     )
+
+    # correct lon for some regions:
+    if slab == "alu" or slab == "van" or slab == "ker" or slab == "cas":
+        s2f.update_lon(depGridFile)
+        s2f.update_lon(strGridFile)
+        s2f.update_lon(dipGridFile)
+        s2f.update_lon(uncGridFile)
+        s2f.update_lon(thickGridFile)
 
     os.system("rm %s" % depTextFile)
     os.system("rm %s" % strTextFile)

@@ -86,12 +86,7 @@ class funcmap(object):
             parent_conn, child_conn = multiprocess.Pipe()
             parent_connections.append(parent_conn)
             process = multiprocess.Process(
-                target=self.calculation,
-                args=(
-                    self.fmfunction,
-                    datum,
-                    child_conn,
-                ),
+                target=self.calculation, args=(self.fmfunction, datum, child_conn,),
             )
             processes.append(process)
 
@@ -1331,12 +1326,7 @@ def createGridInPolygon2(nodes, slabname, slabfile):
     xy = list(zip(lons, lats))
     poly = path.Path(xy)
     temp = poly.contains_points(nodes[:])
-    mask1 = (
-        np.zeros(
-            len(temp),
-        )
-        * np.nan
-    )
+    mask1 = np.zeros(len(temp),) * np.nan
     mask1[temp] = 1
     keepers = []
     for i in range(len(nodes)):
@@ -1382,12 +1372,7 @@ def getDFinMask(datadf, maskdf):
     xy = list(zip(lons, lats))
     poly = path.Path(xy)
     temp = poly.contains_points(nodes[:])
-    mask1 = (
-        np.zeros(
-            len(temp),
-        )
-        * np.nan
-    )
+    mask1 = np.zeros(len(temp),) * np.nan
     mask1[temp] = 1
     keepers = []
     for i in range(len(nodes)):
@@ -1466,12 +1451,7 @@ def getDataInPolygon(slabname, data, slabfile):
     xy = list(zip(lons, lats))
     poly = path.Path(xy)
     temp = poly.contains_points(data[:])
-    mask1 = (
-        np.zeros(
-            len(temp),
-        )
-        * np.nan
-    )
+    mask1 = np.zeros(len(temp),) * np.nan
     mask1[temp] = 1
     keepers = []
     for i in range(len(data)):
@@ -5447,12 +5427,7 @@ def maskdatag(clip2, xi):
     xy = list(zip(lons, lats))
     poly = path.Path(xy)
     temp = poly.contains_points(xi)
-    mask1 = (
-        np.zeros(
-            len(temp),
-        )
-        * np.nan
-    )
+    mask1 = np.zeros(len(temp),) * np.nan
     mask1[temp] = 1
 
     return mask1
@@ -6840,12 +6815,7 @@ def getTrenchInPolygon(slabname, trench, polygonFile):
     xy = list(zip(lons, lats))
     poly = path.Path(xy)
     temp = poly.contains_points(data[:])
-    mask1 = (
-        np.zeros(
-            len(temp),
-        )
-        * np.nan
-    )
+    mask1 = np.zeros(len(temp),) * np.nan
     mask1[temp] = 1
     keepers = []
     for i in range(len(data)):
@@ -11412,12 +11382,7 @@ def maskdataT(clip2, xi):
     xy = list(zip(lons, lats))
     poly = path.Path(xy)
     temp = poly.contains_points(xi)
-    mask1 = (
-        np.zeros(
-            len(temp),
-        )
-        * np.nan
-    )
+    mask1 = np.zeros(len(temp),) * np.nan
     mask1[temp] = 1
 
     return mask1
@@ -12747,3 +12712,26 @@ def xyz2grd(data, xmin, xmax, ymin, ymax, dx, fname, slab):
 
     # Write file
     write(tmpGrid, fname, "hdf")
+
+
+def update_lon(data):
+    """ For a few slab regions, the longitude must be updated
+    arguments:
+        data (HDF file): HDF5 grid file of model output
+    returns:
+        data (HDF file): HDF5 grid file of model output with update longitude
+    """
+    # open the grid file:
+    f = h5py.File(data, "r+")
+
+    # get the lon data"
+    data = f["x"]
+
+    # update lon:
+    new_data = data.value + 180
+
+    # assign new values to data
+    data[...] = new_data
+
+    # close the file:
+    f.close()
