@@ -1,25 +1,28 @@
 #!/usr/bin/env python
 
 # import libraries
-from datetime import datetime
-import os.path
 import argparse
+import math
+import os.path
+import warnings
+from datetime import datetime
+
+import mapio.gmt as gmt
+import matplotlib
 import numpy as np
 import pandas as pd
-import warnings
-import math
-import mapio.gmt as gmt
-from scipy import ndimage
 import psutil
-import matplotlib
+from scipy import ndimage
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-from scipy.interpolate import griddata
 from copy import deepcopy
+
+import matplotlib.pyplot as plt
 from pylab import arccos, argsort, cross, dot, double, eigh, pi, trace, zeros
+from scipy.interpolate import griddata
 from sklearn import mixture
 from sklearn.metrics import mean_squared_error
+
 import slab2functions as s2f
 
 

@@ -2,8 +2,10 @@
 
 import numpy as np
 import pandas as pd
-import slab2functions as s2f
 import psutil
+
+import slab2functions as s2f
+
 
 def loop1(lons, lats, testarea, slab, depgrid, strgrid, dipgrid,
         slab1query, eventlist, seismo_thick,
