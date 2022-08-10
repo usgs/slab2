@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
 import argparse
-from datetime import datetime, timedelta
 import os
-import sys
 import re
-import pandas as pd
+import sys
+from datetime import datetime, timedelta
+
 import numpy as np
+import pandas as pd
 
 # local library
 from s2d_fnctns import *

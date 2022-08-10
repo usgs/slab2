@@ -12,49 +12,47 @@
 
 ### Module imports
 
+import matplotlib
 import numpy as np
 import pandas as pd
-import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import mapio.gmt as gmt
+import csv
+import gc
 import math
 import os
-import csv
-
 # import urllib.request, urllib.error, urllib.parse
 import os.path
-from os import path as ospath
-import scipy
-from scipy import interpolate
-from scipy.interpolate import griddata
-from matplotlib import path
-from scipy import ndimage
-from shapely.geometry import Polygon
-from pandas import DataFrame
-from obspy.geodetics.base import gps2dist_azimuth
-from scipy.interpolate import LSQBivariateSpline
-from scipy.interpolate import SmoothBivariateSpline
-from scipy.interpolate import LSQSphereBivariateSpline
+import time as tm
+import warnings
+from copy import deepcopy
+from datetime import datetime
 from functools import partial
+from os import path as ospath
+
+import h5py
+import mapio.gmt as gmt
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
 import multiprocess
 import psutil
-import gc
+import scipy
+import utm
+from mapio.geodict import GeoDict
+from mapio.grid2d import Grid2D
+from mapio.reader import get_file_geodict, read
+from mapio.writer import write
+from matplotlib import path
+from obspy.geodetics.base import gps2dist_azimuth
+from pandas import DataFrame
+from pylab import arccos, argsort, cross, dot, double, eigh, pi, trace, zeros
+from scipy import interpolate, ndimage
+from scipy.interpolate import (LSQBivariateSpline, LSQSphereBivariateSpline,
+                               Rbf, SmoothBivariateSpline, griddata)
+from shapely.geometry import Polygon
 from sklearn import mixture
 from sklearn.metrics import mean_squared_error
-import warnings
-import matplotlib.patches as patches
-import utm
-from datetime import datetime
-from scipy.interpolate import Rbf
-from copy import deepcopy
-from pylab import arccos, argsort, cross, dot, double, eigh, pi, trace, zeros
-from mapio.geodict import GeoDict
-from mapio.reader import read, get_file_geodict
-from mapio.writer import write
-from mapio.grid2d import Grid2D
-import time as tm
+
 
 # class below is used for parallelization
 class funcmap(object):

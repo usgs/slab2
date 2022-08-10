@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 
 # import standard libraries
-import obspy.imaging.beachball
-import datetime
-import os
 import csv
-import pandas as pd
-import numpy as np
+import datetime
 import fnmatch
-from geopy.distance import geodesic
+import os
 from math import *
 
 # from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt
+import numpy as np
+import obspy.imaging.beachball
+import pandas as pd
+from geopy.distance import geodesic
 from matplotlib import path
 
 

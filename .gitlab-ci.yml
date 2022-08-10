@@ -1,0 +1,14 @@
+default:
+  image: ${DEVOPS_REGISTRY}usgs/conda:latest
+  tags:
+    - chs-shared
+
+stages:
+  - test
+
+run formatter:
+  script:
+    - source /etc/profile.d/conda.sh
+    - pip install black
+    - black slab2code/*.py
+  stage: test

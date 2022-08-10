@@ -10,28 +10,31 @@
     There are some additional dependencies used by the function file
         that do not need to be installed separately.
 """
+import argparse
+import cProfile
+import math
+import os.path
+import warnings
 # stdlib imports
 from datetime import datetime
-import os.path
-import argparse
-import numpy as np
-from pandas import DataFrame
-import pandas as pd
-import warnings
-import slab2functions as s2f
-import math
-import mapio.gmt as gmt
 from functools import partial
-import multiprocess
-import loops as loops
-from scipy import ndimage
-import psutil
-import cProfile
+
+import mapio.gmt as gmt
 import matplotlib
+import multiprocess
+import numpy as np
+import pandas as pd
+import psutil
+from pandas import DataFrame
+from scipy import ndimage
+
+import loops as loops
+import slab2functions as s2f
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import time as tm
+
+import matplotlib.pyplot as plt
 
 
 def main(args):

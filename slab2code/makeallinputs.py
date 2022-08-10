@@ -1,8 +1,9 @@
-import pandas as pd
-import numpy as np
-import os
 import argparse
+import os
 from functools import partial
+
+import numpy as np
+import pandas as pd
 from multiprocess import Pool
 
 
