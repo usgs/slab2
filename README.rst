@@ -23,9 +23,9 @@ Follow the steps below to run the Slab2 code.
 
 1. **Clone the Slab2 Repository:**
 
-   In the terminal, enter :
+   Use the following, but provide the appropriate link:
 
-    ``git clone https://code.usgs.gov/ghsc/esi/slab2.git``
+    ``git clone link/to/repository``
 
 2. **Create the anaconda environments**
 
