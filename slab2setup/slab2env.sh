@@ -3,10 +3,23 @@
 VENV=slab2env
 ENVFILE=slab2env.yml
 
-echo "Environment file: $ENVFILE"
-echo "Creating the $VENV virtual environment:"
+if [ $1 == slab ]
+then
+    echo "Environment file: $ENVFILE"
+    echo "Creating the $VENV virtual environment:"
+    conda env create --name $VENV --file=$ENVFILE
+fi
 
-conda env create --name $VENV --file=$ENVFILE
-conda base
+if [ $1 == gmt ]
+then
+    bash pygmtenv.sh
+fi
 
-bash pygmtenv.sh
+if [ $1 == both ]
+then
+    echo "Environment file: $ENVFILE"
+    echo "Creating the $VENV virtual environment:"
+    conda env create --name $VENV --file=$ENVFILE
+    conda base
+    bash pygmtenv.sh
+fi

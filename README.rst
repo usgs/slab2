@@ -31,9 +31,17 @@ Follow the steps below to run the Slab2 code.
 
    In the terminal within the slab2/slab2code/slab2setup directory, enter:
    
-    ``bash slab2env.sh``
+    ``bash slab2env.sh both``
 
    Two anaconda environments, slab2env and pygmt, will be created. The slab2env should be active when using code that creates the Slab2 output data, while the pygmt environment should be active when plotting this data.
+
+   To only create the Slab2 environment, use:
+
+   ``bash slab2env.sh slab``
+
+   To only create the PyGMT environment, use:
+
+   ``bash slab2env.sh gmt``
 
 3. **Create an input file**
 
