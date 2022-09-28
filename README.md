@@ -1,6 +1,6 @@
 Introduction
 ----------------------------------------
-Slab2.0 is a three-dimensional (3D) compilation of global subduction zone geometries, separated into regional models for each major subduction zone. Refer to Hayes et al., 2018, Science for more details. This code contains functions for making 3D slab geometries and for updating the input for making such geometries. Please note that this code is still under development. To bypass installing and running the code in this repository, please visit the USGS Slab Model Cloud-based web application at https://earthquake.usgs.gov/slab2/ to generate a Slab2 model. Send all inquiries to Dr. Gavin P. Hayes <ghayes@usgs.gov> and Dr. Kirstie L. Haynie <khaynie@usgs.gov>.
+Slab2.0 is a three-dimensional (3D) compilation of global subduction zone geometries, separated into regional models for each major subduction zone. Refer to Hayes et al., 2018, Science for more details. This code contains functions for making 3D slab geometries and for updating the input for making such geometries. Please note that this code is still under development. To bypass installing and running the code in this repository, please visit the USGS Slab Model Cloud-based web application at https://earthquake.usgs.gov/slab2/ to generate a Slab2 model. Send all inquiries to Dr. Gavin P. Hayes <ghayes@usgs.gov> or Dr. Kirstie L. Haynie <khaynie@usgs.gov>.
 
 Installation and Dependencies
 ----------------------------------------
@@ -12,12 +12,12 @@ This package depends on:
    * Python3
    * Anaconda
    * pip
-   * `numpy <http://www.numpy.org/>`_, the fundamental package for scientific computing with Python.
-   * `matplotlib <http://matplotlib.org>`_, a Python 2D plotting library which produces publication quality figures. 
-   * `scipy <https://scipy.org>`_, a Python library which provides many user-friendly and efficient numerical routines such as routines for numerical integration and optimization. 
-   * mapio, a Python library for reading/writing various spatial data formats (GMT grids, etc.)
-   * libcomcat, a Python library for retrieving earthquake data from the ANSS ComCat system
-   * `pygmt <https://www.pygmt.org/latest/>`_, a Python library which wraps GMT, allowing for easy manipulation of geographic and cartesian datasets.
+   * [numpy](http://www.numpy.org/) - the fundamental package for scientific computing with Python.
+   * [matplotlib](http://matplotlib.org) - a Python 2D plotting library which produces publication quality figures. 
+   * [scipy](https://scipy.org) - a Python library which provides many user-friendly and efficient numerical routines such as routines for numerical integration and optimization. 
+   * [mapio](https://github.com/usgs/MapIO) - a Python library for reading/writing various spatial data formats (GMT grids, etc.)
+   * [libcomcat](https://github.com/usgs/libcomcat) - a Python library for retrieving earthquake data from the ANSS ComCat system
+   * [pygmt](https://www.pygmt.org/latest/ )- a Python library which wraps GMT, allowing for easy manipulation of geographic and cartesian datasets.
 
 Follow the steps below to run the Slab2 code.
 
@@ -47,7 +47,7 @@ Follow the steps below to run the Slab2 code.
 
    The slab2env environment must be active, and the active directory should be slab2/slab2code
 
-   In the terminal, enter: 
+   In the terminal, enter:
 
     ``conda activate slab2env``
 
@@ -58,7 +58,7 @@ Follow the steps below to run the Slab2 code.
 
    The slab2env environment must be active, and the active directory should be slab2/slab2code
 
-   In the terminal, enter: 
+   In the terminal, enter:
 
     ``conda activate slab2env``
 
@@ -68,9 +68,9 @@ Follow the steps below to run the Slab2 code.
 
    By appending "-c 3" to the end of the command, three cores will be used.
    
-   To change input parameters, please refer to number 5 of Creating a Slab Model within `Slab2Instructions.pdf <./Slab2Instructions.pdf>`_.
+   To change input parameters, please refer to number 5 of Creating a Slab Model within [Slab2Instructions.pdf](./Slab2Instructions.pdf).
 
-   Regions *mue, sul, phi,* and *ryu* depend on depths from other slabs. Please see number 3 of Creating a Slab Model within `Slab2Instructions.pdf <./Slab2Instructions.pdf>`_ for further details.
+   Regions *mue, sul, phi,* and *ryu* depend on depths from other slabs. Please see number 3 of Creating a Slab Model within [Slab2Instructions.pdf](./Slab2Instructions.pdf) for further details.
 
 5. **To plot the Slab2 modeling results**
 
@@ -95,5 +95,5 @@ Follow the steps below to run the Slab2 code.
     ``python map.py [slab] [output date] [input date] all``
 
 
-For more complete examples and instructions, please see `Slab2Instructions.pdf <./Slab2Instructions.pdf>`_.
+For more complete examples and instructions, please see [Slab2Instructions.pdf](./Slab2Instructions.pdf).
 
