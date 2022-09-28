@@ -1,0 +1,47 @@
+[
+  {
+    "name": "slab2",
+    "organization": "U.S. Geological Survey",
+    "description": "Generate and plot 3D subduction zone models",
+    "version": "master",
+    "status": "Development",
+
+    "permissions": {
+      "usageType": "openSource",
+      "licenses": [
+        {
+          "name": "Public Domain, CC0-1.0",
+          "URL": "https://code.usgs.gov/ghsc/nshmp/nshmp-apps/-/raw/main/LICENSE.md"
+        }
+      ]
+    },
+
+    "repositoryURL": "https://code.usgs.gov/ghsc/esi/slab2.git",
+    "homepageURL": "https://code.usgs.gov/ghsc/esi/slab2",
+    "downloadURL": "https://code.usgs.gov/ghsc/esi/slab2/-/archive/master/slab2-master.zip",
+    "disclaimerURL": "https://code.usgs.gov/ghsc/esi/slab2/-/blob/master/DISCLAIMER.md",
+    "vcs": "git",
+
+    "laborHours": 0,
+
+    "languages": ["Python"],
+
+    "tags": [
+      "Geologic Hazards Science Center",
+      "Subduction",
+      "Subduction zone",
+      "Subducting plate",
+      "Slab",
+      "3D model"
+    ],
+
+    "contact": {
+      "name": "Kirstie Haynie",
+      "email": "khaynie@usgs.gov"
+    },
+
+    "date": {
+      "metadataLastUpdated": "2022-09-28"
+    }
+  }
+]
