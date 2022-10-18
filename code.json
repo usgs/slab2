@@ -3,7 +3,7 @@
     "name": "slab2",
     "organization": "U.S. Geological Survey",
     "description": "Generate and plot 3D subduction zone models",
-    "version": "master",
+    "version": "main",
     "status": "Development",
 
     "permissions": {
@@ -18,8 +18,8 @@
 
     "repositoryURL": "https://code.usgs.gov/ghsc/esi/slab2.git",
     "homepageURL": "https://code.usgs.gov/ghsc/esi/slab2",
-    "downloadURL": "https://code.usgs.gov/ghsc/esi/slab2/-/archive/master/slab2-master.zip",
     "disclaimerURL": "https://code.usgs.gov/ghsc/esi/slab2/-/raw/main/DISCLAIMER.md",
+    "downloadURL": "https://code.usgs.gov/ghsc/esi/slab2/-/archive/main/slab2-main.zip",
     "vcs": "git",
 
     "laborHours": 0,
