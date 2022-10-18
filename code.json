@@ -11,7 +11,7 @@
       "licenses": [
         {
           "name": "Public Domain, CC0-1.0",
-          "URL": "https://code.usgs.gov/ghsc/nshmp/nshmp-apps/-/raw/main/LICENSE.md"
+          "URL": "https://code.usgs.gov/ghsc/esi/slab2/-/raw/main/LICENSE.md"
         }
       ]
     },
@@ -19,7 +19,7 @@
     "repositoryURL": "https://code.usgs.gov/ghsc/esi/slab2.git",
     "homepageURL": "https://code.usgs.gov/ghsc/esi/slab2",
     "downloadURL": "https://code.usgs.gov/ghsc/esi/slab2/-/archive/master/slab2-master.zip",
-    "disclaimerURL": "https://code.usgs.gov/ghsc/esi/slab2/-/blob/master/DISCLAIMER.md",
+    "disclaimerURL": "https://code.usgs.gov/ghsc/esi/slab2/-/raw/main/DISCLAIMER.mdd",
     "vcs": "git",
 
     "laborHours": 0,
