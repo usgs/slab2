@@ -1,3 +1,8 @@
+**This Repository Has Moved**
+
+This repository is outdated. Instead please use https://code.usgs.gov/ghsc/esi/usgs-slab-models. 
+
+
 Introduction
 ----------------------------------------
 Slab2.0 is a three-dimensional (3D) compilation of global subduction zone geometries, separated into regional models for each major subduction zone. Refer to Hayes et al., 2018, Science for more details. This code contains functions for making 3D slab geometries and for updating the input for making such geometries. Please note that this code is still under development. To bypass installing and running the code in this repository, please visit the USGS Slab Model Cloud-based web application at https://earthquake.usgs.gov/slab2/ to generate a Slab2 model. Send all inquiries to Dr. Gavin P. Hayes <ghayes@usgs.gov> and Dr. Kirstie L. Haynie <khaynie@usgs.gov>.
